@@ -5,26 +5,36 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.security.KeyStore.Entry;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
-
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+
+import lists.Cola_Reception;
+import objects.client;
+
 
 public class main {
 
 	public static void main(String[] args) {
-		welcome();
+		
+		System.out.println("----Lista Simple----");
+		Cola_Reception Cola_Recepcion = new Cola_Reception();
+		Cola_Recepcion.insert(1,"Sergie",2,3);
+		Cola_Recepcion.insert(4,"Daniel",5,6);
+	
+		System.out.println("====Mostrar====");
+		Cola_Recepcion.showList();
+		System.out.println("====Salio de cola====");
+		Cola_Recepcion.Out();
+		Cola_Recepcion.showList();
+		System.out.println("====Salio de cola====");
+		Cola_Recepcion.Out();
+		Cola_Recepcion.showList();
+		
+		//welcome();
 
 	}
 	
@@ -34,10 +44,10 @@ public class main {
 				+ "•Cantidad de ventanillas");
 		
 		System.out.println("\n---Ingresa ruta---");
-		guardar();
+		ReadJson();
 	}
 
-	private static void guardar() {
+	private static void ReadJson() {
 		JSONParser jsonParser = new JSONParser();
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -51,7 +61,6 @@ public class main {
 			System.out.println("PERSONA DENTRO DEL JSON:\n");
 			Path fileName = Path.of("test.json");
 			String actual = Files.readString(fileName);
-			String temp = "";
 
 			@SuppressWarnings("unchecked")
 			Map<String, String> map = objectMapper.readValue(actual, Map.class);
