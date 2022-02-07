@@ -22,8 +22,10 @@ public class main {
 		
 		System.out.println("----Lista Simple----");
 		Cola_Reception Cola_Recepcion = new Cola_Reception();
-		Cola_Recepcion.insert(1,"Sergie",2,3);
-		Cola_Recepcion.insert(4,"Daniel",5,6);
+		
+		welcome(Cola_Recepcion);
+		//Cola_Recepcion.insert(1,"Sergie",2,3);
+		//Cola_Recepcion.insert(4,"Daniel",5,6);
 	
 		System.out.println("====Mostrar====");
 		Cola_Recepcion.showList();
@@ -34,20 +36,20 @@ public class main {
 		Cola_Recepcion.Out();
 		Cola_Recepcion.showList();
 		
-		//welcome();
+		
 
 	}
 	
-	public static void welcome() {
+	public static void welcome(Cola_Reception cola_Recepcion) {
 		System.out.println("====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
 				+ "\n•Carga masiva de clientes\r\n"
 				+ "•Cantidad de ventanillas");
 		
 		System.out.println("\n---Ingresa ruta---");
-		ReadJson();
+		ReadJson(cola_Recepcion);
 	}
 
-	private static void ReadJson() {
+	private static void ReadJson(Cola_Reception cola_Recepcion) {
 		JSONParser jsonParser = new JSONParser();
 		ObjectMapper objectMapper = new ObjectMapper();
 
@@ -81,7 +83,7 @@ public class main {
 
 				String negro = (String) persona.get("img_bw");
 				System.out.println("img_bw:" + negro + "\n");
-
+				cola_Recepcion.insert(Integer.valueOf(id),name,Integer.valueOf(color),Integer.valueOf(negro));
 			}
 
 		} catch (FileNotFoundException e) {
