@@ -3,7 +3,11 @@ package main;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.KeyStore.Entry;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
@@ -11,6 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -31,105 +36,63 @@ public class main {
 		System.out.println("\n---Ingresa ruta---");
 		guardar();
 	}
-	
+
 	private static void guardar() {
 		JSONParser jsonParser = new JSONParser();
+		ObjectMapper objectMapper = new ObjectMapper();
+
 		try (FileReader reader = new FileReader("test.json")) {
+
 			Object obj = jsonParser.parse(reader);
-			//JSONArray personasList = (JSONArray) obj;
+			JSONObject Jobj = (JSONObject) obj;
+
 			System.out.println("EL archivo contiene el siguiente J5ON: ");
-			System.out.println(obj);
-			
-		
-			/*
-			JSONObject pop = (JSONObject) obj;
-				
-			
-			
-			JSONObject persona = (JSONObject) pop.get("Cliente1");
-			
-		    System.out.println("PERSONA DENTRO DEL JSON:");
-		    
-		    String id = (String) persona.get("id_cliente");
-		    System.out.println( "id_cliente:" + id);
-		    
-		    String name = (String) persona.get("nombre_cliente");
-		    System.out.println( "nombre_cliente:" +name);
-		    
-		    String color = (String) persona.get("img_color");
-		    System.out.println( "img_color:"+color);
-		    
-		    String negro = (String) persona.get("img_bw");
-		    System.out.println("img_bw:"+negro);
-		    */
-			Gson gson = new Gson();
-			Object objectObs = gson.fromJson(new FileReader("test.json"), Object.class);
-			System.out.println(objectObs);
 
-			
-		    JsonObject  object = new JsonObject();
-		    ArrayList<Integer> codes = new ArrayList<Integer>();
-		    
-		    
-		    for (Map.Entry<String,JsonElement> entry : object.entrySet()) {
-		    	JsonArray array = entry.getValue().getAsJsonObject().get("unterfeld").getAsJsonArray();
-		        for (JsonElement codeHolder : array) {
-		            codes.add(codeHolder.getAsJsonObject().getAsJsonPrimitive("code").getAsInt());
-		        }
-		    }
-		    
-		    
+			System.out.println("PERSONA DENTRO DEL JSON:\n");
+			Path fileName = Path.of("test.json");
+			String actual = Files.readString(fileName);
+			String temp = "";
 
-		    /*for (Map.Entry<String,JsonElement> entry : object.entrySet()) {
-		        JsonArray array = entry.getValue().getAsJsonObject().getAsJsonArray("unterfeld");
-		        for (JsonElement codeHolder : array) {
-		            codes.add(codeHolder.getAsJsonObject().getAsJsonPrimitive("code").getAsInt());
-		        }*/
-			
-			//for (Object persona : personasList) {
-				//mostrarInformacionPersona((JSONObject) persona);
-			//}
-			
-			
+			@SuppressWarnings("unchecked")
+			Map<String, String> map = objectMapper.readValue(actual, Map.class);
+			for (Map.Entry<String, String> entry : map.entrySet()) {
+
+				System.out.println("Key : " + entry.getKey());
+
+				JSONObject persona = (JSONObject) Jobj.get(entry.getKey());
+
+				String id = (String) persona.get("id_cliente");
+				System.out.println("id_cliente:" + id);
+
+				String name = (String) persona.get("nombre_cliente");
+				System.out.println("nombre_cliente:" + name);
+
+				String color = (String) persona.get("img_color");
+				System.out.println("img_color:" + color);
+
+				String negro = (String) persona.get("img_bw");
+				System.out.println("img_bw:" + negro + "\n");
+
+			}
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
-	
-	private static void mostrarInformacionPersona(JSONObject jsonobject) {
-		   	JSONObject persona = (JSONObject) jsonobject.get("Cliente2");
-		    System.out.println("PERSONA DENTRO DEL JSON:");
-		    
-		    String id = (String) persona.get("id_cliente");
-		    System.out.println( "id_cliente:" + id);
-		    
-		    String name = (String) persona.get("nombre_cliente");
-		    System.out.println( "nombre_cliente:" +name);
-		    
-		    String color = (String) persona.get("img_color");
-		    System.out.println( "img_color:"+color);
-		    
-		    String negro = (String) persona.get("img_bw");
-		    System.out.println("img_bw:"+negro);
-		    		
-		    
-		   }
-	
+
 	public void menu() {
-		
+
 		/*
-		Parámetros iniciales
-		a. Carga masiva de clientes
-		b. Cantidad de ventanillas
-		2. Ejecutar paso
-		3. Estado en memoria de las estructuras
-		4. Reportes
-		5. acerca de ←datos del estudiante
-		6. Salir*/
+		 * Parámetros iniciales a. Carga masiva de clientes b. Cantidad de ventanillas
+		 * 2. Ejecutar paso 3. Estado en memoria de las estructuras 4. Reportes 5.
+		 * acerca de ←datos del estudiante 6. Salir
+		 */
 
 		
 	}
