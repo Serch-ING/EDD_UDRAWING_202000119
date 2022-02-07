@@ -1,8 +1,10 @@
 package main;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
@@ -13,48 +15,52 @@ import org.json.simple.parser.ParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lists.Cola_Reception;
-import objects.client;
+
 
 
 public class main {
-
+	 
+	
 	public static void main(String[] args) {
 		
 		System.out.println("----Lista Simple----");
-		Cola_Reception Cola_Recepcion = new Cola_Reception();
 		
-		welcome(Cola_Recepcion);
-		//Cola_Recepcion.insert(1,"Sergie",2,3);
-		//Cola_Recepcion.insert(4,"Daniel",5,6);
+		fuctions fuc  = new fuctions();
+		
+		fuc.welcome();
 	
-		System.out.println("====Mostrar====");
-		Cola_Recepcion.showList();
-		System.out.println("====Salio de cola====");
-		Cola_Recepcion.Out();
-		Cola_Recepcion.showList();
-		System.out.println("====Salio de cola====");
-		Cola_Recepcion.Out();
-		Cola_Recepcion.showList();
+	
+		
 		
 		
 
 	}
-	
-	public static void welcome(Cola_Reception cola_Recepcion) {
-		System.out.println("====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
-				+ "\n•Carga masiva de clientes\r\n"
-				+ "•Cantidad de ventanillas");
-		
-		System.out.println("\n---Ingresa ruta---");
-		ReadJson(cola_Recepcion);
+}
+
+class fuctions {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public void welcome() {
+		try {
+			System.out.println(
+					"====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
+							+ "\n•Carga masiva de clientes\r\n" + "•Cantidad de ventanillas");
+
+			System.out.println("\n---Ingresa ruta---");
+
+			String ruta = br.readLine();
+			ReadJson(ruta);
+		} catch (IOException e) {
+			System.out.println("Ocurrio un error en el ingreso de ruta");
+		}
+
 	}
 
-	private static void ReadJson(Cola_Reception cola_Recepcion) {
+	private  void ReadJson(String ruta) {
 		JSONParser jsonParser = new JSONParser();
 		ObjectMapper objectMapper = new ObjectMapper();
-
-		try (FileReader reader = new FileReader("test.json")) {
-
+		
+		try (FileReader reader = new FileReader(ruta)) {
+			
 			Object obj = jsonParser.parse(reader);
 			JSONObject Jobj = (JSONObject) obj;
 
@@ -63,7 +69,8 @@ public class main {
 			System.out.println("PERSONA DENTRO DEL JSON:\n");
 			Path fileName = Path.of("test.json");
 			String actual = Files.readString(fileName);
-
+			
+			Cola_Reception Cola_Recepcion = new Cola_Reception();
 			@SuppressWarnings("unchecked")
 			Map<String, String> map = objectMapper.readValue(actual, Map.class);
 			for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -83,17 +90,21 @@ public class main {
 
 				String negro = (String) persona.get("img_bw");
 				System.out.println("img_bw:" + negro + "\n");
-				cola_Recepcion.insert(Integer.valueOf(id),name,Integer.valueOf(color),Integer.valueOf(negro));
+				Cola_Recepcion.insert(Integer.valueOf(id),name,Integer.valueOf(color),Integer.valueOf(negro));
 			}
-
+			
+			Cola_Recepcion.showList();
+			
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("No se encontro el documento buscado");
+			welcome();
+			//e.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (ParseException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
