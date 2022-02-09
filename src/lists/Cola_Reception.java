@@ -3,6 +3,8 @@ package lists;
 import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
 
+import object.*;
+
 public class Cola_Reception {
 	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
 	
@@ -140,20 +142,6 @@ public class Cola_Reception {
 
 	public Boolean isNone() {
 		return this.primero == null;
-	}
-
-	public class client {
-
-		int id, img_color, img_bw;
-		String name;
-
-		public client(int id, String name, int img_color, int img_bw) {
-			this.id = id;
-			this.name = name;
-			this.img_color = img_color;
-			this.img_bw = img_bw;
-		}
-
 	}
 
 	public class Nodo_Cola_Reception {

@@ -12,117 +12,127 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lists.Cola_Reception;
-
-
+import lists.Simple_Windows;
 
 public class main {
 	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
-	
+
 	public static void main(String[] args) {
 		
-		
-		
-			
-		
-		System.out.println("----Lista Simple----");
-		
-		fuctions fuc  = new fuctions();
-		
-		fuc.welcome();
-	
-	
-		
-		
-		
+		fuctions fuc = new fuctions();
 
+		fuc.welcome();
+		
+		
 	}
 }
 
 class fuctions {
+	public Cola_Reception Cola_Recepcion;
+	public Simple_Windows Simpe_Ventanas;
+	
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 	public void welcome() {
+		System.out.println(
+				"====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
+						+ "\n•Carga masiva de clientes\r\n" + "•Cantidad de ventanillas");
+		Load_json();
+		load_windows();
+	}
+
+	public void Load_json() {
 		try {
-			System.out.println(
-					"====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
-							+ "\n•Carga masiva de clientes\r\n" + "•Cantidad de ventanillas");
-
-			System.out.println("\n---Ingresa ruta---");
-
-			String ruta = br.readLine();
-			ReadJson(ruta);
+			System.out.println("\n---Ingresa ruta del archivo---");
+			String ruta = br.readLine();	
 		} catch (IOException e) {
 			System.out.println("Ocurrio un error en el ingreso de ruta");
 		}
-
 	}
+	
+	public void ReadJson(String ruta) {
 
-	private  void ReadJson(String ruta) {
-		
-		
 		JSONParser jsonParser = new JSONParser();
 		ObjectMapper objectMapper = new ObjectMapper();
-		
+
 		try (FileReader reader = new FileReader(ruta)) {
-			
+
 			Object obj = jsonParser.parse(reader);
 			JSONObject Jobj = (JSONObject) obj;
 
-			System.out.println("EL archivo contiene el siguiente J5ON: ");
-
-			System.out.println("PERSONA DENTRO DEL JSON:\n");
 			Path fileName = Path.of(ruta);
 			String actual = Files.readString(fileName);
-			
-			Cola_Reception Cola_Recepcion = new Cola_Reception();
-			
-			
+
+			Cola_Recepcion = new Cola_Reception();
+
 			@SuppressWarnings("unchecked")
 			Map<String, String> map = objectMapper.readValue(actual, Map.class);
 			for (Map.Entry<String, String> entry : map.entrySet()) {
 
-				//System.out.println("Key : " + entry.getKey());
-
+				// System.out.println("Key : " + entry.getKey());
 				JSONObject persona = (JSONObject) Jobj.get(entry.getKey());
 
 				String id = (String) persona.get("id_cliente");
-				//System.out.println("id_cliente:" + id);
+				// System.out.println("id_cliente:" + id);
 
 				String name = (String) persona.get("nombre_cliente");
-				//System.out.println("nombre_cliente:" + name);
+				// System.out.println("nombre_cliente:" + name);
 
 				String color = (String) persona.get("img_color");
-				//System.out.println("img_color:" + color);
+				// System.out.println("img_color:" + color);
 
 				String negro = (String) persona.get("img_bw");
-				//System.out.println("img_bw:" + negro + "\n");
-				Cola_Recepcion.insert(Integer.valueOf(id),name,Integer.valueOf(color),Integer.valueOf(negro));
+				// System.out.println("img_bw:" + negro + "\n");
+				Cola_Recepcion.insert(Integer.valueOf(id), name, Integer.valueOf(color), Integer.valueOf(negro));
 			}
-			
-			for (int i = 0; i < 11; i++) {
-				Cola_Recepcion.Generate_Random();
-			}
-			
-			
-			Cola_Recepcion.showList();
-			
+
+			System.out.println("El archivo se ingreso correctamente");
+			//Cola_Recepcion.Generate_Random();
+			//Cola_Recepcion.showList();
+
 		} catch (FileNotFoundException e) {
-			System.out.println("No se encontro el documento buscado");
-			welcome();
-			//e.printStackTrace();
-		} catch (IOException e) {
-			//e.printStackTrace();
-		} catch (ParseException e) {
-			//e.printStackTrace();
+			System.out.println("\nNo se encontro el documento buscado");
+			Load_json();
+			/*
+			 * e.printStackTrace(); } catch (IOException e) { //e.printStackTrace(); } catch
+			 * (ParseException e) { //e.printStackTrace();
+			 */
 		} catch (Exception e) {
-			//e.printStackTrace();
+			System.out.println("\nSe ingreso un archivo con la estructura distinta establecida");
+			Load_json();
+			// e.printStackTrace();
 		}
 	}
-
+	
+	public void load_windows() {
+		try {
+			System.out.println("\n---Ingresa la cantidad de ventanillas---");
+			String noWindows = br.readLine();
+			
+			if(isNum(noWindows))
+				Create_windows(Integer.valueOf(noWindows));
+			else
+				load_windows();
+		} catch (IOException e) {
+			System.out.println("Ocurrio un error en el ingreso de numero de ventanillas");
+		}
+	}
+	
+	public void Create_windows(Integer noWindows) {
+		Simpe_Ventanas = new Simple_Windows();
+		
+		System.out.println("llego");	
+		for (int i = noWindows; i > 0; i--) {
+			Simpe_Ventanas.insert(i);
+		}	
+		
+		Simpe_Ventanas.showList();
+	}
+	
+	
 	public void menu() {
 
 		/*
@@ -131,7 +141,17 @@ class fuctions {
 		 * acerca de ←datos del estudiante 6. Salir
 		 */
 
-		
 	}
 
+	
+	public Boolean isNum(String data) {
+		try {
+			
+			Integer ruta = Integer.valueOf(data) ;
+			return true;
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error en el tipo de dato");
+			return false;
+		}
+	}
 }
