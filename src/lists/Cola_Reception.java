@@ -1,8 +1,11 @@
 package lists;
 
-import objects.client;
+import java.util.Iterator;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Cola_Reception {
+	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
+	
 	Nodo_Cola_Reception primero;
 
 	public Cola_Reception() {
@@ -10,17 +13,68 @@ public class Cola_Reception {
 	}
 
 	public void insert(int id, String name, int img_color, int img_bw) {
-		client cliente = new client(id,name,img_color,img_bw);
+		client cliente = new client(id, name, img_color, img_bw);
+
 		Nodo_Cola_Reception new_node = new Nodo_Cola_Reception(cliente);
 		if (isNone()) {
+
+			if (id == -1) {
+				new_node.info.id = 1;
+			}
+
 			this.primero = new_node;
 		} else {
+
+			int idAnterior = 2;
 			Nodo_Cola_Reception actual = this.primero;
+
 			while (actual.next != null) {
+
 				actual = actual.next;
+				if (id == -1) {
+					idAnterior = actual.info.id;
+				}
 			}
+
+			if (id == -1) {
+				new_node.info.id = idAnterior + 1;
+			}
+
 			actual.next = new_node;
 		}
+	}
+	
+	public void Generate_Random() {
+		int imgs = tlr.nextInt(1, 4 + 1);
+		int img_color = 0;
+		int img_bw = 0;
+		int aux;
+		for (int i = 0; i < imgs; i++) {
+			aux = tlr.nextInt(3, 4 + 1);
+			if (aux % 2 == 0) {
+				img_color += 1;
+			} else {
+				img_bw += 1;
+			}
+		}
+
+		String[] names = { "Reid", "Brady", "Lorene", "Randi", "Eal", "Dene", "Karry", "Astrix", "Davina", "Ellsworth",
+				"Dorey", "Sanderson", "Marylynne", "Zeke", "Stu", "Fidelity", "Ludvig", "Glenn", "Phylis", "Adlai",
+				"Corbet", "Theodora", "Travus", "Dannel", "Delora", "Paulette", "Haskel", "Clovis", "Peder", "Edwina",
+				"Helli", "Zachary", "Godiva", "Sabrina", "Sheffield", "Karry" };
+
+		String[] lastnames = { "Sowersby", "Stebles", "Vittore", "Rivalant", "Plummer", "Leon", "Ickovits", "Tayspell",
+				"Scading", "McElrath", "Bricknall", "Plesing", "Bagshawe", "Pinnion", "Killby", "Gange", "Fust",
+				"Sindell", "Lawrenceson", "Dimbylow", "Misson", "Rudolf", "Aldin", "McCafferky", "Stirton", "Meagher",
+				"Liepmann", "Ramelot", "Selvester", "Montague", "Meneghelli", "Korneichik", "Peever", "Flanagan",
+				"Martinolli" };
+
+		int noName = tlr.nextInt(0, names.length);
+		int noLastnames = tlr.nextInt(0, lastnames.length);
+
+		String Name = names[noName] + " " + lastnames[noLastnames];
+
+		insert(-1, Name, img_color, img_bw);
 	}
 
 	public void Out() {

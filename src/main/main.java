@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,9 +21,13 @@ import lists.Cola_Reception;
 
 
 public class main {
-	 
+	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
 	
 	public static void main(String[] args) {
+		
+		
+		
+			
 		
 		System.out.println("----Lista Simple----");
 		
@@ -56,6 +62,8 @@ class fuctions {
 	}
 
 	private  void ReadJson(String ruta) {
+		
+		
 		JSONParser jsonParser = new JSONParser();
 		ObjectMapper objectMapper = new ObjectMapper();
 		
@@ -67,31 +75,38 @@ class fuctions {
 			System.out.println("EL archivo contiene el siguiente J5ON: ");
 
 			System.out.println("PERSONA DENTRO DEL JSON:\n");
-			Path fileName = Path.of("test.json");
+			Path fileName = Path.of(ruta);
 			String actual = Files.readString(fileName);
 			
 			Cola_Reception Cola_Recepcion = new Cola_Reception();
+			
+			
 			@SuppressWarnings("unchecked")
 			Map<String, String> map = objectMapper.readValue(actual, Map.class);
 			for (Map.Entry<String, String> entry : map.entrySet()) {
 
-				System.out.println("Key : " + entry.getKey());
+				//System.out.println("Key : " + entry.getKey());
 
 				JSONObject persona = (JSONObject) Jobj.get(entry.getKey());
 
 				String id = (String) persona.get("id_cliente");
-				System.out.println("id_cliente:" + id);
+				//System.out.println("id_cliente:" + id);
 
 				String name = (String) persona.get("nombre_cliente");
-				System.out.println("nombre_cliente:" + name);
+				//System.out.println("nombre_cliente:" + name);
 
 				String color = (String) persona.get("img_color");
-				System.out.println("img_color:" + color);
+				//System.out.println("img_color:" + color);
 
 				String negro = (String) persona.get("img_bw");
-				System.out.println("img_bw:" + negro + "\n");
+				//System.out.println("img_bw:" + negro + "\n");
 				Cola_Recepcion.insert(Integer.valueOf(id),name,Integer.valueOf(color),Integer.valueOf(negro));
 			}
+			
+			for (int i = 0; i < 11; i++) {
+				Cola_Recepcion.Generate_Random();
+			}
+			
 			
 			Cola_Recepcion.showList();
 			
