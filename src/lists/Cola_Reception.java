@@ -19,7 +19,7 @@ public class Cola_Reception {
 		if (isNone()) {
 
 			if (id == -1) {
-				new_node.info.id = 1;
+				new_node.cliente.id = 1;
 			}
 
 			this.primero = new_node;
@@ -32,12 +32,12 @@ public class Cola_Reception {
 
 				actual = actual.next;
 				if (id == -1) {
-					idAnterior = actual.info.id;
+					idAnterior = actual.cliente.id;
 				}
 			}
 
 			if (id == -1) {
-				new_node.info.id = idAnterior + 1;
+				new_node.cliente.id = idAnterior + 1;
 			}
 
 			actual.next = new_node;
@@ -128,23 +128,24 @@ public class Cola_Reception {
 			Nodo_Cola_Reception actual = this.primero;
 			while (actual != null) {
 				//System.out.println(actual.info+" 1");
-				System.out.println("id: " + actual.info.id + " Name: " + actual.info.name + " color: " + actual.info.img_color+ " ByN: " + actual.info.img_bw);
+				System.out.println("id: " + actual.cliente.id + " Name: " + actual.cliente.name + " color: " + actual.cliente.img_color+ " ByN: " + actual.cliente.img_bw);
 				actual = actual.next;
 			}
 		}
 	}
-
-	/*public void Search(Object data) {
+	
+	/*
+	public void Search(Object data) {
 		if (isNone() == false) {
 			Nodo_Cola_Reception actual = this.primero;
-			while (actual != null && actual.info != data) {
+			while (actual != null && actual.cliente != data) {
 				actual = actual.next;
 				if (actual == null) {
 					System.out.println("No se encontro el dato: " + data);
 					break;
 				}
 			}
-			if (actual != null && actual.info == data) {
+			if (actual != null && actual.cliente == data) {
 				System.out.println("Dato encontrado: " + data);
 			}
 		}
@@ -155,7 +156,7 @@ public class Cola_Reception {
 			Nodo_Cola_Reception actual = this.primero;
 			Nodo_Cola_Reception anterior = null;
 
-			while (actual != null && actual.info != data) {
+			while (actual != null && actual.cliente != data) {
 				anterior = actual;
 				actual = actual.next;
 			}
@@ -179,12 +180,12 @@ public class Cola_Reception {
 
 	public class Nodo_Cola_Reception {
 
-		Nodo_Cola_Reception next;
-		client info;
+		public Nodo_Cola_Reception next;
+		public client cliente;
 
 		public Nodo_Cola_Reception(client info) {
 			this.next = null;
-			this.info = info;
+			this.cliente = info;
 		}
 	}
 
