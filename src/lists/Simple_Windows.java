@@ -2,14 +2,14 @@ package lists;
 
 public class Simple_Windows {
 
-	Nodo_Simple primero;
+	Nodo_Simple_Windows primero;
 
 	public Simple_Windows() {
 		this.primero = null;
 	}
 
 	public void insert(Object info) {
-		Nodo_Simple new_node = new Nodo_Simple(info);
+		Nodo_Simple_Windows new_node = new Nodo_Simple_Windows(info);
 		if (isNone()) {
 			this.primero = new_node;
 		} else {
@@ -20,7 +20,7 @@ public class Simple_Windows {
 
 	public void showList() {
 		if (isNone() == false) {
-			Nodo_Simple actual = this.primero;
+			Nodo_Simple_Windows actual = this.primero;
 			while (actual != null) {
 				System.out.println(actual.info);
 				actual = actual.next;
@@ -30,7 +30,7 @@ public class Simple_Windows {
 
 	public void Search(Object data) {
 		if (isNone() == false) {
-			Nodo_Simple actual = this.primero;
+			Nodo_Simple_Windows actual = this.primero;
 			while (actual != null && actual.info != data) {
 				actual = actual.next;
 				if (actual == null) {
@@ -47,8 +47,8 @@ public class Simple_Windows {
 	/*
 	public void Delete(Object data) {
 		if (isNone() == false) {
-			Nodo_Simple actual = this.primero;
-			Nodo_Simple anterior = null;
+			Nodo_Simple_Windows actual = this.primero;
+			Nodo_Simple_Windows anterior = null;
 
 			while (actual != null && actual.info != data) {
 				anterior = actual;
@@ -73,12 +73,14 @@ public class Simple_Windows {
 	}
 }
 
-class Nodo_Simple {
+class Nodo_Simple_Windows {
 
-	Nodo_Simple next;
+	Nodo_Simple_Windows next;
 	Object info;
+	Object cliente_actual;
+	//Pila
 
-	public Nodo_Simple(Object info) {
+	public Nodo_Simple_Windows(Object info) {
 		this.next = null;
 		this.info = info;
 	}

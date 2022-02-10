@@ -27,6 +27,7 @@ public class main {
 		fuc.welcome();
 		
 		
+		
 	}
 }
 
@@ -41,13 +42,14 @@ class fuctions {
 				"====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
 						+ "\n•Carga masiva de clientes\r\n" + "•Cantidad de ventanillas");
 		Load_json();
-		load_windows();
+		//load_windows();
 	}
 
 	public void Load_json() {
 		try {
 			System.out.println("\n---Ingresa ruta del archivo---");
 			String ruta = br.readLine();	
+			ReadJson(ruta);
 		} catch (IOException e) {
 			System.out.println("Ocurrio un error en el ingreso de ruta");
 		}
@@ -76,7 +78,7 @@ class fuctions {
 				JSONObject persona = (JSONObject) Jobj.get(entry.getKey());
 
 				String id = (String) persona.get("id_cliente");
-				// System.out.println("id_cliente:" + id);
+				//System.out.println("id_cliente:" + id);
 
 				String name = (String) persona.get("nombre_cliente");
 				// System.out.println("nombre_cliente:" + name);
@@ -92,6 +94,7 @@ class fuctions {
 			System.out.println("El archivo se ingreso correctamente");
 			//Cola_Recepcion.Generate_Random();
 			//Cola_Recepcion.showList();
+			
 
 		} catch (FileNotFoundException e) {
 			System.out.println("\nNo se encontro el documento buscado");
@@ -112,9 +115,15 @@ class fuctions {
 			System.out.println("\n---Ingresa la cantidad de ventanillas---");
 			String noWindows = br.readLine();
 			
-			if(isNum(noWindows))
-				Create_windows(Integer.valueOf(noWindows));
-			else
+			if(isNum(noWindows)) {
+				if(Integer.valueOf(noWindows) < 1) {
+					System.out.println("El numero de ventanillas minimo es 1");
+					load_windows();
+				}else {
+					Create_windows(Integer.valueOf(noWindows));
+				} 
+				
+			}else
 				load_windows();
 		} catch (IOException e) {
 			System.out.println("Ocurrio un error en el ingreso de numero de ventanillas");
@@ -132,7 +141,6 @@ class fuctions {
 		Simpe_Ventanas.showList();
 	}
 	
-	
 	public void menu() {
 
 		/*
@@ -143,10 +151,8 @@ class fuctions {
 
 	}
 
-	
 	public Boolean isNum(String data) {
 		try {
-			
 			Integer ruta = Integer.valueOf(data) ;
 			return true;
 		} catch (Exception e) {
