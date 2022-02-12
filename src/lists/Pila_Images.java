@@ -51,6 +51,16 @@ public class Pila_Images {
 		}
 	}*/
 
+	public void Pop_last() {
+		if (isNone()) {	
+			System.out.println("cola vacia");
+		}else {
+			Nodo_Pila_Imgs anterior = this.primero;
+			this.primero = this.primero.next;
+			anterior = null;
+		}
+	}
+	
 	public void Pop() {
 		if (isNone()) {	
 			System.out.println("cola vacia");
