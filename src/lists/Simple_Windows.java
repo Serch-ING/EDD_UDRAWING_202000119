@@ -40,6 +40,7 @@ public class Simple_Windows {
 				if(actual.cliente != null) {
 					takeimg_client(actual);
 				}
+				actual = actual.next;
 			}
 		}
 	}
@@ -48,12 +49,12 @@ public class Simple_Windows {
 		if(windown.cliente.img_bw > 0) {
 			windown.cliente.img_bw -= 1;
 			windown.PilaImg.Push(1,windown.cliente.id,false);
-			System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen de cliente: " + windown.cliente.id );
+			System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen blanco y negro de cliente: " + windown.cliente.id );
 		}else {
 			if(windown.cliente.img_color > 0) {
 				windown.cliente.img_color -= 1;
 				windown.PilaImg.Push(1,windown.cliente.id,true);
-				System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen de cliente: " + windown.cliente.id );
+				System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen a color de cliente: " + windown.cliente.id );
 			}else {
 				Clien__waiting(windown.cliente);
 				windown.cliente = null;
@@ -62,7 +63,7 @@ public class Simple_Windows {
 	}
 	
 	public void Clien__waiting(client cliente) {
-		System.out.println("Cliente: " + cliente.id + "Esperando sus imagenes");
+		System.out.println("Cliente: " + cliente.id + " Esperando sus imagenes");
 	}
 
 	public void insert_client(client cliente) {
@@ -73,7 +74,7 @@ public class Simple_Windows {
 
 		}
 		if (actual != null && actual.cliente == null) {
-			System.out.println("Ventana libre: " + actual.noVentanilla);
+			//System.out.println("Ventana libre: " + actual.noVentanilla);
 			actual.cliente = cliente;
 			System.out.println("Cliente: " + cliente.id + " paso a ventanilla: " + actual.noVentanilla);
 		}
@@ -86,12 +87,12 @@ public class Simple_Windows {
 			while (actual != null && actual.cliente != null) {
 				actual = actual.next;
 				if (actual == null) {
-					System.out.println(" Ventanas ocupadas");
+					//System.out.println(" Ventanas ocupadas");
 					return false;
 				}
 			}
 			if (actual != null && actual.cliente == null) {
-				System.out.println("Ventana libre: " + actual.noVentanilla);
+				//System.out.println("Ventana libre: " + actual.noVentanilla);
 				return true;
 				
 			}
