@@ -1,5 +1,6 @@
 package lists;
 import object.client;
+import lists.Pila_Images;
 
 public class Simple_Windows {
 
@@ -28,21 +29,59 @@ public class Simple_Windows {
 			}
 		}
 	}
-
-	public void Search(int data) {
+	
+	
+	public void recolect_img() {
 		if (isNone() == false) {
 			Nodo_Simple_Windows actual = this.primero;
-			while (actual != null && actual.noVentanilla != data) {
-				actual = actual.next;
-				if (actual == null) {
-					System.out.println("No se encontro el dato: " + data);
-					break;
+			while (actual != null) {
+				if(actual.cliente != null) {
+					takeimg_client(actual);
 				}
 			}
-			if (actual != null && actual.noVentanilla == data) {
-				System.out.println("Dato encontrado: " + data);
+		}
+	}
+	
+	public void takeimg_client(Nodo_Simple_Windows windown) {
+		if(windown.cliente.img_bw > 0) {
+			windown.cliente.img_bw -= 1;
+			windown.PilaImg.Push(1,windown.cliente.id);
+		}
+	}
+	
+
+	public void insert_client(client cliente) {
+
+		Nodo_Simple_Windows actual = this.primero;
+		while (actual != null && actual.cliente != null) {
+			actual = actual.next;
+
+		}
+		if (actual != null && actual.cliente == null) {
+			System.out.println("Ventana libre: " + actual.noVentanilla);
+			actual.cliente = cliente;
+			System.out.println("Cliente: " + cliente.id + " paso a ventanilla: " + actual.noVentanilla);
+		}
+
+	}
+
+	public Boolean Search_disposition() {
+		if (isNone() == false) {
+			Nodo_Simple_Windows actual = this.primero;
+			while (actual != null && actual.cliente != null) {
+				actual = actual.next;
+				if (actual == null) {
+					System.out.println(" Ventanas ocupadas");
+					return false;
+				}
+			}
+			if (actual != null && actual.cliente == null) {
+				System.out.println("Ventana libre: " + actual.noVentanilla);
+				return true;
+				
 			}
 		}
+		return false;
 	}
 	
 	/*
@@ -79,8 +118,7 @@ class Nodo_Simple_Windows {
 	public Nodo_Simple_Windows next;
 	public int noVentanilla;
 	public client cliente;
-	
-	//Pila
+	public Pila_Images PilaImg = new Pila_Images();	
 
 	public Nodo_Simple_Windows(int noVentanilla) {
 		this.next = null;

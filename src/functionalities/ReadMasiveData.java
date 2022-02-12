@@ -16,24 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lists.Cola_Reception;
 import lists.Simple_Windows;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import lists.Cola_Reception;
-import lists.Simple_Windows;
 
 public class ReadMasiveData {
 	public ThreadLocalRandom tlr = ThreadLocalRandom.current();
@@ -95,7 +78,7 @@ public class ReadMasiveData {
 
 				String negro = (String) persona.get("img_bw");
 				// System.out.println("img_bw:" + negro + "\n");
-				Cola_Recepcion.insert(Integer.valueOf(id), name, Integer.valueOf(color), Integer.valueOf(negro));
+				Cola_Recepcion.enqueue(Integer.valueOf(id), name, Integer.valueOf(color), Integer.valueOf(negro));
 			}
 
 			System.out.println("El archivo se ingreso correctamente");

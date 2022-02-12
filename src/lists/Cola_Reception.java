@@ -12,7 +12,7 @@ public class Cola_Reception {
 		this.primero = null;
 	}
 
-	public void insert(int id, String name, int img_color, int img_bw) {
+	public void enqueue(int id, String name, int img_color, int img_bw) {
 		client cliente = new client(id, name, img_color, img_bw);
 
 		Nodo_Cola_Reception new_node = new Nodo_Cola_Reception(cliente);
@@ -77,7 +77,7 @@ public class Cola_Reception {
 
 			String Name = names[noName] + " " + lastnames[noLastnames];
 
-			insert(-1, Name, img_color, img_bw);
+			enqueue(-1, Name, img_color, img_bw);
 		}
 		/*
 		int imgs = tlr.nextInt(1, 4 + 1);
@@ -111,8 +111,10 @@ public class Cola_Reception {
 
 		insert(-1, Name, img_color, img_bw);*/
 	}
+	
+	
 
-	public void Out() {
+	public void Dequeue_last() {
 		if (isNone()) {	
 			System.out.println("cola vacia");
 		}else {
@@ -121,6 +123,28 @@ public class Cola_Reception {
 			anterior = null;
 		}
 		
+	}
+	
+	public void Peek() {
+		System.out.println(this.primero.cliente.name);
+
+	}
+
+	public client Dequeue() {
+
+		Nodo_Cola_Reception anterior = this.primero;
+		this.primero = this.primero.next;
+		return anterior.cliente;
+
+	}
+
+	public Boolean Dequeue_posibility() {
+		if (isNone() == true) {	
+			System.out.println("cola vacia");
+			return false;
+		}else {
+			return true;
+		}		
 	}
 
 	public void showList() {
