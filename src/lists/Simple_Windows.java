@@ -30,6 +30,8 @@ public class Simple_Windows {
 		}
 	}
 	
+
+	
 	
 	public void recolect_img() {
 		if (isNone() == false) {
@@ -46,10 +48,12 @@ public class Simple_Windows {
 		if(windown.cliente.img_bw > 0) {
 			windown.cliente.img_bw -= 1;
 			windown.PilaImg.Push(1,windown.cliente.id,false);
+			System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen de cliente: " + windown.cliente.id );
 		}else {
 			if(windown.cliente.img_color > 0) {
 				windown.cliente.img_color -= 1;
 				windown.PilaImg.Push(1,windown.cliente.id,true);
+				System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen de cliente: " + windown.cliente.id );
 			}else {
 				Clien__waiting(windown.cliente);
 				windown.cliente = null;

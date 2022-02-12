@@ -10,7 +10,7 @@ public class general {
 
 	public void inicializar() {
 		Data.welcome();
-		Data.Cola_Recepcion.showList();
+		//Data.Cola_Recepcion.showList();
 		System.out.println("\n==================================");
 		System.out.println("====Sistema listo para simular====\n\nMenu:");
 		Menu();
@@ -26,16 +26,16 @@ public class general {
 	}
 	
 	public void Cola_a_ventanillas() {
+		Data.Simpe_Ventanas.recolect_img();
 		ventanillas_recolctando();
 		
 		if (Data.Simpe_Ventanas.Search_disposition() && Data.Cola_Recepcion.Dequeue_posibility()) {
-			
 			Data.Simpe_Ventanas.insert_client(Data.Cola_Recepcion.Dequeue());
 		}else {
 			System.out.println("no llega");
 		}
 		
-		Data.Cola_Recepcion.showList();
+		//Data.Cola_Recepcion.showList();
 	}
 	
 	public void ventanillas_recolctando() {
