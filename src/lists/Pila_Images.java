@@ -10,8 +10,8 @@ public class Pila_Images {
 		this.primero = null;
 	}
 
-	public void Push(Object info,int ClienteId) {
-		Nodo_Pila_Imgs new_node = new Nodo_Pila_Imgs(info,ClienteId);
+	public void Push(Object info,int ClienteId,Boolean LlevaColor) {
+		Nodo_Pila_Imgs new_node = new Nodo_Pila_Imgs(info,ClienteId,LlevaColor);
 		if (isNone()) {
 			this.primero = new_node;
 		} else {
@@ -71,10 +71,13 @@ class Nodo_Pila_Imgs {
 	Nodo_Pila_Imgs next;
 	Object info;
 	int  ClienteId;
+	Boolean LlevaColor; 
+	//Color = True, BW = false
 
-	public Nodo_Pila_Imgs(Object info,int ClienteId) {
+	public Nodo_Pila_Imgs(Object info,int ClienteId, Boolean LlevaColor) {
 		this.next = null;
 		this.info = info;
 		this.ClienteId = ClienteId;
+		this.LlevaColor = LlevaColor;
 	}
 }

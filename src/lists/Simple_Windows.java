@@ -45,10 +45,21 @@ public class Simple_Windows {
 	public void takeimg_client(Nodo_Simple_Windows windown) {
 		if(windown.cliente.img_bw > 0) {
 			windown.cliente.img_bw -= 1;
-			windown.PilaImg.Push(1,windown.cliente.id);
+			windown.PilaImg.Push(1,windown.cliente.id,false);
+		}else {
+			if(windown.cliente.img_color > 0) {
+				windown.cliente.img_color -= 1;
+				windown.PilaImg.Push(1,windown.cliente.id,true);
+			}else {
+				Clien__waiting(windown.cliente);
+				windown.cliente = null;
+			}
 		}
 	}
 	
+	public void Clien__waiting(client cliente) {
+		System.out.println("Cliente: " + cliente.id + "Esperando sus imagenes");
+	}
 
 	public void insert_client(client cliente) {
 
