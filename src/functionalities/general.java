@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 import lists.Circular_Doble_espera;
 import lists.Cola_Print;
+import lists.Simple_Clients_Served;
 
 public class general {
 	public Cola_Print printer_bw = new Cola_Print(1);
 	public Cola_Print printer_color = new Cola_Print(2);
 	public Circular_Doble_espera Waiting_clients = new Circular_Doble_espera();
+	public Simple_Clients_Served Clients_Served = new Simple_Clients_Served();
+	
 	int Pasos=1;
 
 	Scanner sc = new Scanner(System.in);
@@ -33,8 +36,8 @@ public class general {
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
-			Random_a_cola();
-			Waiting_clients.exit_of_system(Pasos);
+			//Random_a_cola();
+			Waiting_clients.exit_of_system(Pasos,Clients_Served);
 			printing();
 			window_magnament();
 			Pasos +=1;

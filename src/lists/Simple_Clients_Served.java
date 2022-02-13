@@ -1,8 +1,5 @@
 package lists;
 
-import java.io.FileWriter;
-import java.io.PrintWriter;
-
 import object.client;
 
 public class Simple_Clients_Served {
@@ -30,7 +27,9 @@ public class Simple_Clients_Served {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
 			while (actual != null) {
-				System.out.println(actual.info);
+				System.out.println("\nNombre: " + actual.cliente.name +"\nVentanilla: " + actual.cliente.VentanillaIngresada + ""
+						+ "\nNumero de imagenes: " + (actual.cliente.img_bwTotal + actual.cliente.img_colorTotal) + ""
+								+ "\nPasos totales: " + (actual.cliente.PasoSalida - actual.cliente.PasoIngresado + "\n\n" ) );
 				actual = actual.next;
 			}
 		}
@@ -39,14 +38,14 @@ public class Simple_Clients_Served {
 	public void Search(Object data) {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
-			while (actual != null && actual.info != data) {
+			while (actual != null && actual.cliente != data) {
 				actual = actual.next;
 				if (actual == null) {
 					System.out.println("No se encontro el dato: " + data);
 					break;
 				}
 			}
-			if (actual != null && actual.info == data) {
+			if (actual != null && actual.cliente == data) {
 				System.out.println("Dato encontrado: " + data);
 			}
 		}
@@ -59,11 +58,11 @@ public class Simple_Clients_Served {
 	class Nodo_Simple_Client_Served {
 
 		Nodo_Simple_Client_Served next;
-		client info;
+		client cliente;
 
-		public Nodo_Simple_Client_Served(client info) {
+		public Nodo_Simple_Client_Served(client cliente) {
 			this.next = null;
-			this.info = info;
+			this.cliente = cliente;
 		}
 }
 }

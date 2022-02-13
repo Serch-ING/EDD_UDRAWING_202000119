@@ -3,21 +3,10 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
-Nodo1192171522[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 
-Cliente530737374[label="ID: 9
-NombreGlenn Sindell
-Img_C: 3
-Img_BN: 1",fillcolor="#B36AF9",group=1]
-Cliente530737374-> Nodo1192171522
-Nodo1741979653[label="IMG C",fillcolor="#81FFDA"]
-Nodo78204644[label="IMG C",fillcolor="#81FFDA"]
-Nodo7967307[label="IMG C",fillcolor="#81FFDA"]
-Nodo1045997582[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1741979653 -> Nodo78204644
-Nodo78204644 -> Nodo7967307
-Nodo7967307 -> Nodo1045997582
+Nodo1661081225 -> Nodo1882554559
 
-Nodo1192171522 -> Nodo1741979653
-
-{rank=same;Nodo1192171522,Cliente530737374,Nodo1741979653,Nodo78204644,Nodo7967307,Nodo1045997582}}}
+{rank=same;Nodo1661081225}
+{rank=same;Nodo1882554559}}}

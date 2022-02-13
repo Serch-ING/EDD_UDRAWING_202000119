@@ -1,36 +1,8 @@
 digraph L {
 node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
-    label= "Lista de Espera "
+    label= "Lista de Espera"
     bgcolor = "#FF7878"
-Nodo1201484275[label="ID: 4
-NombreEdwina Selvester
-Img_C: 3
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo306115458[label="ID: 5
-NombrePhylis Plummer
-Img_C: 1
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo369049246[label="ID: 6
-NombreSanderson Aldin
-Img_C: 3
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1666607455[label="ID: 8
-NombreHaskel Misson
-Img_C: 4
-Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1008925772[label="Vacio",fillcolor="#81FFDA"]
 
-Nodo1201484275 -> Nodo306115458
-Nodo1201484275->Nodo120148427511111
-Nodo120148427511111[label="IMG C",fillcolor="#C388FC"]
-{rank=same;Nodo1201484275,Nodo120148427511111}
-Nodo306115458 -> Nodo369049246
-
-{rank=same;Nodo306115458}
-Nodo369049246 -> Nodo1666607455
-Nodo369049246->Nodo36904924600001
-Nodo36904924600001[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo369049246,Nodo36904924600001}
-Nodo1666607455 -> Nodo1201484275
-
-{rank=same;Nodo1666607455}}}
+}}
