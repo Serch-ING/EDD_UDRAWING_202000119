@@ -1,5 +1,7 @@
 package functionalities;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import lists.Circular_Doble_espera;
@@ -7,6 +9,8 @@ import lists.Cola_Print;
 import lists.Simple_Clients_Served;
 
 public class general {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 	public Cola_Print printer_bw = new Cola_Print(1);
 	public Cola_Print printer_color = new Cola_Print(2);
 	public Circular_Doble_espera Waiting_clients = new Circular_Doble_espera();
@@ -37,7 +41,7 @@ public class general {
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
-			Random_a_cola();
+			//Random_a_cola();
 			Waiting_clients.exit_of_system(Pasos,Clients_Served);
 			printing();
 			window_magnament();
@@ -125,9 +129,21 @@ public class general {
 		} while (option != 4);
 	}
 	
+	
+	public Boolean isNum(String data) {
+		try {
+			Integer ruta = Integer.valueOf(data);
+			return true;
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error en el tipo de dato");
+			return false;
+		}
+	}
+	
 	public void Menu_Reportes() {
 		int option = 0;
-
+		Simple_Clients_Served Clients_Served_Reports = new Simple_Clients_Served();
+		Clients_Served_Reports.clonacion(Clients_Served);
 		do {
 
 			try {
@@ -153,20 +169,28 @@ public class general {
 					break;
 
 				case 2:
-					System.out.println("mayores color");
+					
+					Clients_Served_Reports.SortASC_Color();
 					break;
 
 				case 3:
-					System.out.println("mayored blnaco y negro");
+					
+					Clients_Served_Reports.SortDesc_BW();
 					break;
 
 				case 4:
-					System.out.println("Myor pasos");
+					Clients_Served_Reports.SortASC_Steps();
 				
 					break;
 				case 5:
 					System.out.println("Ingrese el ID del cliente a buscar");
-				
+					String IDClient = br.readLine();
+					if(isNum(IDClient)) {
+						Clients_Served_Reports.Search(Integer.valueOf(IDClient));
+					}else {
+						System.out.println("No se ingreso un numero");
+					}
+					
 					break;
 				case 6:
 					Menu();

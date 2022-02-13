@@ -8,10 +8,5 @@ Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 
 Nodo1661081225 -> Nodo1882554559
 
-Cliente1738674023[label="ID: 1
-NombreAndres Lopez
-Img_C: 1
-Img_BN: 1",fillcolor="#B36AF9",group=1]
-Cliente1738674023-> Nodo1661081225
-{rank=same;Nodo1661081225,Cliente1738674023}
+{rank=same;Nodo1661081225}
 {rank=same;Nodo1882554559}}}
