@@ -77,7 +77,8 @@ public class general {
 
 				case 2:
 					System.out.println("Estado de la estructuras ");
-
+					Data.Cola_Recepcion.Draw_Graphiz();
+					Data.Simpe_Ventanas.Draw_Graphiz();
 					break;
 
 				case 3:

@@ -150,6 +150,7 @@ public class Circular_Doble_espera {
 	public Boolean isNone() {
 		return this.primero == null;
 	}
+	
 }
 
 class Nodo_Doble_waiting_clients {

@@ -2,6 +2,11 @@ package lists;
 
 import object.client;
 import lists.Pila_Images;
+import lists.Cola_Reception.Nodo_Cola_Reception;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 import functionalities.general;
 
 public class Simple_Windows {
@@ -125,6 +130,88 @@ public class Simple_Windows {
 
 	public Boolean isNone() {
 		return this.primero == null;
+	}
+	
+	
+	public String Text_Graphivz() {
+		StringBuilder dot = new StringBuilder();
+		dot.append("digraph L {\n");
+		dot.append("node[shape=note fillcolor=\"#A181FF\" style =filled]\n");
+		dot.append("subgraph cluster_p{\n");
+		dot.append("    label= \" Ventanillas \"\n");
+		dot.append("    bgcolor = \"#FF7878\"\n");
+
+		String nombresNodos = "";
+		String conexiones = "";
+		Nodo_Simple_Windows aux = this.primero;
+		
+		
+		while (aux != null) {
+			String hashClient ="";
+			String infoClient ="";
+			//String info ="ID: " + aux.cliente.id + "\nNombre" + aux.cliente.name + "\nImg_C: " + aux.cliente.img_bwTotal + "\nImg_BN: " + aux.cliente.img_bwTotal;
+			String info ="Ventanillas: " + aux.noVentanilla ;
+			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\",group=" + aux.noVentanilla + "]\n";
+			if (aux.next != null) {
+				conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
+				
+				}
+			if(aux!=null) {
+				if(aux.cliente != null) {
+					infoClient ="ID: " + aux.cliente.id + "\nNombre" + aux.cliente.name + "\nImg_C: " + aux.cliente.img_colorTotal + "\nImg_BN: " + aux.cliente.img_bwTotal;
+					//System.out.println(infoClient);
+					conexiones += "\nCliente" +  aux.cliente.hashCode() + "[label=\"" + infoClient + "\",fillcolor=\"#B36AF9\",group=" + aux.noVentanilla + "]\n";
+					hashClient =  ",Cliente" + aux.cliente.hashCode();
+					conexiones+= "Cliente" + aux.cliente.hashCode() + "-> Nodo" + aux.hashCode();
+				}
+				conexiones += "\n{rank=same;Nodo" +  aux.hashCode() + hashClient +"}";
+			}
+			aux = aux.next;
+		}
+		dot.append(nombresNodos);
+		dot.append(conexiones);
+
+		dot.append("}}");
+
+		return dot.toString();
+	}
+
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
+
+	public void Draw_Graphiz() {
+
+		try {
+			Create_File("Simple_Windows.dot", Text_Graphivz());
+			//System.out.println(Text_Graphivz());
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Simple_Windows.png", "Simple_Windows.dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+			String url = "Simple_Windows.png";
+			ProcessBuilder p = new ProcessBuilder();
+			p.command("cmd.exe", "/c", url);
+			p.start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
 
