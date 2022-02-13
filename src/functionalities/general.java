@@ -24,12 +24,17 @@ public class general {
 	}
 
 	public void Realizar_Paso() {
-		System.out.println("\n================= Paso: " + Pasos + " =================");
-		Waiting_clients.showList();
-		Waiting_clients.exit_of_system();
-		printing();
-		window_magnament();
-		Pasos +=1;
+		try {
+			System.out.println("\n================= Paso: " + Pasos + " =================");
+			
+			Waiting_clients.exit_of_system();
+			printing();
+			window_magnament();
+			Pasos +=1;
+		} catch (Exception e) {
+			System.out.println("Hubo un problema");
+		}
+		
 	}
 
 	public void Random_a_cola() {
@@ -51,10 +56,6 @@ public class general {
 		printer_color.printing(Waiting_clients);
 	}
 
-	public void impresora_a_persona() {
-
-	}
-
 	public void Menu() {
 		int option = 0;
 
@@ -64,7 +65,7 @@ public class general {
 
 				System.out.println("\n------------Menu------------\n");
 				System.out.println("1.Ejecutar paso\n2.Estado en memoria de las estructuras\n3.Reportes"
-						+ "\n4.Acerca de ←datos del estudiante\n5.Salir\n");
+						+ "\n4.Acerca del estudiante\n5.Salir\n");
 				option = Integer.parseInt(sc.nextLine());
 
 				switch (option) {
@@ -83,7 +84,10 @@ public class general {
 					break;
 
 				case 4:
-					System.out.println("Acerca des");
+					System.out.println("========= Acerca de datos del estudiante =========");
+					System.out.println("Universidad de San Carlos de Guatemala");
+					System.out.println("Facultad de Ingenieria\nEscuela de Ciencias y Sistemas");
+					System.out.println("Nombre:Sergie Daniel Arizandieta Yol\nCarnet:202000119");
 					break;
 				case 5:
 					System.out.println("Salir");

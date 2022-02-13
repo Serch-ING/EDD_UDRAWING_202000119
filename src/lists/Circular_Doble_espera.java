@@ -7,6 +7,7 @@ public class Circular_Doble_espera {
 	Nodo_Doble_waiting_clients ultimo;
 
 	public Circular_Doble_espera() {
+		
 		this.primero = null;
 		this.ultimo = null;
 	}
@@ -62,7 +63,6 @@ public class Circular_Doble_espera {
 
 	public void exit_of_system() {
 		Nodo_Doble_waiting_clients actual = this.primero;
-
 		if (isNone() == false) {
 			do {
 				if (actual.client.img_bwTotal == actual.client.img_bw
@@ -70,6 +70,9 @@ public class Circular_Doble_espera {
 					Delete(actual.client.id);
 				}
 				actual = actual.next;
+				if(isNone() == true) {
+					break;
+				}
 			} while (actual != this.primero);
 		}
 	}
@@ -111,11 +114,12 @@ public class Circular_Doble_espera {
 			Nodo_Doble_waiting_clients anterior = this.ultimo;
 			if (this.primero == this.ultimo) { 
 				if (actual.client.id == idClient) {
-					System.out.println("Cliente: " + actual.client.id + " salio del sistema");
+					System.out.println("Cliente: " + actual.client.id + " salio del sistema last");
 					this.primero = null;
 					this.ultimo = null;
 				}
 			} else {
+				
 				do {
 					if (actual.client.id == idClient) {
 						if (actual == this.primero) {
@@ -138,7 +142,7 @@ public class Circular_Doble_espera {
 				} while (actual != this.primero);
 
 			}
-
+			
 		}
 
 	}
