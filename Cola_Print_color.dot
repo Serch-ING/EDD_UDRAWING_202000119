@@ -3,15 +3,63 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola impresora a Color "
  raiz[label = "Impresora a Color" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
-Nodo24119573[label="IMG C 
-Id Cliente: 2",fillcolor="#81FFDA"]
-Nodo568221876[label="IMG C 
-Id Cliente: 2",fillcolor="#81FFDA"]
-Nodo203849460[label="IMG C 
-Id Cliente: 2",fillcolor="#81FFDA"]
+Nodo1233990028[label="IMG C 
+Id Cliente: 6",fillcolor="#81FFDA"]
+Nodo1847008471[label="IMG C 
+Id Cliente: 6",fillcolor="#81FFDA"]
+Nodo1932831450[label="IMG C 
+Id Cliente: 8",fillcolor="#81FFDA"]
+Nodo1904253191[label="IMG C 
+Id Cliente: 10",fillcolor="#81FFDA"]
+Nodo1021436681[label="IMG C 
+Id Cliente: 9",fillcolor="#81FFDA"]
+Nodo1790585734[label="IMG C 
+Id Cliente: 9",fillcolor="#81FFDA"]
+Nodo842741472[label="IMG C 
+Id Cliente: 11",fillcolor="#81FFDA"]
+Nodo112797691[label="IMG C 
+Id Cliente: 13",fillcolor="#81FFDA"]
+Nodo1045997582[label="IMG C 
+Id Cliente: 13",fillcolor="#81FFDA"]
+Nodo1741979653[label="IMG C 
+Id Cliente: 12",fillcolor="#81FFDA"]
+Nodo166794956[label="IMG C 
+Id Cliente: 12",fillcolor="#81FFDA"]
+Nodo1364913072[label="IMG C 
+Id Cliente: 14",fillcolor="#81FFDA"]
+Nodo1549725679[label="IMG C 
+Id Cliente: 15",fillcolor="#81FFDA"]
+Nodo371800738[label="IMG C 
+Id Cliente: 15",fillcolor="#81FFDA"]
+Nodo1364767791[label="IMG C 
+Id Cliente: 15",fillcolor="#81FFDA"]
 
-raiz->Nodo24119573
-Nodo24119573 -> Nodo568221876
+raiz->Nodo1233990028
+Nodo1233990028 -> Nodo1847008471
 
-Nodo568221876 -> Nodo203849460
+Nodo1847008471 -> Nodo1932831450
+
+Nodo1932831450 -> Nodo1904253191
+
+Nodo1904253191 -> Nodo1021436681
+
+Nodo1021436681 -> Nodo1790585734
+
+Nodo1790585734 -> Nodo842741472
+
+Nodo842741472 -> Nodo112797691
+
+Nodo112797691 -> Nodo1045997582
+
+Nodo1045997582 -> Nodo1741979653
+
+Nodo1741979653 -> Nodo166794956
+
+Nodo166794956 -> Nodo1364913072
+
+Nodo1364913072 -> Nodo1549725679
+
+Nodo1549725679 -> Nodo371800738
+
+Nodo371800738 -> Nodo1364767791
 }}

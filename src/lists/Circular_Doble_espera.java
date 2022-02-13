@@ -2,6 +2,7 @@ package lists;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Iterator;
 
 import object.client;
 
@@ -168,19 +169,55 @@ public class Circular_Doble_espera {
 		Nodo_Doble_waiting_clients aux = this.primero;
 		
 		do {
-			String hashClient ="";
-			String infoClient ="";
-			String pilaImg ="";
-			String pilarank ="";
+		
+			String hashBN ="";
+			String hashColor ="";
+			Boolean Entro = false;
 			
-			String info ="ID: " + aux.client.id + "\nNombre" + aux.client.name + "\nImg_C: " + aux.client.img_bwTotal + "\nImg_BN: " + aux.client.img_bwTotal;
+			String info ="ID: " + aux.client.id + "\nNombre" + aux.client.name + "\nImg_C: " + aux.client.img_colorTotal + "\nImg_BN: " + aux.client.img_bwTotal;
 			//String info ="Ventanillas: " + aux.noVentanilla ;
 			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\"]\n";
 			if (aux.next != null) {
 				conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
 				
 				}
-
+			if(aux.client.img_bw >0) {
+				Entro = true;
+				String connect = aux.hashCode()  + "0000" + 1;
+				conexiones+= "Nodo" +  aux.hashCode() + "->Nodo" + connect;
+				//conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(),connect );
+				for (int i = 1; i <= aux.client.img_bw; i++) {
+					conexiones+="\nNodo" + aux.hashCode() + "0000" + i + "[label=\"IMG BN\",fillcolor=\"#C388FC\"]";
+					hashBN+= ",Nodo" + aux.hashCode() + "0000" + i ;
+					if(i+1 <= aux.client.img_bw) {
+						String connected = aux.hashCode()  + "0000" + (i +1);
+						conexiones+= "Nodo" +  aux.hashCode() + "0000" + i+ "->Nodo" + connected;
+						
+					}
+				}
+			}
+			if(aux.client.img_color >0) {
+				if(Entro) {
+					String connect = aux.hashCode()  + "1111" + 1;
+					conexiones+= "\nNodo" + aux.hashCode() +"0000" + aux.client.img_bw + "->Nodo" + connect;
+				}else {
+					String connect = aux.hashCode()  + "1111" + 1;
+					conexiones+= "Nodo" +  aux.hashCode() + "->Nodo" + connect;
+				}
+				
+				for (int i = 1; i <= aux.client.img_color; i++) {
+					conexiones+="\nNodo" + aux.hashCode() + "1111" + i + "[label=\"IMG C\",fillcolor=\"#C388FC\"]";
+					hashColor+= ",Nodo" + aux.hashCode() + "1111" + i ;
+					if(i+1 <= aux.client.img_color) {
+						String connected = aux.hashCode()  + "1111" + (i +1);
+						conexiones+= "Nodo" +  aux.hashCode() + "1111" + i+ "->Nodo" + connected;
+						
+					}
+				}
+			}
+			
+			conexiones += "\n{rank=same;Nodo" +  aux.hashCode() + hashBN + hashColor +"}";
+			
 			aux = aux.next;
 		} while (aux != this.primero);
 		

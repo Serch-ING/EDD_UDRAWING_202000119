@@ -3,16 +3,85 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo153245266[label="ID: 1
-NombreAndres Lopez
+Nodo422396878[label="ID: 6
+NombreDene Ickovits
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo306115458[label="ID: 8
+NombreKarry Lawrenceson
 Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1781071780[label="ID: 2
-NombreJuan Perez
 Img_C: 0
 Img_BN: 0",fillcolor="#81FFDA"]
+Nodo369049246[label="ID: 10
+NombreLudvig Misson
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1608297024[label="ID: 9
+NombreTravus Ickovits
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1002021887[label="ID: 11
+NombrePaulette Vittore
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo899644639[label="ID: 13
+NombreGlenn Dimbylow
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1337335626[label="ID: 12
+NombreTravus Martinolli
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1803669141[label="ID: 14
+NombreGlenn Vittore
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo232307208[label="ID: 15
+NombreEdwina Martinolli
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo762476028[label="ID: 17
+NombreReid Sowersby
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
 
-Nodo153245266 -> Nodo1781071780
+Nodo422396878 -> Nodo306115458
+Nodo422396878->Nodo42239687800001
+Nodo42239687800001[label="IMG BN",fillcolor="#C388FC"]Nodo42239687800001->Nodo42239687800002
+Nodo42239687800002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo422396878,Nodo42239687800001,Nodo42239687800002}
+Nodo306115458 -> Nodo369049246
 
-Nodo1781071780 -> Nodo153245266
-}}
+{rank=same;Nodo306115458}
+Nodo369049246 -> Nodo1608297024
+Nodo369049246->Nodo36904924600001
+Nodo36904924600001[label="IMG BN",fillcolor="#C388FC"]Nodo36904924600001->Nodo36904924600002
+Nodo36904924600002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo369049246,Nodo36904924600001,Nodo36904924600002}
+Nodo1608297024 -> Nodo1002021887
+Nodo1608297024->Nodo160829702400001
+Nodo160829702400001[label="IMG BN",fillcolor="#C388FC"]Nodo160829702400001->Nodo160829702400002
+Nodo160829702400002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1608297024,Nodo160829702400001,Nodo160829702400002}
+Nodo1002021887 -> Nodo899644639
+
+{rank=same;Nodo1002021887}
+Nodo899644639 -> Nodo1337335626
+
+{rank=same;Nodo899644639}
+Nodo1337335626 -> Nodo1803669141
+Nodo1337335626->Nodo133733562600001
+Nodo133733562600001[label="IMG BN",fillcolor="#C388FC"]Nodo133733562600001->Nodo133733562600002
+Nodo133733562600002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1337335626,Nodo133733562600001,Nodo133733562600002}
+Nodo1803669141 -> Nodo232307208
+Nodo1803669141->Nodo180366914100001
+Nodo180366914100001[label="IMG BN",fillcolor="#C388FC"]Nodo180366914100001->Nodo180366914100002
+Nodo180366914100002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1803669141,Nodo180366914100001,Nodo180366914100002}
+Nodo232307208 -> Nodo762476028
+
+{rank=same;Nodo232307208}
+Nodo762476028 -> Nodo422396878
+
+{rank=same;Nodo762476028}}}

@@ -2,8 +2,8 @@
 	"Cliente1": {
 		"id_cliente": "1",
 		"nombre_cliente": "Andres Lopez",
-		"img_color": "3",
-		"img_bw": "2"
+		"img_color": "10",
+		"img_bw": "5"
 },
 	"Cliente2": {
 		"id_cliente": "2",

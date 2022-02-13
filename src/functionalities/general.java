@@ -33,7 +33,7 @@ public class general {
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
-			//Random_a_cola();
+			Random_a_cola();
 			Waiting_clients.exit_of_system();
 			printing();
 			window_magnament();

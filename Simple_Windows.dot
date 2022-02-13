@@ -8,16 +8,23 @@ Nodo1661081225[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 
 Nodo1192171522 -> Nodo1661081225
 
-Cliente1699679644[label="ID: 3
-NombreLuiz Higueros
-Img_C: 0
+Cliente712609105[label="ID: 16
+NombreSanderson Sindell
+Img_C: 1
 Img_BN: 2",fillcolor="#B36AF9",group=1]
-Cliente1699679644-> Nodo1192171522
-Nodo1219402581[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1664439369[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1219402581 -> Nodo1664439369
+Cliente712609105-> Nodo1192171522
+Nodo952562199[label="IMG C",fillcolor="#81FFDA"]
+Nodo1499136125[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1793436274[label="IMG BN",fillcolor="#81FFDA"]
+Nodo952562199 -> Nodo1499136125
+Nodo1499136125 -> Nodo1793436274
 
-Nodo1192171522 -> Nodo1219402581
+Nodo1192171522 -> Nodo952562199
 
-{rank=same;Nodo1192171522,Cliente1699679644,Nodo1219402581,Nodo1664439369}
-{rank=same;Nodo1661081225}}}
+{rank=same;Nodo1192171522,Cliente712609105,Nodo952562199,Nodo1499136125,Nodo1793436274}
+Cliente1199673596[label="ID: 18
+NombreHelli Stirton
+Img_C: 1
+Img_BN: 0",fillcolor="#B36AF9",group=2]
+Cliente1199673596-> Nodo1661081225
+{rank=same;Nodo1661081225,Cliente1199673596}}}
