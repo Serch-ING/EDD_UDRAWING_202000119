@@ -3,10 +3,10 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
-Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+Nodo825962150[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo793138072[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 
-Nodo1661081225 -> Nodo1882554559
+Nodo825962150 -> Nodo793138072
 
-{rank=same;Nodo1661081225}
-{rank=same;Nodo1882554559}}}
+{rank=same;Nodo825962150}
+{rank=same;Nodo793138072}}}

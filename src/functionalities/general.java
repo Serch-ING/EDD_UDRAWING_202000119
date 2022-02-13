@@ -148,13 +148,13 @@ public class general {
 
 			try {
 
-				System.out.println("\n-------------------Menu Reportes--------------------\n");
+				System.out.println("\n---------------Menu Reportes----------------\n");
 				System.out.println("1.Visualizacion de estructuras\n\nDatos Generados:"
-						+ "\n2.Top 5 de clientes con mayor cantidad de imágenes a color.\r\n"
-						+ "\n3.Top 5 de clientes con menor cantidad de imágenes en blanco y negro.\r\n"
-						+ "\n4.Información del cliente que más pasos estuvo en el sistema.\r\n"
-						+ "\n5.Datos de un cliente en específico\n"
-						+ "\n6.Regresar al Menu principal\n");
+						+ "\n\t2.Top 5 de clientes con mayor cantidad de imágenes a color.\r\n"
+						+ "\t3.Top 5 de clientes con menor cantidad de imágenes en blanco y negro.\r\n"
+						+ "\t4.Información del cliente que más pasos estuvo en el sistema.\r\n"
+						+ "\t5.Datos de un cliente en específico\n"
+						+ "\t6.Regresar al Menu principal\n");
 				option = Integer.parseInt(sc.nextLine());
 
 				switch (option) {

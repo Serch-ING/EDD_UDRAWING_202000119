@@ -158,73 +158,88 @@ public class Simple_Clients_Served {
 	}
 
 	public void SortASC_Color() {
-		Nodo_Simple_Client_Served actual = this.primero;
-		Nodo_Simple_Client_Served pivot;
-		client temp;
-		while (actual != null) {
-			pivot = actual.next;
+		if (isNone() == false) {
 
-			while (pivot != null) {
+			Nodo_Simple_Client_Served actual = this.primero;
+			Nodo_Simple_Client_Served pivot;
+			client temp;
+			while (actual != null) {
+				pivot = actual.next;
 
-				if ((actual.cliente.PasoSalida - actual.cliente.PasoIngresado) < (pivot.cliente.PasoSalida - pivot.cliente.PasoIngresado)) {
-					temp = actual.cliente;
-					actual.cliente = pivot.cliente;
-					pivot.cliente = temp;
+				while (pivot != null) {
+
+					if ((actual.cliente.PasoSalida - actual.cliente.PasoIngresado) < (pivot.cliente.PasoSalida
+							- pivot.cliente.PasoIngresado)) {
+						temp = actual.cliente;
+						actual.cliente = pivot.cliente;
+						pivot.cliente = temp;
+					}
+
+					pivot = pivot.next;
 				}
-
-				pivot = pivot.next;
+				actual = actual.next;
 			}
-			actual = actual.next;
+			showList();
+		}else {
+			System.out.println("La lista esta vacia");
 		}
-		showList();
 	}
-	
+
 	public void SortDesc_BW() {
-		Nodo_Simple_Client_Served actual = this.primero;
-		Nodo_Simple_Client_Served pivot;
-		client temp;
-		while (actual != null) {
-			pivot = actual.next;
 
-			while (pivot != null) {
+		if (isNone() == false) {
 
-				if (actual.cliente.img_bwTotal > pivot.cliente.img_bwTotal) {
-					temp = actual.cliente;
-					actual.cliente = pivot.cliente;
-					pivot.cliente = temp;
+			Nodo_Simple_Client_Served actual = this.primero;
+			Nodo_Simple_Client_Served pivot;
+			client temp;
+			while (actual != null) {
+				pivot = actual.next;
+
+				while (pivot != null) {
+
+					if (actual.cliente.img_bwTotal > pivot.cliente.img_bwTotal) {
+						temp = actual.cliente;
+						actual.cliente = pivot.cliente;
+						pivot.cliente = temp;
+					}
+
+					pivot = pivot.next;
 				}
-
-				pivot = pivot.next;
+				actual = actual.next;
 			}
-			actual = actual.next;
+			showList();
+		}else {
+			System.out.println("La lista esta vacia");
 		}
-		showList();
 	}
-	
 
 	public void SortASC_Steps() {
-		Nodo_Simple_Client_Served actual = this.primero;
-		Nodo_Simple_Client_Served pivot;
-		client temp;
-		while (actual != null) {
-			pivot = actual.next;
+		if (isNone() == false) {
+			Nodo_Simple_Client_Served actual = this.primero;
+			Nodo_Simple_Client_Served pivot;
+			client temp;
+			while (actual != null) {
+				pivot = actual.next;
 
-			while (pivot != null) {
+				while (pivot != null) {
 
-				if (actual.cliente.img_colorTotal < pivot.cliente.img_colorTotal) {
-					temp = actual.cliente;
-					actual.cliente = pivot.cliente;
-					pivot.cliente = temp;
+					if (actual.cliente.img_colorTotal < pivot.cliente.img_colorTotal) {
+						temp = actual.cliente;
+						actual.cliente = pivot.cliente;
+						pivot.cliente = temp;
+					}
+
+					pivot = pivot.next;
 				}
-
-				pivot = pivot.next;
+				actual = actual.next;
 			}
-			actual = actual.next;
+			showList();
+		}else {
+			System.out.println("La lista esta vacia");
 		}
-		showList();
 	}
 
-	}
+}
 
 	class Nodo_Simple_Client_Served {
 

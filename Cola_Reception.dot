@@ -3,18 +3,18 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola Recepcion "
     bgcolor = "#FF7878"
-Nodo694316372[label="ID: 1
+Nodo565372776[label="ID: 1
 Nombre: Andres Lopez
 Img_C: 1
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1516500233[label="ID: 2
+Nodo1462044018[label="ID: 2
 Nombre: Juan Perez
 Img_C: 3
 Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1850180796[label="ID: 3
+Nodo1443435931[label="ID: 3
 Nombre: Luiz Higueros
 Img_C: 0
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo694316372 -> Nodo1516500233
-Nodo1516500233 -> Nodo1850180796
+Nodo565372776 -> Nodo1462044018
+Nodo1462044018 -> Nodo1443435931
 }}
