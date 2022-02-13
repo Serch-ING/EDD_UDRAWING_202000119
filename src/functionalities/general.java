@@ -1,11 +1,14 @@
 package functionalities;
 
 import java.util.Scanner;
+
+import lists.Circular_Doble_espera;
 import lists.Cola_Print;
 
 public class general {
 	public Cola_Print printer_bw = new Cola_Print(1);
 	public Cola_Print printer_color = new Cola_Print(2);
+	public Circular_Doble_espera Waiting_clients = new Circular_Doble_espera();
 	int Pasos=1;
 
 	Scanner sc = new Scanner(System.in);
@@ -32,7 +35,7 @@ public class general {
 	}
 
 	public void window_magnament() {
-		Data.Simpe_Ventanas.recolect_img(printer_bw, printer_color);
+		Data.Simpe_Ventanas.recolect_img(printer_bw, printer_color,Waiting_clients);
 
 		if (Data.Simpe_Ventanas.Search_disposition() && Data.Cola_Recepcion.Dequeue_posibility()) {
 			Data.Simpe_Ventanas.insert_client(Data.Cola_Recepcion.Dequeue());

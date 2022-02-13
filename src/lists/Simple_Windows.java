@@ -32,19 +32,19 @@ public class Simple_Windows {
 		}
 	}
 
-	public void recolect_img(Cola_Print bw, Cola_Print color) {
+	public void recolect_img(Cola_Print bw, Cola_Print color, Circular_Doble_espera Waiting_clients) {
 		if (isNone() == false) {
 			Nodo_Simple_Windows actual = this.primero;
 			while (actual != null) {
 				if (actual.cliente != null) {
-					takeimg_client(actual, bw, color);
+					takeimg_client(actual, bw, color,Waiting_clients);
 				}
 				actual = actual.next;
 			}
 		}
 	}
 
-	public void takeimg_client(Nodo_Simple_Windows windown, Cola_Print bw, Cola_Print color) {
+	public void takeimg_client(Nodo_Simple_Windows windown, Cola_Print bw, Cola_Print color,Circular_Doble_espera Waiting_clients) {
 		if (windown.cliente.img_bw > 0) {
 			windown.cliente.img_bw -= 1;
 			windown.PilaImg.Push(windown.cliente.id, false);
@@ -58,7 +58,7 @@ public class Simple_Windows {
 						+ windown.cliente.id);
 			} else {
 				Imgs_to_printer(windown, bw, color);
-				Clien__waiting(windown.cliente);
+				Clien__waiting(windown.cliente, Waiting_clients);
 				windown.cliente = null;
 			}
 		}
@@ -68,8 +68,10 @@ public class Simple_Windows {
 		windown.PilaImg.Pop_to_printer(windown,bw, color);
 	}
 
-	public void Clien__waiting(client cliente) {
+	public void Clien__waiting(client cliente,Circular_Doble_espera Waiting_clients) {
 		System.out.println("Cliente: " + cliente.id + " Esperando sus imagenes");
+		Waiting_clients.insert(cliente);
+		Waiting_clients.showList();
 	}
 
 	public void insert_client(client cliente) {
