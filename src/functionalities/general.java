@@ -18,7 +18,8 @@ public class general {
 		Data.welcome();
 		// Data.Cola_Recepcion.showList();
 		System.out.println("\n==================================");
-		System.out.println("====Sistema listo para simular====\n\n");
+		System.out.println("====Sistema listo para simular====");
+		System.out.println("==================================\n");
 		Menu();
 		// Realizar_Paso();
 	}
@@ -63,7 +64,7 @@ public class general {
 
 			try {
 
-				System.out.println("\n------------Menu------------\n");
+				System.out.println("\n---------------Menu----------------\n");
 				System.out.println("1.Ejecutar paso\n2.Estado en memoria de las estructuras\n3.Reportes"
 						+ "\n4.Acerca del estudiante\n5.Salir\n");
 				option = Integer.parseInt(sc.nextLine());
@@ -87,7 +88,7 @@ public class general {
 					System.out.println("========= Acerca de datos del estudiante =========");
 					System.out.println("Universidad de San Carlos de Guatemala");
 					System.out.println("Facultad de Ingenieria\nEscuela de Ciencias y Sistemas");
-					System.out.println("Nombre:Sergie Daniel Arizandieta Yol\nCarnet:202000119");
+					System.out.println("\nNombre:Sergie Daniel Arizandieta Yol\nCarnet:202000119");
 					break;
 				case 5:
 					System.out.println("Salir");
