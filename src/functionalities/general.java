@@ -20,6 +20,7 @@ public class general {
 		System.out.println("\n==================================");
 		System.out.println("====Sistema listo para simular====");
 		System.out.println("==================================\n");
+		Waiting_clients.Draw_Graphiz();
 		Data.Simpe_Ventanas.Draw_Graphiz();
 		Data.Cola_Recepcion.Draw_Graphiz();
 		printer_bw.Draw_Graphiz();
@@ -41,6 +42,7 @@ public class general {
 			
 			
 			//Genrar grafo
+			Waiting_clients.Draw_Graphiz();
 			Data.Cola_Recepcion.Draw_Graphiz();
 			Data.Simpe_Ventanas.Draw_Graphiz();
 			printer_bw.Draw_Graphiz();

@@ -117,7 +117,7 @@ public class Circular_Doble_espera {
 			Nodo_Doble_waiting_clients anterior = this.ultimo;
 			if (this.primero == this.ultimo) { 
 				if (actual.client.id == idClient) {
-					System.out.println("Cliente: " + actual.client.id + " salio del sistema last");
+					System.out.println("Cliente: " + actual.client.id + " salio del sistema");
 					this.primero = null;
 					this.ultimo = null;
 				}
@@ -160,15 +160,14 @@ public class Circular_Doble_espera {
 		dot.append("digraph L {\n");
 		dot.append("node[shape=note fillcolor=\"#A181FF\" style =filled]\n");
 		dot.append("subgraph cluster_p{\n");
-		dot.append("    label= \" Ventanillas \"\n");
+		dot.append("    label= \"Lista de Espera \"\n");
 		dot.append("    bgcolor = \"#FF7878\"\n");
 
 		String nombresNodos = "";
 		String conexiones = "";
 		Nodo_Doble_waiting_clients aux = this.primero;
 		
-		
-		while (aux != null) {
+		do {
 			String hashClient ="";
 			String infoClient ="";
 			String pilaImg ="";
@@ -176,14 +175,16 @@ public class Circular_Doble_espera {
 			
 			String info ="ID: " + aux.client.id + "\nNombre" + aux.client.name + "\nImg_C: " + aux.client.img_bwTotal + "\nImg_BN: " + aux.client.img_bwTotal;
 			//String info ="Ventanillas: " + aux.noVentanilla ;
-			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\",group=" + aux.noVentanilla + "]\n";
+			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\"]\n";
 			if (aux.next != null) {
 				conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
 				
 				}
 
 			aux = aux.next;
-		}
+		} while (aux != this.primero);
+		
+		
 		dot.append(nombresNodos);
 		dot.append(conexiones);
 
@@ -214,7 +215,21 @@ public class Circular_Doble_espera {
 	public void Draw_Graphiz() {
 
 		try {
-			Create_File("Circular_Doble_espera.dot", Text_Graphivz());
+			
+			if(isNone()) {
+				String graph = "digraph L {\r\n"
+						+ "node[shape=note fillcolor=\"#A181FF\" style =filled]\r\n"
+						+ "subgraph cluster_p{\r\n"
+						+ "    label= \"Lista de Espera\"\r\n"
+						+ "    bgcolor = \"#FF7878\"\r\n"
+						+ "Nodo1008925772[label=\"Vacio\",fillcolor=\"#81FFDA\"]\r\n"
+						+ "\r\n"
+						+ "}}";
+				Create_File("Circular_Doble_espera.dot", graph);
+			}else {
+				Create_File("Circular_Doble_espera.dot", Text_Graphivz());
+			}
+			
 			//System.out.println(Text_Graphivz());
 			ProcessBuilder pb;
 			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Circular_Doble_espera.png", "Circular_Doble_espera.dot");

@@ -1,34 +1,49 @@
 digraph L {
 node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
-    label= " Ventanillas "
+    label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo386163331[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1540374340[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
-Nodo283383329[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
-
-Nodo386163331 -> Nodo1540374340
-
-{rank=same;Nodo386163331}
-Nodo1540374340 -> Nodo283383329
-
-Cliente893192050[label="ID: 2
+Nodo153245266[label="ID: 1
+NombreAndres Lopez
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1781071780[label="ID: 2
 NombreJuan Perez
-Img_C: 3
-Img_BN: 0",fillcolor="#B36AF9",group=2]
-Cliente893192050-> Nodo1540374340
-
-pila1[label="IMG BN",fillcolor="#81FFDA"]
-pila2[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1540374340-> pila1
- pila1->pila2
-
-{rank=same;Nodo1540374340,Cliente893192050,pila1,pila2}
-
-
-Cliente644345897[label="ID: 3
-NombreLuiz Higueros
 Img_C: 0
-Img_BN: 2",fillcolor="#B36AF9",group=3]
-Cliente644345897-> Nodo283383329
-{rank=same;Nodo283383329,Cliente644345897}}}
+Img_BN: 0",fillcolor="#81FFDA"]
+
+Nodo1[label="IMG C",fillcolor="#C388FC"]
+Nodo2[label="IMG C",fillcolor="#C388FC"]
+
+Nodo153245266 -> Nodo1781071780
+
+Nodo153245266->Nodo1
+
+
+
+Nodo1781071780 ->Nodo2
+
+Nodo1781071780 -> Nodo153245266
+
+{rank=same;Nodo153245266,Nodo1}
+{rank=same;Nodo1781071780,Nodo2}
+}}
+
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= "Lista de Espera "
+    bgcolor = "#FF7878"
+Nodo153245266[label="ID: 1
+NombreAndres Lopez
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1781071780[label="ID: 2
+NombreJuan Perez
+Img_C: 0
+Img_BN: 0",fillcolor="#81FFDA"]
+
+Nodo153245266 -> Nodo1781071780
+
+Nodo1781071780 -> Nodo153245266
+}}

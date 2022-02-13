@@ -3,48 +3,6 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola Recepcion "
     bgcolor = "#FF7878"
-Nodo1782580546[label="ID: 8
-Nombre: Edwina Plesing
-Img_C: 0
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1702940637[label="ID: 9
-Nombre: Paulette Plesing
-Img_C: 2
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo2114684409[label="ID: 10
-Nombre: Ludvig Flanagan
-Img_C: 0
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo568221876[label="ID: 11
-Nombre: Haskel Bricknall
-Img_C: 0
-Img_BN: 3",fillcolor="#81FFDA"]
-Nodo203849460[label="ID: 12
-Nombre: Sheffield Plesing
-Img_C: 3
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo288994035[label="ID: 13
-Nombre: Godiva Peever
-Img_C: 2
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1336735375[label="ID: 14
-Nombre: Sabrina Killby
-Img_C: 0
-Img_BN: 3",fillcolor="#81FFDA"]
-Nodo1984990929[label="ID: 15
-Nombre: Dene Korneichik
-Img_C: 0
-Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1105423942[label="ID: 16
-Nombre: Sanderson Sowersby
-Img_C: 0
-Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1782580546 -> Nodo1702940637
-Nodo1702940637 -> Nodo2114684409
-Nodo2114684409 -> Nodo568221876
-Nodo568221876 -> Nodo203849460
-Nodo203849460 -> Nodo288994035
-Nodo288994035 -> Nodo1336735375
-Nodo1336735375 -> Nodo1984990929
-Nodo1984990929 -> Nodo1105423942
+Nodo1008925772[label="Vacio",fillcolor="#81FFDA"]
+
 }}

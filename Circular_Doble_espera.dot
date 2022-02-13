@@ -1,0 +1,18 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= "Lista de Espera "
+    bgcolor = "#FF7878"
+Nodo153245266[label="ID: 1
+NombreAndres Lopez
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1781071780[label="ID: 2
+NombreJuan Perez
+Img_C: 0
+Img_BN: 0",fillcolor="#81FFDA"]
+
+Nodo153245266 -> Nodo1781071780
+
+Nodo1781071780 -> Nodo153245266
+}}
