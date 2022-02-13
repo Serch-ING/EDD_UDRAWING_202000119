@@ -1,0 +1,32 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Ventanillas "
+    bgcolor = "#FF7878"
+Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+
+Nodo1661081225 -> Nodo1882554559
+
+Cliente404214852[label="ID: 3
+NombreEal Martinolli
+Img_C: 2
+Img_BN: 2",fillcolor="#B36AF9",group=1]
+Cliente404214852-> Nodo1661081225
+Nodo957465255[label="IMG BN",fillcolor="#81FFDA"]
+
+Nodo1661081225 -> Nodo957465255
+
+{rank=same;Nodo1661081225,Cliente404214852,Nodo957465255}
+Cliente836220863[label="ID: 4
+NombreLudvig Peever
+Img_C: 2
+Img_BN: 0",fillcolor="#B36AF9",group=2]
+Cliente836220863-> Nodo1882554559
+Nodo1254344205[label="IMG C",fillcolor="#81FFDA"]
+Nodo1822971466[label="IMG C",fillcolor="#81FFDA"]
+Nodo1254344205 -> Nodo1822971466
+
+Nodo1882554559 -> Nodo1254344205
+
+{rank=same;Nodo1882554559,Cliente836220863,Nodo1254344205,Nodo1822971466}}}

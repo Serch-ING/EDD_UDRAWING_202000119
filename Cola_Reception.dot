@@ -1,0 +1,30 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Cola Recepcion "
+    bgcolor = "#FF7878"
+Nodo203849460[label="ID: 4
+Nombre: Astrix Ickovits
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1058634310[label="ID: 5
+Nombre: Dorey Sindell
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1668016508[label="ID: 6
+Nombre: Astrix Meagher
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1353070773[label="ID: 7
+Nombre: Travus McElrath
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo388357135[label="ID: 8
+Nombre: Sanderson Sowersby
+Img_C: 0
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo203849460 -> Nodo1058634310
+Nodo1058634310 -> Nodo1668016508
+Nodo1668016508 -> Nodo1353070773
+Nodo1353070773 -> Nodo388357135
+}}
