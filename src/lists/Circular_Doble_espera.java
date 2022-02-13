@@ -36,14 +36,14 @@ public class Circular_Doble_espera {
 		}
 	}
 
-	public void Search(int  idClient) {
+	public void Search(int idClient) {
 
 		if (isNone() == false) {
 			Nodo_Doble_waiting_clients actual = this.primero;
 			Boolean Encontrado = true;
 			do {
 				if (actual.client.id == idClient) {
-					System.out.println("Dato encontrado: " + idClient);
+					// System.out.println("Dato encontrado: " + idClient);
 					Encontrado = false;
 					break;
 				} else {
@@ -55,45 +55,92 @@ public class Circular_Doble_espera {
 				System.out.println("No se encontro el dato: " + idClient);
 			}
 
-		}else {
+		} else {
 			System.out.println("Vacio");
 		}
 	}
-	
-	public void Delete(int  idClient) {
-		if(isNone() == false) {
+
+	public void exit_of_system() {
+		Nodo_Doble_waiting_clients actual = this.primero;
+
+		if (isNone() == false) {
+			do {
+				if (actual.client.img_bwTotal == actual.client.img_bw
+						&& actual.client.img_colorTotal == actual.client.img_color) {
+					Delete(actual.client.id);
+				}
+				actual = actual.next;
+			} while (actual != this.primero);
+		}
+	}
+
+	public void Give_img(int idClient, Boolean Lleva_color) {
+
+		if (isNone() == false) {
+			Nodo_Doble_waiting_clients actual = this.primero;
+			Boolean Encontrado = true;
+			do {
+				if (actual.client.id == idClient) {
+					// System.out.println("Dato encontrado: " + idClient);
+					if (Lleva_color) {
+						actual.client.img_color += 1;
+					} else {
+						actual.client.img_bw += 1;
+					}
+
+					Encontrado = false;
+					break;
+				} else {
+					actual = actual.next;
+				}
+			} while (actual != this.primero);
+
+			if (Encontrado) {
+				System.out.println("No se encontro el dato: " + idClient);
+			}
+
+		} else {
+			System.out.println("Vacio");
+		}
+	}
+
+	public void Delete(int idClient) {
+		if (isNone() == false) {
+
 			Nodo_Doble_waiting_clients actual = this.primero;
 			Nodo_Doble_waiting_clients anterior = this.ultimo;
-			do {
-				if(actual.client.id == idClient) {
-					if(actual == this.primero) {
-						this.primero = this.primero.next;
-						this.ultimo.next = this.primero;
-						this.primero.previous = this.ultimo;
-						
-					}if (actual == ultimo) {
-						this.ultimo = anterior;
-						this.primero.previous = this.ultimo;
-						this.ultimo.next = this.primero;
-						
-					} else {
-						anterior.next = actual.next;
-						actual.next.previous = anterior;
-						
-					}
-				}
-				anterior = actual;
-				actual = actual.next;
-			} while (actual != this.primero);	
-			
-			if(actual.client.id == idClient) {
-				if(this.primero == this.ultimo) {
+			if (this.primero == this.ultimo) { 
+				if (actual.client.id == idClient) {
+					System.out.println("Cliente: " + actual.client.id + " salio del sistema");
 					this.primero = null;
 					this.ultimo = null;
 				}
+			} else {
+				do {
+					if (actual.client.id == idClient) {
+						if (actual == this.primero) {
+							this.primero = this.primero.next;
+							this.ultimo.next = this.primero;
+							this.primero.previous = this.ultimo;
+						}
+						if (actual == ultimo) {
+							this.ultimo = anterior;
+							this.primero.previous = this.ultimo;
+							this.ultimo.next = this.primero;
+						} else {
+							anterior.next = actual.next;
+							actual.next.previous = anterior;
+						}
+						System.out.println("Cliente: " + actual.client.id + " salio del sistema");
+					}
+					anterior = actual;
+					actual = actual.next;
+				} while (actual != this.primero);
+
 			}
+
 		}
-		
+
 	}
 
 	public Boolean isNone() {

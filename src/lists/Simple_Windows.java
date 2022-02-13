@@ -71,7 +71,7 @@ public class Simple_Windows {
 	public void Clien__waiting(client cliente,Circular_Doble_espera Waiting_clients) {
 		System.out.println("Cliente: " + cliente.id + " Esperando sus imagenes");
 		Waiting_clients.insert(cliente);
-		Waiting_clients.showList();
+		//Waiting_clients.showList();
 	}
 
 	public void insert_client(client cliente) {

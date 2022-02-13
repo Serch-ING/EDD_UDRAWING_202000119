@@ -25,6 +25,8 @@ public class general {
 
 	public void Realizar_Paso() {
 		System.out.println("\n================= Paso: " + Pasos + " =================");
+		Waiting_clients.showList();
+		Waiting_clients.exit_of_system();
 		printing();
 		window_magnament();
 		Pasos +=1;
@@ -45,8 +47,8 @@ public class general {
 	}
 
 	public void printing() {
-		printer_bw.printing();
-		printer_color.printing();
+		printer_bw.printing(Waiting_clients);
+		printer_color.printing(Waiting_clients);
 	}
 
 	public void impresora_a_persona() {

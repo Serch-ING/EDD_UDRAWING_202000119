@@ -1,7 +1,7 @@
 package lists;
 
 import java.util.concurrent.ThreadLocalRandom;
-import object.client;
+
 
 public class Cola_Print {
 	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
@@ -31,17 +31,20 @@ public class Cola_Print {
 		}
 	}
 
-	public void printing() {
+	public void printing(Circular_Doble_espera Waiting_clients) {
 		if (isNone() == false) {
 			this.primero.pasos += 1;
 			if (this.primero.pasos == this.pasosTotales) {
-
+				Boolean lleva_color;
 				String tipo = "";
 				if (this.pasosTotales == 1) {
 					tipo = "Blanco y negro";
+					lleva_color = false;
 				} else {
 					tipo = "color";
+					lleva_color = true;
 				}
+				Waiting_clients.Give_img(this.primero.id_cliente, lleva_color);
 				System.out.println("Se entrego imagen: " + tipo + " a cliente " + this.primero.id_cliente);
 				Dequeue_last();
 			}
