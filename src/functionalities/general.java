@@ -1,10 +1,14 @@
 package functionalities;
 
 import java.util.Scanner;
+import lists.Cola_Print;
 
 
 
 public class general {
+	public Cola_Print printer_bw = new Cola_Print(1);
+	public Cola_Print printer_color = new Cola_Print(2);
+	
 	Scanner sc = new Scanner(System.in);
 	ReadMasiveData Data = new ReadMasiveData(); 
 
@@ -26,7 +30,7 @@ public class general {
 	}
 	
 	public void Cola_a_ventanillas() {
-		Data.Simpe_Ventanas.recolect_img();
+		Data.Simpe_Ventanas.recolect_img(printer_bw,printer_color);
 		ventanillas_recolctando();
 		
 		if (Data.Simpe_Ventanas.Search_disposition() && Data.Cola_Recepcion.Dequeue_posibility()) {

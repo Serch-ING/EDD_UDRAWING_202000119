@@ -1,6 +1,7 @@
 package lists;
 import object.client;
 import lists.Pila_Images;
+import functionalities.general;
 
 public class Simple_Windows {
 
@@ -33,33 +34,38 @@ public class Simple_Windows {
 
 	
 	
-	public void recolect_img() {
+	public void recolect_img(Cola_Print bw, Cola_Print color) {
 		if (isNone() == false) {
 			Nodo_Simple_Windows actual = this.primero;
 			while (actual != null) {
 				if(actual.cliente != null) {
-					takeimg_client(actual);
+					takeimg_client(actual,bw,color);
 				}
 				actual = actual.next;
 			}
 		}
 	}
 	
-	public void takeimg_client(Nodo_Simple_Windows windown) {
+	public void takeimg_client(Nodo_Simple_Windows windown,Cola_Print bw, Cola_Print color) {
 		if(windown.cliente.img_bw > 0) {
 			windown.cliente.img_bw -= 1;
-			windown.PilaImg.Push(1,windown.cliente.id,false);
+			windown.PilaImg.Push(windown.cliente.id,false);
 			System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen blanco y negro de cliente: " + windown.cliente.id );
 		}else {
 			if(windown.cliente.img_color > 0) {
 				windown.cliente.img_color -= 1;
-				windown.PilaImg.Push(1,windown.cliente.id,true);
+				windown.PilaImg.Push(windown.cliente.id,true);
 				System.out.println("Ventanilla: " + windown.noVentanilla + " recibio: una imagen a color de cliente: " + windown.cliente.id );
 			}else {
+				Imgs_to_printer(windown,bw,color);
 				Clien__waiting(windown.cliente);
 				windown.cliente = null;
 			}
 		}
+	}
+	
+	public void Imgs_to_printer(Nodo_Simple_Windows windown,Cola_Print bw, Cola_Print color) {
+		windown.PilaImg.Pop_to_printer(bw, color);
 	}
 	
 	public void Clien__waiting(client cliente) {
