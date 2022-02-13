@@ -65,12 +65,13 @@ public class Circular_Doble_espera {
 		}
 	}
 
-	public void exit_of_system() {
+	public void exit_of_system(int pasos) {
 		Nodo_Doble_waiting_clients actual = this.primero;
 		if (isNone() == false) {
 			do {
 				if (actual.client.img_bwTotal == actual.client.img_bw
 						&& actual.client.img_colorTotal == actual.client.img_color) {
+					actual.client.PasoSalida = pasos;
 					Delete(actual.client.id);
 				}
 				actual = actual.next;

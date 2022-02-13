@@ -4,27 +4,20 @@ subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
 Nodo1192171522[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1661081225[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 
-Nodo1192171522 -> Nodo1661081225
+Cliente530737374[label="ID: 9
+NombreGlenn Sindell
+Img_C: 3
+Img_BN: 1",fillcolor="#B36AF9",group=1]
+Cliente530737374-> Nodo1192171522
+Nodo1741979653[label="IMG C",fillcolor="#81FFDA"]
+Nodo78204644[label="IMG C",fillcolor="#81FFDA"]
+Nodo7967307[label="IMG C",fillcolor="#81FFDA"]
+Nodo1045997582[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1741979653 -> Nodo78204644
+Nodo78204644 -> Nodo7967307
+Nodo7967307 -> Nodo1045997582
 
-Cliente712609105[label="ID: 16
-NombreSanderson Sindell
-Img_C: 1
-Img_BN: 2",fillcolor="#B36AF9",group=1]
-Cliente712609105-> Nodo1192171522
-Nodo952562199[label="IMG C",fillcolor="#81FFDA"]
-Nodo1499136125[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1793436274[label="IMG BN",fillcolor="#81FFDA"]
-Nodo952562199 -> Nodo1499136125
-Nodo1499136125 -> Nodo1793436274
+Nodo1192171522 -> Nodo1741979653
 
-Nodo1192171522 -> Nodo952562199
-
-{rank=same;Nodo1192171522,Cliente712609105,Nodo952562199,Nodo1499136125,Nodo1793436274}
-Cliente1199673596[label="ID: 18
-NombreHelli Stirton
-Img_C: 1
-Img_BN: 0",fillcolor="#B36AF9",group=2]
-Cliente1199673596-> Nodo1661081225
-{rank=same;Nodo1661081225,Cliente1199673596}}}
+{rank=same;Nodo1192171522,Cliente530737374,Nodo1741979653,Nodo78204644,Nodo7967307,Nodo1045997582}}}

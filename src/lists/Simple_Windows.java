@@ -79,7 +79,7 @@ public class Simple_Windows {
 		//Waiting_clients.showList();
 	}
 
-	public void insert_client(client cliente) {
+	public void insert_client(client cliente,int pasos) {
 
 		Nodo_Simple_Windows actual = this.primero;
 		while (actual != null && actual.cliente != null) {
@@ -89,6 +89,8 @@ public class Simple_Windows {
 		if (actual != null && actual.cliente == null) {
 			// System.out.println("Ventana libre: " + actual.noVentanilla);
 			actual.cliente = cliente;
+			cliente.PasoIngresado = pasos;
+			cliente.VentanillaIngresada = actual.noVentanilla;
 			System.out.println("Cliente: " + cliente.id + " paso a ventanilla: " + actual.noVentanilla);
 		}
 

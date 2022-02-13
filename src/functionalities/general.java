@@ -34,7 +34,7 @@ public class general {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
 			Random_a_cola();
-			Waiting_clients.exit_of_system();
+			Waiting_clients.exit_of_system(Pasos);
 			printing();
 			window_magnament();
 			Pasos +=1;
@@ -61,7 +61,7 @@ public class general {
 		Data.Simpe_Ventanas.recolect_img(printer_bw, printer_color,Waiting_clients);
 
 		if (Data.Simpe_Ventanas.Search_disposition() && Data.Cola_Recepcion.Dequeue_posibility()) {
-			Data.Simpe_Ventanas.insert_client(Data.Cola_Recepcion.Dequeue());
+			Data.Simpe_Ventanas.insert_client(Data.Cola_Recepcion.Dequeue(),Pasos);
 		}
 		//System.out.println("no llega");
 

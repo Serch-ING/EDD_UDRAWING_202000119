@@ -3,63 +3,43 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola impresora a Color "
  raiz[label = "Impresora a Color" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
-Nodo1233990028[label="IMG C 
-Id Cliente: 6",fillcolor="#81FFDA"]
 Nodo1847008471[label="IMG C 
+Id Cliente: 4",fillcolor="#81FFDA"]
+Nodo1076607567[label="IMG C 
+Id Cliente: 4",fillcolor="#81FFDA"]
+Nodo71399214[label="IMG C 
+Id Cliente: 5",fillcolor="#81FFDA"]
+Nodo854587510[label="IMG C 
 Id Cliente: 6",fillcolor="#81FFDA"]
-Nodo1932831450[label="IMG C 
+Nodo148626113[label="IMG C 
+Id Cliente: 6",fillcolor="#81FFDA"]
+Nodo1847637306[label="IMG C 
+Id Cliente: 6",fillcolor="#81FFDA"]
+Nodo1332668132[label="IMG C 
 Id Cliente: 8",fillcolor="#81FFDA"]
-Nodo1904253191[label="IMG C 
-Id Cliente: 10",fillcolor="#81FFDA"]
-Nodo1021436681[label="IMG C 
-Id Cliente: 9",fillcolor="#81FFDA"]
-Nodo1790585734[label="IMG C 
-Id Cliente: 9",fillcolor="#81FFDA"]
-Nodo842741472[label="IMG C 
-Id Cliente: 11",fillcolor="#81FFDA"]
+Nodo1147580192[label="IMG C 
+Id Cliente: 8",fillcolor="#81FFDA"]
+Nodo173099767[label="IMG C 
+Id Cliente: 8",fillcolor="#81FFDA"]
 Nodo112797691[label="IMG C 
-Id Cliente: 13",fillcolor="#81FFDA"]
-Nodo1045997582[label="IMG C 
-Id Cliente: 13",fillcolor="#81FFDA"]
-Nodo1741979653[label="IMG C 
-Id Cliente: 12",fillcolor="#81FFDA"]
-Nodo166794956[label="IMG C 
-Id Cliente: 12",fillcolor="#81FFDA"]
-Nodo1364913072[label="IMG C 
-Id Cliente: 14",fillcolor="#81FFDA"]
-Nodo1549725679[label="IMG C 
-Id Cliente: 15",fillcolor="#81FFDA"]
-Nodo371800738[label="IMG C 
-Id Cliente: 15",fillcolor="#81FFDA"]
-Nodo1364767791[label="IMG C 
-Id Cliente: 15",fillcolor="#81FFDA"]
+Id Cliente: 8",fillcolor="#81FFDA"]
 
-raiz->Nodo1233990028
-Nodo1233990028 -> Nodo1847008471
+raiz->Nodo1847008471
+Nodo1847008471 -> Nodo1076607567
 
-Nodo1847008471 -> Nodo1932831450
+Nodo1076607567 -> Nodo71399214
 
-Nodo1932831450 -> Nodo1904253191
+Nodo71399214 -> Nodo854587510
 
-Nodo1904253191 -> Nodo1021436681
+Nodo854587510 -> Nodo148626113
 
-Nodo1021436681 -> Nodo1790585734
+Nodo148626113 -> Nodo1847637306
 
-Nodo1790585734 -> Nodo842741472
+Nodo1847637306 -> Nodo1332668132
 
-Nodo842741472 -> Nodo112797691
+Nodo1332668132 -> Nodo1147580192
 
-Nodo112797691 -> Nodo1045997582
+Nodo1147580192 -> Nodo173099767
 
-Nodo1045997582 -> Nodo1741979653
-
-Nodo1741979653 -> Nodo166794956
-
-Nodo166794956 -> Nodo1364913072
-
-Nodo1364913072 -> Nodo1549725679
-
-Nodo1549725679 -> Nodo371800738
-
-Nodo371800738 -> Nodo1364767791
+Nodo173099767 -> Nodo112797691
 }}
