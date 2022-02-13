@@ -25,6 +25,9 @@ Fila2--nodo2_1;
 Fila3--nodo3_1;
 {rank=same;Fila3,nodo3_1,nodo3_2,nodo3_3}
 
+Fila1--Fila2
+Fila2--Fila3
+
 nodo1_1--nodo1_2;
 nodo1_2--nodo1_3;
 
@@ -35,13 +38,7 @@ nodo3_1--nodo3_2;
 nodo3_2--nodo3_3;
 
 
- /*Enlazar*/
- nodo1_1--nodo2_1;
-nodo1_2--nodo2_2;
-nodo1_3--nodo2_3;
 
-nodo2_1--nodo3_1;
-nodo2_2--nodo3_2;
-nodo2_3--nodo3_3;
+
 
 } }

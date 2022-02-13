@@ -78,7 +78,7 @@ public class Cola_Reception {
 			int noLastnames = tlr.nextInt(0, lastnames.length);
 
 			String Name = names[noName] + " " + lastnames[noLastnames];
-
+			//System.out.println("Ramdon color: " + img_color + "BN: " + img_bw);
 			enqueue(-1, Name, img_color, img_bw);
 		}
 		/*
@@ -172,7 +172,7 @@ public class Cola_Reception {
 		String conexiones = "";
 		Nodo_Cola_Reception aux = this.primero;
 		while (aux != null) {
-			String info ="ID: " + aux.cliente.id + "\nNombre" + aux.cliente.name + "\nImg_C: " + aux.cliente.img_bwTotal + "\nImg_BN: " + aux.cliente.img_bwTotal;
+			String info ="ID: " + aux.cliente.id + "\nNombre: " + aux.cliente.name + "\nImg_C: " + aux.cliente.img_colorTotal + "\nImg_BN: " + aux.cliente.img_bwTotal;
 			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\"]\n";
 			if (aux.next != null)
 				conexiones += String.format("Nodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
@@ -227,16 +227,24 @@ public class Cola_Reception {
 			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Cola_Reception.png", "Cola_Reception.dot");
 			pb.redirectErrorStream(true);
 			pb.start();
-			String url = "Cola_Reception.png";
-			ProcessBuilder p = new ProcessBuilder();
-			p.command("cmd.exe", "/c", url);
-			p.start();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public void openimg() {
+		try {
+			String url = "Cola_Reception.png";
+			ProcessBuilder p = new ProcessBuilder();
+			p.command("cmd.exe", "/c", url);
+			p.start();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	/*
 	public void Search(Object data) {
 		if (isNone() == false) {

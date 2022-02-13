@@ -20,18 +20,31 @@ public class general {
 		System.out.println("\n==================================");
 		System.out.println("====Sistema listo para simular====");
 		System.out.println("==================================\n");
+		Data.Simpe_Ventanas.Draw_Graphiz();
+		Data.Cola_Recepcion.Draw_Graphiz();
+		printer_bw.Draw_Graphiz();
+		printer_color.Draw_Graphiz();
 		Menu();
+		
 		// Realizar_Paso();
 	}
 
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
-			
+			//Random_a_cola();
 			Waiting_clients.exit_of_system();
 			printing();
 			window_magnament();
 			Pasos +=1;
+			
+			
+			
+			//Genrar grafo
+			Data.Cola_Recepcion.Draw_Graphiz();
+			Data.Simpe_Ventanas.Draw_Graphiz();
+			printer_bw.Draw_Graphiz();
+			printer_color.Draw_Graphiz();
 		} catch (Exception e) {
 			System.out.println("Hubo un problema");
 		}
@@ -77,8 +90,9 @@ public class general {
 
 				case 2:
 					System.out.println("Estado de la estructuras ");
-					Data.Cola_Recepcion.Draw_Graphiz();
-					Data.Simpe_Ventanas.Draw_Graphiz();
+					//Data.Cola_Recepcion.Draw_Graphiz();
+					Data.Simpe_Ventanas.openimg();
+					Data.Cola_Recepcion.openimg();
 					break;
 
 				case 3:

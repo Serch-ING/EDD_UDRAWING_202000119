@@ -3,24 +3,43 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
-Nodo386163331[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1540374340[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
-Nodo283383329[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
+Nodo70807318[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo910091170[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+Nodo293907205[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
+Nodo988800485[label="Ventanillas: 4",fillcolor="#81FFDA",group=4]
 
-Nodo386163331 -> Nodo1540374340
+Nodo70807318 -> Nodo910091170
 
-{rank=same;Nodo386163331}
-Nodo1540374340 -> Nodo283383329
-
-Cliente893192050[label="ID: 2
-NombreJuan Perez
-Img_C: 3
-Img_BN: 0",fillcolor="#B36AF9",group=2]
-Cliente893192050-> Nodo1540374340
-{rank=same;Nodo1540374340,Cliente893192050}
-Cliente644345897[label="ID: 3
-NombreLuiz Higueros
+Cliente365181913[label="ID: 7
+NombrePaulette Sowersby
 Img_C: 0
-Img_BN: 2",fillcolor="#B36AF9",group=3]
-Cliente644345897-> Nodo283383329
-{rank=same;Nodo283383329,Cliente644345897}}}
+Img_BN: 1",fillcolor="#B36AF9",group=1]
+Cliente365181913-> Nodo70807318
+{rank=same;Nodo70807318,Cliente365181913}
+Nodo910091170 -> Nodo293907205
+
+Cliente404214852[label="ID: 6
+NombreDorey Selvester
+Img_C: 0
+Img_BN: 1",fillcolor="#B36AF9",group=2]
+Cliente404214852-> Nodo910091170
+Nodo1031061344[label="IMG BN",fillcolor="#81FFDA"]
+
+Nodo910091170 -> Nodo1031061344
+
+{rank=same;Nodo910091170,Cliente404214852,Nodo1031061344}
+Nodo293907205 -> Nodo988800485
+
+{rank=same;Nodo293907205}
+Cliente1668016508[label="ID: 5
+NombreKarry Peever
+Img_C: 0
+Img_BN: 3",fillcolor="#B36AF9",group=4]
+Cliente1668016508-> Nodo988800485
+Nodo1327536153[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1822971466[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1327536153 -> Nodo1822971466
+
+Nodo988800485 -> Nodo1327536153
+
+{rank=same;Nodo988800485,Cliente1668016508,Nodo1327536153,Nodo1822971466}}}

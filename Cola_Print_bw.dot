@@ -1,0 +1,13 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Cola impresora Blaco y Negro "
+ raiz[label = "Impresora Blaco y Negro" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo825658265[label="IMG C 
+Id Cliente: 3",fillcolor="#81FFDA"]
+Nodo367746789[label="IMG C 
+Id Cliente: 4",fillcolor="#81FFDA"]
+
+raiz->Nodo825658265
+Nodo825658265 -> Nodo367746789
+}}

@@ -149,6 +149,8 @@ public class Simple_Windows {
 		while (aux != null) {
 			String hashClient ="";
 			String infoClient ="";
+			String pilaImg ="";
+			String pilarank ="";
 			//String info ="ID: " + aux.cliente.id + "\nNombre" + aux.cliente.name + "\nImg_C: " + aux.cliente.img_bwTotal + "\nImg_BN: " + aux.cliente.img_bwTotal;
 			String info ="Ventanillas: " + aux.noVentanilla ;
 			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\",group=" + aux.noVentanilla + "]\n";
@@ -164,7 +166,15 @@ public class Simple_Windows {
 					hashClient =  ",Cliente" + aux.cliente.hashCode();
 					conexiones+= "Cliente" + aux.cliente.hashCode() + "-> Nodo" + aux.hashCode();
 				}
-				conexiones += "\n{rank=same;Nodo" +  aux.hashCode() + hashClient +"}";
+				if(aux.PilaImg.primero != null) {
+					pilaImg = aux.PilaImg.Text_Graphivz();
+					pilarank = aux.PilaImg.Text_Graphivz_rank();
+					//System.out.println(pilaImg);
+					//System.out.println(pilarank);
+					conexiones += "\n" + pilaImg;
+					conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.PilaImg.primero.hashCode());
+				}
+				conexiones += "\n{rank=same;Nodo" +  aux.hashCode() + hashClient + pilarank +"}";
 			}
 			aux = aux.next;
 		}
@@ -204,16 +214,28 @@ public class Simple_Windows {
 			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Simple_Windows.png", "Simple_Windows.dot");
 			pb.redirectErrorStream(true);
 			pb.start();
-			String url = "Simple_Windows.png";
-			ProcessBuilder p = new ProcessBuilder();
-			p.command("cmd.exe", "/c", url);
-			p.start();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void openimg() {
+		try {
+			String url = "Simple_Windows.png";
+			ProcessBuilder p = new ProcessBuilder();
+			p.command("cmd.exe", "/c", url);
+			p.start();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
+
+	
 
 class Nodo_Simple_Windows {
 

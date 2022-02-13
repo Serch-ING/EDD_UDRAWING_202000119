@@ -31,6 +31,43 @@ public class Pila_Images {
 			}
 		}
 	}
+	
+	public String Text_Graphivz() {
+		StringBuilder dot = new StringBuilder();
+		String rank="";
+		
+		String nombresNodos = "";
+		String conexiones = "";
+		Nodo_Pila_Imgs aux = this.primero;
+		while (aux != null) {
+			if(aux.LlevaColor) {
+				nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + "IMG C" + "\",fillcolor=\"#81FFDA\"]\n";
+			}else {
+				nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + "IMG BN" + "\",fillcolor=\"#81FFDA\"]\n";
+			}
+			
+			if (aux.next != null)
+				conexiones += String.format("Nodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
+			aux = aux.next;
+			
+		}
+		dot.append(nombresNodos);
+		dot.append(conexiones);
+		return dot.toString();
+	}
+	
+	
+	public String Text_Graphivz_rank() {
+		String rank ="";
+		if (isNone() == false) {
+			Nodo_Pila_Imgs actual = this.primero;
+			while (actual != null) {
+				rank += ",Nodo" + actual.hashCode();
+				actual = actual.next;
+			}
+		}
+		return rank;
+	}
 
 	public void Pop_last() {
 		if (isNone()) {
