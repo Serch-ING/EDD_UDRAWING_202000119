@@ -73,8 +73,8 @@ public class Circular_Doble_espera {
 						&& actual.client.img_colorTotal == actual.client.img_color) {
 					actual.client.PasoSalida = pasos;
 					Clients_Served.insert(actual.client);
-					System.out.println("\n\n Lista de clientes atendidos");
-					Clients_Served.showList();
+					//System.out.println("\n\n Lista de clientes atendidos");
+					//Clients_Served.showList();
 					Delete(actual.client.id);
 				}
 				actual = actual.next;

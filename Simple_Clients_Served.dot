@@ -1,0 +1,8 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Clientes atendidos "
+    bgcolor = "#FF7878"
+Nodo1008925772[label="Vacio",fillcolor="#81FFDA"]
+
+}}

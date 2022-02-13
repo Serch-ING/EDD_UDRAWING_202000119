@@ -23,6 +23,7 @@ public class general {
 		System.out.println("\n==================================");
 		System.out.println("====Sistema listo para simular====");
 		System.out.println("==================================\n");
+		Clients_Served.Draw_Graphiz();
 		Waiting_clients.Draw_Graphiz();
 		Data.Simpe_Ventanas.Draw_Graphiz();
 		Data.Cola_Recepcion.Draw_Graphiz();
@@ -36,7 +37,7 @@ public class general {
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
-			//Random_a_cola();
+			Random_a_cola();
 			Waiting_clients.exit_of_system(Pasos,Clients_Served);
 			printing();
 			window_magnament();
@@ -45,6 +46,7 @@ public class general {
 			
 			
 			//Genrar grafo
+			Clients_Served.Draw_Graphiz();
 			Waiting_clients.Draw_Graphiz();
 			Data.Cola_Recepcion.Draw_Graphiz();
 			Data.Simpe_Ventanas.Draw_Graphiz();
@@ -82,7 +84,7 @@ public class general {
 
 			try {
 
-				System.out.println("\n---------------Menu----------------\n");
+				System.out.println("\n-------------------Menu--------------------\n");
 				System.out.println("1.Ejecutar paso\n2.Estado en memoria de las estructuras\n3.Reportes"
 						+ "\n4.Acerca del estudiante\n5.Salir\n");
 				option = Integer.parseInt(sc.nextLine());
