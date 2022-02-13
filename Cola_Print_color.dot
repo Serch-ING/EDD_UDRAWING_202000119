@@ -3,4 +3,11 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola impresora a Color "
  raiz[label = "Impresora a Color" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo1546693040[label="IMG C 
+Id Cliente: 2",fillcolor="#81FFDA"]
+Nodo501187768[label="IMG C 
+Id Cliente: 2",fillcolor="#81FFDA"]
+
+raiz->Nodo1546693040
+Nodo1546693040 -> Nodo501187768
 }}

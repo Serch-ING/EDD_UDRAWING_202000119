@@ -1,8 +1,22 @@
 digraph L {
 node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
-    label= "Lista de Espera"
+    label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo1008925772[label="Vacio",fillcolor="#81FFDA"]
+Nodo568221876[label="ID: 2
+NombreJuan Perez
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1585635178[label="ID: 3
+NombreLuiz Higueros
+Img_C: 0
+Img_BN: 2",fillcolor="#81FFDA"]
 
-}}
+Nodo568221876 -> Nodo1585635178
+Nodo568221876->Nodo56822187611111
+Nodo56822187611111[label="IMG C",fillcolor="#C388FC"]
+{rank=same;Nodo568221876,Nodo56822187611111}
+Nodo1585635178 -> Nodo568221876
+Nodo1585635178->Nodo158563517800001
+Nodo158563517800001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1585635178,Nodo158563517800001}}}

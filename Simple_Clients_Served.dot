@@ -3,6 +3,9 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Clientes atendidos "
     bgcolor = "#FF7878"
-Nodo1008925772[label="Vacio",fillcolor="#81FFDA"]
-
+Nodo128359175[label="
+Nombre: Andres Lopez
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 2
+Pasos totales en sistema: 6",fillcolor="#81FFDA"]
 }}

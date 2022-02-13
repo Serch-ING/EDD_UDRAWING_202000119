@@ -91,15 +91,18 @@ public class general {
 
 				switch (option) {
 				case 1:
-					System.out.println("Ejecutar paso\n");
+					//System.out.println("Ejecutar paso\n");
 					Realizar_Paso();
 					break;
 
 				case 2:
-					System.out.println("Estado de la estructuras ");
-					//Data.Cola_Recepcion.Draw_Graphiz();
+					System.out.println("Estado de la estructuras");
+					Clients_Served.openimg();
+					Waiting_clients.openimg();
 					Data.Simpe_Ventanas.openimg();
 					Data.Cola_Recepcion.openimg();
+					printer_bw.openimg();
+					printer_color.openimg();
 					break;
 
 				case 3:
