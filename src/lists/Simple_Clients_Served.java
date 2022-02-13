@@ -37,18 +37,18 @@ public class Simple_Clients_Served {
 		}
 	}
 
-	public void Search(Object data) {
+	public void Search(int ClientId) {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
-			while (actual != null && actual.cliente != data) {
+			while (actual != null && actual.cliente.id != ClientId) {
 				actual = actual.next;
 				if (actual == null) {
-					System.out.println("No se encontro el dato: " + data);
+					System.out.println("No se encontro el dato: " + ClientId);
 					break;
 				}
 			}
-			if (actual != null && actual.cliente == data) {
-				System.out.println("Dato encontrado: " + data);
+			if (actual != null && actual.cliente.id == ClientId) {
+				System.out.println("Dato encontrado: " + ClientId);
 			}
 		}
 	}

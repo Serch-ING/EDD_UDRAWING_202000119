@@ -85,8 +85,8 @@ public class general {
 			try {
 
 				System.out.println("\n-------------------Menu--------------------\n");
-				System.out.println("1.Ejecutar paso\n2.Estado en memoria de las estructuras\n3.Reportes"
-						+ "\n4.Acerca del estudiante\n5.Salir\n");
+				System.out.println("1.Ejecutar paso\n2.Reportes"
+						+ "\n3.Acerca del estudiante\n4.Salir\n");
 				option = Integer.parseInt(sc.nextLine());
 
 				switch (option) {
@@ -96,27 +96,18 @@ public class general {
 					break;
 
 				case 2:
-					System.out.println("Estado de la estructuras");
-					Clients_Served.openimg();
-					Waiting_clients.openimg();
-					Data.Simpe_Ventanas.openimg();
-					Data.Cola_Recepcion.openimg();
-					printer_bw.openimg();
-					printer_color.openimg();
+					Menu_Reportes();
 					break;
 
 				case 3:
-					System.out.println("Reportes");
-					break;
-
-				case 4:
 					System.out.println("========= Acerca de datos del estudiante =========");
 					System.out.println("Universidad de San Carlos de Guatemala");
 					System.out.println("Facultad de Ingenieria\nEscuela de Ciencias y Sistemas");
 					System.out.println("\nNombre:Sergie Daniel Arizandieta Yol\nCarnet:202000119");
 					break;
-				case 5:
-					System.out.println("Salir");
+
+				case 4:
+					System.out.println("Gracias por usar");
 					System.exit(1);
 					break;
 
@@ -131,6 +122,67 @@ public class general {
 
 			}
 
-		} while (option != 5);
+		} while (option != 4);
+	}
+	
+	public void Menu_Reportes() {
+		int option = 0;
+
+		do {
+
+			try {
+
+				System.out.println("\n-------------------Menu Reportes--------------------\n");
+				System.out.println("1.Visualizacion de estructuras\n\nDatos Generados:"
+						+ "\n2.Top 5 de clientes con mayor cantidad de imágenes a color.\r\n"
+						+ "\n3.Top 5 de clientes con menor cantidad de imágenes en blanco y negro.\r\n"
+						+ "\n4.Información del cliente que más pasos estuvo en el sistema.\r\n"
+						+ "\n5.Datos de un cliente en específico\n"
+						+ "\n6.Regresar al Menu principal\n");
+				option = Integer.parseInt(sc.nextLine());
+
+				switch (option) {
+				case 1:
+					System.out.println("Estado de la estructuras");
+					Clients_Served.openimg();
+					Waiting_clients.openimg();
+					Data.Simpe_Ventanas.openimg();
+					Data.Cola_Recepcion.openimg();
+					printer_bw.openimg();
+					printer_color.openimg();
+					break;
+
+				case 2:
+					System.out.println("mayores color");
+					break;
+
+				case 3:
+					System.out.println("mayored blnaco y negro");
+					break;
+
+				case 4:
+					System.out.println("Myor pasos");
+				
+					break;
+				case 5:
+					System.out.println("Ingrese el ID del cliente a buscar");
+				
+					break;
+				case 6:
+					Menu();
+					break;
+
+				default:
+					System.out.println("Option fuera de los parametros\n");
+					break;
+				}
+
+			} catch (Exception e) {
+				option = 0;
+				System.out.println("No se ingrso un numero\n");
+
+			}
+
+		} while (option != 6);
 	}
 }
