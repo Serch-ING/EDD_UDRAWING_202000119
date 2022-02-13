@@ -116,7 +116,7 @@ public class Cola_Reception {
 
 	public void Dequeue_last() {
 		if (isNone()) {	
-			System.out.println("cola vacia");
+			//System.out.println("cola vacia");
 		}else {
 			Nodo_Cola_Reception anterior = this.primero;
 			this.primero = this.primero.next;
@@ -140,7 +140,7 @@ public class Cola_Reception {
 
 	public Boolean Dequeue_posibility() {
 		if (isNone() == true) {	
-			System.out.println("cola vacia");
+			//ystem.out.println("cola vacia");
 			return false;
 		}else {
 			return true;
