@@ -24,17 +24,19 @@ public class ReadMasiveData {
 	public Simple_Windows Simpe_Ventanas;
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+	
+	//welcom message
 	public void welcome() {
 		System.out.println(
-				"====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
+				"====Bienvenido a UDRAWING====\nAntes de iniciar la simulación se debe agregar los parametros iniciales:"
 						+ "\n•Carga masiva de clientes\r\n" + "•Cantidad de ventanillas");
 		Load_json();
 		load_windows();
 		
 		
 	}
-
+	
+	//usar lad doc.json
 	public void Load_json() {
 		try {
 			System.out.println("\n---Ingresa ruta del archivo---");
@@ -45,6 +47,7 @@ public class ReadMasiveData {
 		}
 	}
 
+	//read the json
 	public void ReadJson(String ruta) {
 
 		JSONParser jsonParser = new JSONParser();
@@ -99,6 +102,7 @@ public class ReadMasiveData {
 		}
 	}
 
+	//load list of windows
 	public void load_windows() {
 		try {
 			System.out.println("\n---Ingresa la cantidad de ventanillas---");
@@ -119,6 +123,7 @@ public class ReadMasiveData {
 		}
 	}
 
+	//create the list of windows
 	public void Create_windows(Integer noWindows) {
 		Simpe_Ventanas = new Simple_Windows();
 
@@ -127,6 +132,8 @@ public class ReadMasiveData {
 		}		
 	}
 
+	
+	//verify if its num
 	public Boolean isNum(String data) {
 		try {
 			Integer ruta = Integer.valueOf(data);

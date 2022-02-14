@@ -1,5 +1,5 @@
 package object;
-
+//Objet client 
 public class client {
 	public int id, img_color, img_bw,img_colorTotal, img_bwTotal;
 	public String name;

@@ -4,16 +4,17 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.concurrent.ThreadLocalRandom;
 import object.client;
-
+//list of reception
 public class Cola_Reception {
 	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
 	
 	Nodo_Cola_Reception primero;
-
+	//cjontructor
 	public Cola_Reception() {
 		this.primero = null;
 	}
-
+	
+	//add new data to the lisdt
 	public void enqueue(int id, String name, int img_color, int img_bw) {
 		client cliente = new client(id, name, img_color, img_bw);
 
@@ -46,6 +47,8 @@ public class Cola_Reception {
 		}
 	}
 	
+	
+	//generate a rsmadom client
 	public void Generate_Random() {
 		int cantidad =  tlr.nextInt(0, 3 + 1);
 		for (int waiting = 0; waiting <cantidad; waiting++) {
@@ -114,8 +117,7 @@ public class Cola_Reception {
 		insert(-1, Name, img_color, img_bw);*/
 	}
 	
-	
-
+	//get of og the list nomal functionality
 	public void Dequeue_last() {
 		if (isNone()) {	
 			//System.out.println("cola vacia");
@@ -127,11 +129,13 @@ public class Cola_Reception {
 		
 	}
 	
+	//show the first data
 	public void Peek() {
 		System.out.println(this.primero.cliente.name);
 
 	}
 
+	//get out of the list
 	public client Dequeue() {
 
 		Nodo_Cola_Reception anterior = this.primero;
@@ -139,7 +143,8 @@ public class Cola_Reception {
 		return anterior.cliente;
 
 	}
-
+	
+	//is posible delete the first data
 	public Boolean Dequeue_posibility() {
 		if (isNone() == true) {	
 			//ystem.out.println("cola vacia");
@@ -148,7 +153,8 @@ public class Cola_Reception {
 			return true;
 		}		
 	}
-
+	
+	//show the listS
 	public void showList() {
 		if (isNone() == false) {
 			Nodo_Cola_Reception actual = this.primero;
@@ -160,6 +166,7 @@ public class Cola_Reception {
 		}
 	}
 	
+	//creste the text data of graphivz
 	public String Text_Graphivz() {
 		StringBuilder dot = new StringBuilder();
 		dot.append("digraph L {\n");
@@ -185,7 +192,8 @@ public class Cola_Reception {
 
 		return dot.toString();
 	}
-
+	
+	//create the dot dile
 	private void Create_File(String route, String contents) {
 
 		FileWriter fw = null;
@@ -204,7 +212,8 @@ public class Cola_Reception {
 		}
 
 	}
-
+	
+	//draw the graph
 	public void Draw_Graphiz() {
 
 		try {
@@ -233,6 +242,7 @@ public class Cola_Reception {
 		}
 	}
 	
+	//open img
 	public void openimg() {
 		try {
 			String url = "Cola_Reception.png";
@@ -284,22 +294,22 @@ public class Cola_Reception {
 			}
 		}
 	}*/
-
+	
+	//verify id the lsit is none
 	public Boolean isNone() {
 		return this.primero == null;
 	}
-
+	
+	//node of list
 	public class Nodo_Cola_Reception {
 
 		public Nodo_Cola_Reception next;
 		public client cliente;
-
+		//contructor
 		public Nodo_Cola_Reception(client info) {
 			this.next = null;
 			this.cliente = info;
 		}
 	}
 	
-	
-
 }

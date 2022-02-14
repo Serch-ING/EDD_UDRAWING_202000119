@@ -5,17 +5,19 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 
 import object.client;
-
+//list of waiting clients
 public class Circular_Doble_espera {
 	Nodo_Doble_waiting_clients primero;
 	Nodo_Doble_waiting_clients ultimo;
 
+	//contrcutor
 	public Circular_Doble_espera() {
 		
 		this.primero = null;
 		this.ultimo = null;
 	}
 
+	//insert new data
 	public void insert(client client) {
 		Nodo_Doble_waiting_clients new_node = new Nodo_Doble_waiting_clients(client);
 		if (isNone()) {
@@ -30,6 +32,7 @@ public class Circular_Doble_espera {
 		}
 	}
 
+	//show the linked list
 	public void showList() {
 		Nodo_Doble_waiting_clients actual = this.primero;
 
@@ -41,6 +44,7 @@ public class Circular_Doble_espera {
 		}
 	}
 
+	//search a especific client
 	public void Search(int idClient) {
 
 		if (isNone() == false) {
@@ -65,6 +69,7 @@ public class Circular_Doble_espera {
 		}
 	}
 
+	//get out the sytem
 	public void exit_of_system(int pasos,Simple_Clients_Served Clients_Served) {
 		Nodo_Doble_waiting_clients actual = this.primero;
 		if (isNone() == false) {
@@ -85,6 +90,7 @@ public class Circular_Doble_espera {
 		}
 	}
 
+	//add img to clienf
 	public void Give_img(int idClient, Boolean Lleva_color) {
 
 		if (isNone() == false) {
@@ -115,6 +121,7 @@ public class Circular_Doble_espera {
 		}
 	}
 
+	//delete the client
 	public void Delete(int idClient) {
 		if (isNone() == false) {
 
@@ -154,12 +161,13 @@ public class Circular_Doble_espera {
 		}
 
 	}
-
+	
+	//verify is none
 	public Boolean isNone() {
 		return this.primero == null;
 	}
 	
-	
+	//twxt of graphivz
 	public String Text_Graphivz() {
 		StringBuilder dot = new StringBuilder();
 		dot.append("digraph L {\n");
@@ -234,6 +242,8 @@ public class Circular_Doble_espera {
 		return dot.toString();
 	}
 
+	
+	//create the dot file
 	private void Create_File(String route, String contents) {
 
 		FileWriter fw = null;
@@ -252,7 +262,8 @@ public class Circular_Doble_espera {
 		}
 
 	}
-
+	
+	//draw the graph
 	public void Draw_Graphiz() {
 
 		try {
@@ -298,11 +309,12 @@ public class Circular_Doble_espera {
 	
 }
 
+//nodes of the list
 class Nodo_Doble_waiting_clients {
 
 	Nodo_Doble_waiting_clients next, previous;
 	client client;
-
+	//contructor
 	public Nodo_Doble_waiting_clients(client client) {
 		this.next = this;
 		this.previous = this;
