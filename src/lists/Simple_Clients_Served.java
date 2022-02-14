@@ -1,6 +1,7 @@
 package lists;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import object.client;
@@ -41,7 +42,7 @@ public class Simple_Clients_Served {
 			while (actual != null) {
 				System.out.println("\nNombre: " + actual.cliente.name +"\nVentanilla: " + actual.cliente.VentanillaIngresada + ""
 						+ "\nNumero de imagenes: " + (actual.cliente.img_bwTotal + actual.cliente.img_colorTotal) + ""
-								+ "\nPasos totales: " + (actual.cliente.PasoSalida - actual.cliente.PasoIngresado + "\n\n" ) );
+								+ "\nPasos totales: " + (actual.cliente.PasoSalida - actual.cliente.PasoIngresado) + "\n\n"  );
 				actual = actual.next;
 			}
 		}
@@ -54,14 +55,17 @@ public class Simple_Clients_Served {
 				actual = actual.next;
 				if (actual == null) {
 					System.out.println("No se encontro el dato: " + ClientId);
+					Draw_GraphizReport_serching(null,ClientId);
 					break;
 				}
 			}
 			if (actual != null && actual.cliente.id == ClientId) {
 				System.out.println("Dato encontrado: " + ClientId);
+				Draw_GraphizReport_serching( actual.cliente,ClientId);
 			}
 		}else {
 			System.out.println("La lista esta vacia");
+			openimg();
 		}
 	}
 
@@ -179,9 +183,10 @@ public class Simple_Clients_Served {
 				}
 				actual = actual.next;
 			}
-			showList();
+			//showList();
 		}else {
 			System.out.println("La lista esta vacia");
+			
 		}
 	}
 
@@ -207,9 +212,10 @@ public class Simple_Clients_Served {
 				}
 				actual = actual.next;
 			}
-			showList();
+			//showList();
 		}else {
 			System.out.println("La lista esta vacia");
+			
 		}
 	}
 
@@ -233,9 +239,10 @@ public class Simple_Clients_Served {
 				}
 				actual = actual.next;
 			}
-			showList();
+			//showList();
 		}else {
 			System.out.println("La lista esta vacia");
+		
 		}
 	}
 	
@@ -289,6 +296,58 @@ public class Simple_Clients_Served {
 	}
 	
 
+	public void Draw_GraphizReport_serching(client cliente,int id) {
+		try {
+		String graph = "digraph L {\r\n"
+				+ "node[shape=note fillcolor=\"#A181FF\" style =filled]\r\n"
+				+ "subgraph cluster_p{\r\n";
+		
+		graph += "    label= \"" + "Busqueda del Cliente ID: " + id + "\"\r\n";
+		if (cliente != null) {
+			String info = "";
+			info += "ID: " + cliente.id;
+			info += "\nNombre: " + cliente.name;
+			info += "\nPasos en sitema: " + (cliente.PasoSalida - cliente.PasoIngresado);
+			info += "\nVentanilla que atendio: " + cliente.VentanillaIngresada;
+			info += "\nImagenes a color impresas: " + cliente.img_colorTotal;
+			info += "\nImagenes blanco y negro impresas: " + cliente.img_bwTotal;
+			info += "\nImagenes totales impresas: " + (cliente.img_bwTotal + cliente.img_colorTotal);
+
+			graph += "    bgcolor = \"#FF7878\"\r\n" + "Nodo1008925772[label=\"" + info
+					+ "\",fillcolor=\"#81FFDA\"]\r\n" + "\r\n" + "}}";
+		} else {
+			graph += "    bgcolor = \"#FF7878\"\r\n"
+					+ "Nodo1008925772[label=\"No se encontro cliente\",fillcolor=\"#81FFDA\"]\r\n" + "\r\n" + "}}";
+		}
+
+		Create_File("Simple_Clients_Served_Report_Searc.dot", graph);
+		ProcessBuilder pb;
+		pb = new ProcessBuilder("dot", "-Tpng", "-o", "Simple_Clients_Served_Report_Searc.png",
+				"Simple_Clients_Served_Report_Searc.dot");
+		pb.redirectErrorStream(true);
+
+		pb.start();
+		openimgReportSerching();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
+	
+	public void openimgReportSerching() {
+		try {
+			String url = "Simple_Clients_Served_Report_Searc.png";
+			ProcessBuilder pp = new ProcessBuilder();
+			pp.command("cmd.exe", "/c", url);
+			pp.start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	public void Draw_GraphizReport(String tipo,int repetir,int option) {
 
 		try {

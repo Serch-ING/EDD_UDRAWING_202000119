@@ -3,8 +3,8 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= "Información del cliente que más pasos estuvo en el sistema."
     bgcolor = "#FF7878"
-Nodo1302227152[label="
-ID: 2
-Nombre: Juan Perez
-Pasos en sistema: 11",fillcolor="#81FFDA"]
+Nodo2020152163[label="
+ID: 8
+Nombre: Phylis Rudolf
+Pasos en sistema: 26",fillcolor="#81FFDA"]
 }}

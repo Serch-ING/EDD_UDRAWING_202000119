@@ -7,56 +7,41 @@ Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
 Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 Nodo694316372[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
 Nodo1516500233[label="Ventanillas: 4",fillcolor="#81FFDA",group=4]
-Nodo1850180796[label="Ventanillas: 5",fillcolor="#81FFDA",group=5]
 
 Nodo1661081225 -> Nodo1882554559
 
-Cliente1594199808[label="ID: 12
-NombrePhylis Sowersby
-Img_C: 0
-Img_BN: 2",fillcolor="#B36AF9",group=1]
-Cliente1594199808-> Nodo1661081225
-Nodo306115458[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1201484275[label="IMG BN",fillcolor="#81FFDA"]
-Nodo306115458 -> Nodo1201484275
-
-Nodo1661081225 -> Nodo306115458
-
-{rank=same;Nodo1661081225,Cliente1594199808,Nodo306115458,Nodo1201484275}
+Cliente119358627[label="ID: 33
+NombreSanderson Liepmann
+Img_C: 2
+Img_BN: 1",fillcolor="#B36AF9",group=1]
+Cliente119358627-> Nodo1661081225
+{rank=same;Nodo1661081225,Cliente119358627}
 Nodo1882554559 -> Nodo694316372
 
-Cliente58940486[label="ID: 11
-NombreKarry Sowersby
-Img_C: 2
-Img_BN: 2",fillcolor="#B36AF9",group=2]
-Cliente58940486-> Nodo1882554559
-Nodo230643635[label="IMG C",fillcolor="#81FFDA"]
-Nodo1089418272[label="IMG BN",fillcolor="#81FFDA"]
-Nodo422396878[label="IMG BN",fillcolor="#81FFDA"]
-Nodo230643635 -> Nodo1089418272
-Nodo1089418272 -> Nodo422396878
+Cliente1108924067[label="ID: 32
+NombreTheodora Stebles
+Img_C: 0
+Img_BN: 1",fillcolor="#B36AF9",group=2]
+Cliente1108924067-> Nodo1882554559
+Nodo2073621255[label="IMG BN",fillcolor="#81FFDA"]
 
-Nodo1882554559 -> Nodo230643635
+Nodo1882554559 -> Nodo2073621255
 
-{rank=same;Nodo1882554559,Cliente58940486,Nodo230643635,Nodo1089418272,Nodo422396878}
+{rank=same;Nodo1882554559,Cliente1108924067,Nodo2073621255}
 Nodo694316372 -> Nodo1516500233
 
-Cliente1233990028[label="ID: 13
-NombreEal Ramelot
-Img_C: 0
-Img_BN: 2",fillcolor="#B36AF9",group=3]
-Cliente1233990028-> Nodo694316372
-Nodo944427387[label="IMG BN",fillcolor="#81FFDA"]
-
-Nodo694316372 -> Nodo944427387
-
-{rank=same;Nodo694316372,Cliente1233990028,Nodo944427387}
-Nodo1516500233 -> Nodo1850180796
-
-Cliente1636182655[label="ID: 14
-NombreSheffield Stirton
+{rank=same;Nodo694316372}
+Cliente2088445230[label="ID: 30
+NombreSanderson Lawrenceson
 Img_C: 1
 Img_BN: 2",fillcolor="#B36AF9",group=4]
-Cliente1636182655-> Nodo1516500233
-{rank=same;Nodo1516500233,Cliente1636182655}
-{rank=same;Nodo1850180796}}}
+Cliente2088445230-> Nodo1516500233
+Nodo1208121709[label="IMG C",fillcolor="#81FFDA"]
+Nodo348984985[label="IMG BN",fillcolor="#81FFDA"]
+Nodo129153987[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1208121709 -> Nodo348984985
+Nodo348984985 -> Nodo129153987
+
+Nodo1516500233 -> Nodo1208121709
+
+{rank=same;Nodo1516500233,Cliente2088445230,Nodo1208121709,Nodo348984985,Nodo129153987}}}

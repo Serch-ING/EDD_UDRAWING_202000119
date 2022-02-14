@@ -3,33 +3,63 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Clientes atendidos "
     bgcolor = "#FF7878"
-Nodo365181913[label="
-Nombre: Andres Lopez
-Atendido por ventanilla: 1
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 6",fillcolor="#81FFDA"]
-Nodo875016237[label="
-Nombre: Luiz Higueros
-Atendido por ventanilla: 3
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 6",fillcolor="#81FFDA"]
-Nodo49752459[label="
-Nombre: Astrix Misson
-Atendido por ventanilla: 2
-Numero de imagenes impresas: 1
-Pasos totales en sistema: 5",fillcolor="#81FFDA"]
-Nodo1125736023[label="
+Nodo550402284[label="
 Nombre: Juan Perez
 Atendido por ventanilla: 2
 Numero de imagenes impresas: 3
 Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo1076607567[label="
-Nombre: Travus Rivalant
-Atendido por ventanilla: 2
+Nodo22600334[label="
+Nombre: Karry Meagher
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 2
+Pasos totales en sistema: 8",fillcolor="#81FFDA"]
+Nodo1766505436[label="
+Nombre: Andres Lopez
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 18",fillcolor="#81FFDA"]
+Nodo1364913072[label="
+Nombre: Luiz Higueros
+Atendido por ventanilla: 3
+Numero de imagenes impresas: 3
+Pasos totales en sistema: 20",fillcolor="#81FFDA"]
+Nodo902478634[label="
+Nombre: Sergie Arizandieta
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 2
+Pasos totales en sistema: 21",fillcolor="#81FFDA"]
+Nodo728115831[label="
+Nombre: Dorey Ramelot
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 2
+Pasos totales en sistema: 20",fillcolor="#81FFDA"]
+Nodo1922464006[label="
+Nombre: Reid Stirton
+Atendido por ventanilla: 3
 Numero de imagenes impresas: 1
-Pasos totales en sistema: 5",fillcolor="#81FFDA"]
-Nodo365181913 -> Nodo875016237
-Nodo875016237 -> Nodo49752459
-Nodo49752459 -> Nodo1125736023
-Nodo1125736023 -> Nodo1076607567
+Pasos totales en sistema: 21",fillcolor="#81FFDA"]
+Nodo891093184[label="
+Nombre: Sabrina Misson
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 4
+Pasos totales en sistema: 25",fillcolor="#81FFDA"]
+Nodo1278677872[label="
+Nombre: Haskel Stebles
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 1
+Pasos totales en sistema: 12",fillcolor="#81FFDA"]
+Nodo1427646530[label="
+Nombre: Phylis Rudolf
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 4
+Pasos totales en sistema: 26",fillcolor="#81FFDA"]
+Nodo550402284 -> Nodo22600334
+Nodo22600334 -> Nodo1766505436
+Nodo1766505436 -> Nodo1364913072
+Nodo1364913072 -> Nodo902478634
+Nodo902478634 -> Nodo728115831
+Nodo728115831 -> Nodo1922464006
+Nodo1922464006 -> Nodo891093184
+Nodo891093184 -> Nodo1278677872
+Nodo1278677872 -> Nodo1427646530
 }}
