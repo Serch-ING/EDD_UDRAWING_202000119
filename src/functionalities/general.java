@@ -1,5 +1,7 @@
 package functionalities;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import lists.Circular_Doble_espera;
@@ -7,6 +9,8 @@ import lists.Cola_Print;
 import lists.Simple_Clients_Served;
 
 public class general {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 	public Cola_Print printer_bw = new Cola_Print(1);
 	public Cola_Print printer_color = new Cola_Print(2);
 	public Circular_Doble_espera Waiting_clients = new Circular_Doble_espera();
@@ -85,8 +89,8 @@ public class general {
 			try {
 
 				System.out.println("\n-------------------Menu--------------------\n");
-				System.out.println("1.Ejecutar paso\n2.Estado en memoria de las estructuras\n3.Reportes"
-						+ "\n4.Acerca del estudiante\n5.Salir\n");
+				System.out.println("1.Ejecutar paso\n2.Reportes"
+						+ "\n3.Acerca del estudiante\n4.Salir\n");
 				option = Integer.parseInt(sc.nextLine());
 
 				switch (option) {
@@ -96,27 +100,18 @@ public class general {
 					break;
 
 				case 2:
-					System.out.println("Estado de la estructuras");
-					Clients_Served.openimg();
-					Waiting_clients.openimg();
-					Data.Simpe_Ventanas.openimg();
-					Data.Cola_Recepcion.openimg();
-					printer_bw.openimg();
-					printer_color.openimg();
+					Menu_Reportes();
 					break;
 
 				case 3:
-					System.out.println("Reportes");
-					break;
-
-				case 4:
 					System.out.println("========= Acerca de datos del estudiante =========");
 					System.out.println("Universidad de San Carlos de Guatemala");
 					System.out.println("Facultad de Ingenieria\nEscuela de Ciencias y Sistemas");
 					System.out.println("\nNombre:Sergie Daniel Arizandieta Yol\nCarnet:202000119");
 					break;
-				case 5:
-					System.out.println("Salir");
+
+				case 4:
+					System.out.println("Gracias por usar");
 					System.exit(1);
 					break;
 
@@ -131,6 +126,89 @@ public class general {
 
 			}
 
-		} while (option != 5);
+		} while (option != 4);
+	}
+	
+	
+	public Boolean isNum(String data) {
+		try {
+			Integer ruta = Integer.valueOf(data);
+			return true;
+		} catch (Exception e) {
+			System.out.println("Ocurrio un error en el tipo de dato");
+			return false;
+		}
+	}
+	
+	public void Menu_Reportes() {
+		int option = 0;
+		Simple_Clients_Served Clients_Served_Reports = new Simple_Clients_Served();
+		Clients_Served_Reports.clonacion(Clients_Served);
+		do {
+
+			try {
+
+				System.out.println("\n---------------Menu Reportes----------------\n");
+				System.out.println("1.Visualizacion de estructuras\n\nDatos Generados:"
+						+ "\n\t2.Top 5 de clientes con mayor cantidad de imágenes a color.\r\n"
+						+ "\t3.Top 5 de clientes con menor cantidad de imágenes en blanco y negro.\r\n"
+						+ "\t4.Información del cliente que más pasos estuvo en el sistema.\r\n"
+						+ "\t5.Datos de un cliente en específico\n"
+						+ "\t6.Regresar al Menu principal\n");
+				option = Integer.parseInt(sc.nextLine());
+
+				switch (option) {
+				case 1:
+					System.out.println("Estado de la estructuras");
+					Clients_Served.openimg();
+					Waiting_clients.openimg();
+					Data.Simpe_Ventanas.openimg();
+					Data.Cola_Recepcion.openimg();
+					printer_bw.openimg();
+					printer_color.openimg();
+					break;
+
+				case 2:
+					
+					Clients_Served_Reports.SortASC_Color();
+					Clients_Served_Reports.Draw_GraphizReport("Top 5 de clientes con mayor cantidad de imágenes a color",5,2);
+					break;
+
+				case 3:
+					
+					Clients_Served_Reports.SortDesc_BW();
+					Clients_Served_Reports.Draw_GraphizReport("Top 5 de clientes con menor cantidad de imágenes en blanco y negro.",5,3);
+					break;
+
+				case 4:
+					Clients_Served_Reports.SortASC_Steps();
+					Clients_Served_Reports.Draw_GraphizReport("Información del cliente que más pasos estuvo en el sistema.",1,4);
+					break;
+				case 5:
+					System.out.println("Ingrese el ID del cliente a buscar");
+					String IDClient = br.readLine();
+					if(isNum(IDClient)) {
+						Clients_Served_Reports.Search(Integer.valueOf(IDClient));
+					}else {
+						System.out.println("No se ingreso un numero");
+					}
+					
+					break;
+				case 6:
+					Menu();
+					break;
+
+				default:
+					System.out.println("Option fuera de los parametros\n");
+					break;
+				}
+
+			} catch (Exception e) {
+				option = 0;
+				System.out.println("No se ingrso un numero\n");
+
+			}
+
+		} while (option != 6);
 	}
 }

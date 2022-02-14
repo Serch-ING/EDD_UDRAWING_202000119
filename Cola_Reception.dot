@@ -3,28 +3,113 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola Recepcion "
     bgcolor = "#FF7878"
-Nodo203849460[label="ID: 4
-Nombre: Astrix Ickovits
+Nodo574434418[label="ID: 34
+Nombre: Helli Sowersby
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1546908073[label="ID: 35
+Nombre: Glenn Peever
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo371439501[label="ID: 36
+Nombre: Edwina Killby
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo210506412[label="ID: 37
+Nombre: Sheffield Ramelot
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1617550160[label="ID: 38
+Nombre: Karry Aldin
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1325124186[label="ID: 39
+Nombre: Edwina Killby
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo461160828[label="ID: 40
+Nombre: Ludvig Rudolf
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1954406292[label="ID: 41
+Nombre: Karry Bagshawe
 Img_C: 1
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1058634310[label="ID: 5
-Nombre: Dorey Sindell
+Nodo904058452[label="ID: 42
+Nombre: Sheffield Selvester
 Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1668016508[label="ID: 6
-Nombre: Astrix Meagher
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1961945640[label="ID: 43
+Nombre: Fidelity Flanagan
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo708533063[label="ID: 44
+Nombre: Haskel Killby
 Img_C: 0
-Img_BN: 4",fillcolor="#81FFDA"]
-Nodo1353070773[label="ID: 7
-Nombre: Travus McElrath
-Img_C: 1
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo388357135[label="ID: 8
-Nombre: Sanderson Sowersby
+Nodo1438030319[label="ID: 45
+Nombre: Paulette Misson
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo902830499[label="ID: 46
+Nombre: Helli Bagshawe
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo807657332[label="ID: 47
+Nombre: Adlai Rudolf
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo825936265[label="ID: 48
+Nombre: Travus McCafferky
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1164107853[label="ID: 49
+Nombre: Zeke Plummer
 Img_C: 0
 Img_BN: 3",fillcolor="#81FFDA"]
-Nodo203849460 -> Nodo1058634310
-Nodo1058634310 -> Nodo1668016508
-Nodo1668016508 -> Nodo1353070773
-Nodo1353070773 -> Nodo388357135
+Nodo709865851[label="ID: 50
+Nombre: Lorene Stebles
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1550207152[label="ID: 51
+Nombre: Sheffield Stirton
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1864230087[label="ID: 52
+Nombre: Helli Fust
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1280851663[label="ID: 53
+Nombre: Karry Korneichik
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo846254484[label="ID: 54
+Nombre: Paulette Misson
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo592983282[label="ID: 55
+Nombre: Theodora Bagshawe
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo574434418 -> Nodo1546908073
+Nodo1546908073 -> Nodo371439501
+Nodo371439501 -> Nodo210506412
+Nodo210506412 -> Nodo1617550160
+Nodo1617550160 -> Nodo1325124186
+Nodo1325124186 -> Nodo461160828
+Nodo461160828 -> Nodo1954406292
+Nodo1954406292 -> Nodo904058452
+Nodo904058452 -> Nodo1961945640
+Nodo1961945640 -> Nodo708533063
+Nodo708533063 -> Nodo1438030319
+Nodo1438030319 -> Nodo902830499
+Nodo902830499 -> Nodo807657332
+Nodo807657332 -> Nodo825936265
+Nodo825936265 -> Nodo1164107853
+Nodo1164107853 -> Nodo709865851
+Nodo709865851 -> Nodo1550207152
+Nodo1550207152 -> Nodo1864230087
+Nodo1864230087 -> Nodo1280851663
+Nodo1280851663 -> Nodo846254484
+Nodo846254484 -> Nodo592983282
 }}

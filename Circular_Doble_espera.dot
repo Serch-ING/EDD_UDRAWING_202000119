@@ -3,20 +3,162 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo568221876[label="ID: 2
-NombreJuan Perez
+Nodo306115458[label="ID: 10
+NombreAdlai Bagshawe
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1390869998[label="ID: 12
+NombreMarylynne Meagher
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1820383114[label="ID: 11
+NombreSheffield Bagshawe
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1961173763[label="ID: 13
+NombreEllsworth Peever
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo771775563[label="ID: 14
+NombreZachary Korneichik
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo7967307[label="ID: 15
+NombreKarry Korneichik
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo232307208[label="ID: 17
+NombreDelora Leon
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo609962972[label="ID: 16
+NombreHaskel Flanagan
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo489349054[label="ID: 19
+NombreLudvig Selvester
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo915416632[label="ID: 20
+NombreMarylynne Montague
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo2131670196[label="ID: 21
+NombreMarylynne Scading
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1536031937[label="ID: 24
+NombreZeke Meagher
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo798981583[label="ID: 22
+NombreRandi Lawrenceson
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1793799654[label="ID: 23
+NombreMarylynne Dimbylow
 Img_C: 3
 Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1585635178[label="ID: 3
-NombreLuiz Higueros
+Nodo310623126[label="ID: 25
+NombreZachary Rudolf
 Img_C: 0
-Img_BN: 2",fillcolor="#81FFDA"]
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo341796579[label="ID: 26
+NombreEdwina Meneghelli
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1297978429[label="ID: 27
+NombreLudvig Rivalant
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo915349526[label="ID: 29
+NombrePhylis Peever
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo2005435445[label="ID: 31
+NombreSheffield Lawrenceson
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1939990953[label="ID: 28
+NombreDavina Vittore
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
 
-Nodo568221876 -> Nodo1585635178
-Nodo568221876->Nodo56822187611111
-Nodo56822187611111[label="IMG C",fillcolor="#C388FC"]
-{rank=same;Nodo568221876,Nodo56822187611111}
-Nodo1585635178 -> Nodo568221876
-Nodo1585635178->Nodo158563517800001
-Nodo158563517800001[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo1585635178,Nodo158563517800001}}}
+Nodo306115458 -> Nodo1390869998
+Nodo306115458->Nodo30611545800001
+Nodo30611545800001[label="IMG BN",fillcolor="#C388FC"]Nodo30611545800001->Nodo30611545800002
+Nodo30611545800002[label="IMG BN",fillcolor="#C388FC"]
+Nodo30611545800002->Nodo30611545811111
+Nodo30611545811111[label="IMG C",fillcolor="#C388FC"]
+{rank=same;Nodo306115458,Nodo30611545800001,Nodo30611545800002,Nodo30611545811111}
+Nodo1390869998 -> Nodo1820383114
+Nodo1390869998->Nodo139086999800001
+Nodo139086999800001[label="IMG BN",fillcolor="#C388FC"]Nodo139086999800001->Nodo139086999800002
+Nodo139086999800002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1390869998,Nodo139086999800001,Nodo139086999800002}
+Nodo1820383114 -> Nodo1961173763
+Nodo1820383114->Nodo182038311400001
+Nodo182038311400001[label="IMG BN",fillcolor="#C388FC"]Nodo182038311400001->Nodo182038311400002
+Nodo182038311400002[label="IMG BN",fillcolor="#C388FC"]Nodo182038311400002->Nodo182038311400003
+Nodo182038311400003[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1820383114,Nodo182038311400001,Nodo182038311400002,Nodo182038311400003}
+Nodo1961173763 -> Nodo771775563
+Nodo1961173763->Nodo196117376300001
+Nodo196117376300001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1961173763,Nodo196117376300001}
+Nodo771775563 -> Nodo7967307
+Nodo771775563->Nodo77177556300001
+Nodo77177556300001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo771775563,Nodo77177556300001}
+Nodo7967307 -> Nodo232307208
+Nodo7967307->Nodo796730700001
+Nodo796730700001[label="IMG BN",fillcolor="#C388FC"]Nodo796730700001->Nodo796730700002
+Nodo796730700002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo7967307,Nodo796730700001,Nodo796730700002}
+Nodo232307208 -> Nodo609962972
+Nodo232307208->Nodo23230720800001
+Nodo23230720800001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo232307208,Nodo23230720800001}
+Nodo609962972 -> Nodo489349054
+Nodo609962972->Nodo60996297200001
+Nodo60996297200001[label="IMG BN",fillcolor="#C388FC"]Nodo60996297200001->Nodo60996297200002
+Nodo60996297200002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo609962972,Nodo60996297200001,Nodo60996297200002}
+Nodo489349054 -> Nodo915416632
+Nodo489349054->Nodo48934905400001
+Nodo48934905400001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo489349054,Nodo48934905400001}
+Nodo915416632 -> Nodo2131670196
+Nodo915416632->Nodo91541663200001
+Nodo91541663200001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo915416632,Nodo91541663200001}
+Nodo2131670196 -> Nodo1536031937
+
+{rank=same;Nodo2131670196}
+Nodo1536031937 -> Nodo798981583
+
+{rank=same;Nodo1536031937}
+Nodo798981583 -> Nodo1793799654
+
+{rank=same;Nodo798981583}
+Nodo1793799654 -> Nodo310623126
+
+{rank=same;Nodo1793799654}
+Nodo310623126 -> Nodo341796579
+
+{rank=same;Nodo310623126}
+Nodo341796579 -> Nodo1297978429
+
+{rank=same;Nodo341796579}
+Nodo1297978429 -> Nodo915349526
+
+{rank=same;Nodo1297978429}
+Nodo915349526 -> Nodo2005435445
+
+{rank=same;Nodo915349526}
+Nodo2005435445 -> Nodo1939990953
+
+{rank=same;Nodo2005435445}
+Nodo1939990953 -> Nodo306115458
+
+{rank=same;Nodo1939990953}}}

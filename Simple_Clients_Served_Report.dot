@@ -1,0 +1,10 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= "Información del cliente que más pasos estuvo en el sistema."
+    bgcolor = "#FF7878"
+Nodo2020152163[label="
+ID: 8
+Nombre: Phylis Rudolf
+Pasos en sistema: 26",fillcolor="#81FFDA"]
+}}
