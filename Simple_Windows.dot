@@ -3,45 +3,10 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
-Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
-Nodo694316372[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
-Nodo1516500233[label="Ventanillas: 4",fillcolor="#81FFDA",group=4]
+Nodo1882554559[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo1049817027[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 
-Nodo1661081225 -> Nodo1882554559
+Nodo1882554559 -> Nodo1049817027
 
-Cliente119358627[label="ID: 33
-NombreSanderson Liepmann
-Img_C: 2
-Img_BN: 1",fillcolor="#B36AF9",group=1]
-Cliente119358627-> Nodo1661081225
-{rank=same;Nodo1661081225,Cliente119358627}
-Nodo1882554559 -> Nodo694316372
-
-Cliente1108924067[label="ID: 32
-NombreTheodora Stebles
-Img_C: 0
-Img_BN: 1",fillcolor="#B36AF9",group=2]
-Cliente1108924067-> Nodo1882554559
-Nodo2073621255[label="IMG BN",fillcolor="#81FFDA"]
-
-Nodo1882554559 -> Nodo2073621255
-
-{rank=same;Nodo1882554559,Cliente1108924067,Nodo2073621255}
-Nodo694316372 -> Nodo1516500233
-
-{rank=same;Nodo694316372}
-Cliente2088445230[label="ID: 30
-NombreSanderson Lawrenceson
-Img_C: 1
-Img_BN: 2",fillcolor="#B36AF9",group=4]
-Cliente2088445230-> Nodo1516500233
-Nodo1208121709[label="IMG C",fillcolor="#81FFDA"]
-Nodo348984985[label="IMG BN",fillcolor="#81FFDA"]
-Nodo129153987[label="IMG BN",fillcolor="#81FFDA"]
-Nodo1208121709 -> Nodo348984985
-Nodo348984985 -> Nodo129153987
-
-Nodo1516500233 -> Nodo1208121709
-
-{rank=same;Nodo1516500233,Cliente2088445230,Nodo1208121709,Nodo348984985,Nodo129153987}}}
+{rank=same;Nodo1882554559}
+{rank=same;Nodo1049817027}}}

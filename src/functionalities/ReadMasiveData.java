@@ -28,7 +28,7 @@ public class ReadMasiveData {
 	//welcom message
 	public void welcome() {
 		System.out.println(
-				"====Bienvenido a UDRAWING====\nAntes de iniciar la simulació se debe agregar los paramtros iniciales:"
+				"====Bienvenido a UDRAWING====\nAntes de iniciar la simulación se debe agregar los parametros iniciales:"
 						+ "\n•Carga masiva de clientes\r\n" + "•Cantidad de ventanillas");
 		Load_json();
 		load_windows();
