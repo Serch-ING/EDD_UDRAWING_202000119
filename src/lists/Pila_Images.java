@@ -1,13 +1,13 @@
 package lists;
-
+//list of images
 public class Pila_Images {
 
 	Nodo_Pila_Imgs primero;
-
+	//contructor
 	public Pila_Images() {
 		this.primero = null;
 	}
-
+	//add new data to the list
 	public void Push(int ClienteId, Boolean LlevaColor) {
 		Nodo_Pila_Imgs new_node = new Nodo_Pila_Imgs(ClienteId, LlevaColor);
 		if (isNone()) {
@@ -17,11 +17,13 @@ public class Pila_Images {
 			this.primero = new_node;
 		}
 	}
-
+	
+	//show the first data
 	public void Peek() {
 		System.out.println(this.primero.ClienteId);
 	}
 
+	//show all the list
 	public void showList() {
 		if (isNone() == false) {
 			Nodo_Pila_Imgs actual = this.primero;
@@ -31,7 +33,8 @@ public class Pila_Images {
 			}
 		}
 	}
-	
+		
+	//creste the text od graphivz
 	public String Text_Graphivz() {
 		StringBuilder dot = new StringBuilder();
 		String rank="";
@@ -56,7 +59,7 @@ public class Pila_Images {
 		return dot.toString();
 	}
 	
-	
+	//add the segment rank of text graphviz
 	public String Text_Graphivz_rank() {
 		String rank ="";
 		if (isNone() == false) {
@@ -69,6 +72,7 @@ public class Pila_Images {
 		return rank;
 	}
 
+	//get ot the list with old funcionality
 	public void Pop_last() {
 		if (isNone()) {
 			//System.out.println("cola vacia");
@@ -79,6 +83,7 @@ public class Pila_Images {
 		}
 	}
 
+	//geo out the list new funcionality
 	public void Pop() {
 		if (isNone()) {
 			System.out.println("cola vacia");
@@ -89,6 +94,7 @@ public class Pila_Images {
 		}
 	}
 
+	//send data to de printer
 	public void Pop_to_printer(Nodo_Simple_Windows windown,Cola_Print bw, Cola_Print color) {
 		if (isNone()) {
 			System.out.println("cola vacia");
@@ -112,7 +118,7 @@ public class Pila_Images {
 			//color.showList();
 		}
 	}
-
+	//verify is none
 	public Boolean isNone() {
 		return this.primero == null;
 	}
@@ -126,14 +132,14 @@ public class Pila_Images {
 	 * data); } } }
 	 */
 }
-
+//node of list
 class Nodo_Pila_Imgs {
 
 	Nodo_Pila_Imgs next;
 	int ClienteId;
 	Boolean LlevaColor;
 	// Color = True, BW = false
-
+	//constructor
 	public Nodo_Pila_Imgs(int ClienteId, Boolean LlevaColor) {
 		this.next = null;
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import object.client;
-
+//list of client served
 public class Simple_Clients_Served {
 
 	Nodo_Simple_Client_Served primero;
@@ -13,7 +13,7 @@ public class Simple_Clients_Served {
 	public Simple_Clients_Served() {
 		this.primero = null;
 	}
-
+	//insert new data
 	public void insert(client info) {//log_2(n)
 		Nodo_Simple_Client_Served new_node = new Nodo_Simple_Client_Served(info);
 		if (isNone()) {
@@ -27,6 +27,7 @@ public class Simple_Clients_Served {
 		}
 	}
 	
+	//clonate the list
 	public void clonacion(Simple_Clients_Served Lista) { 
 		Nodo_Simple_Client_Served actual_aclonar = Lista.primero;
 		
@@ -35,7 +36,7 @@ public class Simple_Clients_Served {
 			actual_aclonar = actual_aclonar.next;
 		}
 }
-
+	//show the list
 	public void showList() {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
@@ -47,7 +48,8 @@ public class Simple_Clients_Served {
 			}
 		}
 	}
-
+	
+	//search a specific data in the list
 	public void Search(int ClientId) {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
@@ -68,11 +70,13 @@ public class Simple_Clients_Served {
 			openimg();
 		}
 	}
-
+	
+	//verify if the list is null
 	public Boolean isNone() {
 		return this.primero == null;
 	}
 	
+	//create the graphivz texet
 	public String Text_Graphivz() {
 		StringBuilder dot = new StringBuilder();
 		dot.append("digraph L {\n");
@@ -101,6 +105,7 @@ public class Simple_Clients_Served {
 		return dot.toString();
 	}
 
+	//create the dot file
 	private void Create_File(String route, String contents) {
 
 		FileWriter fw = null;
@@ -119,7 +124,8 @@ public class Simple_Clients_Served {
 		}
 
 	}
-
+	
+	//draw the graph
 	public void Draw_Graphiz() {
 
 		try {
@@ -148,6 +154,7 @@ public class Simple_Clients_Served {
 		
 	}
 	
+	//open the graph
 	public void openimg() {
 		try {
 			String url = "Simple_Clients_Served.png";
@@ -160,7 +167,8 @@ public class Simple_Clients_Served {
 		}
 
 	}
-
+	
+	//sort ascedent by the majot num of steps
 	public void SortASC_Steps() {
 		if (isNone() == false) {
 
@@ -190,6 +198,7 @@ public class Simple_Clients_Served {
 		}
 	}
 
+	//sort the list in decedent by the no of imges blank and white
 	public void SortDesc_BW() {
 
 		if (isNone() == false) {
@@ -219,6 +228,7 @@ public class Simple_Clients_Served {
 		}
 	}
 
+	//sort the list ascedent by the num of images color printed
 	public void  SortASC_Color() {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
@@ -246,7 +256,7 @@ public class Simple_Clients_Served {
 		}
 	}
 	
-	
+	//creaste the text of graphivz
 	public String Text_Graphivz_Report(String tipo,int cantidad,int option) {
 		int counter=0;
 		StringBuilder dot = new StringBuilder();
@@ -295,7 +305,7 @@ public class Simple_Clients_Served {
 		return dot.toString();
 	}
 	
-
+	//draw the graph searching a specific data
 	public void Draw_GraphizReport_serching(client cliente,int id) {
 		try {
 		String graph = "digraph L {\r\n"
@@ -334,7 +344,7 @@ public class Simple_Clients_Served {
 	}
 
 }
-	
+	//open the graph with the data serched
 	public void openimgReportSerching() {
 		try {
 			String url = "Simple_Clients_Served_Report_Searc.png";
@@ -348,6 +358,7 @@ public class Simple_Clients_Served {
 
 	}
 	
+	//draw the graph of report
 	public void Draw_GraphizReport(String tipo,int repetir,int option) {
 
 		try {
@@ -379,7 +390,7 @@ public class Simple_Clients_Served {
 			e.printStackTrace();
 		}	
 	}
-	
+	//open graph of report
 	public void openimgReport() {
 		try {
 			String url = "Simple_Clients_Served_Report.png";
@@ -394,12 +405,12 @@ public class Simple_Clients_Served {
 	}
 
 }
-
+	//node of list
 	class Nodo_Simple_Client_Served {
 
 		Nodo_Simple_Client_Served next;
 		client cliente;
-
+		//contrductor
 		public Nodo_Simple_Client_Served(client cliente) {
 			this.next = null;
 			this.cliente = cliente;

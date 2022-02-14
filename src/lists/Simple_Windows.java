@@ -8,15 +8,16 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 import functionalities.general;
-
+//list of windows
 public class Simple_Windows {
 
 	Nodo_Simple_Windows primero;
-
+	//contructor
 	public Simple_Windows() {
 		this.primero = null;
 	}
-
+	
+	//insert new data
 	public void insert(int info) {
 		Nodo_Simple_Windows new_node = new Nodo_Simple_Windows(info);
 		if (isNone()) {
@@ -26,7 +27,8 @@ public class Simple_Windows {
 			this.primero = new_node;
 		}
 	}
-
+	
+	//show the list
 	public void showList() {
 		if (isNone() == false) {
 			Nodo_Simple_Windows actual = this.primero;
@@ -37,6 +39,7 @@ public class Simple_Windows {
 		}
 	}
 
+	//recolect the imges of clients
 	public void recolect_img(Cola_Print bw, Cola_Print color, Circular_Doble_espera Waiting_clients) {
 		if (isNone() == false) {
 			Nodo_Simple_Windows actual = this.primero;
@@ -48,7 +51,8 @@ public class Simple_Windows {
 			}
 		}
 	}
-
+	
+	//giving correspond image to the client
 	public void takeimg_client(Nodo_Simple_Windows windown, Cola_Print bw, Cola_Print color,Circular_Doble_espera Waiting_clients) {
 		if (windown.cliente.img_bw > 0) {
 			windown.cliente.img_bw -= 1;
@@ -68,17 +72,20 @@ public class Simple_Windows {
 			}
 		}
 	}
-
+	
+	//send img to the printer
 	public void Imgs_to_printer(Nodo_Simple_Windows windown, Cola_Print bw, Cola_Print color) {
 		windown.PilaImg.Pop_to_printer(windown,bw, color);
 	}
 
+	//send the cliend wait
 	public void Clien__waiting(client cliente,Circular_Doble_espera Waiting_clients) {
 		System.out.println("Cliente: " + cliente.id + " Esperando sus imagenes");
 		Waiting_clients.insert(cliente);
 		//Waiting_clients.showList();
 	}
-
+	
+	//insert a new client
 	public void insert_client(client cliente,int pasos) {
 
 		Nodo_Simple_Windows actual = this.primero;
@@ -96,6 +103,7 @@ public class Simple_Windows {
 
 	}
 
+	//search if is posible add a client
 	public Boolean Search_disposition() {
 		if (isNone() == false) {
 			Nodo_Simple_Windows actual = this.primero;
@@ -129,12 +137,13 @@ public class Simple_Windows {
 	 * System.out.println("Se elimino el dato: " + data); } else {
 	 * System.out.println("No se encontro el dato a eliminar: " + data); } } }
 	 */
-
+	
+	//verify if the list isnull
 	public Boolean isNone() {
 		return this.primero == null;
 	}
-	
-	
+		
+	//create the text of graphivz
 	public String Text_Graphivz() {
 		StringBuilder dot = new StringBuilder();
 		dot.append("digraph L {\n");
@@ -187,7 +196,8 @@ public class Simple_Windows {
 
 		return dot.toString();
 	}
-
+	
+	//create the dot file
 	private void Create_File(String route, String contents) {
 
 		FileWriter fw = null;
@@ -206,7 +216,8 @@ public class Simple_Windows {
 		}
 
 	}
-
+	
+	//draw the graph
 	public void Draw_Graphiz() {
 
 		try {
@@ -222,7 +233,8 @@ public class Simple_Windows {
 			e.printStackTrace();
 		}
 	}
-	
+		
+	//open the graph
 	public void openimg() {
 		try {
 			String url = "Simple_Windows.png";
@@ -237,15 +249,14 @@ public class Simple_Windows {
 	}
 }
 
-	
-
+//node of the list
 class Nodo_Simple_Windows {
 
 	public Nodo_Simple_Windows next;
 	public int noVentanilla;
 	public client cliente;
 	public Pila_Images PilaImg = new Pila_Images();
-
+	//constructor
 	public Nodo_Simple_Windows(int noVentanilla) {
 		this.next = null;
 		this.noVentanilla = noVentanilla;

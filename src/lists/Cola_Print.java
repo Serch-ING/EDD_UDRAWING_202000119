@@ -3,18 +3,19 @@ package lists;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.concurrent.ThreadLocalRandom;
-
+//list if impresor
 public class Cola_Print {
 	public static ThreadLocalRandom tlr = ThreadLocalRandom.current();
 
 	Nodo_Cola_Print primero;
 	public int pasosTotales;
-
+	//contructor
 	public Cola_Print(int pasosTotales) {
 		this.primero = null;
 		this.pasosTotales = pasosTotales;
 	}
-
+	
+	//add new data
 	public void enqueue(int id_cliente) {
 
 		Nodo_Cola_Print new_node = new Nodo_Cola_Print(id_cliente);
@@ -31,7 +32,8 @@ public class Cola_Print {
 			actual.next = new_node;
 		}
 	}
-
+	
+	//print img
 	public void printing(Circular_Doble_espera Waiting_clients) {
 		if (isNone() == false) {
 			this.primero.pasos += 1;
@@ -52,6 +54,7 @@ public class Cola_Print {
 		}
 	}
 
+	//get out the list
 	public void Dequeue_last() {
 		if (isNone()) {
 			// System.out.println("cola vacia");
@@ -62,12 +65,14 @@ public class Cola_Print {
 		}
 
 	}
-
+	
+	//show the top data
 	public void Peek() {
 		System.out.println(this.primero.id_cliente);
 
 	}
 
+	//deledt top data
 	public void Dequeue() {
 		Nodo_Cola_Print anterior = this.primero;
 		this.primero = this.primero.next;
@@ -78,7 +83,8 @@ public class Cola_Print {
 	 * public Boolean Dequeue_posibility() { if (isNone() == true) {
 	 * System.out.println("cola vacia"); return false; } else { return true; } }
 	 */
-
+	
+	//show the list
 	public void showList() {
 		if (isNone() == false) {
 			Nodo_Cola_Print actual = this.primero;
@@ -95,7 +101,8 @@ public class Cola_Print {
 			}
 		}
 	}
-
+	
+	//cresate the text of graphiz
 	public String Text_Graphivz() {
 		StringBuilder dot = new StringBuilder();
 		dot.append("digraph L {\n");
@@ -139,7 +146,8 @@ public class Cola_Print {
 
 		return dot.toString();
 	}
-
+	
+	//create the dot file
 	private void Create_File(String route, String contents) {
 
 		FileWriter fw = null;
@@ -158,7 +166,8 @@ public class Cola_Print {
 		}
 
 	}
-
+	
+	//draw the graph
 	public void Draw_Graphiz() {
 
 		try {
@@ -178,7 +187,8 @@ public class Cola_Print {
 			e.printStackTrace();
 		}
 	}
-
+	
+	//show the graph
 	public void openimg() {
 		try {
 			String url = "";
@@ -219,17 +229,19 @@ public class Cola_Print {
 	 * System.out.println("Se elimino el dato: " + data); } else {
 	 * System.out.println("No se encontro el dato a eliminar: " + data); } } }
 	 */
-
+	
+	//verify its none
 	public Boolean isNone() {
 		return this.primero == null;
 	}
-
+	
+	//node of the list
 	public class Nodo_Cola_Print {
 
 		public Nodo_Cola_Print next;
 		public int id_cliente;
 		public int pasos;
-
+		//contructor
 		public Nodo_Cola_Print(int id_cliente) {
 			this.next = null;
 			this.id_cliente = id_cliente;

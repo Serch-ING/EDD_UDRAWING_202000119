@@ -4,7 +4,7 @@ import functionalities.general;
 import lists.*;
 
 public class main {
-
+	//Start application
 	public static void main(String[] args) {
 		try {
 			general global = new general();

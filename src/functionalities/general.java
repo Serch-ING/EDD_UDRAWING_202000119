@@ -21,6 +21,7 @@ public class general {
 	Scanner sc = new Scanner(System.in);
 	ReadMasiveData Data = new ReadMasiveData();
 
+	//start application draw graph initial state
 	public void inicializar() {
 		Data.welcome();
 		// Data.Cola_Recepcion.showList();
@@ -38,6 +39,7 @@ public class general {
 		// Realizar_Paso();
 	}
 
+	//do the next step
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
@@ -62,10 +64,12 @@ public class general {
 		
 	}
 
+	//add a ramdom person to list reception
 	public void Random_a_cola() {
 		Data.Cola_Recepcion.Generate_Random();
 	}
 
+	//magnement of windows
 	public void window_magnament() {
 		Data.Simpe_Ventanas.recolect_img(printer_bw, printer_color,Waiting_clients);
 
@@ -76,11 +80,13 @@ public class general {
 
 	}
 
+	//printing images
 	public void printing() {
 		printer_bw.printing(Waiting_clients);
 		printer_color.printing(Waiting_clients);
 	}
 
+	//main menu
 	public void Menu() {
 		int option = 0;
 
@@ -129,7 +135,6 @@ public class general {
 		} while (option != 4);
 	}
 	
-	
 	public Boolean isNum(String data) {
 		try {
 			Integer ruta = Integer.valueOf(data);
@@ -140,6 +145,7 @@ public class general {
 		}
 	}
 	
+	//report menu
 	public void Menu_Reportes() {
 		int option = 0;
 		Simple_Clients_Served Clients_Served_Reports = new Simple_Clients_Served();
