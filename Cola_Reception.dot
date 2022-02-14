@@ -3,18 +3,153 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola Recepcion "
     bgcolor = "#FF7878"
-Nodo1516500233[label="ID: 1
-Nombre: Andres Lopez
+Nodo1668016508[label="ID: 16
+Nombre: Karry Sindell
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1336735375[label="ID: 17
+Nombre: Adlai Dimbylow
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1984990929[label="ID: 18
+Nombre: Brady Ramelot
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1105423942[label="ID: 19
+Nombre: Karry Dimbylow
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo558216562[label="ID: 20
+Nombre: Marylynne Ickovits
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo667821226[label="ID: 21
+Nombre: Zeke Aldin
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1209702763[label="ID: 22
+Nombre: Reid Rivalant
 Img_C: 1
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1850180796[label="ID: 2
-Nombre: Juan Perez
-Img_C: 3
+Nodo1028780142[label="ID: 23
+Nombre: Zeke Fust
+Img_C: 2
 Img_BN: 0",fillcolor="#81FFDA"]
-Nodo884452399[label="ID: 3
-Nombre: Luiz Higueros
+Nodo105374791[label="ID: 24
+Nombre: Astrix Sindell
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1107024580[label="ID: 25
+Nombre: Davina Korneichik
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1010856212[label="ID: 26
+Nombre: Travus Bricknall
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo411506101[label="ID: 27
+Nombre: Dorey Leon
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo514455215[label="ID: 28
+Nombre: Ellsworth McCafferky
 Img_C: 0
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1516500233 -> Nodo1850180796
-Nodo1850180796 -> Nodo884452399
+Nodo58940486[label="ID: 29
+Nombre: Dannel Selvester
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo501107890[label="ID: 30
+Nombre: Zachary Aldin
+Img_C: 0
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1449263511[label="ID: 31
+Nombre: Reid Stebles
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo422396878[label="ID: 32
+Nombre: Helli Lawrenceson
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1912962767[label="ID: 33
+Nombre: Sanderson McElrath
+Img_C: 0
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1201484275[label="ID: 34
+Nombre: Haskel Korneichik
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1089418272[label="ID: 35
+Nombre: Davina Rivalant
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1509791656[label="ID: 36
+Nombre: Astrix Ramelot
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo257608164[label="ID: 37
+Nombre: Glenn Pinnion
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo306115458[label="ID: 38
+Nombre: Sheffield Killby
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1122606666[label="ID: 39
+Nombre: Haskel Rudolf
+Img_C: 0
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo2141817446[label="ID: 40
+Nombre: Travus Sowersby
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo369049246[label="ID: 41
+Nombre: Stu Korneichik
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1021436681[label="ID: 42
+Nombre: Karry Montague
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1202683709[label="ID: 43
+Nombre: Adlai Vittore
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo2087885397[label="ID: 44
+Nombre: Godiva Montague
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo530737374[label="ID: 45
+Nombre: Marylynne Gange
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1668016508 -> Nodo1336735375
+Nodo1336735375 -> Nodo1984990929
+Nodo1984990929 -> Nodo1105423942
+Nodo1105423942 -> Nodo558216562
+Nodo558216562 -> Nodo667821226
+Nodo667821226 -> Nodo1209702763
+Nodo1209702763 -> Nodo1028780142
+Nodo1028780142 -> Nodo105374791
+Nodo105374791 -> Nodo1107024580
+Nodo1107024580 -> Nodo1010856212
+Nodo1010856212 -> Nodo411506101
+Nodo411506101 -> Nodo514455215
+Nodo514455215 -> Nodo58940486
+Nodo58940486 -> Nodo501107890
+Nodo501107890 -> Nodo1449263511
+Nodo1449263511 -> Nodo422396878
+Nodo422396878 -> Nodo1912962767
+Nodo1912962767 -> Nodo1201484275
+Nodo1201484275 -> Nodo1089418272
+Nodo1089418272 -> Nodo1509791656
+Nodo1509791656 -> Nodo257608164
+Nodo257608164 -> Nodo306115458
+Nodo306115458 -> Nodo1122606666
+Nodo1122606666 -> Nodo2141817446
+Nodo2141817446 -> Nodo369049246
+Nodo369049246 -> Nodo1021436681
+Nodo1021436681 -> Nodo1202683709
+Nodo1202683709 -> Nodo2087885397
+Nodo2087885397 -> Nodo530737374
 }}
