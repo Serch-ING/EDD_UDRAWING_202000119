@@ -157,7 +157,7 @@ public class Simple_Clients_Served {
 
 	}
 
-	public void SortASC_Color() {
+	public void SortASC_Steps() {
 		if (isNone() == false) {
 
 			Nodo_Simple_Client_Served actual = this.primero;
@@ -213,7 +213,7 @@ public class Simple_Clients_Served {
 		}
 	}
 
-	public void SortASC_Steps() {
+	public void  SortASC_Color() {
 		if (isNone() == false) {
 			Nodo_Simple_Client_Served actual = this.primero;
 			Nodo_Simple_Client_Served pivot;
@@ -237,6 +237,101 @@ public class Simple_Clients_Served {
 		}else {
 			System.out.println("La lista esta vacia");
 		}
+	}
+	
+	
+	public String Text_Graphivz_Report(String tipo,int cantidad,int option) {
+		int counter=0;
+		StringBuilder dot = new StringBuilder();
+		dot.append("digraph L {\n");
+		dot.append("node[shape=note fillcolor=\"#A181FF\" style =filled]\n");
+		dot.append("subgraph cluster_p{\n");
+		dot.append("    label= \"" +  tipo + "\"\r\n");
+		dot.append("    bgcolor = \"#FF7878\"\n");
+
+		String nombresNodos = "";
+		String conexiones = "";
+		Nodo_Simple_Client_Served aux = this.primero;
+		while (aux != null) {
+			if (counter < cantidad) {
+				String info = "";
+				
+				if(option==2) {
+					info = "\nID: " + aux.cliente.id;
+					info += "\nNombre: " + aux.cliente.name;
+					info += "\nImgenes a color: " + aux.cliente.img_colorTotal;
+
+				}else if (option==3) {
+					info = "\nID: " + aux.cliente.id;
+					info += "\nNombre: " + aux.cliente.name;
+					info += "\nImgenes Blanco y Negro: " + aux.cliente.img_bwTotal;
+				}else if (option==4) {
+					info = "\nID: " + aux.cliente.id;
+					info += "\nNombre: " + aux.cliente.name;
+					info += "\nPasos en sistema: " + (aux.cliente.PasoSalida - aux.cliente.PasoIngresado);
+				}
+				
+				nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\"]\n";
+				if (aux.next != null && (counter +1)<cantidad)
+					conexiones += String.format("Nodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
+				aux = aux.next;
+				counter ++;
+			}else {
+				break;
+			}
+		}
+		dot.append(nombresNodos);
+		dot.append(conexiones);
+
+		dot.append("}}");
+
+		return dot.toString();
+	}
+	
+
+	public void Draw_GraphizReport(String tipo,int repetir,int option) {
+
+		try {
+			if(isNone()) {
+				String graph = "digraph L {\r\n"
+						+ "node[shape=note fillcolor=\"#A181FF\" style =filled]\r\n"
+						+ "subgraph cluster_p{\r\n";
+				
+				
+				graph+= "    label= \"" +  tipo + "\"\r\n";
+				
+				graph+=	"    bgcolor = \"#FF7878\"\r\n"
+						+ "Nodo1008925772[label=\"Vacio\",fillcolor=\"#81FFDA\"]\r\n"
+						+ "\r\n"
+						+ "}}";
+				Create_File("Simple_Clients_Served_Report.dot", graph);
+			}else {
+				Create_File("Simple_Clients_Served_Report.dot", Text_Graphivz_Report(tipo,repetir,option));
+			}
+
+			//System.out.println(Text_Graphivz());
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Simple_Clients_Served_Report.png", "Simple_Clients_Served_Report.dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+			
+			openimgReport();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void openimgReport() {
+		try {
+			String url = "Simple_Clients_Served_Report.png";
+			ProcessBuilder pp = new ProcessBuilder();
+			pp.command("cmd.exe", "/c", url);
+			pp.start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

@@ -3,4 +3,47 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola impresora a Color "
  raiz[label = "Impresora a Color" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo686466458[label="IMG C 
+Id Cliente: 4",fillcolor="#81FFDA"]
+Nodo1642030774[label="IMG C 
+Id Cliente: 5",fillcolor="#81FFDA"]
+Nodo1357563986[label="IMG C 
+Id Cliente: 5",fillcolor="#81FFDA"]
+Nodo384587033[label="IMG C 
+Id Cliente: 5",fillcolor="#81FFDA"]
+Nodo959869407[label="IMG C 
+Id Cliente: 7",fillcolor="#81FFDA"]
+Nodo1449263511[label="IMG C 
+Id Cliente: 7",fillcolor="#81FFDA"]
+Nodo452805835[label="IMG C 
+Id Cliente: 8",fillcolor="#81FFDA"]
+Nodo1769190683[label="IMG C 
+Id Cliente: 8",fillcolor="#81FFDA"]
+Nodo447981768[label="IMG C 
+Id Cliente: 8",fillcolor="#81FFDA"]
+Nodo1932831450[label="IMG C 
+Id Cliente: 10",fillcolor="#81FFDA"]
+Nodo496729294[label="IMG C 
+Id Cliente: 10",fillcolor="#81FFDA"]
+
+raiz->Nodo686466458
+Nodo686466458 -> Nodo1642030774
+
+Nodo1642030774 -> Nodo1357563986
+
+Nodo1357563986 -> Nodo384587033
+
+Nodo384587033 -> Nodo959869407
+
+Nodo959869407 -> Nodo1449263511
+
+Nodo1449263511 -> Nodo452805835
+
+Nodo452805835 -> Nodo1769190683
+
+Nodo1769190683 -> Nodo447981768
+
+Nodo447981768 -> Nodo1932831450
+
+Nodo1932831450 -> Nodo496729294
 }}

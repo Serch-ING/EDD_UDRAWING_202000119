@@ -3,18 +3,43 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola Recepcion "
     bgcolor = "#FF7878"
-Nodo565372776[label="ID: 1
-Nombre: Andres Lopez
-Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1462044018[label="ID: 2
-Nombre: Juan Perez
-Img_C: 3
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1443435931[label="ID: 3
-Nombre: Luiz Higueros
-Img_C: 0
+Nodo1888442711[label="ID: 15
+Nombre: Zeke McElrath
+Img_C: 2
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo565372776 -> Nodo1462044018
-Nodo1462044018 -> Nodo1443435931
+Nodo1780034814[label="ID: 16
+Nombre: Paulette Montague
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1360657223[label="ID: 17
+Nombre: Davina Rivalant
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1905485420[label="ID: 18
+Nombre: Lorene Peever
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1438098656[label="ID: 19
+Nombre: Dorey Vittore
+Img_C: 0
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo858952163[label="ID: 20
+Nombre: Clovis Rivalant
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1509791656[label="ID: 21
+Nombre: Dorey Lawrenceson
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo257608164[label="ID: 22
+Nombre: Ludvig Tayspell
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1888442711 -> Nodo1780034814
+Nodo1780034814 -> Nodo1360657223
+Nodo1360657223 -> Nodo1905485420
+Nodo1905485420 -> Nodo1438098656
+Nodo1438098656 -> Nodo858952163
+Nodo858952163 -> Nodo1509791656
+Nodo1509791656 -> Nodo257608164
 }}

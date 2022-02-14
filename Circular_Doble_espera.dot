@@ -1,8 +1,46 @@
 digraph L {
 node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
-    label= "Lista de Espera"
+    label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo1008925772[label="Vacio",fillcolor="#81FFDA"]
+Nodo1928931046[label="ID: 4
+NombreEllsworth Flanagan
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo745962066[label="ID: 5
+NombreHelli Pinnion
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo514455215[label="ID: 7
+NombreDene McCafferky
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo116237769[label="ID: 8
+NombreSabrina Leon
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo2036127838[label="ID: 10
+NombreDelora Flanagan
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
 
-}}
+Nodo1928931046 -> Nodo745962066
+Nodo1928931046->Nodo192893104600001
+Nodo192893104600001[label="IMG BN",fillcolor="#C388FC"]
+Nodo192893104600001->Nodo192893104611111
+Nodo192893104611111[label="IMG C",fillcolor="#C388FC"]
+{rank=same;Nodo1928931046,Nodo192893104600001,Nodo192893104611111}
+Nodo745962066 -> Nodo514455215
+Nodo745962066->Nodo74596206600001
+Nodo74596206600001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo745962066,Nodo74596206600001}
+Nodo514455215 -> Nodo116237769
+Nodo514455215->Nodo51445521500001
+Nodo51445521500001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo514455215,Nodo51445521500001}
+Nodo116237769 -> Nodo2036127838
+
+{rank=same;Nodo116237769}
+Nodo2036127838 -> Nodo1928931046
+
+{rank=same;Nodo2036127838}}}

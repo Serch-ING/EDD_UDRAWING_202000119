@@ -41,7 +41,7 @@ public class general {
 	public void Realizar_Paso() {
 		try {
 			System.out.println("\n================= Paso: " + Pasos + " =================");
-			//Random_a_cola();
+			Random_a_cola();
 			Waiting_clients.exit_of_system(Pasos,Clients_Served);
 			printing();
 			window_magnament();
@@ -171,16 +171,18 @@ public class general {
 				case 2:
 					
 					Clients_Served_Reports.SortASC_Color();
+					Clients_Served_Reports.Draw_GraphizReport("Top 5 de clientes con mayor cantidad de imágenes a color",5,2);
 					break;
 
 				case 3:
 					
 					Clients_Served_Reports.SortDesc_BW();
+					Clients_Served_Reports.Draw_GraphizReport("Top 5 de clientes con menor cantidad de imágenes en blanco y negro.",5,3);
 					break;
 
 				case 4:
 					Clients_Served_Reports.SortASC_Steps();
-				
+					Clients_Served_Reports.Draw_GraphizReport("Información del cliente que más pasos estuvo en el sistema.",1,4);
 					break;
 				case 5:
 					System.out.println("Ingrese el ID del cliente a buscar");
