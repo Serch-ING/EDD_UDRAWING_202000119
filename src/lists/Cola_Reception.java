@@ -15,7 +15,7 @@ public class Cola_Reception {
 	}
 	
 	//add new data to the lisdt
-	public void enqueue(int id, String name, int img_color, int img_bw) {
+	public void enqueue(int id, String name, int img_color, int img_bw,int pasoIngreso) {
 		client cliente = new client(id, name, img_color, img_bw);
 
 		Nodo_Cola_Reception new_node = new Nodo_Cola_Reception(cliente);
@@ -24,8 +24,9 @@ public class Cola_Reception {
 			if (id == -1) {
 				new_node.cliente.id = 1;
 			}
-
+			new_node.cliente.PasoIngresado = pasoIngreso;
 			this.primero = new_node;
+			
 		} else {
 
 			int idAnterior = 2;
@@ -42,14 +43,14 @@ public class Cola_Reception {
 			if (id == -1) {
 				new_node.cliente.id = idAnterior + 1;
 			}
-
+			new_node.cliente.PasoIngresado = pasoIngreso;
 			actual.next = new_node;
 		}
 	}
 	
 	
 	//generate a rsmadom client
-	public void Generate_Random() {
+	public void Generate_Random(int pasoIngreso) {
 		int cantidad =  tlr.nextInt(0, 3 + 1);
 		for (int waiting = 0; waiting <cantidad; waiting++) {
 			
@@ -82,7 +83,7 @@ public class Cola_Reception {
 
 			String Name = names[noName] + " " + lastnames[noLastnames];
 			//System.out.println("Ramdon color: " + img_color + "BN: " + img_bw);
-			enqueue(-1, Name, img_color, img_bw);
+			enqueue(-1, Name, img_color, img_bw,pasoIngreso);
 		}
 		/*
 		int imgs = tlr.nextInt(1, 4 + 1);

@@ -3,51 +3,75 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Clientes atendidos "
     bgcolor = "#FF7878"
-Nodo957465255[label="
-Nombre: Andres Lopez
-Atendido por ventanilla: 1
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 6",fillcolor="#81FFDA"]
-Nodo482082765[label="
-Nombre: Luiz Higueros
-Atendido por ventanilla: 1
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 6",fillcolor="#81FFDA"]
-Nodo384587033[label="
-Nombre: Juan Perez
-Atendido por ventanilla: 2
+Nodo1021436681[label="
+Nombre: Douglas Dominguez
+Atendido por ventanilla: 3
 Numero de imagenes impresas: 3
-Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo858952163[label="
-Nombre: Paulette Stebles
-Atendido por ventanilla: 2
-Numero de imagenes impresas: 4
-Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo1076607567[label="
-Nombre: Dene Meagher
-Atendido por ventanilla: 2
-Numero de imagenes impresas: 1
-Pasos totales en sistema: 7",fillcolor="#81FFDA"]
-Nodo1820383114[label="
-Nombre: Marylynne Stirton
+Pasos totales en sistema: 13",fillcolor="#81FFDA"]
+Nodo1712943792[label="
+Nombre: Polly Rodriguez
 Atendido por ventanilla: 1
-Numero de imagenes impresas: 4
+Numero de imagenes impresas: 5
 Pasos totales en sistema: 14",fillcolor="#81FFDA"]
-Nodo1961173763[label="
-Nombre: Adlai Fust
-Atendido por ventanilla: 1
+Nodo78204644[label="
+Nombre: Yang Wiggins
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 17",fillcolor="#81FFDA"]
+Nodo447212746[label="
+Nombre: Stefanie Wise
+Atendido por ventanilla: 3
 Numero de imagenes impresas: 1
-Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo1156304131[label="
-Nombre: Corbet Meagher
+Pasos totales en sistema: 18",fillcolor="#81FFDA"]
+Nodo609962972[label="
+Nombre: Shannon Johnston
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 0
+Pasos totales en sistema: 19",fillcolor="#81FFDA"]
+Nodo1199673596[label="
+Nombre: Faith Hopkins
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 4
+Pasos totales en sistema: 20",fillcolor="#81FFDA"]
+Nodo2134607032[label="
+Nombre: Sandy Mason
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 24",fillcolor="#81FFDA"]
+Nodo573673894[label="
+Nombre: Tommie Mcpherson
 Atendido por ventanilla: 2
 Numero de imagenes impresas: 2
-Pasos totales en sistema: 12",fillcolor="#81FFDA"]
-Nodo957465255 -> Nodo482082765
-Nodo482082765 -> Nodo384587033
-Nodo384587033 -> Nodo858952163
-Nodo858952163 -> Nodo1076607567
-Nodo1076607567 -> Nodo1820383114
-Nodo1820383114 -> Nodo1961173763
-Nodo1961173763 -> Nodo1156304131
+Pasos totales en sistema: 25",fillcolor="#81FFDA"]
+Nodo1922464006[label="
+Nombre: Elinor Ford
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 0
+Pasos totales en sistema: 26",fillcolor="#81FFDA"]
+Nodo1438030319[label="
+Nombre: Tabatha Pickett
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 30",fillcolor="#81FFDA"]
+Nodo1939990953[label="
+Nombre: Leach Ross
+Atendido por ventanilla: 3
+Numero de imagenes impresas: 7
+Pasos totales en sistema: 36",fillcolor="#81FFDA"]
+Nodo817978763[label="
+Nombre: Haley Rosario
+Atendido por ventanilla: 3
+Numero de imagenes impresas: 4
+Pasos totales en sistema: 39",fillcolor="#81FFDA"]
+Nodo1021436681 -> Nodo1712943792
+Nodo1712943792 -> Nodo78204644
+Nodo78204644 -> Nodo447212746
+Nodo447212746 -> Nodo609962972
+Nodo609962972 -> Nodo1199673596
+Nodo1199673596 -> Nodo2134607032
+Nodo2134607032 -> Nodo573673894
+Nodo573673894 -> Nodo1922464006
+Nodo1922464006 -> Nodo1438030319
+Nodo1438030319 -> Nodo1939990953
+Nodo1939990953 -> Nodo817978763
 }}

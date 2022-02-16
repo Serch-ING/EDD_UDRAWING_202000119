@@ -96,7 +96,7 @@ public class Simple_Windows {
 		if (actual != null && actual.cliente == null) {
 			// System.out.println("Ventana libre: " + actual.noVentanilla);
 			actual.cliente = cliente;
-			cliente.PasoIngresado = pasos;
+			//cliente.PasoIngresado = pasos;
 			cliente.VentanillaIngresada = actual.noVentanilla;
 			System.out.println("Cliente: " + cliente.id + " paso a ventanilla: " + actual.noVentanilla);
 		}

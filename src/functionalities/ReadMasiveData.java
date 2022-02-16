@@ -70,18 +70,23 @@ public class ReadMasiveData {
 				// System.out.println("Key : " + entry.getKey());
 				JSONObject persona = (JSONObject) Jobj.get(entry.getKey());
 
-				String id = (String) persona.get("id_cliente");
+				Object id =  (Object) persona.get("id_cliente");
 				// System.out.println("id_cliente:" + id);
 
-				String name = (String) persona.get("nombre_cliente");
+				Object name =  persona.get("nombre_cliente");
 				// System.out.println("nombre_cliente:" + name);
 
-				String color = (String) persona.get("img_color");
+				Object color =  persona.get("img_color");
 				// System.out.println("img_color:" + color);
 
-				String negro = (String) persona.get("img_bw");
+				Object negro =  persona.get("img_bw");
 				// System.out.println("img_bw:" + negro + "\n");
-				Cola_Recepcion.enqueue(Integer.valueOf(id), name, Integer.valueOf(color), Integer.valueOf(negro));
+				
+				Integer ID = ((Long) id).intValue();
+				Integer COLOR = ((Long) color).intValue();
+				Integer NEGRO = ((Long) negro).intValue();
+
+				Cola_Recepcion.enqueue(ID,String.valueOf(name) ,COLOR, NEGRO,0);
 			}
 
 			System.out.println("El archivo se ingreso correctamente");
@@ -96,9 +101,10 @@ public class ReadMasiveData {
 			 * (ParseException e) { //e.printStackTrace();
 			 */
 		} catch (Exception e) {
+			 e.printStackTrace();
 			System.out.println("\nSe ingreso un archivo con la estructura distinta establecida");
 			Load_json();
-			// e.printStackTrace();
+			
 		}
 	}
 

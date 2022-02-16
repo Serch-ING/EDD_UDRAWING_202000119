@@ -1,10 +1,30 @@
 digraph L {
 node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
-    label= "Información del cliente que más pasos estuvo en el sistema."
+    label= "Top 5 de clientes con mayor cantidad de imágenes a color"
     bgcolor = "#FF7878"
-Nodo1337335626[label="
+Nodo331994761[label="
+ID: 7
+Nombre: Leach Ross
+Imgenes a color: 3",fillcolor="#81FFDA"]
+Nodo928294079[label="
+ID: 8
+Nombre: Tabatha Pickett
+Imgenes a color: 3",fillcolor="#81FFDA"]
+Nodo1647809929[label="
+ID: 1
+Nombre: Polly Rodriguez
+Imgenes a color: 3",fillcolor="#81FFDA"]
+Nodo1258084361[label="
 ID: 5
-Nombre: Marylynne Stirton
-Pasos en sistema: 14",fillcolor="#81FFDA"]
+Nombre: Sandy Mason
+Imgenes a color: 1",fillcolor="#81FFDA"]
+Nodo391914049[label="
+ID: 4
+Nombre: Faith Hopkins
+Imgenes a color: 1",fillcolor="#81FFDA"]
+Nodo331994761 -> Nodo928294079
+Nodo928294079 -> Nodo1647809929
+Nodo1647809929 -> Nodo1258084361
+Nodo1258084361 -> Nodo391914049
 }}

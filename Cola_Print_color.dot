@@ -3,27 +3,71 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola impresora a Color "
  raiz[label = "Impresora a Color" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
-Nodo148626113[label="IMG C 
+Nodo2005169944[label="IMG C 
+Id Cliente: 12",fillcolor="#81FFDA"]
+Nodo1321530272[label="IMG C 
 Id Cliente: 11",fillcolor="#81FFDA"]
-Nodo1847637306[label="IMG C 
-Id Cliente: 10",fillcolor="#81FFDA"]
-Nodo1904253191[label="IMG C 
-Id Cliente: 10",fillcolor="#81FFDA"]
-Nodo1666607455[label="IMG C 
-Id Cliente: 12",fillcolor="#81FFDA"]
-Nodo1327006586[label="IMG C 
-Id Cliente: 12",fillcolor="#81FFDA"]
-Nodo1045997582[label="IMG C 
-Id Cliente: 13",fillcolor="#81FFDA"]
+Nodo1239759990[label="IMG C 
+Id Cliente: 14",fillcolor="#81FFDA"]
+Nodo891093184[label="IMG C 
+Id Cliente: 14",fillcolor="#81FFDA"]
+Nodo708533063[label="IMG C 
+Id Cliente: 14",fillcolor="#81FFDA"]
+Nodo711327356[label="IMG C 
+Id Cliente: 18",fillcolor="#81FFDA"]
+Nodo68377659[label="IMG C 
+Id Cliente: 18",fillcolor="#81FFDA"]
+Nodo1661123505[label="IMG C 
+Id Cliente: 18",fillcolor="#81FFDA"]
+Nodo1427381743[label="IMG C 
+Id Cliente: 19",fillcolor="#81FFDA"]
+Nodo1427646530[label="IMG C 
+Id Cliente: 19",fillcolor="#81FFDA"]
+Nodo846254484[label="IMG C 
+Id Cliente: 19",fillcolor="#81FFDA"]
+Nodo592983282[label="IMG C 
+Id Cliente: 17",fillcolor="#81FFDA"]
+Nodo1448525331[label="IMG C 
+Id Cliente: 17",fillcolor="#81FFDA"]
+Nodo1108924067[label="IMG C 
+Id Cliente: 17",fillcolor="#81FFDA"]
+Nodo1671179293[label="IMG C 
+Id Cliente: 20",fillcolor="#81FFDA"]
+Nodo1609124502[label="IMG C 
+Id Cliente: 20",fillcolor="#81FFDA"]
+Nodo1144068272[label="IMG C 
+Id Cliente: 20",fillcolor="#81FFDA"]
 
-raiz->Nodo148626113
-Nodo148626113 -> Nodo1847637306
+raiz->Nodo2005169944
+Nodo2005169944 -> Nodo1321530272
 
-Nodo1847637306 -> Nodo1904253191
+Nodo1321530272 -> Nodo1239759990
 
-Nodo1904253191 -> Nodo1666607455
+Nodo1239759990 -> Nodo891093184
 
-Nodo1666607455 -> Nodo1327006586
+Nodo891093184 -> Nodo708533063
 
-Nodo1327006586 -> Nodo1045997582
+Nodo708533063 -> Nodo711327356
+
+Nodo711327356 -> Nodo68377659
+
+Nodo68377659 -> Nodo1661123505
+
+Nodo1661123505 -> Nodo1427381743
+
+Nodo1427381743 -> Nodo1427646530
+
+Nodo1427646530 -> Nodo846254484
+
+Nodo846254484 -> Nodo592983282
+
+Nodo592983282 -> Nodo1448525331
+
+Nodo1448525331 -> Nodo1108924067
+
+Nodo1108924067 -> Nodo1671179293
+
+Nodo1671179293 -> Nodo1609124502
+
+Nodo1609124502 -> Nodo1144068272
 }}

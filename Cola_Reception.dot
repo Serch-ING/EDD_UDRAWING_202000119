@@ -3,153 +3,383 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola Recepcion "
     bgcolor = "#FF7878"
-Nodo1668016508[label="ID: 16
-Nombre: Karry Sindell
-Img_C: 1
+Nodo1546693040[label="ID: 25
+Nombre: Jolene Mccall
+Img_C: 0
 Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1336735375[label="ID: 17
-Nombre: Adlai Dimbylow
-Img_C: 2
-Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1984990929[label="ID: 18
-Nombre: Brady Ramelot
+Nodo501187768[label="ID: 26
+Nombre: Evelyn Fitzgerald
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo288994035[label="ID: 27
+Nombre: Hudson Lancaster
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo128359175[label="ID: 28
+Nombre: Ellison Hood
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1585635178[label="ID: 29
+Nombre: Whitney Clayton
 Img_C: 0
 Img_BN: 4",fillcolor="#81FFDA"]
-Nodo1105423942[label="ID: 19
-Nombre: Karry Dimbylow
+Nodo1058634310[label="ID: 30
+Nombre: Moore Horton
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1668016508[label="ID: 31
+Nombre: Maggie Levine
+Img_C: 4
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1353070773[label="ID: 32
+Nombre: Andrews Vance
 Img_C: 2
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo558216562[label="ID: 20
-Nombre: Marylynne Ickovits
+Nodo404214852[label="ID: 33
+Nombre: Dixie Howard
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1822971466[label="ID: 34
+Nombre: Heidi Lowery
+Img_C: 4
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1354003114[label="ID: 35
+Nombre: Bennett Malone
+Img_C: 4
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo825658265[label="ID: 36
+Nombre: Witt Forbes
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo388357135[label="ID: 37
+Nombre: Erma Barron
+Img_C: 1
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo957465255[label="ID: 38
+Nombre: Mabel Nicholson
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1254344205[label="ID: 39
+Nombre: Maddox Frazier
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1336735375[label="ID: 40
+Nombre: Brigitte Wheeler
+Img_C: 4
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1984990929[label="ID: 41
+Nombre: Christa Mendoza
+Img_C: 2
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1105423942[label="ID: 42
+Nombre: Etta Blake
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo365181913[label="ID: 43
+Nombre: Macdonald Murray
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1031061344[label="ID: 44
+Nombre: Garza York
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1327536153[label="ID: 45
+Nombre: Hatfield Sykes
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo367746789[label="ID: 46
+Nombre: Washington Dickerson
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo558216562[label="ID: 47
+Nombre: Ethel Cortez
+Img_C: 3
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo961712517[label="ID: 48
+Nombre: Vicky Jimenez
+Img_C: 4
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1928931046[label="ID: 49
+Nombre: Romero Sanders
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1034568234[label="ID: 50
+Nombre: Shana Burke
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo2128029086[label="ID: 51
+Nombre: Paulette Selvester
 Img_C: 1
 Img_BN: 3",fillcolor="#81FFDA"]
-Nodo667821226[label="ID: 21
-Nombre: Zeke Aldin
+Nodo1010856212[label="ID: 52
+Nombre: Sanderson Tayspell
 Img_C: 0
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1209702763[label="ID: 22
-Nombre: Reid Rivalant
-Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1028780142[label="ID: 23
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo904861801[label="ID: 53
 Nombre: Zeke Fust
+Img_C: 0
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1998767043[label="ID: 54
+Nombre: Corbet Plesing
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo787738361[label="ID: 55
+Nombre: Peder Selvester
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo607932305[label="ID: 56
+Nombre: Haskel Ramelot
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo384587033[label="ID: 57
+Nombre: Travus Plesing
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo58940486[label="ID: 58
+Nombre: Dorey Montague
 Img_C: 2
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo105374791[label="ID: 24
-Nombre: Astrix Sindell
-Img_C: 1
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1107024580[label="ID: 25
-Nombre: Davina Korneichik
-Img_C: 1
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1010856212[label="ID: 26
-Nombre: Travus Bricknall
-Img_C: 3
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo411506101[label="ID: 27
-Nombre: Dorey Leon
-Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo514455215[label="ID: 28
-Nombre: Ellsworth McCafferky
-Img_C: 0
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo58940486[label="ID: 29
-Nombre: Dannel Selvester
+Nodo1769190683[label="ID: 59
+Nombre: Godiva Killby
 Img_C: 1
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo501107890[label="ID: 30
-Nombre: Zachary Aldin
-Img_C: 0
+Nodo257608164[label="ID: 60
+Nombre: Sabrina Vittore
+Img_C: 1
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1449263511[label="ID: 31
-Nombre: Reid Stebles
-Img_C: 0
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo422396878[label="ID: 32
-Nombre: Helli Lawrenceson
-Img_C: 2
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1912962767[label="ID: 33
-Nombre: Sanderson McElrath
-Img_C: 0
-Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1201484275[label="ID: 34
-Nombre: Haskel Korneichik
-Img_C: 3
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1089418272[label="ID: 35
-Nombre: Davina Rivalant
+Nodo306115458[label="ID: 61
+Nombre: Eal Aldin
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1932831450[label="ID: 62
+Nombre: Dannel Tayspell
 Img_C: 3
 Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1509791656[label="ID: 36
-Nombre: Astrix Ramelot
+Nodo496729294[label="ID: 63
+Nombre: Randi Leon
 Img_C: 2
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo257608164[label="ID: 37
-Nombre: Glenn Pinnion
-Img_C: 1
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo306115458[label="ID: 38
-Nombre: Sheffield Killby
+Nodo1302227152[label="ID: 64
+Nombre: Dorey Rivalant
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo440737101[label="ID: 65
+Nombre: Sabrina Pinnion
 Img_C: 1
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1122606666[label="ID: 39
+Nodo2141817446[label="ID: 66
+Nombre: Adlai Scading
+Img_C: 0
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1790585734[label="ID: 67
+Nombre: Godiva Scading
+Img_C: 0
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo22600334[label="ID: 68
+Nombre: Delora Killby
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1961173763[label="ID: 69
+Nombre: Glenn Lawrenceson
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo842741472[label="ID: 70
+Nombre: Ludvig Dimbylow
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1156304131[label="ID: 71
 Nombre: Haskel Rudolf
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1332668132[label="ID: 72
+Nombre: Clovis McElrath
 Img_C: 0
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo2141817446[label="ID: 40
-Nombre: Travus Sowersby
-Img_C: 3
+Nodo1147580192[label="ID: 73
+Nombre: Zeke Martinolli
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1337335626[label="ID: 74
+Nombre: Helli Gange
+Img_C: 1
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo369049246[label="ID: 41
-Nombre: Stu Korneichik
+Nodo2127036371[label="ID: 75
+Nombre: Zeke Gange
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1529060733[label="ID: 76
+Nombre: Glenn Plummer
 Img_C: 2
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo1021436681[label="ID: 42
-Nombre: Karry Montague
-Img_C: 3
-Img_BN: 0",fillcolor="#81FFDA"]
-Nodo1202683709[label="ID: 43
-Nombre: Adlai Vittore
+Nodo106374177[label="ID: 77
+Nombre: Dannel Scading
 Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo2087885397[label="ID: 44
-Nombre: Godiva Montague
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1793436274[label="ID: 78
+Nombre: Randi Tayspell
 Img_C: 1
-Img_BN: 1",fillcolor="#81FFDA"]
-Nodo530737374[label="ID: 45
-Nombre: Marylynne Gange
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo2044903525[label="ID: 79
+Nombre: Lorene Stirton
 Img_C: 2
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1668016508 -> Nodo1336735375
+Nodo382750013[label="ID: 80
+Nombre: Reid Rudolf
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1240232440[label="ID: 81
+Nombre: Marylynne Killby
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1130894323[label="ID: 82
+Nombre: Marylynne Peever
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1617550160[label="ID: 83
+Nombre: Eal Rivalant
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1536031937[label="ID: 84
+Nombre: Delora Scading
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo319644606[label="ID: 85
+Nombre: Ludvig Ramelot
+Img_C: 0
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo1961945640[label="ID: 86
+Nombre: Dorey Dimbylow
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo902830499[label="ID: 87
+Nombre: Astrix Gange
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1754662105[label="ID: 88
+Nombre: Dene Bagshawe
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo825249556[label="ID: 89
+Nombre: Zeke Lawrenceson
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo883151184[label="ID: 90
+Nombre: Reid Peever
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1168019749[label="ID: 91
+Nombre: Glenn Dimbylow
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo119358627[label="ID: 92
+Nombre: Sheffield Sowersby
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo2073621255[label="ID: 93
+Nombre: Dene Ramelot
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1047087935[label="ID: 94
+Nombre: Zeke Rudolf
+Img_C: 1
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo464887938[label="ID: 95
+Nombre: Dene Rudolf
+Img_C: 1
+Img_BN: 3",fillcolor="#81FFDA"]
+Nodo2020152163[label="ID: 96
+Nombre: Karry Montague
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1985836631[label="ID: 97
+Nombre: Brady McElrath
+Img_C: 2
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1735507635[label="ID: 98
+Nombre: Brady Peever
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1362728240[label="ID: 99
+Nombre: Randi Misson
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1798219673[label="ID: 100
+Nombre: Ludvig Peever
+Img_C: 2
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1546693040 -> Nodo501187768
+Nodo501187768 -> Nodo288994035
+Nodo288994035 -> Nodo128359175
+Nodo128359175 -> Nodo1585635178
+Nodo1585635178 -> Nodo1058634310
+Nodo1058634310 -> Nodo1668016508
+Nodo1668016508 -> Nodo1353070773
+Nodo1353070773 -> Nodo404214852
+Nodo404214852 -> Nodo1822971466
+Nodo1822971466 -> Nodo1354003114
+Nodo1354003114 -> Nodo825658265
+Nodo825658265 -> Nodo388357135
+Nodo388357135 -> Nodo957465255
+Nodo957465255 -> Nodo1254344205
+Nodo1254344205 -> Nodo1336735375
 Nodo1336735375 -> Nodo1984990929
 Nodo1984990929 -> Nodo1105423942
-Nodo1105423942 -> Nodo558216562
-Nodo558216562 -> Nodo667821226
-Nodo667821226 -> Nodo1209702763
-Nodo1209702763 -> Nodo1028780142
-Nodo1028780142 -> Nodo105374791
-Nodo105374791 -> Nodo1107024580
-Nodo1107024580 -> Nodo1010856212
-Nodo1010856212 -> Nodo411506101
-Nodo411506101 -> Nodo514455215
-Nodo514455215 -> Nodo58940486
-Nodo58940486 -> Nodo501107890
-Nodo501107890 -> Nodo1449263511
-Nodo1449263511 -> Nodo422396878
-Nodo422396878 -> Nodo1912962767
-Nodo1912962767 -> Nodo1201484275
-Nodo1201484275 -> Nodo1089418272
-Nodo1089418272 -> Nodo1509791656
-Nodo1509791656 -> Nodo257608164
+Nodo1105423942 -> Nodo365181913
+Nodo365181913 -> Nodo1031061344
+Nodo1031061344 -> Nodo1327536153
+Nodo1327536153 -> Nodo367746789
+Nodo367746789 -> Nodo558216562
+Nodo558216562 -> Nodo961712517
+Nodo961712517 -> Nodo1928931046
+Nodo1928931046 -> Nodo1034568234
+Nodo1034568234 -> Nodo2128029086
+Nodo2128029086 -> Nodo1010856212
+Nodo1010856212 -> Nodo904861801
+Nodo904861801 -> Nodo1998767043
+Nodo1998767043 -> Nodo787738361
+Nodo787738361 -> Nodo607932305
+Nodo607932305 -> Nodo384587033
+Nodo384587033 -> Nodo58940486
+Nodo58940486 -> Nodo1769190683
+Nodo1769190683 -> Nodo257608164
 Nodo257608164 -> Nodo306115458
-Nodo306115458 -> Nodo1122606666
-Nodo1122606666 -> Nodo2141817446
-Nodo2141817446 -> Nodo369049246
-Nodo369049246 -> Nodo1021436681
-Nodo1021436681 -> Nodo1202683709
-Nodo1202683709 -> Nodo2087885397
-Nodo2087885397 -> Nodo530737374
+Nodo306115458 -> Nodo1932831450
+Nodo1932831450 -> Nodo496729294
+Nodo496729294 -> Nodo1302227152
+Nodo1302227152 -> Nodo440737101
+Nodo440737101 -> Nodo2141817446
+Nodo2141817446 -> Nodo1790585734
+Nodo1790585734 -> Nodo22600334
+Nodo22600334 -> Nodo1961173763
+Nodo1961173763 -> Nodo842741472
+Nodo842741472 -> Nodo1156304131
+Nodo1156304131 -> Nodo1332668132
+Nodo1332668132 -> Nodo1147580192
+Nodo1147580192 -> Nodo1337335626
+Nodo1337335626 -> Nodo2127036371
+Nodo2127036371 -> Nodo1529060733
+Nodo1529060733 -> Nodo106374177
+Nodo106374177 -> Nodo1793436274
+Nodo1793436274 -> Nodo2044903525
+Nodo2044903525 -> Nodo382750013
+Nodo382750013 -> Nodo1240232440
+Nodo1240232440 -> Nodo1130894323
+Nodo1130894323 -> Nodo1617550160
+Nodo1617550160 -> Nodo1536031937
+Nodo1536031937 -> Nodo319644606
+Nodo319644606 -> Nodo1961945640
+Nodo1961945640 -> Nodo902830499
+Nodo902830499 -> Nodo1754662105
+Nodo1754662105 -> Nodo825249556
+Nodo825249556 -> Nodo883151184
+Nodo883151184 -> Nodo1168019749
+Nodo1168019749 -> Nodo119358627
+Nodo119358627 -> Nodo2073621255
+Nodo2073621255 -> Nodo1047087935
+Nodo1047087935 -> Nodo464887938
+Nodo464887938 -> Nodo2020152163
+Nodo2020152163 -> Nodo1985836631
+Nodo1985836631 -> Nodo1735507635
+Nodo1735507635 -> Nodo1362728240
+Nodo1362728240 -> Nodo1798219673
 }}

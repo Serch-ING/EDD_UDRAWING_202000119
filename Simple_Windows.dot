@@ -3,24 +3,51 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
-Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+Nodo776700275[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo118394766[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+Nodo1259014228[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
 
-Nodo1661081225 -> Nodo1882554559
+Nodo776700275 -> Nodo118394766
 
-Cliente771775563[label="ID: 14
-NombreClovis Flanagan
+Cliente1092572064[label="ID: 24
+NombreCarolyn Harmon
 Img_C: 3
-Img_BN: 1",fillcolor="#B36AF9",group=1]
-Cliente771775563-> Nodo1661081225
-Nodo1332668132[label="IMG BN",fillcolor="#81FFDA"]
+Img_BN: 2",fillcolor="#B36AF9",group=1]
+Cliente1092572064-> Nodo776700275
+{rank=same;Nodo776700275,Cliente1092572064}
+Nodo118394766 -> Nodo1259014228
 
-Nodo1661081225 -> Nodo1332668132
+Cliente1764696127[label="ID: 21
+NombrePruitt Perez
+Img_C: 4
+Img_BN: 2",fillcolor="#B36AF9",group=2]
+Cliente1764696127-> Nodo118394766
+Nodo728885526[label="IMG C",fillcolor="#81FFDA"]
+Nodo1636506029[label="IMG C",fillcolor="#81FFDA"]
+Nodo898694235[label="IMG C",fillcolor="#81FFDA"]
+Nodo873610597[label="IMG BN",fillcolor="#81FFDA"]
+Nodo348984985[label="IMG BN",fillcolor="#81FFDA"]
+Nodo728885526 -> Nodo1636506029
+Nodo1636506029 -> Nodo898694235
+Nodo898694235 -> Nodo873610597
+Nodo873610597 -> Nodo348984985
 
-{rank=same;Nodo1661081225,Cliente771775563,Nodo1332668132}
-Cliente1147580192[label="ID: 15
-NombreMarylynne Dimbylow
-Img_C: 1
-Img_BN: 3",fillcolor="#B36AF9",group=2]
-Cliente1147580192-> Nodo1882554559
-{rank=same;Nodo1882554559,Cliente1147580192}}}
+Nodo118394766 -> Nodo728885526
+
+{rank=same;Nodo118394766,Cliente1764696127,Nodo728885526,Nodo1636506029,Nodo898694235,Nodo873610597,Nodo348984985}
+Cliente2005435445[label="ID: 22
+NombreNola Winters
+Img_C: 3
+Img_BN: 1",fillcolor="#B36AF9",group=3]
+Cliente2005435445-> Nodo1259014228
+Nodo922511709[label="IMG C",fillcolor="#81FFDA"]
+Nodo758348212[label="IMG C",fillcolor="#81FFDA"]
+Nodo60292059[label="IMG C",fillcolor="#81FFDA"]
+Nodo1497845528[label="IMG BN",fillcolor="#81FFDA"]
+Nodo922511709 -> Nodo758348212
+Nodo758348212 -> Nodo60292059
+Nodo60292059 -> Nodo1497845528
+
+Nodo1259014228 -> Nodo922511709
+
+{rank=same;Nodo1259014228,Cliente2005435445,Nodo922511709,Nodo758348212,Nodo60292059,Nodo1497845528}}}

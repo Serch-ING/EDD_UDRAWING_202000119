@@ -3,47 +3,92 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo2036127838[label="ID: 9
-NombreEal Flanagan
+Nodo150268540[label="ID: 12
+NombreAlyce Alford
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1470344997[label="ID: 11
+NombreLeigh Bright
 Img_C: 1
-Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1645547422[label="ID: 11
-NombreLudvig Gange
-Img_C: 1
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo29183965[label="ID: 16
+NombreNoelle Morse
+Img_C: 0
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo440737101[label="ID: 10
-NombreHelli Lawrenceson
-Img_C: 2
+Nodo310623126[label="ID: 14
+NombreDurham Logan
+Img_C: 3
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1766505436[label="ID: 12
-NombreReid Meagher
-Img_C: 2
+Nodo341796579[label="ID: 18
+NombreLong Meyer
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1297978429[label="ID: 19
+NombreGeraldine Pierce
+Img_C: 3
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo899644639[label="ID: 13
-NombreEal Gange
-Img_C: 1
+Nodo915349526[label="ID: 17
+NombreGutierrez Casey
+Img_C: 3
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1710989308[label="ID: 20
+NombreRoman Branch
+Img_C: 3
 Img_BN: 2",fillcolor="#81FFDA"]
+Nodo1578009262[label="ID: 23
+NombreGay Mcmillan
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
 
-Nodo2036127838 -> Nodo1645547422
-Nodo2036127838->Nodo203612783800001
-Nodo203612783800001[label="IMG BN",fillcolor="#C388FC"]Nodo203612783800001->Nodo203612783800002
-Nodo203612783800002[label="IMG BN",fillcolor="#C388FC"]
-Nodo203612783800002->Nodo203612783811111
-Nodo203612783811111[label="IMG C",fillcolor="#C388FC"]
-{rank=same;Nodo2036127838,Nodo203612783800001,Nodo203612783800002,Nodo203612783811111}
-Nodo1645547422 -> Nodo440737101
-Nodo1645547422->Nodo164554742200001
-Nodo164554742200001[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo1645547422,Nodo164554742200001}
-Nodo440737101 -> Nodo1766505436
-Nodo440737101->Nodo44073710100001
-Nodo44073710100001[label="IMG BN",fillcolor="#C388FC"]Nodo44073710100001->Nodo44073710100002
-Nodo44073710100002[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo440737101,Nodo44073710100001,Nodo44073710100002}
-Nodo1766505436 -> Nodo899644639
-Nodo1766505436->Nodo176650543600001
-Nodo176650543600001[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo1766505436,Nodo176650543600001}
-Nodo899644639 -> Nodo2036127838
+Nodo150268540 -> Nodo1470344997
 
-{rank=same;Nodo899644639}}}
+Nodo1470344997 -> Nodo150268540
+Nodo150268540->Nodo15026854011111
+Nodo15026854011111[label="IMG C",fillcolor="#C388FC"]Nodo15026854011111->Nodo15026854011112
+Nodo15026854011112[label="IMG C",fillcolor="#C388FC"]
+{rank=same;Nodo150268540,Nodo15026854011111,Nodo15026854011112}
+Nodo1470344997 -> Nodo29183965
+
+Nodo29183965 -> Nodo1470344997
+Nodo1470344997->Nodo147034499700001
+Nodo147034499700001[label="IMG BN",fillcolor="#C388FC"]Nodo147034499700001->Nodo147034499700002
+Nodo147034499700002[label="IMG BN",fillcolor="#C388FC"]Nodo147034499700002->Nodo147034499700003
+Nodo147034499700003[label="IMG BN",fillcolor="#C388FC"]Nodo147034499700003->Nodo147034499700004
+Nodo147034499700004[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1470344997,Nodo147034499700001,Nodo147034499700002,Nodo147034499700003,Nodo147034499700004}
+Nodo29183965 -> Nodo310623126
+
+Nodo310623126 -> Nodo29183965
+Nodo29183965->Nodo2918396500001
+Nodo2918396500001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo29183965,Nodo2918396500001}
+Nodo310623126 -> Nodo341796579
+
+Nodo341796579 -> Nodo310623126
+
+{rank=same;Nodo310623126}
+Nodo341796579 -> Nodo1297978429
+
+Nodo1297978429 -> Nodo341796579
+
+{rank=same;Nodo341796579}
+Nodo1297978429 -> Nodo915349526
+
+Nodo915349526 -> Nodo1297978429
+
+{rank=same;Nodo1297978429}
+Nodo915349526 -> Nodo1710989308
+
+Nodo1710989308 -> Nodo915349526
+
+{rank=same;Nodo915349526}
+Nodo1710989308 -> Nodo1578009262
+
+Nodo1578009262 -> Nodo1710989308
+
+{rank=same;Nodo1710989308}
+Nodo1578009262 -> Nodo150268540
+
+Nodo150268540 -> Nodo1578009262
+
+{rank=same;Nodo1578009262}}}

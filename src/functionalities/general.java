@@ -66,7 +66,7 @@ public class general {
 
 	//add a ramdom person to list reception
 	public void Random_a_cola() {
-		Data.Cola_Recepcion.Generate_Random();
+		Data.Cola_Recepcion.Generate_Random(Pasos);
 	}
 
 	//magnement of windows
