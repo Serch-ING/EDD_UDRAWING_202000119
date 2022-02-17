@@ -3,47 +3,204 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= "Lista de Espera "
     bgcolor = "#FF7878"
-Nodo2036127838[label="ID: 9
-NombreEal Flanagan
-Img_C: 1
+Nodo891093184[label="ID: 18
+NombreLong Meyer
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1550207152[label="ID: 19
+NombreGeraldine Pierce
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1223867739[label="ID: 17
+NombreGutierrez Casey
+Img_C: 3
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo2073621255[label="ID: 20
+NombreRoman Branch
+Img_C: 3
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1645547422[label="ID: 11
-NombreLudvig Gange
+Nodo1092572064[label="ID: 21
+NombrePruitt Perez
+Img_C: 4
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo728885526[label="ID: 22
+NombreNola Winters
+Img_C: 3
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1083021083[label="ID: 26
+NombreEvelyn Fitzgerald
+Img_C: 0
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1423561005[label="ID: 27
+NombreHudson Lancaster
 Img_C: 1
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo440737101[label="ID: 10
-NombreHelli Lawrenceson
-Img_C: 2
+Nodo943870983[label="ID: 24
+NombreCarolyn Harmon
+Img_C: 3
 Img_BN: 2",fillcolor="#81FFDA"]
-Nodo1766505436[label="ID: 12
-NombreReid Meagher
+Nodo135640095[label="ID: 28
+NombreEllison Hood
+Img_C: 3
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo109228794[label="ID: 29
+NombreWhitney Clayton
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo1052195003[label="ID: 30
+NombreMoore Horton
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo2125238280[label="ID: 32
+NombreAndrews Vance
 Img_C: 2
 Img_BN: 1",fillcolor="#81FFDA"]
-Nodo899644639[label="ID: 13
-NombreEal Gange
-Img_C: 1
+Nodo2030538903[label="ID: 31
+NombreMaggie Levine
+Img_C: 4
 Img_BN: 2",fillcolor="#81FFDA"]
+Nodo471579726[label="ID: 33
+NombreDixie Howard
+Img_C: 0
+Img_BN: 4",fillcolor="#81FFDA"]
+Nodo978508707[label="ID: 36
+NombreWitt Forbes
+Img_C: 1
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo593687897[label="ID: 34
+NombreHeidi Lowery
+Img_C: 4
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo131206411[label="ID: 35
+NombreBennett Malone
+Img_C: 4
+Img_BN: 2",fillcolor="#81FFDA"]
+Nodo2012330741[label="ID: 38
+NombreMabel Nicholson
+Img_C: 2
+Img_BN: 0",fillcolor="#81FFDA"]
+Nodo1136768342[label="ID: 39
+NombreMaddox Frazier
+Img_C: 1
+Img_BN: 1",fillcolor="#81FFDA"]
+Nodo1484673893[label="ID: 37
+NombreErma Barron
+Img_C: 1
+Img_BN: 4",fillcolor="#81FFDA"]
 
-Nodo2036127838 -> Nodo1645547422
-Nodo2036127838->Nodo203612783800001
-Nodo203612783800001[label="IMG BN",fillcolor="#C388FC"]Nodo203612783800001->Nodo203612783800002
-Nodo203612783800002[label="IMG BN",fillcolor="#C388FC"]
-Nodo203612783800002->Nodo203612783811111
-Nodo203612783811111[label="IMG C",fillcolor="#C388FC"]
-{rank=same;Nodo2036127838,Nodo203612783800001,Nodo203612783800002,Nodo203612783811111}
-Nodo1645547422 -> Nodo440737101
-Nodo1645547422->Nodo164554742200001
-Nodo164554742200001[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo1645547422,Nodo164554742200001}
-Nodo440737101 -> Nodo1766505436
-Nodo440737101->Nodo44073710100001
-Nodo44073710100001[label="IMG BN",fillcolor="#C388FC"]Nodo44073710100001->Nodo44073710100002
-Nodo44073710100002[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo440737101,Nodo44073710100001,Nodo44073710100002}
-Nodo1766505436 -> Nodo899644639
-Nodo1766505436->Nodo176650543600001
-Nodo176650543600001[label="IMG BN",fillcolor="#C388FC"]
-{rank=same;Nodo1766505436,Nodo176650543600001}
-Nodo899644639 -> Nodo2036127838
+Nodo891093184 -> Nodo1550207152
 
-{rank=same;Nodo899644639}}}
+Nodo1550207152 -> Nodo891093184
+Nodo891093184->Nodo89109318411111
+Nodo89109318411111[label="IMG C",fillcolor="#C388FC"]
+{rank=same;Nodo891093184,Nodo89109318411111}
+Nodo1550207152 -> Nodo1223867739
+
+Nodo1223867739 -> Nodo1550207152
+Nodo1550207152->Nodo155020715200001
+Nodo155020715200001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1550207152,Nodo155020715200001}
+Nodo1223867739 -> Nodo2073621255
+
+Nodo2073621255 -> Nodo1223867739
+Nodo1223867739->Nodo122386773900001
+Nodo122386773900001[label="IMG BN",fillcolor="#C388FC"]Nodo122386773900001->Nodo122386773900002
+Nodo122386773900002[label="IMG BN",fillcolor="#C388FC"]Nodo122386773900002->Nodo122386773900003
+Nodo122386773900003[label="IMG BN",fillcolor="#C388FC"]Nodo122386773900003->Nodo122386773900004
+Nodo122386773900004[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1223867739,Nodo122386773900001,Nodo122386773900002,Nodo122386773900003,Nodo122386773900004}
+Nodo2073621255 -> Nodo1092572064
+
+Nodo1092572064 -> Nodo2073621255
+Nodo2073621255->Nodo207362125500001
+Nodo207362125500001[label="IMG BN",fillcolor="#C388FC"]Nodo207362125500001->Nodo207362125500002
+Nodo207362125500002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo2073621255,Nodo207362125500001,Nodo207362125500002}
+Nodo1092572064 -> Nodo728885526
+
+Nodo728885526 -> Nodo1092572064
+Nodo1092572064->Nodo109257206400001
+Nodo109257206400001[label="IMG BN",fillcolor="#C388FC"]Nodo109257206400001->Nodo109257206400002
+Nodo109257206400002[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo1092572064,Nodo109257206400001,Nodo109257206400002}
+Nodo728885526 -> Nodo1083021083
+
+Nodo1083021083 -> Nodo728885526
+Nodo728885526->Nodo72888552600001
+Nodo72888552600001[label="IMG BN",fillcolor="#C388FC"]
+{rank=same;Nodo728885526,Nodo72888552600001}
+Nodo1083021083 -> Nodo1423561005
+
+Nodo1423561005 -> Nodo1083021083
+
+{rank=same;Nodo1083021083}
+Nodo1423561005 -> Nodo943870983
+
+Nodo943870983 -> Nodo1423561005
+
+{rank=same;Nodo1423561005}
+Nodo943870983 -> Nodo135640095
+
+Nodo135640095 -> Nodo943870983
+
+{rank=same;Nodo943870983}
+Nodo135640095 -> Nodo109228794
+
+Nodo109228794 -> Nodo135640095
+
+{rank=same;Nodo135640095}
+Nodo109228794 -> Nodo1052195003
+
+Nodo1052195003 -> Nodo109228794
+
+{rank=same;Nodo109228794}
+Nodo1052195003 -> Nodo2125238280
+
+Nodo2125238280 -> Nodo1052195003
+
+{rank=same;Nodo1052195003}
+Nodo2125238280 -> Nodo2030538903
+
+Nodo2030538903 -> Nodo2125238280
+
+{rank=same;Nodo2125238280}
+Nodo2030538903 -> Nodo471579726
+
+Nodo471579726 -> Nodo2030538903
+
+{rank=same;Nodo2030538903}
+Nodo471579726 -> Nodo978508707
+
+Nodo978508707 -> Nodo471579726
+
+{rank=same;Nodo471579726}
+Nodo978508707 -> Nodo593687897
+
+Nodo593687897 -> Nodo978508707
+
+{rank=same;Nodo978508707}
+Nodo593687897 -> Nodo131206411
+
+Nodo131206411 -> Nodo593687897
+
+{rank=same;Nodo593687897}
+Nodo131206411 -> Nodo2012330741
+
+Nodo2012330741 -> Nodo131206411
+
+{rank=same;Nodo131206411}
+Nodo2012330741 -> Nodo1136768342
+
+Nodo1136768342 -> Nodo2012330741
+
+{rank=same;Nodo2012330741}
+Nodo1136768342 -> Nodo1484673893
+
+Nodo1484673893 -> Nodo1136768342
+
+{rank=same;Nodo1136768342}
+Nodo1484673893 -> Nodo891093184
+
+Nodo891093184 -> Nodo1484673893
+
+{rank=same;Nodo1484673893}}}

@@ -191,7 +191,7 @@ public class Circular_Doble_espera {
 			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\"]\n";
 			if (aux.next != null) {
 				conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
-				
+				conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.next.hashCode(), aux.hashCode());
 				}
 			if(aux.client.img_bw >0) {
 				Entro = true;

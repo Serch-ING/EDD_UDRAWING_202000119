@@ -3,27 +3,179 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Cola impresora a Color "
  raiz[label = "Impresora a Color" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
-Nodo148626113[label="IMG C 
-Id Cliente: 11",fillcolor="#81FFDA"]
-Nodo1847637306[label="IMG C 
-Id Cliente: 10",fillcolor="#81FFDA"]
-Nodo1904253191[label="IMG C 
-Id Cliente: 10",fillcolor="#81FFDA"]
-Nodo1666607455[label="IMG C 
-Id Cliente: 12",fillcolor="#81FFDA"]
-Nodo1327006586[label="IMG C 
-Id Cliente: 12",fillcolor="#81FFDA"]
-Nodo1045997582[label="IMG C 
-Id Cliente: 13",fillcolor="#81FFDA"]
+Nodo807657332[label="IMG C 
+Id Cliente: 18",fillcolor="#81FFDA"]
+Nodo825936265[label="IMG C 
+Id Cliente: 18",fillcolor="#81FFDA"]
+Nodo915349526[label="IMG C 
+Id Cliente: 19",fillcolor="#81FFDA"]
+Nodo1280851663[label="IMG C 
+Id Cliente: 19",fillcolor="#81FFDA"]
+Nodo1764696127[label="IMG C 
+Id Cliente: 19",fillcolor="#81FFDA"]
+Nodo348984985[label="IMG C 
+Id Cliente: 17",fillcolor="#81FFDA"]
+Nodo2005435445[label="IMG C 
+Id Cliente: 17",fillcolor="#81FFDA"]
+Nodo1939990953[label="IMG C 
+Id Cliente: 17",fillcolor="#81FFDA"]
+Nodo1104443373[label="IMG C 
+Id Cliente: 20",fillcolor="#81FFDA"]
+Nodo898694235[label="IMG C 
+Id Cliente: 20",fillcolor="#81FFDA"]
+Nodo60292059[label="IMG C 
+Id Cliente: 20",fillcolor="#81FFDA"]
+Nodo96406857[label="IMG C 
+Id Cliente: 21",fillcolor="#81FFDA"]
+Nodo1534745514[label="IMG C 
+Id Cliente: 21",fillcolor="#81FFDA"]
+Nodo2003496028[label="IMG C 
+Id Cliente: 21",fillcolor="#81FFDA"]
+Nodo30578394[label="IMG C 
+Id Cliente: 21",fillcolor="#81FFDA"]
+Nodo2088371948[label="IMG C 
+Id Cliente: 22",fillcolor="#81FFDA"]
+Nodo1976870338[label="IMG C 
+Id Cliente: 22",fillcolor="#81FFDA"]
+Nodo1434234664[label="IMG C 
+Id Cliente: 22",fillcolor="#81FFDA"]
+Nodo757004314[label="IMG C 
+Id Cliente: 27",fillcolor="#81FFDA"]
+Nodo1279271200[label="IMG C 
+Id Cliente: 24",fillcolor="#81FFDA"]
+Nodo52908367[label="IMG C 
+Id Cliente: 24",fillcolor="#81FFDA"]
+Nodo1527953000[label="IMG C 
+Id Cliente: 24",fillcolor="#81FFDA"]
+Nodo231756373[label="IMG C 
+Id Cliente: 28",fillcolor="#81FFDA"]
+Nodo1786294176[label="IMG C 
+Id Cliente: 28",fillcolor="#81FFDA"]
+Nodo793331940[label="IMG C 
+Id Cliente: 28",fillcolor="#81FFDA"]
+Nodo366873404[label="IMG C 
+Id Cliente: 32",fillcolor="#81FFDA"]
+Nodo1217467887[label="IMG C 
+Id Cliente: 32",fillcolor="#81FFDA"]
+Nodo752316209[label="IMG C 
+Id Cliente: 31",fillcolor="#81FFDA"]
+Nodo914356853[label="IMG C 
+Id Cliente: 31",fillcolor="#81FFDA"]
+Nodo1229161065[label="IMG C 
+Id Cliente: 31",fillcolor="#81FFDA"]
+Nodo195228908[label="IMG C 
+Id Cliente: 31",fillcolor="#81FFDA"]
+Nodo536122141[label="IMG C 
+Id Cliente: 36",fillcolor="#81FFDA"]
+Nodo221634215[label="IMG C 
+Id Cliente: 34",fillcolor="#81FFDA"]
+Nodo2003891312[label="IMG C 
+Id Cliente: 34",fillcolor="#81FFDA"]
+Nodo1583159071[label="IMG C 
+Id Cliente: 34",fillcolor="#81FFDA"]
+Nodo607207372[label="IMG C 
+Id Cliente: 34",fillcolor="#81FFDA"]
+Nodo1882349076[label="IMG C 
+Id Cliente: 35",fillcolor="#81FFDA"]
+Nodo936292831[label="IMG C 
+Id Cliente: 35",fillcolor="#81FFDA"]
+Nodo130668770[label="IMG C 
+Id Cliente: 35",fillcolor="#81FFDA"]
+Nodo2151717[label="IMG C 
+Id Cliente: 35",fillcolor="#81FFDA"]
+Nodo1644231115[label="IMG C 
+Id Cliente: 38",fillcolor="#81FFDA"]
+Nodo537066525[label="IMG C 
+Id Cliente: 38",fillcolor="#81FFDA"]
+Nodo197964393[label="IMG C 
+Id Cliente: 39",fillcolor="#81FFDA"]
+Nodo1620890840[label="IMG C 
+Id Cliente: 37",fillcolor="#81FFDA"]
 
-raiz->Nodo148626113
-Nodo148626113 -> Nodo1847637306
+raiz->Nodo807657332
+Nodo807657332 -> Nodo825936265
 
-Nodo1847637306 -> Nodo1904253191
+Nodo825936265 -> Nodo915349526
 
-Nodo1904253191 -> Nodo1666607455
+Nodo915349526 -> Nodo1280851663
 
-Nodo1666607455 -> Nodo1327006586
+Nodo1280851663 -> Nodo1764696127
 
-Nodo1327006586 -> Nodo1045997582
+Nodo1764696127 -> Nodo348984985
+
+Nodo348984985 -> Nodo2005435445
+
+Nodo2005435445 -> Nodo1939990953
+
+Nodo1939990953 -> Nodo1104443373
+
+Nodo1104443373 -> Nodo898694235
+
+Nodo898694235 -> Nodo60292059
+
+Nodo60292059 -> Nodo96406857
+
+Nodo96406857 -> Nodo1534745514
+
+Nodo1534745514 -> Nodo2003496028
+
+Nodo2003496028 -> Nodo30578394
+
+Nodo30578394 -> Nodo2088371948
+
+Nodo2088371948 -> Nodo1976870338
+
+Nodo1976870338 -> Nodo1434234664
+
+Nodo1434234664 -> Nodo757004314
+
+Nodo757004314 -> Nodo1279271200
+
+Nodo1279271200 -> Nodo52908367
+
+Nodo52908367 -> Nodo1527953000
+
+Nodo1527953000 -> Nodo231756373
+
+Nodo231756373 -> Nodo1786294176
+
+Nodo1786294176 -> Nodo793331940
+
+Nodo793331940 -> Nodo366873404
+
+Nodo366873404 -> Nodo1217467887
+
+Nodo1217467887 -> Nodo752316209
+
+Nodo752316209 -> Nodo914356853
+
+Nodo914356853 -> Nodo1229161065
+
+Nodo1229161065 -> Nodo195228908
+
+Nodo195228908 -> Nodo536122141
+
+Nodo536122141 -> Nodo221634215
+
+Nodo221634215 -> Nodo2003891312
+
+Nodo2003891312 -> Nodo1583159071
+
+Nodo1583159071 -> Nodo607207372
+
+Nodo607207372 -> Nodo1882349076
+
+Nodo1882349076 -> Nodo936292831
+
+Nodo936292831 -> Nodo130668770
+
+Nodo130668770 -> Nodo2151717
+
+Nodo2151717 -> Nodo1644231115
+
+Nodo1644231115 -> Nodo537066525
+
+Nodo537066525 -> Nodo197964393
+
+Nodo197964393 -> Nodo1620890840
 }}

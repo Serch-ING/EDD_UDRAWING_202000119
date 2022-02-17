@@ -3,51 +3,111 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Clientes atendidos "
     bgcolor = "#FF7878"
-Nodo957465255[label="
-Nombre: Andres Lopez
-Atendido por ventanilla: 1
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 6",fillcolor="#81FFDA"]
-Nodo482082765[label="
-Nombre: Luiz Higueros
-Atendido por ventanilla: 1
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 6",fillcolor="#81FFDA"]
-Nodo384587033[label="
-Nombre: Juan Perez
-Atendido por ventanilla: 2
+Nodo1525919705[label="
+Nombre: Douglas Dominguez
+Atendido por ventanilla: 3
 Numero de imagenes impresas: 3
-Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo858952163[label="
-Nombre: Paulette Stebles
-Atendido por ventanilla: 2
-Numero de imagenes impresas: 4
-Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo1076607567[label="
-Nombre: Dene Meagher
-Atendido por ventanilla: 2
-Numero de imagenes impresas: 1
-Pasos totales en sistema: 7",fillcolor="#81FFDA"]
-Nodo1820383114[label="
-Nombre: Marylynne Stirton
+Pasos totales en sistema: 13",fillcolor="#81FFDA"]
+Nodo1332668132[label="
+Nombre: Polly Rodriguez
 Atendido por ventanilla: 1
-Numero de imagenes impresas: 4
+Numero de imagenes impresas: 5
 Pasos totales en sistema: 14",fillcolor="#81FFDA"]
-Nodo1961173763[label="
-Nombre: Adlai Fust
+Nodo6519275[label="
+Nombre: Shannon Johnston
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 0
+Pasos totales en sistema: 15",fillcolor="#81FFDA"]
+Nodo1818544933[label="
+Nombre: Yang Wiggins
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 17",fillcolor="#81FFDA"]
+Nodo1962826816[label="
+Nombre: Faith Hopkins
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 4
+Pasos totales en sistema: 20",fillcolor="#81FFDA"]
+Nodo371439501[label="
+Nombre: Stefanie Wise
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 1
+Pasos totales en sistema: 21",fillcolor="#81FFDA"]
+Nodo2012993836[label="
+Nombre: Elinor Ford
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 0
+Pasos totales en sistema: 22",fillcolor="#81FFDA"]
+Nodo691690486[label="
+Nombre: Sandy Mason
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 24",fillcolor="#81FFDA"]
+Nodo1008315045[label="
+Nombre: Tommie Mcpherson
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 2
+Pasos totales en sistema: 25",fillcolor="#81FFDA"]
+Nodo119358627[label="
+Nombre: Tabatha Pickett
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 30",fillcolor="#81FFDA"]
+Nodo1798219673[label="
+Nombre: Jolene Mccall
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 0
+Pasos totales en sistema: 33",fillcolor="#81FFDA"]
+Nodo1010953501[label="
+Nombre: Leach Ross
+Atendido por ventanilla: 3
+Numero de imagenes impresas: 7
+Pasos totales en sistema: 36",fillcolor="#81FFDA"]
+Nodo522553046[label="
+Nombre: Haley Rosario
+Atendido por ventanilla: 2
+Numero de imagenes impresas: 4
+Pasos totales en sistema: 39",fillcolor="#81FFDA"]
+Nodo328827614[label="
+Nombre: Noelle Morse
 Atendido por ventanilla: 1
 Numero de imagenes impresas: 1
-Pasos totales en sistema: 11",fillcolor="#81FFDA"]
-Nodo1156304131[label="
-Nombre: Corbet Meagher
+Pasos totales en sistema: 40",fillcolor="#81FFDA"]
+Nodo530653666[label="
+Nombre: Alyce Alford
+Atendido por ventanilla: 4
+Numero de imagenes impresas: 3
+Pasos totales en sistema: 42",fillcolor="#81FFDA"]
+Nodo1006094903[label="
+Nombre: Leigh Bright
+Atendido por ventanilla: 1
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 44",fillcolor="#81FFDA"]
+Nodo1766145591[label="
+Nombre: Durham Logan
+Atendido por ventanilla: 3
+Numero de imagenes impresas: 5
+Pasos totales en sistema: 50",fillcolor="#81FFDA"]
+Nodo1074389766[label="
+Nombre: Gay Mcmillan
 Atendido por ventanilla: 2
-Numero de imagenes impresas: 2
-Pasos totales en sistema: 12",fillcolor="#81FFDA"]
-Nodo957465255 -> Nodo482082765
-Nodo482082765 -> Nodo384587033
-Nodo384587033 -> Nodo858952163
-Nodo858952163 -> Nodo1076607567
-Nodo1076607567 -> Nodo1820383114
-Nodo1820383114 -> Nodo1961173763
-Nodo1961173763 -> Nodo1156304131
+Numero de imagenes impresas: 1
+Pasos totales en sistema: 51",fillcolor="#81FFDA"]
+Nodo1525919705 -> Nodo1332668132
+Nodo1332668132 -> Nodo6519275
+Nodo6519275 -> Nodo1818544933
+Nodo1818544933 -> Nodo1962826816
+Nodo1962826816 -> Nodo371439501
+Nodo371439501 -> Nodo2012993836
+Nodo2012993836 -> Nodo691690486
+Nodo691690486 -> Nodo1008315045
+Nodo1008315045 -> Nodo119358627
+Nodo119358627 -> Nodo1798219673
+Nodo1798219673 -> Nodo1010953501
+Nodo1010953501 -> Nodo522553046
+Nodo522553046 -> Nodo328827614
+Nodo328827614 -> Nodo530653666
+Nodo530653666 -> Nodo1006094903
+Nodo1006094903 -> Nodo1766145591
+Nodo1766145591 -> Nodo1074389766
 }}

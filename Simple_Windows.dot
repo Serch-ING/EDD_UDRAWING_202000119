@@ -3,24 +3,56 @@ node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
     label= " Ventanillas "
     bgcolor = "#FF7878"
-Nodo1661081225[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
-Nodo1882554559[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+Nodo776700275[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
+Nodo118394766[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
+Nodo1259014228[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
+Nodo431687661[label="Ventanillas: 4",fillcolor="#81FFDA",group=4]
 
-Nodo1661081225 -> Nodo1882554559
+Nodo776700275 -> Nodo118394766
 
-Cliente771775563[label="ID: 14
-NombreClovis Flanagan
+Cliente587003819[label="ID: 42
+NombreEtta Blake
 Img_C: 3
-Img_BN: 1",fillcolor="#B36AF9",group=1]
-Cliente771775563-> Nodo1661081225
-Nodo1332668132[label="IMG BN",fillcolor="#81FFDA"]
+Img_BN: 0",fillcolor="#B36AF9",group=1]
+Cliente587003819-> Nodo776700275
+Nodo2106000623[label="IMG C",fillcolor="#81FFDA"]
 
-Nodo1661081225 -> Nodo1332668132
+Nodo776700275 -> Nodo2106000623
 
-{rank=same;Nodo1661081225,Cliente771775563,Nodo1332668132}
-Cliente1147580192[label="ID: 15
-NombreMarylynne Dimbylow
-Img_C: 1
+{rank=same;Nodo776700275,Cliente587003819,Nodo2106000623}
+Nodo118394766 -> Nodo1259014228
+
+Cliente1437654187[label="ID: 40
+NombreBrigitte Wheeler
+Img_C: 4
 Img_BN: 3",fillcolor="#B36AF9",group=2]
-Cliente1147580192-> Nodo1882554559
-{rank=same;Nodo1882554559,Cliente1147580192}}}
+Cliente1437654187-> Nodo118394766
+Nodo330739404[label="IMG BN",fillcolor="#81FFDA"]
+Nodo769798433[label="IMG BN",fillcolor="#81FFDA"]
+Nodo182531396[label="IMG BN",fillcolor="#81FFDA"]
+Nodo330739404 -> Nodo769798433
+Nodo769798433 -> Nodo182531396
+
+Nodo118394766 -> Nodo330739404
+
+{rank=same;Nodo118394766,Cliente1437654187,Nodo330739404,Nodo769798433,Nodo182531396}
+Nodo1259014228 -> Nodo431687661
+
+Cliente361398902[label="ID: 43
+NombreMacdonald Murray
+Img_C: 1
+Img_BN: 1",fillcolor="#B36AF9",group=3]
+Cliente361398902-> Nodo1259014228
+{rank=same;Nodo1259014228,Cliente361398902}
+Cliente2109798150[label="ID: 41
+NombreChrista Mendoza
+Img_C: 2
+Img_BN: 3",fillcolor="#B36AF9",group=4]
+Cliente2109798150-> Nodo431687661
+Nodo1010670443[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1665620686[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1010670443 -> Nodo1665620686
+
+Nodo431687661 -> Nodo1010670443
+
+{rank=same;Nodo431687661,Cliente2109798150,Nodo1010670443,Nodo1665620686}}}
