@@ -1,12 +1,12 @@
 digraph L {
 node[shape=note fillcolor="#A181FF" style =filled]
 subgraph cluster_p{
-    label= "Busqueda del Cliente ID: 5"
+    label= "Busqueda del Cliente ID: 11"
     bgcolor = "#FF7878"
-Nodo1008925772[label="ID: 5
-Nombre: Sandy Mason
-Pasos en sitema: 24
-Ventanilla que atendio: 2
+Nodo1008925772[label="ID: 11
+Nombre: Leigh Bright
+Pasos en sitema: 44
+Ventanilla que atendio: 1
 Imagenes a color impresas: 1
 Imagenes blanco y negro impresas: 4
 Imagenes totales impresas: 5",fillcolor="#81FFDA"]

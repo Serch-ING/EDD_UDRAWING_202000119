@@ -6,48 +6,53 @@ subgraph cluster_p{
 Nodo776700275[label="Ventanillas: 1",fillcolor="#81FFDA",group=1]
 Nodo118394766[label="Ventanillas: 2",fillcolor="#81FFDA",group=2]
 Nodo1259014228[label="Ventanillas: 3",fillcolor="#81FFDA",group=3]
+Nodo431687661[label="Ventanillas: 4",fillcolor="#81FFDA",group=4]
 
 Nodo776700275 -> Nodo118394766
 
-Cliente1092572064[label="ID: 24
-NombreCarolyn Harmon
+Cliente587003819[label="ID: 42
+NombreEtta Blake
 Img_C: 3
-Img_BN: 2",fillcolor="#B36AF9",group=1]
-Cliente1092572064-> Nodo776700275
-{rank=same;Nodo776700275,Cliente1092572064}
+Img_BN: 0",fillcolor="#B36AF9",group=1]
+Cliente587003819-> Nodo776700275
+Nodo2106000623[label="IMG C",fillcolor="#81FFDA"]
+
+Nodo776700275 -> Nodo2106000623
+
+{rank=same;Nodo776700275,Cliente587003819,Nodo2106000623}
 Nodo118394766 -> Nodo1259014228
 
-Cliente1764696127[label="ID: 21
-NombrePruitt Perez
+Cliente1437654187[label="ID: 40
+NombreBrigitte Wheeler
 Img_C: 4
-Img_BN: 2",fillcolor="#B36AF9",group=2]
-Cliente1764696127-> Nodo118394766
-Nodo728885526[label="IMG C",fillcolor="#81FFDA"]
-Nodo1636506029[label="IMG C",fillcolor="#81FFDA"]
-Nodo898694235[label="IMG C",fillcolor="#81FFDA"]
-Nodo873610597[label="IMG BN",fillcolor="#81FFDA"]
-Nodo348984985[label="IMG BN",fillcolor="#81FFDA"]
-Nodo728885526 -> Nodo1636506029
-Nodo1636506029 -> Nodo898694235
-Nodo898694235 -> Nodo873610597
-Nodo873610597 -> Nodo348984985
+Img_BN: 3",fillcolor="#B36AF9",group=2]
+Cliente1437654187-> Nodo118394766
+Nodo330739404[label="IMG BN",fillcolor="#81FFDA"]
+Nodo769798433[label="IMG BN",fillcolor="#81FFDA"]
+Nodo182531396[label="IMG BN",fillcolor="#81FFDA"]
+Nodo330739404 -> Nodo769798433
+Nodo769798433 -> Nodo182531396
 
-Nodo118394766 -> Nodo728885526
+Nodo118394766 -> Nodo330739404
 
-{rank=same;Nodo118394766,Cliente1764696127,Nodo728885526,Nodo1636506029,Nodo898694235,Nodo873610597,Nodo348984985}
-Cliente2005435445[label="ID: 22
-NombreNola Winters
-Img_C: 3
+{rank=same;Nodo118394766,Cliente1437654187,Nodo330739404,Nodo769798433,Nodo182531396}
+Nodo1259014228 -> Nodo431687661
+
+Cliente361398902[label="ID: 43
+NombreMacdonald Murray
+Img_C: 1
 Img_BN: 1",fillcolor="#B36AF9",group=3]
-Cliente2005435445-> Nodo1259014228
-Nodo922511709[label="IMG C",fillcolor="#81FFDA"]
-Nodo758348212[label="IMG C",fillcolor="#81FFDA"]
-Nodo60292059[label="IMG C",fillcolor="#81FFDA"]
-Nodo1497845528[label="IMG BN",fillcolor="#81FFDA"]
-Nodo922511709 -> Nodo758348212
-Nodo758348212 -> Nodo60292059
-Nodo60292059 -> Nodo1497845528
+Cliente361398902-> Nodo1259014228
+{rank=same;Nodo1259014228,Cliente361398902}
+Cliente2109798150[label="ID: 41
+NombreChrista Mendoza
+Img_C: 2
+Img_BN: 3",fillcolor="#B36AF9",group=4]
+Cliente2109798150-> Nodo431687661
+Nodo1010670443[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1665620686[label="IMG BN",fillcolor="#81FFDA"]
+Nodo1010670443 -> Nodo1665620686
 
-Nodo1259014228 -> Nodo922511709
+Nodo431687661 -> Nodo1010670443
 
-{rank=same;Nodo1259014228,Cliente2005435445,Nodo922511709,Nodo758348212,Nodo60292059,Nodo1497845528}}}
+{rank=same;Nodo431687661,Cliente2109798150,Nodo1010670443,Nodo1665620686}}}
