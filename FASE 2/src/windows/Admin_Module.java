@@ -170,13 +170,13 @@ public class Admin_Module extends JFrame {
 				System.out.println(data);
 				
 				String name = (String) data.get("nombre_cliente");
-				System.out.println(name);
+				//System.out.println(name);
 				
 				String dpi = (String) data.get("dpi");
-				System.out.println(dpi);
+				//System.out.println(dpi);
 				
 				String password = (String) data.get("password");
-				System.out.println(password);
+				//System.out.println(password);
 			}
 	
 			System.out.println("El archivo se ingreso correctamente");
