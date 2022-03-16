@@ -32,10 +32,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 public class Admin_Module extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField_Nuevo_Password;
+	private JTextField textField_Nuevo_DPI;
+	private JTextField textField_Nuevo_Name;
 
 	/**
 	 * Launch the application.
@@ -107,6 +112,53 @@ public class Admin_Module extends JFrame {
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Operaciones de clientes", null, panel_1, null);
 		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Operaciones disponibles");
+		lblNewLabel_1.setBounds(27, 11, 190, 14);
+		panel_1.add(lblNewLabel_1);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_1.setBounds(27, 36, 836, 461);
+		panel_1.add(tabbedPane_1);
+		
+		JPanel panel_4 = new JPanel();
+		tabbedPane_1.addTab("Insertar nuevo cliente", null, panel_4, null);
+		panel_4.setLayout(null);
+		
+		textField_Nuevo_Password = new JTextField();
+		textField_Nuevo_Password.setBounds(139, 106, 163, 20);
+		panel_4.add(textField_Nuevo_Password);
+		textField_Nuevo_Password.setColumns(10);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("DPI:");
+		lblNewLabel_2_1.setBounds(69, 35, 46, 14);
+		panel_4.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("Nombre cliente:");
+		lblNewLabel_2_2.setBounds(33, 69, 117, 14);
+		panel_4.add(lblNewLabel_2_2);
+		
+		textField_Nuevo_DPI = new JTextField();
+		textField_Nuevo_DPI.setColumns(10);
+		textField_Nuevo_DPI.setBounds(139, 35, 163, 20);
+		panel_4.add(textField_Nuevo_DPI);
+		
+		JLabel lblNewLabel_2_2_1 = new JLabel("Contrase\u00F1a:");
+		lblNewLabel_2_2_1.setBounds(33, 109, 117, 14);
+		panel_4.add(lblNewLabel_2_2_1);
+		
+		textField_Nuevo_Name = new JTextField();
+		textField_Nuevo_Name.setColumns(10);
+		textField_Nuevo_Name.setBounds(139, 66, 163, 20);
+		panel_4.add(textField_Nuevo_Name);
+		
+		JPanel panel_5 = new JPanel();
+		tabbedPane_1.addTab("Modificar cliente", null, panel_5, null);
+		panel_5.setLayout(null);
+		
+		JPanel panel_6 = new JPanel();
+		tabbedPane_1.addTab("Eliminar cliente", null, panel_6, null);
+		panel_6.setLayout(null);
 
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Arbol de clientes", null, panel_2, null);
@@ -188,6 +240,4 @@ public class Admin_Module extends JFrame {
 			return null;
 		}
 	}
-	
-
 }
