@@ -283,6 +283,19 @@ public class Admin_Module extends JFrame {
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Arbol de clientes", null, panel_2, null);
 		panel_2.setLayout(null);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBounds(10, 45, 871, 468);
+		panel_2.add(panel_7);
+		panel_7.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(10, 11, 851, 446);
+		panel_7.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Arbol de Cliente");
+		lblNewLabel_3.setBounds(408, 20, 92, 14);
+		panel_2.add(lblNewLabel_3);
 
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Reportes", null, panel_3, null);
