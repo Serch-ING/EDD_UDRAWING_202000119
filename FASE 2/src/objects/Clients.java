@@ -1,10 +1,10 @@
 package objects;
 
 public class Clients {
-	String Name,Password;
-	int DPI;
+	public String Name,Password;
+	public String DPI;
 	
-	public Clients(String Name, String Password, int DPI) {
+	public Clients(String Name, String Password, String DPI) {
 		this.Name = Name;
 		this.Password = Password;
 		this.DPI = DPI;

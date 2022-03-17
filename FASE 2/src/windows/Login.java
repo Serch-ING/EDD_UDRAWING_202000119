@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import storage.Storage;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -21,9 +24,7 @@ public class Login extends JFrame {
 	private JPasswordField passwordField;
 	private JLabel lblContrasea;
 
-	/**
-	 * Launch the application.
-	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,12 +36,10 @@ public class Login extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
-	/**
-	 * Create the frame.
-	 */
-	public Login() {
+
+	public Login(Storage storage) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -81,9 +80,15 @@ public class Login extends JFrame {
 
 					if (User.equals(userAdmin) && password.equals(passwordAdmin)) {
 						JOptionPane.showMessageDialog(null, "Ingreso");
+<<<<<<< Updated upstream
 						Admin_Module admin_view = new Admin_Module();
 						admin_view.setVisible(true);
 						dispose();
+=======
+						Admin_Module admin_window = new Admin_Module(storage);
+						admin_window.setVisible(true);
+						setVisible(false);
+>>>>>>> Stashed changes
 					} else {
 						JOptionPane.showMessageDialog(null, "Credenciales erroneas");
 					}
