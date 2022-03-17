@@ -14,6 +14,7 @@ public class main {
 				try {
 					Login frame = new Login(storage);
 					frame.setVisible(true);
+					System.out.println("Start");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

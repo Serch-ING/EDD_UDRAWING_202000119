@@ -80,15 +80,11 @@ public class Login extends JFrame {
 
 					if (User.equals(userAdmin) && password.equals(passwordAdmin)) {
 						JOptionPane.showMessageDialog(null, "Ingreso");
-<<<<<<< Updated upstream
-						Admin_Module admin_view = new Admin_Module();
-						admin_view.setVisible(true);
-						dispose();
-=======
+
 						Admin_Module admin_window = new Admin_Module(storage);
 						admin_window.setVisible(true);
 						setVisible(false);
->>>>>>> Stashed changes
+
 					} else {
 						JOptionPane.showMessageDialog(null, "Credenciales erroneas");
 					}

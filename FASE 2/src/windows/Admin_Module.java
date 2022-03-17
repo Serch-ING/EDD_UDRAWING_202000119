@@ -16,6 +16,9 @@ import org.json.simple.parser.JSONParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.impl.ObjectIdReferenceProperty;
 
+import objects.Clients;
+import storage.Storage;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -65,7 +68,7 @@ public class Admin_Module extends JFrame {
 	}*/
 
 
-	public Admin_Module() {
+	public Admin_Module(Storage storage) {
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
 		fc.setFileFilter(filter);
@@ -112,6 +115,10 @@ public class Admin_Module extends JFrame {
 
 		Button_LoadClients.setBounds(10, 69, 123, 23);
 		panel.add(Button_LoadClients);
+		
+		JLabel lblNewLabel_4 = new JLabel("Clientes JSON ingresados");
+		lblNewLabel_4.setBounds(312, 50, 123, 14);
+		panel.add(lblNewLabel_4);
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Operaciones de clientes", null, panel_1, null);
@@ -327,7 +334,7 @@ public class Admin_Module extends JFrame {
 
 				if (!label_ruta.getText().equals("Null")) {
 
-					 textOut.setText( ReadJson(label_ruta.getText()));
+					 textOut.setText( ReadJson(label_ruta.getText(),storage));
 					
 					
 					
@@ -341,14 +348,14 @@ public class Admin_Module extends JFrame {
 		
 		Button_closesesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login login = new Login();
+				Login login = new Login(storage);
 				login.setVisible(true);
 				dispose();
 			}
 		});
 	}
 
-	public String ReadJson(String ruta) {
+	public String ReadJson(String ruta,Storage storage) {
 
 		JSONParser jsonParser = new JSONParser();
 
@@ -357,12 +364,12 @@ public class Admin_Module extends JFrame {
 			Object obj = jsonParser.parse(reader);
 
 			JSONArray jsonList = (JSONArray) obj;
-			System.out.println(jsonList + "\n");
+			//System.out.println(jsonList + "\n");
 			
 			for (Object object : jsonList) {
 				temp+= object + "\n\n";
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				String name = (String) data.get("nombre_cliente");
 				//System.out.println(name);
@@ -372,7 +379,10 @@ public class Admin_Module extends JFrame {
 				
 				String password = (String) data.get("password");
 				//System.out.println(password);
+				Clients client_new = new Clients(name,password,dpi);
+				storage.InsertClients(client_new);
 			}
+			storage.showClients();
 	
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;
