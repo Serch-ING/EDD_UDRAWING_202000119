@@ -16,6 +16,9 @@ import org.json.simple.parser.JSONParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.impl.ObjectIdReferenceProperty;
 
+import objects.Clients;
+import storage.Storage;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,14 +35,25 @@ import java.io.File;
 import java.io.FileReader;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 public class Admin_Module extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField_Nuevo_Password;
+	private JTextField textField_Nuevo_DPI;
+	private JTextField textField_Nuevo_Name;
+	private JTextField textField_DPI_search;
+	private JTextField textField_DPI_Modify;
+	private JTextField textField_Name_Modify;
+	private JTextField textField_Password_Modify;
+	private JTextField textField;
+	private JTextField textField_View_Name;
+	private JTextField textField_View_Password;
+	private JTextField textField_View_DPI;
 
-	/**
-	 * Launch the application.
-	 */
+/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -51,26 +65,24 @@ public class Admin_Module extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
-	/**
-	 * Create the frame.
-	 */
-	public Admin_Module() {
+
+	public Admin_Module(Storage storage) {
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
 		fc.setFileFilter(filter);
 		fc.setCurrentDirectory(new File("./Test"));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 932, 613);
+		setBounds(100, 100, 932, 643);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 896, 552);
+		tabbedPane.setBounds(10, 41, 896, 552);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -103,18 +115,199 @@ public class Admin_Module extends JFrame {
 
 		Button_LoadClients.setBounds(10, 69, 123, 23);
 		panel.add(Button_LoadClients);
+		
+		JLabel lblNewLabel_4 = new JLabel("Clientes JSON ingresados");
+		lblNewLabel_4.setBounds(312, 50, 123, 14);
+		panel.add(lblNewLabel_4);
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Operaciones de clientes", null, panel_1, null);
 		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Operaciones disponibles");
+		lblNewLabel_1.setBounds(27, 11, 190, 14);
+		panel_1.add(lblNewLabel_1);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_1.setBounds(27, 36, 836, 461);
+		panel_1.add(tabbedPane_1);
+		
+		JPanel panel_4 = new JPanel();
+		tabbedPane_1.addTab("Insertar nuevo cliente", null, panel_4, null);
+		panel_4.setLayout(null);
+		
+		textField_Nuevo_Password = new JTextField();
+		textField_Nuevo_Password.setBounds(139, 106, 237, 20);
+		panel_4.add(textField_Nuevo_Password);
+		textField_Nuevo_Password.setColumns(10);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("DPI:");
+		lblNewLabel_2_1.setBounds(69, 35, 46, 14);
+		panel_4.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("Nombre cliente:");
+		lblNewLabel_2_2.setBounds(33, 69, 117, 14);
+		panel_4.add(lblNewLabel_2_2);
+		
+		textField_Nuevo_DPI = new JTextField();
+		textField_Nuevo_DPI.setColumns(10);
+		textField_Nuevo_DPI.setBounds(139, 35, 237, 20);
+		panel_4.add(textField_Nuevo_DPI);
+		
+		JLabel lblNewLabel_2_2_1 = new JLabel("Contrase\u00F1a:");
+		lblNewLabel_2_2_1.setBounds(33, 109, 117, 14);
+		panel_4.add(lblNewLabel_2_2_1);
+		
+		textField_Nuevo_Name = new JTextField();
+		textField_Nuevo_Name.setColumns(10);
+		textField_Nuevo_Name.setBounds(139, 66, 237, 20);
+		panel_4.add(textField_Nuevo_Name);
+		
+		JButton btnNewButton = new JButton("Insertar");
+		btnNewButton.setBounds(190, 171, 89, 23);
+		panel_4.add(btnNewButton);
+		
+		JPanel panel_5 = new JPanel();
+		tabbedPane_1.addTab("Modificar cliente", null, panel_5, null);
+		panel_5.setLayout(null);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("DPI:");
+		lblNewLabel_2_1_1.setBounds(51, 34, 46, 14);
+		panel_5.add(lblNewLabel_2_1_1);
+		
+		textField_DPI_search = new JTextField();
+		textField_DPI_search.setColumns(10);
+		textField_DPI_search.setBounds(121, 34, 237, 20);
+		panel_5.add(textField_DPI_search);
+		
+		JButton Button_Search_Modify = new JButton("Buscar");
+		Button_Search_Modify.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Button_Search_Modify.setBounds(402, 30, 89, 23);
+		panel_5.add(Button_Search_Modify);
+		
+		JLabel lblNewLabel_2_2_2 = new JLabel("Nombre cliente:");
+		lblNewLabel_2_2_2.setBounds(15, 163, 117, 14);
+		panel_5.add(lblNewLabel_2_2_2);
+		
+		JLabel lblNewLabel_2_1_2 = new JLabel("DPI:");
+		lblNewLabel_2_1_2.setBounds(51, 129, 46, 14);
+		panel_5.add(lblNewLabel_2_1_2);
+		
+		textField_DPI_Modify = new JTextField();
+		textField_DPI_Modify.setEnabled(false);
+		textField_DPI_Modify.setColumns(10);
+		textField_DPI_Modify.setBounds(121, 129, 237, 20);
+		panel_5.add(textField_DPI_Modify);
+		
+		textField_Name_Modify = new JTextField();
+		textField_Name_Modify.setColumns(10);
+		textField_Name_Modify.setBounds(121, 160, 237, 20);
+		panel_5.add(textField_Name_Modify);
+		
+		JLabel lblNewLabel_2_2_1_1 = new JLabel("Contrase\u00F1a:");
+		lblNewLabel_2_2_1_1.setBounds(15, 203, 117, 14);
+		panel_5.add(lblNewLabel_2_2_1_1);
+		
+		textField_Password_Modify = new JTextField();
+		textField_Password_Modify.setColumns(10);
+		textField_Password_Modify.setBounds(121, 200, 237, 20);
+		panel_5.add(textField_Password_Modify);
+		
+		JButton Button_Modify = new JButton("Modificar");
+		Button_Modify.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Button_Modify.setBounds(212, 255, 89, 23);
+		panel_5.add(Button_Modify);
+		
+		JLabel lblNewLabel_2_1_1_2 = new JLabel("Datos del cliente:");
+		lblNewLabel_2_1_1_2.setBounds(15, 92, 97, 14);
+		panel_5.add(lblNewLabel_2_1_1_2);
+		
+		JPanel panel_6 = new JPanel();
+		tabbedPane_1.addTab("Eliminar cliente", null, panel_6, null);
+		panel_6.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(136, 39, 237, 20);
+		panel_6.add(textField);
+		
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("DPI:");
+		lblNewLabel_2_1_1_1.setBounds(66, 39, 46, 14);
+		panel_6.add(lblNewLabel_2_1_1_1);
+		
+		JButton Button_Search_Delete = new JButton("Buscar");
+		Button_Search_Delete.setBounds(417, 35, 89, 23);
+		panel_6.add(Button_Search_Delete);
+		
+		JLabel lblNewLabel_2_2_2_1 = new JLabel("Nombre cliente:");
+		lblNewLabel_2_2_2_1.setBounds(30, 190, 117, 14);
+		panel_6.add(lblNewLabel_2_2_2_1);
+		
+		textField_View_Name = new JTextField();
+		textField_View_Name.setEnabled(false);
+		textField_View_Name.setColumns(10);
+		textField_View_Name.setBounds(136, 187, 237, 20);
+		panel_6.add(textField_View_Name);
+		
+		JLabel lblNewLabel_2_2_1_1_1 = new JLabel("Contrase\u00F1a:");
+		lblNewLabel_2_2_1_1_1.setBounds(30, 230, 117, 14);
+		panel_6.add(lblNewLabel_2_2_1_1_1);
+		
+		textField_View_Password = new JTextField();
+		textField_View_Password.setEnabled(false);
+		textField_View_Password.setColumns(10);
+		textField_View_Password.setBounds(136, 227, 237, 20);
+		panel_6.add(textField_View_Password);
+		
+		JLabel lblNewLabel_2_1_1_2_1 = new JLabel("Datos del cliente:");
+		lblNewLabel_2_1_1_2_1.setBounds(30, 111, 97, 14);
+		panel_6.add(lblNewLabel_2_1_1_2_1);
+		
+		JLabel lblNewLabel_2_1_2_1 = new JLabel("DPI:");
+		lblNewLabel_2_1_2_1.setBounds(66, 148, 46, 14);
+		panel_6.add(lblNewLabel_2_1_2_1);
+		
+		textField_View_DPI = new JTextField();
+		textField_View_DPI.setEnabled(false);
+		textField_View_DPI.setColumns(10);
+		textField_View_DPI.setBounds(136, 148, 237, 20);
+		panel_6.add(textField_View_DPI);
+		
+		JButton Button_Delete_Client = new JButton("Eliminar");
+		Button_Delete_Client.setBounds(217, 280, 89, 23);
+		panel_6.add(Button_Delete_Client);
 
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Arbol de clientes", null, panel_2, null);
 		panel_2.setLayout(null);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBounds(10, 45, 871, 468);
+		panel_2.add(panel_7);
+		panel_7.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(10, 11, 851, 446);
+		panel_7.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Arbol de Cliente");
+		lblNewLabel_3.setBounds(408, 20, 92, 14);
+		panel_2.add(lblNewLabel_3);
 
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Reportes", null, panel_3, null);
 		panel_3.setLayout(null);
+		
+		JButton Button_closesesion = new JButton("Cerrar sesion");
+
+		Button_closesesion.setBounds(775, 23, 131, 23);
+		contentPane.add(Button_closesesion);
 
 		// Buttons
 		Button_Search.addActionListener(new ActionListener() {
@@ -141,7 +334,7 @@ public class Admin_Module extends JFrame {
 
 				if (!label_ruta.getText().equals("Null")) {
 
-					 textOut.setText( ReadJson(label_ruta.getText()));
+					 textOut.setText( ReadJson(label_ruta.getText(),storage));
 					
 					
 					
@@ -151,9 +344,18 @@ public class Admin_Module extends JFrame {
 
 			}
 		});
+		
+		
+		Button_closesesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login(storage);
+				login.setVisible(true);
+				dispose();
+			}
+		});
 	}
 
-	public String ReadJson(String ruta) {
+	public String ReadJson(String ruta,Storage storage) {
 
 		JSONParser jsonParser = new JSONParser();
 
@@ -162,12 +364,12 @@ public class Admin_Module extends JFrame {
 			Object obj = jsonParser.parse(reader);
 
 			JSONArray jsonList = (JSONArray) obj;
-			System.out.println(jsonList + "\n");
+			//System.out.println(jsonList + "\n");
 			
 			for (Object object : jsonList) {
 				temp+= object + "\n\n";
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				String name = (String) data.get("nombre_cliente");
 				//System.out.println(name);
@@ -177,7 +379,10 @@ public class Admin_Module extends JFrame {
 				
 				String password = (String) data.get("password");
 				//System.out.println(password);
+				Clients client_new = new Clients(name,password,dpi);
+				storage.InsertClients(client_new);
 			}
+			storage.showClients();
 	
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;
@@ -188,6 +393,4 @@ public class Admin_Module extends JFrame {
 			return null;
 		}
 	}
-	
-
 }
