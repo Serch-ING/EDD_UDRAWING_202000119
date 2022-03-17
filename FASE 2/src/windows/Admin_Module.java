@@ -50,9 +50,7 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_View_Password;
 	private JTextField textField_View_DPI;
 
-	/**
-	 * Launch the application.
-	 */
+/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -64,11 +62,9 @@ public class Admin_Module extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
-	/**
-	 * Create the frame.
-	 */
+
 	public Admin_Module() {
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
@@ -76,14 +72,14 @@ public class Admin_Module extends JFrame {
 		fc.setCurrentDirectory(new File("./Test"));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 932, 613);
+		setBounds(100, 100, 932, 643);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 896, 552);
+		tabbedPane.setBounds(10, 41, 896, 552);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -300,6 +296,11 @@ public class Admin_Module extends JFrame {
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Reportes", null, panel_3, null);
 		panel_3.setLayout(null);
+		
+		JButton Button_closesesion = new JButton("Cerrar sesion");
+
+		Button_closesesion.setBounds(775, 23, 131, 23);
+		contentPane.add(Button_closesesion);
 
 		// Buttons
 		Button_Search.addActionListener(new ActionListener() {
@@ -334,6 +335,15 @@ public class Admin_Module extends JFrame {
 					JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
 				}
 
+			}
+		});
+		
+		
+		Button_closesesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
 			}
 		});
 	}
