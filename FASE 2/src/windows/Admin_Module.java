@@ -367,7 +367,7 @@ public class Admin_Module extends JFrame {
 			//System.out.println(jsonList + "\n");
 			
 			for (Object object : jsonList) {
-				temp+= object + "\n\n";
+			
 				JSONObject data = (JSONObject) object;
 				//System.out.println(data);
 				
@@ -380,7 +380,11 @@ public class Admin_Module extends JFrame {
 				String password = (String) data.get("password");
 				//System.out.println(password);
 				Clients client_new = new Clients(name,password,dpi);
-				storage.InsertClients(client_new);
+				
+				if(dpi != null && name != null && password != null) {
+					temp+= object + "\n\n";
+					storage.InsertClients(client_new);
+				}
 			}
 			storage.showClients();
 	
