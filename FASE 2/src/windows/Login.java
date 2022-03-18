@@ -77,7 +77,7 @@ public class Login extends JFrame {
 				try {
 					String password = String.valueOf(passwordField.getPassword());
 					String User = UserText.getText();
-
+					
 					if (User.equals(userAdmin) && password.equals(passwordAdmin)) {
 						JOptionPane.showMessageDialog(null, "Ingreso");
 
@@ -85,6 +85,10 @@ public class Login extends JFrame {
 						admin_window.setVisible(true);
 						setVisible(false);
 
+					}else if (storage.SerchClient(User,password)) {
+						
+						JOptionPane.showMessageDialog(null, "Client joined");
+						
 					} else {
 						JOptionPane.showMessageDialog(null, "Credenciales erroneas");
 					}

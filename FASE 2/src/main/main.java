@@ -12,6 +12,7 @@ public class main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					storage.initilize();
 					Login frame = new Login(storage);
 					frame.setVisible(true);
 					System.out.println("Start");
