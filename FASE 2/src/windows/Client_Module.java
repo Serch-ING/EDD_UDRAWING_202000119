@@ -7,6 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import objects.Clients;
+import storage.Storage;
+
 import javax.swing.JTabbedPane;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -18,6 +26,8 @@ import java.awt.Color;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -33,7 +43,8 @@ public class Client_Module extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Client_Module frame = new Client_Module();
+					Storage storage = new Storage();
+					Client_Module frame = new Client_Module(storage);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +56,7 @@ public class Client_Module extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Client_Module() {
+	public Client_Module(Storage storage) {
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
 		fc.setFileFilter(filter);
@@ -123,11 +134,14 @@ public class Client_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (label_ruta.getText() != "Null") {
 					if (comboBox.getSelectedItem() == "Capas") {
-						JOptionPane.showMessageDialog(null, "capas");
+						ReadLayers(label_ruta.getText(),storage);
+						
 					} else if (comboBox.getSelectedItem() == "Imagenes") {
-						JOptionPane.showMessageDialog(null, "Images");
+						ReadImages(label_ruta.getText(),storage);
+						
 					} else if (comboBox.getSelectedItem() == "Albums") {
-						JOptionPane.showMessageDialog(null, "Albun");
+						ReadAlbums(label_ruta.getText(),storage);
+						
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Debe cargar un archivo");
@@ -136,4 +150,123 @@ public class Client_Module extends JFrame {
 			}
 		});
 	}
+	
+	
+	public void ReadLayers(String ruta,Storage storage) {
+
+		JSONParser jsonParser = new JSONParser();
+
+		try (FileReader reader = new FileReader(ruta)) {
+			
+			Object obj = jsonParser.parse(reader);
+			JSONArray jsonList = (JSONArray) obj;
+			
+			for (Object object : jsonList) {
+			
+				JSONObject data = (JSONObject) object;
+				System.out.println(data);
+				
+				
+				Object id_obj = (Object) data.get("id_capa");
+				
+				Integer id = ((Long) id_obj).intValue();
+				System.out.println( id);
+				
+				JSONArray pixelesList = (JSONArray) data.get("pixeles");
+				
+				for (Object object2 : pixelesList) {
+					JSONObject data2 = (JSONObject) object2;
+					System.out.println(data2);
+				}
+			
+			}
+	
+			System.out.println("El archivo se ingreso correctamente");
+		
+			
+		} catch (Exception e) {
+			
+			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+
+		}
+	}
+	
+	public void ReadImages(String ruta,Storage storage) {
+
+		JSONParser jsonParser = new JSONParser();
+
+		try (FileReader reader = new FileReader(ruta)) {
+			
+			Object obj = jsonParser.parse(reader);
+			JSONArray jsonList = (JSONArray) obj;
+			
+			for (Object object : jsonList) {
+			
+				JSONObject data = (JSONObject) object;
+				System.out.println(data);
+				
+				
+				Object id_obj = (Object) data.get("id");
+				
+				Integer id = ((Long) id_obj).intValue();
+				System.out.println( id);
+				
+				JSONArray  capas = (JSONArray ) data.get("capas");
+				System.out.println(capas);
+				
+				for (Object object2 : capas) {
+					System.out.println(object2);
+				}
+			
+			}
+	
+			System.out.println("El archivo se ingreso correctamente");
+		
+			
+		} catch (Exception e) {
+			
+			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+
+		}
+	}
+	
+	public void ReadAlbums(String ruta,Storage storage) {
+
+		JSONParser jsonParser = new JSONParser();
+
+		try (FileReader reader = new FileReader(ruta)) {
+			
+			Object obj = jsonParser.parse(reader);
+			JSONArray jsonList = (JSONArray) obj;
+			
+			for (Object object : jsonList) {
+			
+				JSONObject data = (JSONObject) object;
+				System.out.println(data);
+				
+				
+				String name = (String) data.get("nombre_album");
+				System.out.println( name);
+				
+				JSONArray images = (JSONArray) data.get("imgs");
+				System.out.println(images);
+				
+				for (Object object2 : images) {
+					
+					System.out.println(object2);
+				}
+			
+			}
+	
+			System.out.println("El archivo se ingreso correctamente");
+		
+			
+		} catch (Exception e) {
+			
+			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+
+		}
+	}
+	
+	
 }
