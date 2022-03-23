@@ -204,7 +204,7 @@ public class Client_Module extends JFrame {
 					temp_Matriz.insertarNodo(colum, file,  color);
 					
 				}
-				temp_Matriz.Graficar("MaTRIZ_" + String.valueOf(id));
+				//temp_Matriz.Graficar("MaTRIZ_" + String.valueOf(id));
 			
 			}
 	
