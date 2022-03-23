@@ -4,16 +4,15 @@ import storage.Arbol_AVL;
 import storage.Arbol_Binario;
 
 public class Nodes_Colors {
-	public String Name,Password;
-	public String DPI;
-	public Arbol_Binario ABBCapas  = new Arbol_Binario();
-	public Arbol_AVL AVLImages  = new Arbol_AVL();
+	public int  fila,columna;
+	public String color;
 	
 	
-	public Nodes_Colors(String Name, String Password, String DPI) {
-		this.Name = Name;
-		this.Password = Password;
-		this.DPI = DPI;
+	
+	public Nodes_Colors(int fila, int columna, String color) {
+		this.fila = fila;
+		this.columna = columna;
+		this.color = color;
 		
 	}
 	

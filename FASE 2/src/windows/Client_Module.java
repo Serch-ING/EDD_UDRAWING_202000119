@@ -13,6 +13,7 @@ import org.json.simple.parser.JSONParser;
 
 
 import objects.Clients;
+import objects.Nodes_Colors;
 import storage.Storage;
 
 import javax.swing.JTabbedPane;
@@ -27,6 +28,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -141,7 +143,7 @@ public class Client_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (label_ruta.getText() != "Null") {
 					if (comboBox.getSelectedItem() == "Capas") {
-						ReadLayers(label_ruta.getText(),storage);
+						ReadLayers(label_ruta.getText(),storage,cliente);
 						
 					} else if (comboBox.getSelectedItem() == "Imagenes") {
 						ReadImages(label_ruta.getText(),storage);
@@ -159,8 +161,9 @@ public class Client_Module extends JFrame {
 	}
 	
 	
-	public void ReadLayers(String ruta,Storage storage) {
-
+	public void ReadLayers(String ruta,Storage storage,Clients cliente) {
+		Integer id;
+		LinkedList<Nodes_Colors> Nodos ;
 		JSONParser jsonParser = new JSONParser();
 
 		try (FileReader reader = new FileReader(ruta)) {
@@ -176,38 +179,48 @@ public class Client_Module extends JFrame {
 				
 				Object id_obj = (Object) data.get("id_capa");
 				
-				Integer id = ((Long) id_obj).intValue();
-				System.out.println( id);
+				id = ((Long) id_obj).intValue();
+				//System.out.println( id);
 				
 				JSONArray pixelesList = (JSONArray) data.get("pixeles");
 				
-				MatrizDispersa temp_Matriz = new MatrizDispersa();
+				Nodos  = new LinkedList<Nodes_Colors>();
+				
+				//MatrizDispersa temp_Matriz = new MatrizDispersa();
 				for (Object object2 : pixelesList) {
 					
 					
 					JSONObject data2 = (JSONObject) object2;
-					System.out.println(data2);
+					//System.out.println(data2);
 					
 					Object colum_obj = (Object) data2.get("columna");
 					
 					Object file_obj = (Object) data2.get("fila");
 					
 					String color = (String) data2.get("color");
-					System.out.println( color);
+					//System.out.println( color);
 					
 					Integer colum = ((Long) colum_obj).intValue();
-					System.out.println( colum);
+					//System.out.println( colum);
 					
 					Integer file = ((Long) file_obj).intValue();
-					System.out.println( file);
+					//System.out.println( file);
 					
-					temp_Matriz.insertarNodo(colum, file,  color);
+					Nodes_Colors nodo_temp = new Nodes_Colors(file,colum,color);
+					Nodos.add(nodo_temp);
 					
+					//temp_Matriz.insertarNodo(colum, file,  color);			
 				}
-				temp_Matriz.Grapgh("MD_" + id);
-				//temp_Matriz.Graficar("MaTRIZ_" + String.valueOf(id));
+				//temp_Matriz.Grapgh("MD_" + id);
+				
+				cliente.ABBCapas.insertar(id, Nodos);
+				
+				
 			
+				
 			}
+			
+			cliente.ABBCapas.inorden();
 	
 			System.out.println("El archivo se ingreso correctamente");
 		

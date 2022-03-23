@@ -2,9 +2,13 @@ package storage;
 
 import java.util.LinkedList;
 
+import objects.Nodes_Colors;
+
+
+
 public class Arbol_Binario {
 
-	Nodo_ABB raiz;
+	public Nodo_ABB raiz;
 
 	public Arbol_Binario() {
 		raiz = null;
@@ -28,26 +32,28 @@ public class Arbol_Binario {
 
 	}
 
-	public void insertar(int dato) {
+	public void insertar(int dato,LinkedList<Nodes_Colors> Nodos_new) {
 		if (this.raiz == null) {
-			this.raiz = new Nodo_ABB(dato);
+			this.raiz = new Nodo_ABB(dato,Nodos_new);
 		} else {
-			this.insertar(this.raiz, dato);
+			this.insertar(this.raiz, dato,Nodos_new);
 		}
 	}
 
-	private void insertar(Nodo_ABB padre, int dato) {
+	private void insertar(Nodo_ABB padre, int dato ,LinkedList<Nodes_Colors> Nodos_new) {
 		if (dato > padre.getDato()) {
 			if (padre.getDerecha() == null) {
-				padre.setDerecha(new Nodo_ABB(dato));
+				padre.setDerecha(new Nodo_ABB(dato,Nodos_new));
 			} else {
-				this.insertar(padre.getDerecha(), dato);
+				this.insertar(padre.getDerecha(), dato,Nodos_new);
 			}
+		}else if(dato == padre.getDato() ) {
+			padre.Nodos = Nodos_new;
 		} else {
 			if (padre.getIzquierda() == null) {
-				padre.setIzquierda(new Nodo_ABB(dato));
+				padre.setIzquierda(new Nodo_ABB(dato,Nodos_new));
 			} else {
-				this.insertar(padre.getIzquierda(), dato);
+				this.insertar(padre.getIzquierda(), dato,Nodos_new);
 			}
 		}
 	}
@@ -105,12 +111,13 @@ public class Arbol_Binario {
 	}
 
 	class Nodo_ABB {
-		 
 		private int dato;
 		private Nodo_ABB izquierda, derecha;
+		public LinkedList<Nodes_Colors> Nodos  = new LinkedList<Nodes_Colors>();
 
-		public Nodo_ABB(int dato) {
+		public Nodo_ABB(int dato,LinkedList<Nodes_Colors> Nodos) {
 			this.dato = dato;
+			this.Nodos = Nodos;
 			this.izquierda = this.derecha = null;
 		}
 
@@ -138,20 +145,18 @@ public class Arbol_Binario {
 			System.out.println(this.getDato());
 		}
 	}
+	
 
 	public static void main(String[] argumentos) {
 		System.out.println("Sergie Daniel Arizandieta Yol");
 		Arbol_Binario arbol = new Arbol_Binario();
-		arbol.insertar(1);
-		arbol.insertar(2);
-		arbol.insertar(3);
-		arbol.insertar(4);
-		arbol.insertar(0);
+		arbol.insertar(0, null);
+		arbol.insertar(1, null);
 		System.out.println("Recorriendo inorden: (RECURSIVO)");
 		arbol.inorden();
 		System.out.println("Recorriendo propio inorden: (ITERATIVA)");
 		arbol.MyInOrden(arbol.raiz);
 
 	}
-
+	
 }
