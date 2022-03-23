@@ -36,9 +36,7 @@ public class Client_Module extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,11 +50,11 @@ public class Client_Module extends JFrame {
 			}
 		});
 	}
+	*/
 
-	/**
-	 * Create the frame.
-	 */
-	public Client_Module(Storage storage) {
+
+	public Client_Module(Storage storage,Clients cliente) {
+		//JOptionPane.showMessageDialog(null, "Bienvenido: " + cliente.Name + " DPI: " + cliente.DPI );
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
 		fc.setFileFilter(filter);
@@ -110,10 +108,18 @@ public class Client_Module extends JFrame {
 		panel_1.setLayout(null);
 
 		JButton btnNewButton = new JButton("Cerrar sesion");
+
 		btnNewButton.setBounds(964, 11, 118, 23);
 		contentPane.add(btnNewButton);
 
 		// buttons
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login(storage);
+				login.setVisible(true);
+				dispose();
+			}
+		});
 		
 		Button_Load.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

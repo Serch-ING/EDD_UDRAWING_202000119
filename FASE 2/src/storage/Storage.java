@@ -8,7 +8,7 @@ import objects.Clients;
 
 public class Storage {
 	public  LinkedList<Clients> List_clients  = new LinkedList<Clients>();
-	
+	public Clients  clientJoin;
 	
 	public void initilize() {
 		Clients new_client = new Clients("serchi","boy","3000");
@@ -29,10 +29,16 @@ public class Storage {
 		
 		for (Clients clients : List_clients) {
 			if (name.equals(clients.Name) && password.equals(clients.Password)) {
+				clientJoin = clients;
 				return true;
 			}
 		}
+		clientJoin= null;
 		return false;
+	}
+	
+	public Clients ClientJoin() {
+		return clientJoin;
 	}
 	
 }

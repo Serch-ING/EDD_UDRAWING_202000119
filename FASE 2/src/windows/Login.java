@@ -83,11 +83,16 @@ public class Login extends JFrame {
 
 						Admin_Module admin_window = new Admin_Module(storage);
 						admin_window.setVisible(true);
-						setVisible(false);
+						dispose();
 
 					}else if (storage.SerchClient(User,password)) {
-						
 						JOptionPane.showMessageDialog(null, "Client joined");
+						
+				
+						Client_Module frame = new Client_Module(storage,storage.ClientJoin());
+						frame.setVisible(true);
+						dispose();
+						
 						
 					} else {
 						JOptionPane.showMessageDialog(null, "Credenciales erroneas");
