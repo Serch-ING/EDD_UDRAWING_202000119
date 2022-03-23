@@ -254,7 +254,7 @@ public class MatrizDispersa {
 
 				if (validado == false) {
 					System.out.print("[" + fila.i + " , " + fila.j + " INFO: " + fila.info + "] ");
-					if (fila.j == -1 && fila.i != -1) {
+					if (fila.j == -1) {
 						validado = true;
 					} else {
 						fila = fila.siguiente;
@@ -305,6 +305,117 @@ public class MatrizDispersa {
 			columna = columna.abajo;
 		}
 
+	}
+	
+	public void GraficarCompleto() {
+		String dot = "";
+		dot += "digraph L{\n";
+		dot += "node[shape=note fillcolor=\"#A181FF\" style =filled]\n";
+		dot += "subgraph cluster_p{\n    edge[style = \"bold\", dir= \"both\"]\n";
+		dot+="label= \"Sergie Daniel Arizandieta Yol - 202000119\"";
+		dot += "bgcolor = \"#FF7878\"\n";
+		dot += "raiz[label = \"F/C\" fillcolor=\"#FFD581\" group=1]\n";
+		String temp = "";
+		
+		nodoDispersa fila;
+		nodoDispersa columna = raiz;
+		Boolean validado = false;
+		Integer contador = 1;
+		Boolean validadoC = false;
+		Integer contadorC = 1;
+
+		while (columna != null) {
+			validado = false;
+			fila = columna;
+
+			while (fila != null) {
+
+				if (validado == false) {
+					if(fila.j == -1 && fila.i == -1) {
+						if (fila.siguiente != null) {
+							dot += "raiz->Fila0"  + "\n";
+						}
+						if (fila.abajo != null) {
+							dot += "raiz->Columna0"  + "\n";
+						}
+					}else {
+						
+					}
+					
+					
+					//System.out.print("[" + fila.i + " , " + fila.j + " INFO: " + fila.info + "] ");
+					
+					
+					if (fila.j == -1) {
+						validado = true;
+					} else {
+						fila = fila.siguiente;
+					}
+				}
+
+				if (validado) {
+					if (fila.siguiente != null) {
+						if (fila.i + contador != fila.siguiente.i) {
+							//System.out.print("[" + (fila.i + contador) + " , " + fila.j + " INFO: " + fila.info + "] ");
+							
+							dot+= "Columna" + (fila.i + contador ) + "[ fillcolor=\"#098AA2\" ];\n";
+									
+							dot += "Columna" + (fila.i + contador  )  +"->Columna" + (fila.i + contador + 1) + "\n";
+							
+							temp+="Columna" + (fila.i + contador ) + ";";
+							contador++;
+						} else {
+							
+							dot+= "Columna" + (fila.i + contador ) + "[ fillcolor=\"#098AA2\" ];\n";
+							temp+="Columna" + (fila.i + contador) + ";";
+							String rank = "\n {rank=same;raiz;" + temp + "}\n";
+							temp="";
+							dot+=rank;
+							
+							contador = 1;
+							validado = false;
+							fila = fila.siguiente;
+						}
+					} else {
+						fila = fila.siguiente;
+					}
+				}
+
+			}
+			
+			System.out.println("\n");
+			while (true) {
+				if (columna.i == -1) {
+					validadoC = true;
+				} else {
+					break;
+				}
+
+				if (validadoC) {
+					if (columna.abajo != null) {
+						if (columna.j + contadorC != columna.abajo.j) {
+							//System.out.println("[" + columna.i + " , " + (columna.j + contadorC) + " INFO: Row]\n");
+							contadorC++;
+						} else {
+							contadorC = 1;
+							validadoC = false;
+							break;
+						}
+					} else {
+						break;
+					}
+				}
+
+			}
+
+			columna = columna.abajo;
+		}
+
+		
+		dot+= "\n}}";
+		System.out.println(dot);
+		//Draw_Graphiz("Matriz Dispersa NEW",dot);
+		//openimg("Matriz Dispersa");
 	}
 
 	public void imprimirFila(nodoDispersa cabeceraFila) {

@@ -1,7 +1,6 @@
 package windows;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,6 +10,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 
 import objects.Clients;
 import storage.Storage;
@@ -23,14 +23,15 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JRadioButton;
+
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
-import java.lang.reflect.Array;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+
+import storage.*;
 
 public class Client_Module extends JFrame {
 
@@ -180,10 +181,30 @@ public class Client_Module extends JFrame {
 				
 				JSONArray pixelesList = (JSONArray) data.get("pixeles");
 				
+				MatrizDispersa temp_Matriz = new MatrizDispersa();
 				for (Object object2 : pixelesList) {
+					
+					
 					JSONObject data2 = (JSONObject) object2;
 					System.out.println(data2);
+					
+					Object colum_obj = (Object) data2.get("columna");
+					
+					Object file_obj = (Object) data2.get("fila");
+					
+					String color = (String) data2.get("color");
+					System.out.println( color);
+					
+					Integer colum = ((Long) colum_obj).intValue();
+					System.out.println( colum);
+					
+					Integer file = ((Long) file_obj).intValue();
+					System.out.println( file);
+					
+					temp_Matriz.insertarNodo(colum, file,  color);
+					
 				}
+				temp_Matriz.Graficar("MaTRIZ_" + String.valueOf(id));
 			
 			}
 	

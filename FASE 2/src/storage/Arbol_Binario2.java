@@ -2,11 +2,11 @@ package storage;
 
 import java.util.LinkedList;
 
-public class Arbol_Binario {
+public class Arbol_Binario2 {
 
 	Nodo_ABB raiz;
 
-	public Arbol_Binario() {
+	public Arbol_Binario2() {
 		raiz = null;
 	}
 
@@ -105,7 +105,6 @@ public class Arbol_Binario {
 	}
 
 	class Nodo_ABB {
-		 
 		private int dato;
 		private Nodo_ABB izquierda, derecha;
 
@@ -141,7 +140,7 @@ public class Arbol_Binario {
 
 	public static void main(String[] argumentos) {
 		System.out.println("Sergie Daniel Arizandieta Yol");
-		Arbol_Binario arbol = new Arbol_Binario();
+		Arbol_Binario2 arbol = new Arbol_Binario2();
 		arbol.insertar(1);
 		arbol.insertar(2);
 		arbol.insertar(3);

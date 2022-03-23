@@ -11,7 +11,7 @@ public class Storage {
 	public Clients  clientJoin;
 	
 	public void initilize() {
-		Clients new_client = new Clients("serchi","boy","3000");
+		Clients new_client = new Clients("s","s","3000");
 		List_clients.add(new_client);
 	}
 	
