@@ -1,0 +1,35 @@
+digraph G {
+nodesep=0; 
+ranksep=0.4;
+9-> 5
+5-> 1
+Invisible509886383[style=invis];
+1-> Invisible509886383[arrowsize=0 style= invisible] 
+Invisible509886383[style=invis];
+1-> Invisible509886383[arrowsize=0 style= invisible] 
+5-> 8
+Invisible1854778591[style=invis];
+8-> Invisible1854778591[arrowsize=0 style= invisible] 
+Invisible1854778591[style=invis];
+8-> Invisible1854778591[arrowsize=0 style= invisible] 
+9-> 30
+30-> 11
+Invisible2054798982[style=invis];
+11-> Invisible2054798982[arrowsize=0 style= invisible] 
+11-> 15
+Invisible885951223[style=invis];
+15-> Invisible885951223[arrowsize=0 style= invisible] 
+Invisible885951223[style=invis];
+15-> Invisible885951223[arrowsize=0 style= invisible] 
+30-> 50
+50-> 33
+Invisible191382150[style=invis];
+33-> Invisible191382150[arrowsize=0 style= invisible] 
+Invisible191382150[style=invis];
+33-> Invisible191382150[arrowsize=0 style= invisible] 
+50-> 88
+Invisible142666848[style=invis];
+88-> Invisible142666848[arrowsize=0 style= invisible] 
+Invisible142666848[style=invis];
+88-> Invisible142666848[arrowsize=0 style= invisible] 
+}

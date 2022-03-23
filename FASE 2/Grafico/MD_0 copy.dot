@@ -1,0 +1,163 @@
+digraph L{
+    nodesep=0.4 
+    ranksep=0.4;
+node[shape=box fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    edge[style = "bold", dir= "both"]
+label= "Sergie Daniel Arizandieta Yol - 202000119"bgcolor = "#FFFFFF"
+raiz[label = "F/C" fillcolor="#FFFFFF" group=0]
+Columna0[ label="C0" fillcolor="#FFFFFF" group=1 ];
+raiz->Columna0;
+Columna0->Columna1/* [ arrowsize=0 style= invisible   ]*/
+Columna1[ label="C1" fillcolor="#FFFFFF" group=2 ];
+Columna1->Columna2
+Columna2[ label="C2" fillcolor="#FFFFFF" group=3 ];
+Columna2->Columna3
+Columna3[ label="C3" fillcolor="#FFFFFF" group=4 ];
+Columna3->Columna4
+Columna4[ label="C4" fillcolor="#FFFFFF" group=5 ];
+Columna4->Columna5
+Columna5[ label="C5" fillcolor="#FFFFFF" group=6 ];
+Columna5->Columna6
+Columna6[ label="C6" fillcolor="#FFFFFF" group=7 ];
+Columna6->Columna7
+Columna7[ label="C7" fillcolor="#FFFFFF" group=8 ];
+Columna7->Columna8
+Columna8[ label="C8" fillcolor="#FFFFFF" group=9 ];
+Columna8->Columna9
+Columna9[ label="C9" fillcolor="#FFFFFF" group=10 ];
+Columna9->Columna10
+Columna10[ label="C10" fillcolor="#FFFFFF" group=11 ];
+Columna10->Columna11
+Columna11[ label="C11" fillcolor="#FFFFFF" group=12 ];
+Columna11->Columna12
+Columna12[ label="C12" fillcolor="#FFFFFF" group=13 ];
+Columna12->Columna13
+Columna13[ label="C13" fillcolor="#FFFFFF" group=14 ];
+Columna13->Columna14
+Columna14[ label="C14" fillcolor="#FFFFFF" group=15 ];
+Columna14->Columna15
+Columna15[ label="C15" fillcolor="#FFFFFF" group=16 ];
+Columna15->Columna16
+Columna16[ label="C16" fillcolor="#FFFFFF" group=17 ];
+Columna16->Columna17
+Columna17[ label="C17" fillcolor="#FFFFFF" group=18 ];
+Columna17->Columna18
+Columna18[ label="C18" fillcolor="#FFFFFF" group=19 ];
+Columna18->Columna19
+Columna19[ label="C19" fillcolor="#FFFFFF" group=20 ];
+Columna19->Columna20
+Columna20[ label="C20" fillcolor="#FFFFFF" group=21 ];
+Columna20->Columna21
+Columna21[ label="C21" fillcolor="#FFFFFF" group=22 ];
+Columna21->Columna22
+Columna22[ label="C22" fillcolor="#FFFFFF" group=23 ];
+Columna22->Columna23
+Columna23[ label="C23" fillcolor="#FFFFFF" group=24 ];
+Columna23->Columna24
+Columna24[ label="C24" fillcolor="#FFFFFF" group=25 ];
+Columna24->Columna25
+Columna25[ label="C25" fillcolor="#FFFFFF" group=26 ];
+Columna25->Columna26
+Columna26[ label="C26" fillcolor="#FFFFFF" group=27 ];
+Columna26->Columna27
+Columna27[ label="C27" fillcolor="#FFFFFF" group=28 ];
+Columna27->Columna28
+Columna28[ label="C28" fillcolor="#FFFFFF" group=29 ];
+Columna28->Columna29
+Columna29[ label="C29" fillcolor="#FFFFFF" group=30 ];
+Columna29->Columna30
+Columna30[ label="C30" fillcolor="#FFFFFF" group=31 ];
+Columna30->Columna31
+Columna31[ label="C31" fillcolor="#FFFFFF" group=32 ];
+{rank=same;raiz;Columna0;Columna1;Columna2;Columna3;Columna4;Columna5;Columna6;Columna7;Columna8;Columna9;Columna10;Columna11;Columna12;Columna13;Columna14;Columna15;Columna16;Columna17;Columna18;Columna19;Columna20;Columna21;Columna22;Columna23;Columna24;Columna25;Columna26;Columna27;Columna28;Columna29;Columna30;Columna31;}
+Fila0[ label="F0" fillcolor="#FFFFFF" group=0 ];
+raiz->Fila0;
+Fila0->Fila1
+Fila1[ label="F1" fillcolor="#FFFFFF" group=0 ];
+Fila1->Fila2
+Fila2[ label="F2" fillcolor="#FFFFFF" group=0 ];
+Fila2->Fila3
+Fila3[ label="F3" fillcolor="#FFFFFF" group=0 ];
+Fila3->Fila4
+Fila4[ label="F4" fillcolor="#FFFFFF" group=0 ];
+Fila4->Fila5
+Fila5[ label="F5" fillcolor="#FFFFFF" group=0 ];
+Fila5->Fila6
+Fila6[ label="F6" fillcolor="#FFFFFF" group=0 ];
+Fila6->Fila7
+Fila7[ label="F7" fillcolor="#FFFFFF" group=0 ];
+Fila7->Fila8
+Fila8[ label="F8" fillcolor="#FFFFFF" group=0 ];
+Fila8->Fila9
+Fila9[ label="F9" fillcolor="#FFFFFF" group=0 ];
+Fila9->Fila10
+Fila10[ label="F10" fillcolor="#FFFFFF" group=0 ];
+Fila10->Fila11
+Fila11[ label="F11" fillcolor="#FFFFFF" group=0 ];
+Fila11->Fila12
+Fila12[ label="F12" fillcolor="#FFFFFF" group=0 ];
+Fila12->Fila13
+Fila13[ label="F13" fillcolor="#FFFFFF" group=0 ];
+Fila13->Fila14
+Fila14[ label="F14" fillcolor="#FFFFFF" group=0 ];
+Fila14->Fila15
+Fila15[ label="F15" fillcolor="#FFFFFF" group=0 ];
+Fila15->Fila16
+Fila16[ label="F16" fillcolor="#FFFFFF" group=0 ];
+Fila16->Fila17
+Fila17[ label="F17" fillcolor="#FFFFFF" group=0 ];
+Fila17->Fila18
+Fila18[ label="F18" fillcolor="#FFFFFF" group=0 ];
+Fila18->Fila19
+Fila19[ label="F19" fillcolor="#FFFFFF" group=0 ];
+Fila19->Fila20
+Fila20[ label="F20" fillcolor="#FFFFFF" group=0 ];
+Fila20->Fila21
+Fila21[ label="F21" fillcolor="#FFFFFF" group=0 ];
+Fila21->Fila22
+Fila22[ label="F22" fillcolor="#FFFFFF" group=0 ];
+Fila22->Fila23
+Fila23[ label="F23" fillcolor="#FFFFFF" group=0 ];
+Fila23->Fila24
+Fila24[ label="F24" fillcolor="#FFFFFF" group=0 ];
+Fila24->Fila25
+Fila25[ label="F25" fillcolor="#FFFFFF" group=0 ];
+Fila25->Fila26
+Fila26[ label="F26" fillcolor="#FFFFFF" group=0 ];
+Fila26->Fila27
+Fila27[ label="F27" fillcolor="#FFFFFF" group=0 ];
+Fila27->Fila28
+Fila28[ label="F28" fillcolor="#FFFFFF" group=0 ];
+Fila28->Fila29
+Fila29[ label="F29" fillcolor="#FFFFFF" group=0 ];
+Fila29->Fila30
+Fila30[ label="F30" fillcolor="#FFFFFF" group=0 ];
+Fila30->Fila31
+Fila31[ label="F31" fillcolor="#FFFFFF" group=0 ];
+Fila31->Fila32
+Fila32[ label="F32" fillcolor="#FFFFFF" group=0 ];
+Fila32->Fila33
+Fila33[ label="F33" fillcolor="#FFFFFF" group=0 ];
+Fila33->Fila34
+Fila34[ label="F34" fillcolor="#FFFFFF" group=0 ];
+Fila34->Fila35
+Fila35[ label="F35" fillcolor="#FFFFFF" group=0 ];
+Fila35->Fila36
+Fila36[ label="F36" fillcolor="#FFFFFF" group=0 ];
+Fila36->Fila37
+Fila37[ label="F37" fillcolor="#FFFFFF" group=0 ];
+Fila37->Fila38
+Fila38[ label="F38" fillcolor="#FFFFFF" group=0 ];
+
+
+Nodo31_25[label="	" fillcolor="#FFCC33" group=32];
+Fila25->Nodo31_25;
+Columna31->Nodo31_25;
+{rank=same;Fila25;Nodo31_25;}
+Nodo31_38[label="	" fillcolor="#FFCC40" group=32];
+Fila38->Nodo31_38;
+Nodo31_25->Nodo31_38;
+{rank=same;Fila38;Nodo31_38;}
+
+}}
