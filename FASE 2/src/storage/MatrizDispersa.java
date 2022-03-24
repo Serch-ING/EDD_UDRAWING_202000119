@@ -325,11 +325,11 @@ public class MatrizDispersa {
 		 System.out.println(DOT);
 		// System.out.println(files + " x " + columns);
 		Draw_Graphiz(name, DOT);
-		openimg("Matriz Dispersa");
+		
 	}
 
 	public void FilesInvisible(nodoDispersa cabeceraFila) {
-		System.out.println("Aqui");
+	
 		String temp = "";
 		nodoDispersa actual = cabeceraFila;
 		nodoDispersa Sig = null;

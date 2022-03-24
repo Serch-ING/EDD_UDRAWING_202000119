@@ -278,6 +278,7 @@ public class Client_Module extends JFrame {
 		
 		btnNewButton_generateRoutes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MatrizDispersa temp_Matriz = new MatrizDispersa();
 				try {
 					
 				
@@ -297,7 +298,8 @@ public class Client_Module extends JFrame {
 						cliente.ABBCapas.recorridoLimitado(temp);
 						
 						//cliente.ABBCapas.inorden();
-						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz);
+						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
+						
 						
 					} else if (comboBox_route.getSelectedItem() == "PostOrden") {
 						System.out.println("PostOrden");

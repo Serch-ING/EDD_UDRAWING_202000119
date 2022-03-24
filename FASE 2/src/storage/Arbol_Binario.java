@@ -91,18 +91,18 @@ public class Arbol_Binario {
 	public void preordenLimited(Nodo_ABB n) {
 		if (n != null ) {
 
-			n.imprimirDatoLimited();
+			//n.imprimirDatoLimited();
 			preordenLimited(n.getIzquierda());
 			preordenLimited(n.getDerecha());
 		}
 	}
 
-	public void inordenLimited(Nodo_ABB n) {
+	public void inordenLimited(Nodo_ABB n, MatrizDispersa temp_Matriz) {
 		if (n != null ) {
 			
-			inordenLimited(n.getIzquierda());
-			n.imprimirDatoLimited();
-			inordenLimited(n.getDerecha());
+			inordenLimited(n.getIzquierda(),temp_Matriz);
+			n.imprimirDatoLimited(temp_Matriz);
+			inordenLimited(n.getDerecha(),temp_Matriz);
 		}
 	}
 	
@@ -111,7 +111,7 @@ public class Arbol_Binario {
 
 			postordenLimited(n.getIzquierda());
 			postordenLimited(n.getDerecha());
-			n.imprimirDatoLimited();
+			//n.imprimirDatoLimited();
 			
 		}
 	}
@@ -178,10 +178,14 @@ public class Arbol_Binario {
 			this.derecha = derecha;
 		}
 		
-		public void imprimirDatoLimited() {
+		public void imprimirDatoLimited(MatrizDispersa temp_Matriz) {
 			if(contador>0) {
 				contador--;
 				System.out.println(this.getDato());
+				for (Nodes_Colors nodes_Colors : Nodos) {
+					temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
+				}
+				temp_Matriz.GrapghInvisible("Inorden_" + getDato());
 			}
 		}
 		

@@ -10,7 +10,7 @@ import storage.Arbol_Binario.Nodo_ABB;
 
 public class Arbol_AVL {
 	public Node root = null;
-
+	public int MaxId= 0;
 	public class Node {
 		private Node left, right;
 		private int height = 1;
@@ -33,7 +33,9 @@ public class Arbol_AVL {
 	
 
 	public Node insert(Node node, int value,LinkedList<Integer> capas_list) {
-
+		if(value>MaxId) {
+			MaxId =value;
+		}
 		if (node == null) {
 			return (new Node(value,capas_list));
 		}
