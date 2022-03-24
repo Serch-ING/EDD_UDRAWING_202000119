@@ -33,10 +33,14 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 
 import storage.*;
+import javax.swing.JTextField;
 
 public class Client_Module extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField_setlayers;
+	private JTextField textField_IDtreeImg;
+	private JTextField textField_layers;
 
 	/*
 	public static void main(String[] args) {
@@ -64,14 +68,14 @@ public class Client_Module extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1108, 609);
+		setBounds(100, 100, 1168, 629);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 41, 1072, 518);
+		tabbedPane.setBounds(10, 41, 1132, 538);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -106,8 +110,121 @@ public class Client_Module extends JFrame {
 		panel.add(comboBox);
 
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_1, null);
+		tabbedPane.addTab("Generar y ver imagenes", null, panel_1, null);
 		panel_1.setLayout(null);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.LIGHT_GRAY);
+		panel_2.setBounds(10, 11, 150, 165);
+		panel_1.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JComboBox<String> comboBox_route = new JComboBox<String>();
+		comboBox_route.setBounds(10, 28, 122, 22);
+		panel_2.add(comboBox_route);
+		comboBox_route.setModel(new DefaultComboBoxModel<String>(new String[] { "PreOrden", "InOrden", "PostOrden" }));
+		
+		JLabel lblNewLabel_1 = new JLabel("Cantidad de capas");
+		lblNewLabel_1.setBounds(10, 61, 122, 14);
+		panel_2.add(lblNewLabel_1);
+		
+		textField_setlayers = new JTextField();
+		textField_setlayers.setBounds(10, 84, 122, 20);
+		panel_2.add(textField_setlayers);
+		textField_setlayers.setColumns(10);
+		
+		JButton btnNewButton_generateRoutes = new JButton("Generar imagen");
+
+		btnNewButton_generateRoutes.setBounds(10, 114, 122, 23);
+		panel_2.add(btnNewButton_generateRoutes);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Por recorrido limitado");
+		lblNewLabel_1_1_1.setBounds(10, 11, 122, 14);
+		panel_2.add(lblNewLabel_1_1_1);
+		
+		JPanel panel_2_1 = new JPanel();
+		panel_2_1.setLayout(null);
+		panel_2_1.setBackground(Color.LIGHT_GRAY);
+		panel_2_1.setBounds(10, 187, 150, 135);
+		panel_1.add(panel_2_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Por arbol de imagenes");
+		lblNewLabel_1_1.setBounds(10, 11, 122, 14);
+		panel_2_1.add(lblNewLabel_1_1);
+		
+		textField_IDtreeImg = new JTextField();
+		textField_IDtreeImg.setColumns(10);
+		textField_IDtreeImg.setBounds(10, 67, 122, 20);
+		panel_2_1.add(textField_IDtreeImg);
+		
+		JButton btnNewButton_generateTreeImg = new JButton("Generar imagen");
+		btnNewButton_generateTreeImg.setBounds(10, 98, 122, 23);
+		panel_2_1.add(btnNewButton_generateTreeImg);
+		
+		JLabel lblNewLabel_1_1_2 = new JLabel("id de imagen");
+		lblNewLabel_1_1_2.setBounds(10, 38, 122, 14);
+		panel_2_1.add(lblNewLabel_1_1_2);
+		
+		JPanel panel_2_1_1 = new JPanel();
+		panel_2_1_1.setLayout(null);
+		panel_2_1_1.setBackground(Color.LIGHT_GRAY);
+		panel_2_1_1.setBounds(10, 333, 150, 166);
+		panel_1.add(panel_2_1_1);
+		
+		JLabel lblNewLabel_1_1_3 = new JLabel("Por capas");
+		lblNewLabel_1_1_3.setBounds(10, 11, 122, 14);
+		panel_2_1_1.add(lblNewLabel_1_1_3);
+		
+		textField_layers = new JTextField();
+		textField_layers.setColumns(10);
+		textField_layers.setBounds(10, 83, 122, 20);
+		panel_2_1_1.add(textField_layers);
+		
+		JButton btnNewButton_generateLayers = new JButton("Generar imagen");
+		btnNewButton_generateLayers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_generateLayers.setBounds(10, 132, 122, 23);
+		panel_2_1_1.add(btnNewButton_generateLayers);
+		
+		JLabel lblNewLabel_1_1_2_1 = new JLabel("id de capas separadas ");
+		lblNewLabel_1_1_2_1.setBounds(10, 36, 180, 14);
+		panel_2_1_1.add(lblNewLabel_1_1_2_1);
+		
+		JLabel lblNewLabel_1_1_2_1_1 = new JLabel("por  comas");
+		lblNewLabel_1_1_2_1_1.setBounds(10, 58, 180, 14);
+		panel_2_1_1.add(lblNewLabel_1_1_2_1_1);
+		
+		JComboBox<String> comboBox_IMGS = new JComboBox<String>();
+		comboBox_IMGS.setBounds(192, 36, 122, 22);
+		panel_1.add(comboBox_IMGS);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Imagenes para visualizar");
+		lblNewLabel_1_1_1_1.setBounds(192, 11, 139, 14);
+		panel_1.add(lblNewLabel_1_1_1_1);
+		
+		JButton button_show = new JButton("Mostrar");
+		button_show.setBounds(192, 69, 122, 23);
+		panel_1.add(button_show);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.GRAY);
+		panel_3.setBounds(354, 11, 763, 488);
+		panel_1.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(10, 11, 743, 466);
+		panel_3.add(lblNewLabel_2);
+		
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("Registro y eliminacion de imagenes", null, panel_4, null);
+		panel_4.setLayout(null);
+		
+		JPanel panel_5 = new JPanel();
+		tabbedPane.addTab("Visualizar estructuras", null, panel_5, null);
+		panel_5.setLayout(null);
 
 		JButton btnNewButton = new JButton("Cerrar sesion");
 
@@ -157,6 +274,45 @@ public class Client_Module extends JFrame {
 
 			}
 		});
+
+		
+		btnNewButton_generateRoutes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					
+				
+					if (comboBox_route.getSelectedItem() == "PreOrden") {
+						System.out.println("PreOrden");
+						int temp =Integer.valueOf(textField_setlayers.getText());
+						cliente.ABBCapas.recorridoLimitado(temp);
+						
+						
+						cliente.ABBCapas.preordenLimited(cliente.ABBCapas.raiz);
+				
+						
+						
+					} else if (comboBox_route.getSelectedItem() == "InOrden") {
+						System.out.println("InOrden");
+						int temp =Integer.valueOf(textField_setlayers.getText());
+						cliente.ABBCapas.recorridoLimitado(temp);
+						
+						//cliente.ABBCapas.inorden();
+						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz);
+						
+					} else if (comboBox_route.getSelectedItem() == "PostOrden") {
+						System.out.println("PostOrden");
+						int temp =Integer.valueOf(textField_setlayers.getText());
+						cliente.ABBCapas.recorridoLimitado(temp);
+						
+						
+						cliente.ABBCapas.postordenLimited(cliente.ABBCapas.raiz);
+						
+					}
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Se debe ingresar un dato");
+				}
+			}
+		});
 	}
 	
 	
@@ -185,7 +341,7 @@ public class Client_Module extends JFrame {
 				
 				Nodos  = new LinkedList<Nodes_Colors>();
 				
-				MatrizDispersa temp_Matriz = new MatrizDispersa();
+				//MatrizDispersa temp_Matriz = new MatrizDispersa();
 				for (Object object2 : pixelesList) {
 					
 					
@@ -208,10 +364,10 @@ public class Client_Module extends JFrame {
 					Nodes_Colors nodo_temp = new Nodes_Colors(file,colum,color);
 					Nodos.add(nodo_temp);
 					
-					temp_Matriz.insertarNodo(colum, file,  color);			
+					//temp_Matriz.insertarNodo(colum, file,  color);			
 				}
 				//temp_Matriz.Grapgh("MD_" + id);
-				temp_Matriz.GrapghInvisible("MD0_" + id);
+				//temp_Matriz.GrapghInvisible("MD0_" + id);
 				cliente.ABBCapas.insertar(id, Nodos);
 
 			}
@@ -321,6 +477,4 @@ public class Client_Module extends JFrame {
 
 		}
 	}
-	
-	
 }

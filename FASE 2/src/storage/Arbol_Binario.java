@@ -5,10 +5,11 @@ import java.util.LinkedList;
 import objects.Nodes_Colors;
 
 
-
+@SuppressWarnings("unused")
 public class Arbol_Binario {
 
 	public Nodo_ABB raiz;
+	public int contador = 0;
 
 	public Arbol_Binario() {
 		raiz = null;
@@ -73,7 +74,48 @@ public class Arbol_Binario {
 			inorden(n.getDerecha());
 		}
 	}
+	
+	private void postorden(Nodo_ABB n) {
+		if (n != null) {
+			postorden(n.getIzquierda());
+			postorden(n.getDerecha());
+			n.imprimirDato();
+		}
+	}
+	
+	public void recorridoLimitado(int capas) {
+		this.contador = capas;
+	}
 
+	
+	public void preordenLimited(Nodo_ABB n) {
+		if (n != null ) {
+
+			n.imprimirDatoLimited();
+			preordenLimited(n.getIzquierda());
+			preordenLimited(n.getDerecha());
+		}
+	}
+
+	public void inordenLimited(Nodo_ABB n) {
+		if (n != null ) {
+			
+			inordenLimited(n.getIzquierda());
+			n.imprimirDatoLimited();
+			inordenLimited(n.getDerecha());
+		}
+	}
+	
+	public void postordenLimited(Nodo_ABB n) {
+		if (n != null) {
+
+			postordenLimited(n.getIzquierda());
+			postordenLimited(n.getDerecha());
+			n.imprimirDatoLimited();
+			
+		}
+	}
+	
 	public void MyInOrden(Nodo_ABB n) {
 		LinkedList<Nodo_ABB> lista = new LinkedList<Nodo_ABB>();
 		Nodo_ABB curr = raiz;
@@ -90,14 +132,8 @@ public class Arbol_Binario {
 
 	}
 
-	private void postorden(Nodo_ABB n) {
-		if (n != null) {
-			postorden(n.getIzquierda());
-			postorden(n.getDerecha());
-			n.imprimirDato();
-		}
-	}
 
+	
 	public void preorden() {
 		this.preorden(this.raiz);
 	}
@@ -109,6 +145,7 @@ public class Arbol_Binario {
 	public void postorden() {
 		this.postorden(this.raiz);
 	}
+	
 
 	class Nodo_ABB {
 		private int dato;
@@ -140,13 +177,21 @@ public class Arbol_Binario {
 		public void setDerecha(Nodo_ABB derecha) {
 			this.derecha = derecha;
 		}
-
+		
+		public void imprimirDatoLimited() {
+			if(contador>0) {
+				contador--;
+				System.out.println(this.getDato());
+			}
+		}
+		
 		public void imprimirDato() {
+			contador--;
 			System.out.println(this.getDato());
 		}
 	}
 	
-
+/*
 	public static void main(String[] argumentos) {
 		System.out.println("Sergie Daniel Arizandieta Yol");
 		Arbol_Binario arbol = new Arbol_Binario();
@@ -162,4 +207,5 @@ public class Arbol_Binario {
 
 	}
 	
+	*/
 }
