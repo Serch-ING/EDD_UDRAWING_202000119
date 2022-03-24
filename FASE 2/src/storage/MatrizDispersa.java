@@ -278,6 +278,7 @@ public class MatrizDispersa {
 	}
 */
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	/*
 	public void GrapghInvisible(String name) {
 		DOT = "";
 		DOT += "digraph L{\n";
@@ -322,7 +323,7 @@ public class MatrizDispersa {
 		DOT += "\n\n";
 		FilesInvisible(this.raiz);
 		DOT += "\n}}";
-		 System.out.println(DOT);
+		 //System.out.println(DOT);
 		// System.out.println(files + " x " + columns);
 		Draw_Graphiz(name, DOT);
 		
@@ -374,7 +375,7 @@ public class MatrizDispersa {
 				actual = actual.siguiente;
 			}
 
-			System.out.println("\n");
+			//System.out.println("\n");
 		}
 
 		if (!temp.equals("")) {
@@ -390,7 +391,7 @@ public class MatrizDispersa {
 		}
 
 	}
-
+	*/
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------
 	public void Draw_GraphizNeato(String name, String dot) {
@@ -451,8 +452,8 @@ public class MatrizDispersa {
 		DOT += "\n\n";
 		FilesInvisibleNewLogico(this.raiz);
 		DOT += "\n}";
-		System.out.println("Hi");
-		 System.out.println(DOT);
+		//System.out.println("Hi");
+		// System.out.println(DOT);
 		// System.out.println(files + " x " + columns);
 		 Draw_GraphizNeato(name, DOT);
 		
@@ -504,7 +505,7 @@ public class MatrizDispersa {
 				actual = actual.siguiente;
 			}
 
-			System.out.println("\n");
+			//System.out.println("\n");
 		}
 
 	
@@ -565,8 +566,8 @@ public class MatrizDispersa {
 		DOT += "\n\n";
 		FilesInvisibleNewAplicacion(this.raiz);
 		DOT += "\n}";
-		System.out.println("Hi");
-		 System.out.println(DOT);
+		//System.out.println("Hi");
+		 //System.out.println(DOT);
 		// System.out.println(files + " x " + columns);
 		 Draw_GraphizNeato(name, DOT);
 		
@@ -612,7 +613,7 @@ public class MatrizDispersa {
 				actual = actual.siguiente;
 			}
 
-			System.out.println("\n");
+			//System.out.println("\n");
 		}
 
 		if (Sig != null) {
@@ -706,7 +707,7 @@ public class MatrizDispersa {
 	public void openimg(String name) {
 		try {
 			String url = "Grafico\\" + name + ".png";
-			System.out.println(url);
+			//System.out.println(url);
 			ProcessBuilder p = new ProcessBuilder();
 			p.command("cmd.exe", "/c", url);
 			p.start();

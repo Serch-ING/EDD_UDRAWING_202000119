@@ -17,11 +17,13 @@ import objects.Nodes_Colors;
 
 import javax.swing.JTabbedPane;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 
 import java.awt.event.ActionListener;
@@ -34,6 +36,7 @@ import javax.swing.JFileChooser;
 
 import storage.*;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public class Client_Module extends JFrame {
 
@@ -68,14 +71,14 @@ public class Client_Module extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1168, 629);
+		setBounds(100, 100, 1272, 929);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 41, 1132, 538);
+		tabbedPane.setBounds(10, 41, 1236, 838);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -96,7 +99,7 @@ public class Client_Module extends JFrame {
 		JLabel label_ruta = new JLabel("Null");
 		label_ruta.setForeground(Color.BLACK);
 		label_ruta.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_ruta.setBounds(48, 117, 569, 14);
+		label_ruta.setBounds(48, 117, 1069, 14);
 		panel.add(label_ruta);
 
 		JButton Button_loadData = new JButton("Cargar datos");
@@ -197,6 +200,7 @@ public class Client_Module extends JFrame {
 		panel_2_1_1.add(lblNewLabel_1_1_2_1_1);
 		
 		JComboBox<String> comboBox_IMGS = new JComboBox<String>();
+
 		comboBox_IMGS.setBounds(192, 36, 122, 22);
 		panel_1.add(comboBox_IMGS);
 		
@@ -205,18 +209,19 @@ public class Client_Module extends JFrame {
 		panel_1.add(lblNewLabel_1_1_1_1);
 		
 		JButton button_show = new JButton("Mostrar");
+
 		button_show.setBounds(192, 69, 122, 23);
 		panel_1.add(button_show);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.GRAY);
-		panel_3.setBounds(354, 11, 763, 488);
+		panel_3.setBounds(354, 11, 867, 788);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(10, 11, 743, 466);
-		panel_3.add(lblNewLabel_2);
+		JLabel Label_img1 = new JLabel("");
+		Label_img1.setBounds(10, 11, 847, 766);
+		panel_3.add(Label_img1);
 		
 		JPanel panel_4 = new JPanel();
 		tabbedPane.addTab("Registro y eliminacion de imagenes", null, panel_4, null);
@@ -283,7 +288,7 @@ public class Client_Module extends JFrame {
 					
 				
 					if (comboBox_route.getSelectedItem() == "PreOrden") {
-						System.out.println("PreOrden");
+
 						int temp =Integer.valueOf(textField_setlayers.getText());
 						cliente.ABBCapas.recorridoLimitado(temp);
 						
@@ -293,18 +298,27 @@ public class Client_Module extends JFrame {
 						
 						
 					} else if (comboBox_route.getSelectedItem() == "InOrden") {
-						System.out.println("InOrden");
-						int regitre =Integer.valueOf(textField_setlayers.getText());
-						int temp =Integer.valueOf(textField_setlayers.getText());
-						cliente.ABBCapas.recorridoLimitado(temp);
+
 						
-						//cliente.ABBCapas.inorden();
+						int temp =Integer.valueOf(textField_setlayers.getText());
+			
+						String name = "InOrden_capas" + temp + "_";
+						
+						cliente.ABBCapas.recorridoLimitado(temp);
 						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
 						
-						temp_Matriz.GrapghInvisibleNewAplicacion("InOrden_regitre_" + cliente.ID_IMG);
+						
+						name+= cliente.ID_IMG;
+						temp_Matriz.GrapghInvisibleNewAplicacion(name);
+						cliente.ID_IMG++;
+						cliente.generated_images.add(name);
+				
+	
+						
+						updateImg(comboBox_IMGS,cliente);
 						
 					} else if (comboBox_route.getSelectedItem() == "PostOrden") {
-						System.out.println("PostOrden");
+
 						int temp =Integer.valueOf(textField_setlayers.getText());
 						cliente.ABBCapas.recorridoLimitado(temp);
 						
@@ -317,6 +331,30 @@ public class Client_Module extends JFrame {
 				}
 			}
 		});
+		
+		button_show.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = comboBox_IMGS.getSelectedItem().toString();
+				String ruta ="Grafico\\" + name + ".png";
+				System.out.println(name);
+				ImageIcon imagen = new ImageIcon(ruta);
+				Label_img1.setIcon(new ImageIcon (imagen.getImage().getScaledInstance(Label_img1.getWidth(), Label_img1.getHeight(), Image.SCALE_SMOOTH)));
+			}
+		});
+	
+		
+		
+	}
+	public void mesageGenerate(Clients cliente) {
+		JOptionPane.showMessageDialog(null, "Imagen generandose con las capas Recorrido:   " + cliente.ABBCapas.temp);
+		cliente.ABBCapas.temp="";
+			
+		
+	}
+	
+	public void updateImg(JComboBox<String> combo,Clients cliente) {
+		combo.setModel(new DefaultComboBoxModel(cliente.generated_images.toArray()));
+		mesageGenerate(cliente);
 	}
 	
 	

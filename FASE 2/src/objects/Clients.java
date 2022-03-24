@@ -1,5 +1,7 @@
 package objects;
 
+import java.util.LinkedList;
+
 import storage.Arbol_AVL;
 import storage.Arbol_Binario;
 import storage.Simple_Album;
@@ -11,6 +13,7 @@ public class Clients {
 	public Arbol_AVL AVLImages  = new Arbol_AVL();
 	public Simple_Album Album_list = new Simple_Album();
 	public int ID_IMG = 0;
+	public LinkedList<String> generated_images = new LinkedList<String>();
 	
 	
 	public Clients(String Name, String Password, String DPI) {

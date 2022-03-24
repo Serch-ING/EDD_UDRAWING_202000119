@@ -2,12 +2,14 @@ package storage;
 
 import java.util.LinkedList;
 
+
+
 import objects.Nodes_Colors;
 
 
-@SuppressWarnings("unused")
-public class Arbol_Binario {
 
+public class Arbol_Binario {
+	public String temp;
 	public Nodo_ABB raiz;
 	public int contador = 0;
 
@@ -84,6 +86,7 @@ public class Arbol_Binario {
 	}
 	
 	public void recorridoLimitado(int capas) {
+		this.temp= "";
 		this.contador = capas;
 	}
 
@@ -151,7 +154,7 @@ public class Arbol_Binario {
 		private int dato;
 		private Nodo_ABB izquierda, derecha;
 		public LinkedList<Nodes_Colors> Nodos  = new LinkedList<Nodes_Colors>();
-
+	
 		public Nodo_ABB(int dato,LinkedList<Nodes_Colors> Nodos) {
 			this.dato = dato;
 			this.Nodos = Nodos;
@@ -181,7 +184,8 @@ public class Arbol_Binario {
 		public void imprimirDatoLimited(MatrizDispersa temp_Matriz) {
 			if(contador>0) {
 				contador--;
-				System.out.println(this.getDato());
+				temp+= "->" + getDato() ;
+				
 				for (Nodes_Colors nodes_Colors : Nodos) {
 					temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
 				}
