@@ -91,12 +91,12 @@ public class Arbol_Binario {
 	}
 
 	
-	public void preordenLimited(Nodo_ABB n) {
+	public void preordenLimited(Nodo_ABB n, MatrizDispersa temp_Matriz) {
 		if (n != null ) {
 
-			//n.imprimirDatoLimited();
-			preordenLimited(n.getIzquierda());
-			preordenLimited(n.getDerecha());
+			n.imprimirDatoLimited(temp_Matriz);
+			preordenLimited(n.getIzquierda(),temp_Matriz);
+			preordenLimited(n.getDerecha(),temp_Matriz);
 		}
 	}
 
@@ -109,12 +109,12 @@ public class Arbol_Binario {
 		}
 	}
 	
-	public void postordenLimited(Nodo_ABB n) {
+	public void postordenLimited(Nodo_ABB n, MatrizDispersa temp_Matriz) {
 		if (n != null) {
 
-			postordenLimited(n.getIzquierda());
-			postordenLimited(n.getDerecha());
-			//n.imprimirDatoLimited();
+			postordenLimited(n.getIzquierda(),temp_Matriz);
+			postordenLimited(n.getDerecha(),temp_Matriz);
+			n.imprimirDatoLimited(temp_Matriz);
 			
 		}
 	}

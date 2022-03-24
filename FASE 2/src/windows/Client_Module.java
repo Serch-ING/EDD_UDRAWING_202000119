@@ -71,14 +71,14 @@ public class Client_Module extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1272, 929);
+		setBounds(100, 100, 1700, 929);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 41, 1236, 838);
+		tabbedPane.setBounds(10, 42, 1664, 837);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -118,69 +118,69 @@ public class Client_Module extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.LIGHT_GRAY);
-		panel_2.setBounds(10, 11, 150, 165);
+		panel_2.setBounds(10, 11, 261, 165);
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 		
 		JComboBox<String> comboBox_route = new JComboBox<String>();
-		comboBox_route.setBounds(10, 28, 122, 22);
+		comboBox_route.setBounds(10, 28, 148, 22);
 		panel_2.add(comboBox_route);
 		comboBox_route.setModel(new DefaultComboBoxModel<String>(new String[] { "PreOrden", "InOrden", "PostOrden" }));
 		
 		JLabel lblNewLabel_1 = new JLabel("Cantidad de capas");
-		lblNewLabel_1.setBounds(10, 61, 122, 14);
+		lblNewLabel_1.setBounds(10, 61, 201, 14);
 		panel_2.add(lblNewLabel_1);
 		
 		textField_setlayers = new JTextField();
-		textField_setlayers.setBounds(10, 84, 122, 20);
+		textField_setlayers.setBounds(10, 84, 148, 20);
 		panel_2.add(textField_setlayers);
 		textField_setlayers.setColumns(10);
 		
 		JButton btnNewButton_generateRoutes = new JButton("Generar imagen");
 
-		btnNewButton_generateRoutes.setBounds(10, 114, 122, 23);
+		btnNewButton_generateRoutes.setBounds(10, 114, 148, 23);
 		panel_2.add(btnNewButton_generateRoutes);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Por recorrido limitado");
-		lblNewLabel_1_1_1.setBounds(10, 11, 122, 14);
+		lblNewLabel_1_1_1.setBounds(10, 11, 181, 14);
 		panel_2.add(lblNewLabel_1_1_1);
 		
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setLayout(null);
 		panel_2_1.setBackground(Color.LIGHT_GRAY);
-		panel_2_1.setBounds(10, 187, 150, 135);
+		panel_2_1.setBounds(10, 187, 261, 135);
 		panel_1.add(panel_2_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Por arbol de imagenes");
-		lblNewLabel_1_1.setBounds(10, 11, 122, 14);
+		lblNewLabel_1_1.setBounds(10, 11, 205, 14);
 		panel_2_1.add(lblNewLabel_1_1);
 		
 		textField_IDtreeImg = new JTextField();
 		textField_IDtreeImg.setColumns(10);
-		textField_IDtreeImg.setBounds(10, 67, 122, 20);
+		textField_IDtreeImg.setBounds(10, 67, 157, 20);
 		panel_2_1.add(textField_IDtreeImg);
 		
 		JButton btnNewButton_generateTreeImg = new JButton("Generar imagen");
-		btnNewButton_generateTreeImg.setBounds(10, 98, 122, 23);
+		btnNewButton_generateTreeImg.setBounds(10, 98, 157, 23);
 		panel_2_1.add(btnNewButton_generateTreeImg);
 		
 		JLabel lblNewLabel_1_1_2 = new JLabel("id de imagen");
-		lblNewLabel_1_1_2.setBounds(10, 38, 122, 14);
+		lblNewLabel_1_1_2.setBounds(10, 38, 218, 14);
 		panel_2_1.add(lblNewLabel_1_1_2);
 		
 		JPanel panel_2_1_1 = new JPanel();
 		panel_2_1_1.setLayout(null);
 		panel_2_1_1.setBackground(Color.LIGHT_GRAY);
-		panel_2_1_1.setBounds(10, 333, 150, 166);
+		panel_2_1_1.setBounds(10, 333, 261, 166);
 		panel_1.add(panel_2_1_1);
 		
 		JLabel lblNewLabel_1_1_3 = new JLabel("Por capas");
-		lblNewLabel_1_1_3.setBounds(10, 11, 122, 14);
+		lblNewLabel_1_1_3.setBounds(10, 11, 219, 14);
 		panel_2_1_1.add(lblNewLabel_1_1_3);
 		
 		textField_layers = new JTextField();
 		textField_layers.setColumns(10);
-		textField_layers.setBounds(10, 83, 122, 20);
+		textField_layers.setBounds(10, 83, 156, 20);
 		panel_2_1_1.add(textField_layers);
 		
 		JButton btnNewButton_generateLayers = new JButton("Generar imagen");
@@ -188,34 +188,34 @@ public class Client_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_generateLayers.setBounds(10, 132, 122, 23);
+		btnNewButton_generateLayers.setBounds(10, 132, 156, 23);
 		panel_2_1_1.add(btnNewButton_generateLayers);
 		
 		JLabel lblNewLabel_1_1_2_1 = new JLabel("id de capas separadas ");
-		lblNewLabel_1_1_2_1.setBounds(10, 36, 180, 14);
+		lblNewLabel_1_1_2_1.setBounds(10, 36, 219, 14);
 		panel_2_1_1.add(lblNewLabel_1_1_2_1);
 		
 		JLabel lblNewLabel_1_1_2_1_1 = new JLabel("por  comas");
-		lblNewLabel_1_1_2_1_1.setBounds(10, 58, 180, 14);
+		lblNewLabel_1_1_2_1_1.setBounds(10, 58, 219, 14);
 		panel_2_1_1.add(lblNewLabel_1_1_2_1_1);
 		
 		JComboBox<String> comboBox_IMGS = new JComboBox<String>();
 
-		comboBox_IMGS.setBounds(192, 36, 122, 22);
+		comboBox_IMGS.setBounds(380, 36, 295, 22);
 		panel_1.add(comboBox_IMGS);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Imagenes para visualizar");
-		lblNewLabel_1_1_1_1.setBounds(192, 11, 139, 14);
+		lblNewLabel_1_1_1_1.setBounds(380, 11, 295, 14);
 		panel_1.add(lblNewLabel_1_1_1_1);
 		
 		JButton button_show = new JButton("Mostrar");
 
-		button_show.setBounds(192, 69, 122, 23);
+		button_show.setBounds(472, 69, 122, 23);
 		panel_1.add(button_show);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.GRAY);
-		panel_3.setBounds(354, 11, 867, 788);
+		panel_3.setBounds(780, 11, 869, 788);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -290,10 +290,21 @@ public class Client_Module extends JFrame {
 					if (comboBox_route.getSelectedItem() == "PreOrden") {
 
 						int temp =Integer.valueOf(textField_setlayers.getText());
+						
+						String name = cliente.DPI +"_PreOrden_capas" + temp + "_";
+						
 						cliente.ABBCapas.recorridoLimitado(temp);
+						cliente.ABBCapas.preordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
 						
 						
-						cliente.ABBCapas.preordenLimited(cliente.ABBCapas.raiz);
+						name+= cliente.ID_IMG;
+						temp_Matriz.GrapghInvisibleNewAplicacion(name);
+						cliente.ID_IMG++;
+						cliente.generated_images.add(name);
+				
+	
+						
+						updateImg(comboBox_IMGS,cliente);
 				
 						
 						
@@ -302,7 +313,7 @@ public class Client_Module extends JFrame {
 						
 						int temp =Integer.valueOf(textField_setlayers.getText());
 			
-						String name = "InOrden_capas" + temp + "_";
+						String name =  cliente.DPI + "_InOrden_capas" + temp + "_";
 						
 						cliente.ABBCapas.recorridoLimitado(temp);
 						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
@@ -320,10 +331,21 @@ public class Client_Module extends JFrame {
 					} else if (comboBox_route.getSelectedItem() == "PostOrden") {
 
 						int temp =Integer.valueOf(textField_setlayers.getText());
+						
+						String name = cliente.DPI + "_PostOrden_capas" + temp + "_";
+						
 						cliente.ABBCapas.recorridoLimitado(temp);
+						cliente.ABBCapas.postordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
 						
 						
-						cliente.ABBCapas.postordenLimited(cliente.ABBCapas.raiz);
+						name+= cliente.ID_IMG;
+						temp_Matriz.GrapghInvisibleNewAplicacion(name);
+						cliente.ID_IMG++;
+						cliente.generated_images.add(name);
+				
+	
+						
+						updateImg(comboBox_IMGS,cliente);
 						
 					}
 				} catch (Exception e2) {
@@ -348,10 +370,9 @@ public class Client_Module extends JFrame {
 	public void mesageGenerate(Clients cliente) {
 		JOptionPane.showMessageDialog(null, "Imagen generandose con las capas Recorrido:   " + cliente.ABBCapas.temp);
 		cliente.ABBCapas.temp="";
-			
-		
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void updateImg(JComboBox<String> combo,Clients cliente) {
 		combo.setModel(new DefaultComboBoxModel(cliente.generated_images.toArray()));
 		mesageGenerate(cliente);
@@ -416,7 +437,7 @@ public class Client_Module extends JFrame {
 			}
 			
 			//cliente.ABBCapas.inorden();
-	
+			JOptionPane.showMessageDialog(null, "El archivo capas se ingreso correctamente");
 			System.out.println("El archivo se ingreso correctamente");
 		
 			
@@ -464,7 +485,7 @@ public class Client_Module extends JFrame {
 			}
 			
 			//cliente.AVLImages.print(cliente.AVLImages.root);
-		
+			JOptionPane.showMessageDialog(null, "El archivo imagenes se ingreso correctamente");
 			System.out.println("El archivo se ingreso correctamente");
 		
 			
@@ -510,7 +531,8 @@ public class Client_Module extends JFrame {
 				}*/
 			
 			}
-	
+			
+			JOptionPane.showMessageDialog(null, "El archivo albums se ingreso correctamente");
 			System.out.println("El archivo se ingreso correctamente");
 		
 			
