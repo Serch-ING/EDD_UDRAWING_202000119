@@ -148,7 +148,7 @@ public class Client_Module extends JFrame {
 						ReadImages(label_ruta.getText(),storage,cliente);
 						
 					} else if (comboBox.getSelectedItem() == "Albums") {
-						ReadAlbums(label_ruta.getText(),storage);
+						ReadAlbums(label_ruta.getText(),storage,cliente);
 						
 					}
 				}else {
@@ -276,7 +276,7 @@ public class Client_Module extends JFrame {
 		}
 	}
 	
-	public void ReadAlbums(String ruta,Storage storage) {
+	public void ReadAlbums(String ruta,Storage storage,Clients cliente) {
 
 		JSONParser jsonParser = new JSONParser();
 
@@ -288,19 +288,27 @@ public class Client_Module extends JFrame {
 			for (Object object : jsonList) {
 			
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				
 				String name = (String) data.get("nombre_album");
 				System.out.println( name);
 				
 				JSONArray images = (JSONArray) data.get("imgs");
-				System.out.println(images);
+				//System.out.println(images);
 				
-				for (Object object2 : images) {
-					
-					System.out.println(object2);
+				if(cliente.Album_list.SearchValidacion(name) == false) {
+					cliente.Album_list.insert(name);
+					System.out.println("Se agrego");
 				}
+							
+				cliente.Album_list.insernews(cliente.Album_list.SearchValidacionNode(name),images);
+				
+				/*for (Object object2 : images) {
+					Integer img_no =((Long) object2).intValue();
+					System.out.println(img_no);
+					
+				}*/
 			
 			}
 	
