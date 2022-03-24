@@ -26,27 +26,24 @@ public class MatrizDispersa {
 		}
 
 		if (mayorEncontrado) {
-			
-			if(actual.anterior.i ==nuevo.i ) {
+
+			if (actual.anterior.i == nuevo.i) {
 				actual.anterior.info = nuevo.info;
-			}else {
+			} else {
 				nuevo.siguiente = actual;
 				nuevo.anterior = actual.anterior;
 				actual.anterior.siguiente = nuevo;
 				actual.anterior = nuevo;
 			}
-			
-			
-			
+
 		} else {
-			if(actual.i == nuevo.i) {
+			if (actual.i == nuevo.i) {
 				actual.info = nuevo.info;
-			}else {
+			} else {
 				actual.siguiente = nuevo;
 				nuevo.anterior = actual;
 			}
-			
-			
+
 		}
 		return nuevo;
 	}
@@ -154,15 +151,15 @@ public class MatrizDispersa {
 		}
 
 	}
-
+/*
 	public void Grapgh(String name) {
 		DOT = "";
 		DOT += "digraph L{\n";
 		DOT += "nodesep=0.4\n";
-		DOT += "ranksep=0.4;\n";   
+		DOT += "ranksep=0.4;\n";
 		DOT += "node[shape=box fillcolor=\"#A181FF\" style =filled]\n";
 		DOT += "subgraph cluster_p{\n    edge[style = \"bold\", dir= \"both\"]\n";
-		//DOT += "label= \"Sergie Daniel Arizandieta Yol - 202000119\"";
+		// DOT += "label= \"Sergie Daniel Arizandieta Yol - 202000119\"";
 		DOT += "bgcolor = \"#FFFFFF\"\n";
 		DOT += "raiz[label = \"F/C\" fillcolor=\"#FFFFFF\" group=0]\n";
 
@@ -172,7 +169,7 @@ public class MatrizDispersa {
 		if (files != -1) {
 			String temp = "";
 			for (int i = 0; i <= files; i++) {
-				DOT += "Columna" + i + "[ label=\"C" +i + "\" fillcolor=\"#FFFFFF\" group=" + (i + 1) + " ];\n";
+				DOT += "Columna" + i + "[ label=\"C" + i + "\" fillcolor=\"#FFFFFF\" group=" + (i + 1) + " ];\n";
 				temp += "Columna" + i + ";";
 				if (i == 0) {
 					DOT += "raiz->Columna0;\n";
@@ -196,18 +193,18 @@ public class MatrizDispersa {
 				}
 			}
 		}
-		DOT+="\n\n";
+		DOT += "\n\n";
 		Files(this.raiz);
-		DOT+="\n}}";
-		//System.out.println(DOT);
-		//System.out.println(files + " x " + columns);
+		DOT += "\n}}";
+		// System.out.println(DOT);
+		// System.out.println(files + " x " + columns);
 		Draw_Graphiz(name, DOT);
 		openimg("Matriz Dispersa");
 	}
 
 	public void Files(nodoDispersa cabeceraFila) {
 
-		String temp= "";
+		String temp = "";
 		nodoDispersa actual = cabeceraFila;
 		nodoDispersa Sig = null;
 		if (actual != null) {
@@ -217,57 +214,184 @@ public class MatrizDispersa {
 
 			while (actual != null) {
 				if (!(actual.i == -1)) {
-					
-					if(actual.anterior != null) {
-						DOT+= ("Nodo" + actual.i+ "_" + actual.j + "[label=\"\t\" fillcolor=\""+ actual.info  +"\" group=" + (actual.i + 1) + "];\n");
-						//DOT+= ("Nodo" + actual.i+ "_" + actual.j + "[label=\"" + actual.info + "\" fillcolor=\""+ actual.info  +"\" group=" + (actual.i + 1) + "];\n");
-						//System.out.print("Nodo" + actual.i+ "_" + actual.j + "[label=\"" + actual.info + "\" group=" + (actual.i + 1) + "];\n");
-						
-						if(actual.anterior.i==-1) {
-							//System.out.print("Fila" +actual.anterior.j + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							DOT+=("Fila" +actual.anterior.j + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							temp+="Fila" + +actual.anterior.j + ";";
-						}else {
-							//System.out.print("Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							DOT+=("Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							temp+="Nodo" + actual.anterior.i + "_" + actual.anterior.j + ";";
+
+					if (actual.anterior != null) {
+						DOT += ("Nodo" + actual.i + "_" + actual.j + "[label=\"\t\" fillcolor=\"" + actual.info
+								+ "\" group=" + (actual.i + 1) + "];\n");
+						// DOT+= ("Nodo" + actual.i+ "_" + actual.j + "[label=\"" + actual.info + "\"
+						// fillcolor=\""+ actual.info +"\" group=" + (actual.i + 1) + "];\n");
+						// System.out.print("Nodo" + actual.i+ "_" + actual.j + "[label=\"" +
+						// actual.info + "\" group=" + (actual.i + 1) + "];\n");
+
+						if (actual.anterior.i == -1) {
+							// System.out.print("Fila" +actual.anterior.j + "->Nodo"+ actual.i + "_" +
+							// actual.j +";\n");
+							DOT += ("Fila" + actual.anterior.j + "->Nodo" + actual.i + "_" + actual.j + ";\n");
+							temp += "Fila" + +actual.anterior.j + ";";
+						} else {
+							// System.out.print("Nodo" + actual.anterior.i + "_" + actual.anterior.j +
+							// "->Nodo"+ actual.i + "_" + actual.j +";\n");
+							DOT += ("Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo" + actual.i + "_"
+									+ actual.j + ";\n");
+							temp += "Nodo" + actual.anterior.i + "_" + actual.anterior.j + ";";
 						}
-						
-						if(actual.arriba.j==-1) {
-							//System.out.print("Columna" +actual.arriba.i + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							DOT+=("Columna" +actual.arriba.i + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-						}else {
-							//System.out.print("Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							DOT+=("Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo"+ actual.i + "_" + actual.j +";\n");
-							//temp+="Nodo" + actual.arriba.i + "_" + actual.arriba.j + ";";
+
+						if (actual.arriba.j == -1) {
+							// System.out.print("Columna" +actual.arriba.i + "->Nodo"+ actual.i + "_" +
+							// actual.j +";\n");
+							DOT += ("Columna" + actual.arriba.i + "->Nodo" + actual.i + "_" + actual.j + ";\n");
+						} else {
+							// System.out.print("Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo"+
+							// actual.i + "_" + actual.j +";\n");
+							DOT += ("Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo" + actual.i + "_"
+									+ actual.j + ";\n");
+							// temp+="Nodo" + actual.arriba.i + "_" + actual.arriba.j + ";";
 						}
-						
-						temp+="Nodo" + actual.i + "_" + actual.j + ";";
-						//System.out.print("[" + actual.i + " , " + actual.j + " INFO: " + actual.info + "] ");
+
+						temp += "Nodo" + actual.i + "_" + actual.j + ";";
+						// System.out.print("[" + actual.i + " , " + actual.j + " INFO: " + actual.info
+						// + "] ");
 					}
-					
-					//System.out.print("[" + actual.i + " , " + actual.j + " INFO: " + actual.info + "] ");
+
+					// System.out.print("[" + actual.i + " , " + actual.j + " INFO: " + actual.info
+					// + "] ");
 				}
-				
-				
+
 				actual = actual.siguiente;
 			}
-			
+
 			System.out.println("\n");
 		}
-		if(!temp.equals("")) {
+
+		if (!temp.equals("")) {
 			String rank = "{rank=same;" + temp + "}\n";
-			//System.out.println(rank);
-			
-			DOT+=(rank);
-			
+			// System.out.println(rank);
+
+			DOT += (rank);
+
 		}
-		
+
 		if (Sig != null) {
 			Files(Sig);
 		}
 
 	}
+*/
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	public void GrapghInvisible(String name) {
+		DOT = "";
+		DOT += "digraph L{\n";
+		DOT += "nodesep=0.4\n";
+		DOT += "ranksep=0.4;\n";
+		DOT += "node[shape=box fillcolor=\"#A181FF\" style =filled]\n";
+		DOT += "subgraph cluster_p{\n    edge[style = \"bold\", dir= \"both\" style= invisible]\n";
+		// DOT += "label= \"Sergie Daniel Arizandieta Yol - 202000119\"";
+		DOT += "bgcolor = \"#FFFFFF\"\n";
+		DOT += "raiz[label = \"F/C\" fillcolor=\"#FFFFFF\" group=0 style= invisible]\n";
+
+		int files = MaxFile(this.raiz);
+		int columns = MaxColum(this.raiz);
+
+		if (files != -1) {
+			String temp = "";
+			for (int i = 0; i <= files; i++) {
+				DOT += "Columna" + i + "[ label=\"C" + i + "\" fillcolor=\"#FFFFFF\" group=" + (i + 1) + " style= invisible ];\n";
+				temp += "Columna" + i + ";";
+				if (i == 0) {
+					DOT += "raiz->Columna0[arrowsize=0]\n";
+				}
+				if (i + 1 <= files) {
+					DOT += "Columna" + (i) + "->Columna" + (i + 1) + "[arrowsize=0]\n";
+				}
+			}
+			String rank = "{rank=same;raiz;" + temp + "}\n";
+			DOT += rank;
+		}
+
+		if (columns != -1) {
+			for (int i = 0; i <= columns; i++) {
+				DOT += "Fila" + i + "[ label=\"F" + +i + "\" fillcolor=\"#FFFFFF\" group=0 style= invisible];\n";
+				if (i == 0) {
+					DOT += "raiz->Fila0[arrowsize=0]\n";
+				}
+				if (i + 1 <= columns) {
+					DOT += "Fila" + (i) + "->Fila" + (i + 1) + "[arrowsize=0]\n";
+				}
+			}
+		}
+		DOT += "\n\n";
+		FilesInvisible(this.raiz);
+		DOT += "\n}}";
+		 System.out.println(DOT);
+		// System.out.println(files + " x " + columns);
+		Draw_Graphiz(name, DOT);
+		openimg("Matriz Dispersa");
+	}
+
+	public void FilesInvisible(nodoDispersa cabeceraFila) {
+		System.out.println("Aqui");
+		String temp = "";
+		nodoDispersa actual = cabeceraFila;
+		nodoDispersa Sig = null;
+		if (actual != null) {
+			Sig = actual.abajo;
+		}
+		if (!(actual.j == -1)) {
+
+			while (actual != null) {
+				if (!(actual.i == -1)) {
+
+					if (actual.anterior != null) {
+						DOT += ("Nodo" + actual.i + "_" + actual.j + "[label=\"\t\" fillcolor=\"" + actual.info+ "\" group=" + (actual.i + 1) + "];\n");
+
+
+						if (actual.anterior.i == -1) {
+
+							DOT += ("Fila" + actual.anterior.j + "->Nodo" + actual.i + "_" + actual.j+ "[arrowsize=0]\n");
+							temp += "Fila" + +actual.anterior.j + ";";
+						} else {
+
+							DOT += ("Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo" + actual.i + "_"+ actual.j + "[arrowsize=0]\n");
+							temp += "Nodo" + actual.anterior.i + "_" + actual.anterior.j + ";";
+						}
+
+						if (actual.arriba.j == -1) {
+						
+							DOT += ("Columna" + actual.arriba.i + "->Nodo" + actual.i + "_" + actual.j+ "[arrowsize=0]\n");
+						} else {
+							
+							DOT += ("Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo" + actual.i + "_"+ actual.j + "[arrowsize=0]\n");
+							
+						}
+
+						temp += "Nodo" + actual.i + "_" + actual.j + ";";
+						
+					}
+
+					
+				}
+
+				actual = actual.siguiente;
+			}
+
+			System.out.println("\n");
+		}
+
+		if (!temp.equals("")) {
+			String rank = "{rank=same;" + temp + "}\n";
+			// System.out.println(rank);
+
+			DOT += (rank);
+
+		}
+
+		if (Sig != null) {
+			FilesInvisible(Sig);
+		}
+
+	}
+
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	public Integer MaxFile(nodoDispersa cabeceraFila) {
 		int Max = -1;

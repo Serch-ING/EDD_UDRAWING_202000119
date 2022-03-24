@@ -185,7 +185,7 @@ public class Client_Module extends JFrame {
 				
 				Nodos  = new LinkedList<Nodes_Colors>();
 				
-				//MatrizDispersa temp_Matriz = new MatrizDispersa();
+				MatrizDispersa temp_Matriz = new MatrizDispersa();
 				for (Object object2 : pixelesList) {
 					
 					
@@ -208,10 +208,10 @@ public class Client_Module extends JFrame {
 					Nodes_Colors nodo_temp = new Nodes_Colors(file,colum,color);
 					Nodos.add(nodo_temp);
 					
-					//temp_Matriz.insertarNodo(colum, file,  color);			
+					temp_Matriz.insertarNodo(colum, file,  color);			
 				}
 				//temp_Matriz.Grapgh("MD_" + id);
-				
+				temp_Matriz.GrapghInvisible("MD0_" + id);
 				cliente.ABBCapas.insertar(id, Nodos);
 
 			}

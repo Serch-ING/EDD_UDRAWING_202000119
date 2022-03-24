@@ -78,7 +78,7 @@ class Nodo_Simple_Sub {
 	int info;
 	Object puntero;
 
-	public Nodo_Simple_Sub(int  info) {
+	public Nodo_Simple_Sub(int info) {
 		this.next = null;
 		this.info = info;
 	}
