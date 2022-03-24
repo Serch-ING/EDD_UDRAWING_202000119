@@ -299,7 +299,8 @@ public class Client_Module extends JFrame {
 						
 						//cliente.ABBCapas.inorden();
 						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
-						
+						temp_Matriz.GrapghInvisibleNewLogico("InordennewLogic");
+						temp_Matriz.GrapghInvisibleNewAplicacion("InordennewAplication");
 						
 					} else if (comboBox_route.getSelectedItem() == "PostOrden") {
 						System.out.println("PostOrden");
@@ -370,6 +371,7 @@ public class Client_Module extends JFrame {
 				}
 				//temp_Matriz.Grapgh("MD_" + id);
 				//temp_Matriz.GrapghInvisible("MD0_" + id);
+				//temp_Matriz.GrapghInvisibleNew("NewMatriz_" + id);
 				cliente.ABBCapas.insertar(id, Nodos);
 
 			}

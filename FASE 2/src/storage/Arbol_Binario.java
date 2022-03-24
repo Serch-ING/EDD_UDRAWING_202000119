@@ -185,7 +185,7 @@ public class Arbol_Binario {
 				for (Nodes_Colors nodes_Colors : Nodos) {
 					temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
 				}
-				temp_Matriz.GrapghInvisible("Inorden_" + getDato());
+				
 			}
 		}
 		

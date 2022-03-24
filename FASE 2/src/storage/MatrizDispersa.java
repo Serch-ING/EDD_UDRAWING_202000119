@@ -392,7 +392,238 @@ public class MatrizDispersa {
 	}
 
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	public void Draw_GraphizNeato(String name, String dot) {
 
+		try {
+
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			
+
+			pb = new ProcessBuilder("neato", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void GrapghInvisibleNewLogico(String name) {
+		DOT = "";
+		DOT += "digraph G{\n";
+		DOT += "    node[shape=box,width=0.6 height=0.6 fontname=\"Arial\" fillcolor=\"white\" style=filled /*invisible*/]\n";
+		DOT += "	edge[style = \"bold\" dir= \"both\"/* style= invisible arrowsize=0 */ ]\n";
+		
+		DOT += "    raiz[label = \"f/c\" fillcolor=\"darkolivegreen1\" pos = \"-1,1!\"  ]; \n";
+
+		int files = MaxFile(this.raiz);
+		int columns = MaxColum(this.raiz);
+
+		if (files != -1) {
+			
+			for (int i = 0; i <= files; i++) {
+				DOT += "	Columna" + i + "[ label=\"C" + i + "\" fillcolor=\"#FFFFFF\" pos=\"" + (i) +",1!\" ];\n";
+				
+				if (i == 0) {
+					DOT += "	raiz->Columna0\n";
+				}
+				if (i + 1 <= files) {
+					DOT += "	Columna" + (i) + "->Columna" + (i + 1) + "\n";
+				}
+			}
+			
+		
+		}
+
+		if (columns != -1) {
+			for (int i = 0; i <= columns; i++) {
+				DOT += "	Fila" + i + "[ label=\"F" + i + "\" fillcolor=\"#FFFFFF\" pos=\"-1,-" + i +"!\"];\n";
+				if (i == 0) {
+					DOT += "	raiz->Fila0\n";
+				}
+				if (i + 1 <= columns) {
+					DOT += "	Fila" + (i) + "->Fila" + (i + 1) + "\n";
+				}
+			}
+		}
+		DOT += "\n\n";
+		FilesInvisibleNewLogico(this.raiz);
+		DOT += "\n}";
+		System.out.println("Hi");
+		 System.out.println(DOT);
+		// System.out.println(files + " x " + columns);
+		 Draw_GraphizNeato(name, DOT);
+		
+	}
+
+	public void FilesInvisibleNewLogico(nodoDispersa cabeceraFila) {
+	
+
+		nodoDispersa actual = cabeceraFila;
+		nodoDispersa Sig = null;
+		if (actual != null) {
+			Sig = actual.abajo;
+		}
+		if (!(actual.j == -1)) {
+
+			while (actual != null) {
+				if (!(actual.i == -1)) {
+
+					if (actual.anterior != null) {
+						DOT += ("	Nodo" + actual.i + "_" + actual.j + "[style= filled  label=\"\t\" fillcolor=\"" + actual.info+ "\" pos=\"" + (actual.i) + ",-" +(actual.j) +"!\"];\n");
+
+
+						if (actual.anterior.i == -1) {
+
+							DOT += ("	Fila" + actual.anterior.j + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+							
+						} else {
+
+							DOT += ("	Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo" + actual.i + "_"+ actual.j + "\n");
+							
+						}
+
+						if (actual.arriba.j == -1) {
+						
+							DOT += ("	Columna" + actual.arriba.i + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+						} else {
+							
+							DOT += ("	Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo" + actual.i + "_"+ actual.j + "\n");
+							
+						}
+
+						
+						
+					}
+
+					
+				}
+
+				actual = actual.siguiente;
+			}
+
+			System.out.println("\n");
+		}
+
+	
+
+		if (Sig != null) {
+			FilesInvisibleNewLogico(Sig);
+		}
+
+	}
+	
+	
+	
+	
+	
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	
+	public void GrapghInvisibleNewAplicacion(String name) {
+		DOT = "";
+		DOT += "digraph G{\n";
+		DOT += "    node[shape=box,width=1 height=1 fontname=\"Arial\" fillcolor=\"white\" style=invisible]\n";
+		DOT += "	edge[style = \"bold\" dir= \"both\" style= invisible arrowsize=0  ]\n";
+		
+		DOT += "    raiz[label = \"f/c\" fillcolor=\"darkolivegreen1\" pos = \"-1,1!\"  ]; \n";
+
+		int files = MaxFile(this.raiz);
+		int columns = MaxColum(this.raiz);
+
+		if (files != -1) {
+			
+			for (int i = 0; i <= files; i++) {
+				DOT += "	Columna" + i + "[ label=\"C" + i + "\" fillcolor=\"#FFFFFF\" pos=\"" + (i) +",1!\" ];\n";
+				
+				if (i == 0) {
+					DOT += "	raiz->Columna0\n";
+				}
+				if (i + 1 <= files) {
+					DOT += "	Columna" + (i) + "->Columna" + (i + 1) + "\n";
+				}
+			}
+			
+		
+		}
+
+		if (columns != -1) {
+			for (int i = 0; i <= columns; i++) {
+				DOT += "	Fila" + i + "[ label=\"F" + i + "\" fillcolor=\"#FFFFFF\" pos=\"-1,-" + i +"!\"];\n";
+				if (i == 0) {
+					DOT += "	raiz->Fila0\n";
+				}
+				if (i + 1 <= columns) {
+					DOT += "	Fila" + (i) + "->Fila" + (i + 1) + "\n";
+				}
+			}
+		}
+		DOT += "\n\n";
+		FilesInvisibleNewAplicacion(this.raiz);
+		DOT += "\n}";
+		System.out.println("Hi");
+		 System.out.println(DOT);
+		// System.out.println(files + " x " + columns);
+		 Draw_GraphizNeato(name, DOT);
+		
+	}
+
+	public void FilesInvisibleNewAplicacion(nodoDispersa cabeceraFila) {
+	
+
+		nodoDispersa actual = cabeceraFila;
+		nodoDispersa Sig = null;
+		if (actual != null) {
+			Sig = actual.abajo;
+		}
+		if (!(actual.j == -1)) {
+
+			while (actual != null) {
+				if (!(actual.i == -1)) {
+
+					if (actual.anterior != null) {
+						DOT += ("	Nodo" + actual.i + "_" + actual.j + "[style= filled  label=\"\t\" fillcolor=\"" + actual.info+ "\" pos=\"" + (actual.i) + ",-" +(actual.j) +"!\"];\n");
+
+
+						if (actual.anterior.i == -1) {
+
+							DOT += ("	Fila" + actual.anterior.j + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+							
+						} else {
+
+							DOT += ("	Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo" + actual.i + "_"+ actual.j + "\n");
+							
+						}
+
+						if (actual.arriba.j == -1) {
+						
+							DOT += ("	Columna" + actual.arriba.i + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+						} else {
+							
+							DOT += ("	Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo" + actual.i + "_"+ actual.j + "\n");
+							
+						}	
+					}
+				}
+				actual = actual.siguiente;
+			}
+
+			System.out.println("\n");
+		}
+
+		if (Sig != null) {
+			FilesInvisibleNewAplicacion(Sig);
+		}
+
+	}
+	
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------
 	public Integer MaxFile(nodoDispersa cabeceraFila) {
 		int Max = -1;
 		nodoDispersa actual = cabeceraFila;
