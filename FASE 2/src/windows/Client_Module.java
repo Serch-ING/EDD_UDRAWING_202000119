@@ -294,13 +294,14 @@ public class Client_Module extends JFrame {
 						
 					} else if (comboBox_route.getSelectedItem() == "InOrden") {
 						System.out.println("InOrden");
+						int regitre =Integer.valueOf(textField_setlayers.getText());
 						int temp =Integer.valueOf(textField_setlayers.getText());
 						cliente.ABBCapas.recorridoLimitado(temp);
 						
 						//cliente.ABBCapas.inorden();
 						cliente.ABBCapas.inordenLimited(cliente.ABBCapas.raiz,temp_Matriz);
-						temp_Matriz.GrapghInvisibleNewLogico("InordennewLogic");
-						temp_Matriz.GrapghInvisibleNewAplicacion("InordennewAplication");
+						
+						temp_Matriz.GrapghInvisibleNewAplicacion("InOrden_regitre_" + cliente.ID_IMG);
 						
 					} else if (comboBox_route.getSelectedItem() == "PostOrden") {
 						System.out.println("PostOrden");

@@ -10,6 +10,7 @@ public class Clients {
 	public Arbol_Binario ABBCapas  = new Arbol_Binario();
 	public Arbol_AVL AVLImages  = new Arbol_AVL();
 	public Simple_Album Album_list = new Simple_Album();
+	public int ID_IMG = 0;
 	
 	
 	public Clients(String Name, String Password, String DPI) {
