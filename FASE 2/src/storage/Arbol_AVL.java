@@ -4,35 +4,48 @@ import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
+import com.fasterxml.jackson.databind.node.ValueNode;
+
+import storage.Arbol_Binario.Nodo_ABB;
+
 public class Arbol_AVL {
-	Node root = null;
+	public Node root = null;
 
 	public class Node {
 		private Node left, right;
 		private int height = 1;
 		private int value;
+		LinkedList<Integer> capas_list = new LinkedList<Integer>();
 
-		private Node(int val) {
+		private Node(int val,LinkedList<Integer> capas_list) {
 			this.value = val;
+			this.capas_list=capas_list;
 		}
 	}
-
 	private int height(Node N) {
 		if (N == null)
 			return 0;
 		return N.height;
+		
+		
 	}
 
-	private Node insert(Node node, int value) {
-		
+	
+
+	public Node insert(Node node, int value,LinkedList<Integer> capas_list) {
+
 		if (node == null) {
-			return (new Node(value));
+			return (new Node(value,capas_list));
 		}
 
-		if (value < node.value)
-			node.left = insert(node.left, value);
-		else
-			node.right = insert(node.right, value);
+		if (value < node.value) {
+			node.left = insert(node.left, value,capas_list);
+			
+		} else if (value ==  node.value) {
+			node.capas_list = capas_list;
+		}else {
+			node.right = insert(node.right, value,capas_list);
+		}
 
 		node.height = Math.max(height(node.left), height(node.right)) + 1;
 
@@ -129,8 +142,8 @@ public class Arbol_AVL {
 				if (temp == null) {
 					temp = root;
 					root = null;
-				} else 
-					root = temp; 
+				} else
+					root = temp;
 
 				temp = null;
 			} else {
@@ -350,25 +363,27 @@ public class Arbol_AVL {
 		}
 	}
 
-	/*public static <T> void main(String args[]) {
-
+	
+		public static <T> void main(String args[]) {
+	
 		Arbol_AVL t = new Arbol_AVL();
-
-		int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
-
+	
+		//int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
+		int[] edad = { 3, 1, 2,11};
 		while (true) {
 			System.out.println("(1) Insert");
 			System.out.println("(2) Delete");
-
+	
 			try {
 				BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 				String s = bufferRead.readLine();
-
+	
 				if (Integer.parseInt(s) == 1) {
 					System.out.print("Value to be inserted: \n");
-
+	
 					for (int i : edad) {
-						t.root = t.insert(t.root, i);
+						
+						t.root = t.insert(t.root, i,null);
 					}
 					// root = t.insert(root, Integer.parseInt(bufferRead.readLine()));
 				} else if (Integer.parseInt(s) == 2) {
@@ -378,15 +393,16 @@ public class Arbol_AVL {
 					System.out.println("Invalid choice, try again!");
 					continue;
 				}
-
+	
 				t.print(t.root);
-				// t.DrawGraph(root);
-				// t.PrintNiveles(t.root);
+				//t.DrawGraph(t.root);
+				//t.PrintNiveles(t.root);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-
-	}*/
+	
+	}
+	  
 
 }

@@ -14,16 +14,16 @@ public class Arbol_Binario {
 		raiz = null;
 	}
 
-	public boolean existe(int busqueda) {
+	public LinkedList<Nodes_Colors> existe(int busqueda) {
 		return existe(this.raiz, busqueda);
 	}
 
-	private boolean existe(Nodo_ABB n, int busqueda) {
+	private LinkedList<Nodes_Colors> existe(Nodo_ABB n, int busqueda) {
 		if (n == null) {
-			return false;
+			return null;
 		}
 		if (n.getDato() == busqueda) {
-			return true;
+			return n.Nodos;
 		} else if (busqueda < n.getDato()) {
 			return existe(n.getIzquierda(), busqueda);
 		} else {
@@ -154,8 +154,11 @@ public class Arbol_Binario {
 		arbol.insertar(1, null);
 		System.out.println("Recorriendo inorden: (RECURSIVO)");
 		arbol.inorden();
-		System.out.println("Recorriendo propio inorden: (ITERATIVA)");
-		arbol.MyInOrden(arbol.raiz);
+		System.out.println("Testing");
+		System.out.println(arbol.existe(1));
+		
+		//System.out.println("Recorriendo propio inorden: (ITERATIVA)");
+		//arbol.MyInOrden(arbol.raiz);
 
 	}
 	

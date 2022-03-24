@@ -14,7 +14,6 @@ import org.json.simple.parser.JSONParser;
 
 import objects.Clients;
 import objects.Nodes_Colors;
-import storage.Storage;
 
 import javax.swing.JTabbedPane;
 import javax.swing.DefaultComboBoxModel;
@@ -146,7 +145,7 @@ public class Client_Module extends JFrame {
 						ReadLayers(label_ruta.getText(),storage,cliente);
 						
 					} else if (comboBox.getSelectedItem() == "Imagenes") {
-						ReadImages(label_ruta.getText(),storage);
+						ReadImages(label_ruta.getText(),storage,cliente);
 						
 					} else if (comboBox.getSelectedItem() == "Albums") {
 						ReadAlbums(label_ruta.getText(),storage);
@@ -174,7 +173,7 @@ public class Client_Module extends JFrame {
 			for (Object object : jsonList) {
 			
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				
 				Object id_obj = (Object) data.get("id_capa");
@@ -214,13 +213,10 @@ public class Client_Module extends JFrame {
 				//temp_Matriz.Grapgh("MD_" + id);
 				
 				cliente.ABBCapas.insertar(id, Nodos);
-				
-				
-			
-				
+
 			}
 			
-			cliente.ABBCapas.inorden();
+			//cliente.ABBCapas.inorden();
 	
 			System.out.println("El archivo se ingreso correctamente");
 		
@@ -232,10 +228,11 @@ public class Client_Module extends JFrame {
 		}
 	}
 	
-	public void ReadImages(String ruta,Storage storage) {
-
+	public void ReadImages(String ruta,Storage storage,Clients cliente) {
+		Integer id ;
+		LinkedList<Integer> capas_list ;
 		JSONParser jsonParser = new JSONParser();
-
+		
 		try (FileReader reader = new FileReader(ruta)) {
 			
 			Object obj = jsonParser.parse(reader);
@@ -244,23 +241,31 @@ public class Client_Module extends JFrame {
 			for (Object object : jsonList) {
 			
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				
 				Object id_obj = (Object) data.get("id");
 				
-				Integer id = ((Long) id_obj).intValue();
-				System.out.println( id);
+				id =((Long) id_obj).intValue();
+				//System.out.println( id);
 				
 				JSONArray  capas = (JSONArray ) data.get("capas");
-				System.out.println(capas);
+				//System.out.println(capas);
+				
+				capas_list  = new LinkedList<Integer>();
 				
 				for (Object object2 : capas) {
-					System.out.println(object2);
+					Integer capa_no =((Long) object2).intValue();
+					//System.out.println(capa_no);
+					capas_list.add(capa_no);
 				}
 			
+				
+				cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id, capas_list);
 			}
-	
+			
+			//cliente.AVLImages.print(cliente.AVLImages.root);
+		
 			System.out.println("El archivo se ingreso correctamente");
 		
 			
