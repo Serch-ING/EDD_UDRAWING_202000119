@@ -142,7 +142,7 @@ public class Arbol_AVL {
 		
 		cliente.ABBCapas.temp="";
 		for(Integer tn :List_int) {
-			cliente.ABBCapas.busquedaListColors(tn);
+			cliente.ABBCapas.busquedaListColors(tn,temp_Matriz);
 			cliente.ABBCapas.temp+= "  -> " +tn;
 			
 		}

@@ -222,8 +222,6 @@ public class Client_Module extends JFrame {
 					
 					cliente.AVLImages.seraching(temp,cliente,temp_Matriz);
 
-					
-
 					name += cliente.ID_IMG;
 					temp_Matriz.GrapghInvisibleNewAplicacion(name);
 					cliente.ID_IMG++;

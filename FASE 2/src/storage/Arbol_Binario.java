@@ -25,11 +25,17 @@ public class Arbol_Binario {
 
 	
 	
-	public void busquedaListColors(int busqueda) {
+	public void busquedaListColors(int busqueda, MatrizDispersa temp_Matriz) {
 		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
 		
 		temp= existeListColor(this.raiz, busqueda);
 		
+		if(temp!= null) {
+			System.out.println("Se encontro: " + busqueda);
+			for (Nodes_Colors nodes_Colors : temp) {
+				temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
+			}
+		}
 	}
 
 	private LinkedList<Nodes_Colors> existeListColor(Nodo_ABB n, int busqueda) {
