@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import com.fasterxml.jackson.databind.node.ValueNode;
 
+import objects.Clients;
 import storage.Arbol_Binario.Nodo_ABB;
 
 public class Arbol_AVL {
@@ -131,11 +132,24 @@ public class Arbol_AVL {
 		}
 	}
 	
-	public void seraching(int id) {
+	public void seraching(int id, Clients cliente, MatrizDispersa temp_Matriz) {
 		this.buscado = null;
 		Search(this.root,id);
+		List<Integer> List_int = new LinkedList<Integer>();	
+		
+		//this.buscado.ABBCapas_self.Niveles(this.buscado.ABBCapas_self.raiz);
+		List_int =this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
+		
+		cliente.ABBCapas.temp="";
+		for(Integer tn :List_int) {
+			cliente.ABBCapas.busquedaListColors(tn);
+			cliente.ABBCapas.temp+= "  -> " +tn;
 			
-		this.buscado.ABBCapas_self.Niveles(this.buscado.ABBCapas_self.raiz);
+		}
+		
+		//cliente.ABBCapas.recorridoLimitado(temp);
+		//cliente.ABBCapas.preordenLimited(cliente.ABBCapas.raiz, temp_Matriz);
+		
 	}
 	
 	
@@ -145,7 +159,7 @@ public class Arbol_AVL {
 			if(id == root.value) {
 				this.buscado = root;
 			}
-			//System.out.printf("%d ", root.value);
+
 			Search(root.right,id);
 		}
 	}

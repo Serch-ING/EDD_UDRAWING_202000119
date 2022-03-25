@@ -216,12 +216,21 @@ public class Client_Module extends JFrame {
 		btnNewButton_generateTreeImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					
+					MatrizDispersa temp_Matriz = new MatrizDispersa();
 					int temp = Integer.valueOf(textField_IDtreeImg.getText());
+					String name = cliente.DPI + "_ArbolImgs_id" + temp + "_";
 					
-					cliente.AVLImages.seraching(temp);
-					System.out.println("\n");
-					//cliente.AVLImages.print(cliente.AVLImages.root);
+					cliente.AVLImages.seraching(temp,cliente,temp_Matriz);
+
+					
+
+					name += cliente.ID_IMG;
+					temp_Matriz.GrapghInvisibleNewAplicacion(name);
+					cliente.ID_IMG++;
+					cliente.generated_images.add(name);
+
+					updateImg(comboBox_IMGS, cliente);
+					
 
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Se debe ingresar un dato");

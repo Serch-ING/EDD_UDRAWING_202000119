@@ -22,20 +22,26 @@ public class Arbol_Binario {
 
 
 	
-	public LinkedList<Nodes_Colors> existe(int busqueda) {
-		return existe(this.raiz, busqueda);
+
+	
+	
+	public void busquedaListColors(int busqueda) {
+		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
+		
+		temp= existeListColor(this.raiz, busqueda);
+		
 	}
 
-	private LinkedList<Nodes_Colors> existe(Nodo_ABB n, int busqueda) {
+	private LinkedList<Nodes_Colors> existeListColor(Nodo_ABB n, int busqueda) {
 		if (n == null) {
 			return null;
 		}
 		if (n.getDato() == busqueda) {
 			return n.Nodos;
 		} else if (busqueda < n.getDato()) {
-			return existe(n.getIzquierda(), busqueda);
+			return existeListColor(n.getIzquierda(), busqueda);
 		} else {
-			return existe(n.getDerecha(), busqueda);
+			return existeListColor(n.getDerecha(), busqueda);
 		}
 
 	}
@@ -88,6 +94,28 @@ public class Arbol_Binario {
 			System.out.print(tn.dato+",");
 		}
 	}
+	
+	public  List<Integer> NivelesRetorno(Nodo_ABB root) {
+		Nodo_ABB tempnode = root;
+		Queue<Nodo_ABB> queue = new LinkedList<Nodo_ABB>();
+		List<Integer> List_int = new LinkedList<Integer>();
+		queue.add(tempnode);
+		
+		while(!queue.isEmpty()) {
+			tempnode = queue.remove();
+			List_int.add(tempnode.dato);
+			if(tempnode.izquierda!= null) {
+				queue.add(tempnode.izquierda);
+			}
+			if(tempnode.derecha != null) {
+				queue.add(tempnode.derecha);
+			}
+		}
+		
+
+		return List_int;
+	}
+
 
 	public void Profundidad(Nodo_ABB root) {
 		 Stack <Nodo_ABB> stack = new Stack <Nodo_ABB> ();
