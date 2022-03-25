@@ -411,7 +411,11 @@ public class Client_Module extends JFrame {
 						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 						
 					} else if (comboBox_viewestruct.getSelectedItem() == "arbol de capas") {
-						System.out.println("arbol de capas");
+						String name = cliente.DPI + "_ArbolCapas";
+						
+						cliente.ABBCapas.DrawGraph(cliente.ABBCapas.raiz,name);
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 
 					} else if (comboBox_viewestruct.getSelectedItem() == "Listado de albumes") {
 						System.out.println("Listado de albumes");

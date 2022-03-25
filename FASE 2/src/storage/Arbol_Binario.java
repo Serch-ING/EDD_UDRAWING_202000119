@@ -1,5 +1,7 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,12 +21,73 @@ public class Arbol_Binario {
 	public Arbol_Binario() {
 		raiz = null;
 	}
+	
+	String dot = "";
 
+	public void DrawGraph(Nodo_ABB root,String name) {
 
+		dot = "digraph G {\n";
+		dot += "nodesep=0; \n";
+		dot += "ranksep=0.4;\n";
+
+		GenerarArbol(root);
+
+		dot += "}";
+
+		//System.out.println(dot);
+		generate_grapgh(name,dot);
+	}
 	
 
+	public void GenerarArbol(Nodo_ABB actual) {
+		if (actual.izquierda != null) {
+			dot += actual.dato + "-> " + actual.izquierda.dato + "\n";
+			GenerarArbol(actual.izquierda);
+		} else {
+
+			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
+			dot += actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+		}
+		if (actual.derecha != null) {
+			dot += actual.dato + "-> " + actual.derecha.dato + "\n";
+			GenerarArbol(actual.derecha);
+		} else {
+			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
+			dot += actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+		}
+	}
 	
+	public void generate_grapgh(String name, String dot) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
+
 	public void busquedaListColors(int busqueda, MatrizDispersa temp_Matriz) {
 		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
 		
