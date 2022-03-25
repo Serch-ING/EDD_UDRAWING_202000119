@@ -5,12 +5,12 @@
        {
            "fila": 25,
            "columna": 31,
-           "color": "#FFCC33"
+           "color": "#17AB8E"
         },
         {
            "fila": 38,
            "columna": 31,
-           "color": "#FFCC40"
+           "color": "#092FDA"
         }
     ]
  },
@@ -20,7 +20,7 @@
         {
            "fila": 21,
            "columna": 37,
-           "color": "#FFCC27"
+           "color": "#BF62AB"
         }
     ]
  }

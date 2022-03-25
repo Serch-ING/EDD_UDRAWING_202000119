@@ -4,36 +4,60 @@ import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class Arbol_AVL {
-	Node root = null;
+import com.fasterxml.jackson.databind.node.ValueNode;
 
+import objects.Clients;
+import storage.Arbol_Binario.Nodo_ABB;
+
+public class Arbol_AVL {
+	public Node buscado=null;
+	public Node root = null;
+	public int MaxId= 0;
 	public class Node {
+	
+		
 		private Node left, right;
 		private int height = 1;
 		private int value;
-
-		private Node(int val) {
+		LinkedList<Integer> capas_list = new LinkedList<Integer>();
+		public Arbol_Binario ABBCapas_self  = new Arbol_Binario();
+		private Node(int val,LinkedList<Integer> capas_list) {
 			this.value = val;
+			this.capas_list=capas_list;
 		}
+		
 	}
-
+	
+	
 	private int height(Node N) {
 		if (N == null)
 			return 0;
 		return N.height;
 	}
 
-	private Node insert(Node node, int value) {
-		
-		if (node == null) {
-			return (new Node(value));
+	
+
+	public Node insert(Node node, int value,LinkedList<Integer> capas_list) {
+		if(value>MaxId) {
+			MaxId =value;
 		}
+		if (node == null) {
+			Node Nuwvo = new Node(value,capas_list);
+			ABBtree_sub(Nuwvo);
+			return (Nuwvo);
+		}
+		
+		
 
-		if (value < node.value)
-			node.left = insert(node.left, value);
-		else
-			node.right = insert(node.right, value);
-
+		if (value < node.value) {
+			node.left = insert(node.left, value,capas_list);
+		} else if (value ==  node.value) {
+			node.capas_list = capas_list;
+		}else {
+			node.right = insert(node.right, value,capas_list);
+		}
+		
+	
 		node.height = Math.max(height(node.left), height(node.right)) + 1;
 
 		int balance = getBalance(node);
@@ -55,6 +79,17 @@ public class Arbol_AVL {
 		}
 
 		return node;
+	}
+	
+	public void ABBtree_sub(Node node) {
+	
+	
+			for (Integer i : node.capas_list) {
+				node.ABBCapas_self.insertar(i, null);	
+			}
+		
+		
+		//node.ABBCapas_self.Niveles(node.ABBCapas_self.raiz);
 	}
 
 	private Node rightRotate(Node y) {
@@ -96,6 +131,38 @@ public class Arbol_AVL {
 			preOrder(root.right);
 		}
 	}
+	
+	public void seraching(int id, Clients cliente, MatrizDispersa temp_Matriz) {
+		this.buscado = null;
+		Search(this.root,id);
+		List<Integer> List_int = new LinkedList<Integer>();	
+		
+		//this.buscado.ABBCapas_self.Niveles(this.buscado.ABBCapas_self.raiz);
+		List_int =this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
+		
+		cliente.ABBCapas.temp="";
+		for(Integer tn :List_int) {
+			cliente.ABBCapas.busquedaListColors(tn,temp_Matriz);
+			cliente.ABBCapas.temp+= "  -> " +tn;
+			
+		}
+		
+		//cliente.ABBCapas.recorridoLimitado(temp);
+		//cliente.ABBCapas.preordenLimited(cliente.ABBCapas.raiz, temp_Matriz);
+		
+	}
+	
+	
+	public void Search(Node root,int id) {
+		if (root != null) {
+			Search(root.left,id);
+			if(id == root.value) {
+				this.buscado = root;
+			}
+
+			Search(root.right,id);
+		}
+	}
 
 	private Node minValueNode(Node node) {
 		Node current = node;
@@ -129,8 +196,8 @@ public class Arbol_AVL {
 				if (temp == null) {
 					temp = root;
 					root = null;
-				} else 
-					root = temp; 
+				} else
+					root = temp;
 
 				temp = null;
 			} else {
@@ -282,6 +349,8 @@ public class Arbol_AVL {
 
 	}
 
+
+	
 	public void PrintNiveles(Node root) {
 
 		int height = root.height;
@@ -350,25 +419,27 @@ public class Arbol_AVL {
 		}
 	}
 
-	/*public static <T> void main(String args[]) {
-
+	
+		public static <T> void main(String args[]) {
+	
 		Arbol_AVL t = new Arbol_AVL();
-
-		int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
-
+	
+		//int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
+		int[] edad = { 3, 1, 2,11};
 		while (true) {
 			System.out.println("(1) Insert");
 			System.out.println("(2) Delete");
-
+	
 			try {
 				BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 				String s = bufferRead.readLine();
-
+	
 				if (Integer.parseInt(s) == 1) {
 					System.out.print("Value to be inserted: \n");
-
+	
 					for (int i : edad) {
-						t.root = t.insert(t.root, i);
+						
+						t.root = t.insert(t.root, i,null);
 					}
 					// root = t.insert(root, Integer.parseInt(bufferRead.readLine()));
 				} else if (Integer.parseInt(s) == 2) {
@@ -378,15 +449,16 @@ public class Arbol_AVL {
 					System.out.println("Invalid choice, try again!");
 					continue;
 				}
-
+	
 				t.print(t.root);
-				// t.DrawGraph(root);
-				// t.PrintNiveles(t.root);
+				//t.DrawGraph(t.root);
+				t.PrintNiveles(t.root);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-
-	}*/
+	
+	}
+	  
 
 }
