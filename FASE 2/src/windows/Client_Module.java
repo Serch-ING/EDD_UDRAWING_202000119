@@ -42,6 +42,7 @@ public class Client_Module extends JFrame {
 	private JTextField textField_setlayers;
 	private JTextField textField_IDtreeImg;
 	private JTextField textField_layers;
+	private JTextField textField_idlayer;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -214,19 +215,19 @@ public class Client_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					MatrizDispersa temp_Matriz = new MatrizDispersa();
-					
+
 					String temp = textField_layers.getText();
-					int[] listlayer_no = Arrays.stream(temp.split(",")).mapToInt(Integer::parseInt).toArray(); 
-					
-					cliente.ABBCapas.temp="";
-					
+					int[] listlayer_no = Arrays.stream(temp.split(",")).mapToInt(Integer::parseInt).toArray();
+
+					cliente.ABBCapas.temp = "";
+
 					for (int i : listlayer_no) {
-						cliente.ABBCapas.busquedaListColors(i,temp_Matriz);
-						cliente.ABBCapas.temp+= "  -> " +i;
-						
-						//System.out.println(i);
+						cliente.ABBCapas.busquedaListColors(i, temp_Matriz);
+						cliente.ABBCapas.temp += "  -> " + i;
+
+						// System.out.println(i);
 					}
-					
+
 					String name = cliente.DPI + "_ListaCapas_" + temp + "_";
 					name += cliente.ID_IMG;
 					temp_Matriz.GrapghInvisibleNewAplicacion(name);
@@ -341,12 +342,93 @@ public class Client_Module extends JFrame {
 		tabbedPane.addTab("Visualizar estructuras", null, panel_5, null);
 		panel_5.setLayout(null);
 
+		JComboBox<String> comboBox_viewestruct = new JComboBox<String>();
+		comboBox_viewestruct.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "arbol de imagenes", "arbol de capas", "Listado de albumes", "Capa" }));
+		comboBox_viewestruct.setBounds(30, 83, 148, 22);
+		panel_5.add(comboBox_viewestruct);
+
+		textField_idlayer = new JTextField();
+		textField_idlayer.setBounds(30, 160, 148, 20);
+		panel_5.add(textField_idlayer);
+		textField_idlayer.setColumns(10);
+
+		JLabel lblNewLabel_2 = new JLabel("id de capa a visualizar");
+		lblNewLabel_2.setBounds(30, 135, 148, 14);
+		panel_5.add(lblNewLabel_2);
+
+		JButton btnGenerar = new JButton("Generar");
+
+		btnGenerar.setBounds(30, 203, 89, 23);
+		panel_5.add(btnGenerar);
+
+		JPanel panel_3_1 = new JPanel();
+		panel_3_1.setLayout(null);
+		panel_3_1.setBackground(Color.GRAY);
+		panel_3_1.setBounds(464, 11, 1185, 788);
+		panel_5.add(panel_3_1);
+
+		JLabel Label_img2 = new JLabel("");
+		Label_img2.setBounds(10, 11, 1165, 766);
+		panel_3_1.add(Label_img2);
+		
+		JComboBox<String> comboBox_estrucgenerates = new JComboBox<String>();
+		comboBox_estrucgenerates.setBounds(212, 83, 206, 22);
+		panel_5.add(comboBox_estrucgenerates);
+		
+		JButton btnVer = new JButton("Ver");
+		
+		btnVer.setBounds(332, 131, 89, 23);
+		panel_5.add(btnVer);
+
 		JButton btnNewButton = new JButton("Cerrar sesion");
 
 		btnNewButton.setBounds(964, 11, 118, 23);
 		contentPane.add(btnNewButton);
 
-		// buttons
+		// buttons=---------------------------------------------------------------------------------------------------------------------
+		
+		btnVer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = comboBox_estrucgenerates.getSelectedItem().toString();
+				String ruta = "Grafico\\" + name + ".png";
+				System.out.println(name);
+				ImageIcon imagen = new ImageIcon(ruta);
+				Label_img2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(Label_img2.getWidth(),Label_img2.getHeight(), Image.SCALE_SMOOTH)));
+			}
+		});
+		
+		btnGenerar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					if (comboBox_viewestruct.getSelectedItem() == "arbol de imagenes") {
+						
+						String name = cliente.DPI + "_ArbolImagenes";
+						
+						cliente.AVLImages.DrawGraph(cliente.AVLImages.root,name);
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+						
+					} else if (comboBox_viewestruct.getSelectedItem() == "arbol de capas") {
+						System.out.println("arbol de capas");
+
+					} else if (comboBox_viewestruct.getSelectedItem() == "Listado de albumes") {
+						System.out.println("Listado de albumes");
+
+					} else if (comboBox_viewestruct.getSelectedItem() == "Capa") {
+
+						int temp = Integer.valueOf(textField_idlayer.getText());
+						System.out.println(temp);
+					}
+
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, "Ocurrio un error, verificar que las estructuras tengan datos o colocar un numero en id");
+					System.out.println(e);
+				}
+			}
+		});
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login login = new Login(storage);
@@ -391,6 +473,17 @@ public class Client_Module extends JFrame {
 		});
 
 	}
+	
+	public void mesageGenerateEstruu(String tipo) {
+		JOptionPane.showMessageDialog(null, "Imagen generada con exito: " + tipo);
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void updateImg(JComboBox<String> combo, String tipo,Clients cliente) {
+		combo.setModel(new DefaultComboBoxModel(cliente.generate_struc.toArray()));
+		mesageGenerateEstruu(tipo);
+	}
+	
 
 	public void mesageGenerate(Clients cliente) {
 		JOptionPane.showMessageDialog(null, "Imagen generandose con las capas Recorrido:   " + cliente.ABBCapas.temp);

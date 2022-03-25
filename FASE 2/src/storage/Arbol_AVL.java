@@ -316,7 +316,7 @@ public class Arbol_AVL {
 
 	String dot = "";
 
-	public void DrawGraph(Node root) {
+	public void DrawGraph(Node root,String name) {
 
 		dot = "digraph G {\n";
 		dot += "nodesep=0; \n";
@@ -326,11 +326,12 @@ public class Arbol_AVL {
 
 		dot += "}";
 
-		System.out.println(dot);
+		//System.out.println(dot);
+		generate_grapgh(name,dot);
 	}
+	
 
 	public void GenerarArbol(Node actual) {
-
 		if (actual.left != null) {
 			dot += actual.value + "-> " + actual.left.value + "\n";
 			GenerarArbol(actual.left);
@@ -348,7 +349,37 @@ public class Arbol_AVL {
 		}
 
 	}
+	
+	public void generate_grapgh(String name, String dot) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void Create_File(String route, String contents) {
 
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
 
 	
 	public void PrintNiveles(Node root) {
