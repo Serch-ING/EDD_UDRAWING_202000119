@@ -26,6 +26,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -172,10 +173,7 @@ public class Client_Module extends JFrame {
 		panel_2_1_1.add(textField_layers);
 
 		JButton btnNewButton_generateLayers = new JButton("Generar imagen");
-		btnNewButton_generateLayers.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+
 		btnNewButton_generateLayers.setBounds(10, 132, 156, 23);
 		panel_2_1_1.add(btnNewButton_generateLayers);
 
@@ -212,6 +210,35 @@ public class Client_Module extends JFrame {
 		panel_3.add(Label_img1);
 
 		// Button-----------------------------------------------------------------------------------------------------------------
+		btnNewButton_generateLayers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					MatrizDispersa temp_Matriz = new MatrizDispersa();
+					
+					String temp = textField_layers.getText();
+					int[] listlayer_no = Arrays.stream(temp.split(",")).mapToInt(Integer::parseInt).toArray(); 
+					
+					cliente.ABBCapas.temp="";
+					
+					for (int i : listlayer_no) {
+						cliente.ABBCapas.busquedaListColors(i,temp_Matriz);
+						cliente.ABBCapas.temp+= "  -> " +i;
+						
+						//System.out.println(i);
+					}
+					
+					String name = cliente.DPI + "_ListaCapas_" + temp + "_";
+					name += cliente.ID_IMG;
+					temp_Matriz.GrapghInvisibleNewAplicacion(name);
+					cliente.ID_IMG++;
+					cliente.generated_images.add(name);
+
+					updateImg(comboBox_IMGS, cliente);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Se debe ingresar la estructura dicha");
+				}
+			}
+		});
 
 		btnNewButton_generateTreeImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -219,8 +246,8 @@ public class Client_Module extends JFrame {
 					MatrizDispersa temp_Matriz = new MatrizDispersa();
 					int temp = Integer.valueOf(textField_IDtreeImg.getText());
 					String name = cliente.DPI + "_ArbolImgs_id" + temp + "_";
-					
-					cliente.AVLImages.seraching(temp,cliente,temp_Matriz);
+
+					cliente.AVLImages.seraching(temp, cliente, temp_Matriz);
 
 					name += cliente.ID_IMG;
 					temp_Matriz.GrapghInvisibleNewAplicacion(name);
@@ -228,7 +255,6 @@ public class Client_Module extends JFrame {
 					cliente.generated_images.add(name);
 
 					updateImg(comboBox_IMGS, cliente);
-					
 
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Se debe ingresar un dato");
