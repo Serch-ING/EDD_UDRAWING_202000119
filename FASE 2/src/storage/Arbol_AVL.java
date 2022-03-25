@@ -9,25 +9,29 @@ import com.fasterxml.jackson.databind.node.ValueNode;
 import storage.Arbol_Binario.Nodo_ABB;
 
 public class Arbol_AVL {
+	public Node buscado=null;
 	public Node root = null;
 	public int MaxId= 0;
 	public class Node {
+	
+		
 		private Node left, right;
 		private int height = 1;
 		private int value;
 		LinkedList<Integer> capas_list = new LinkedList<Integer>();
-
+		public Arbol_Binario ABBCapas_self  = new Arbol_Binario();
 		private Node(int val,LinkedList<Integer> capas_list) {
 			this.value = val;
 			this.capas_list=capas_list;
 		}
+		
 	}
+	
+	
 	private int height(Node N) {
 		if (N == null)
 			return 0;
 		return N.height;
-		
-		
 	}
 
 	
@@ -109,6 +113,33 @@ public class Arbol_AVL {
 			preOrder(root.left);
 			System.out.printf("%d ", root.value);
 			preOrder(root.right);
+		}
+	}
+	
+	public void seraching(int id) {
+		this.buscado = null;
+		Search(this.root,id);
+		
+		if(this.buscado!=null) {
+			for (Integer i : this.buscado.capas_list) {
+				this.buscado.ABBCapas_self.insertar(i, null);	
+			}
+		}
+		
+		//this.buscado.ABBCapas_self.preorden();
+		
+		this.buscado.ABBCapas_self.Niveles(this.buscado.ABBCapas_self.raiz);
+	}
+	
+	
+	public void Search(Node root,int id) {
+		if (root != null) {
+			Search(root.left,id);
+			if(id == root.value) {
+				this.buscado = root;
+			}
+			//System.out.printf("%d ", root.value);
+			Search(root.right,id);
 		}
 	}
 
@@ -297,6 +328,8 @@ public class Arbol_AVL {
 
 	}
 
+
+	
 	public void PrintNiveles(Node root) {
 
 		int height = root.height;
@@ -398,7 +431,7 @@ public class Arbol_AVL {
 	
 				t.print(t.root);
 				//t.DrawGraph(t.root);
-				//t.PrintNiveles(t.root);
+				t.PrintNiveles(t.root);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

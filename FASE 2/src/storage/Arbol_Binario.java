@@ -1,10 +1,13 @@
 package storage;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
-
-
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 import objects.Nodes_Colors;
+import storage.Arbol_AVL.Node;
 
 
 
@@ -17,6 +20,8 @@ public class Arbol_Binario {
 		raiz = null;
 	}
 
+
+	
 	public LinkedList<Nodes_Colors> existe(int busqueda) {
 		return existe(this.raiz, busqueda);
 	}
@@ -60,6 +65,89 @@ public class Arbol_Binario {
 			}
 		}
 	}
+	
+	
+	public  void Niveles(Nodo_ABB root) {
+		Nodo_ABB tempnode = root;
+		Queue<Nodo_ABB> queue = new LinkedList<Nodo_ABB>();
+		List<Nodo_ABB> list = new LinkedList<Nodo_ABB>();
+		queue.add(tempnode);
+		
+		while(!queue.isEmpty()) {
+			tempnode = queue.remove();
+			list.add(tempnode);
+			if(tempnode.izquierda!= null) {
+				queue.add(tempnode.izquierda);
+			}
+			if(tempnode.derecha != null) {
+				queue.add(tempnode.derecha);
+			}
+		}
+		
+		for(Nodo_ABB tn :list) {
+			System.out.print(tn.dato+",");
+		}
+	}
+
+	public void Profundidad(Nodo_ABB root) {
+		 Stack <Nodo_ABB> stack = new Stack <Nodo_ABB> ();
+		 List <Nodo_ABB> list = new LinkedList <Nodo_ABB> (); 
+		 Nodo_ABB tempnode  = root;
+		 stack.push (tempnode); 
+		
+		 while (! stack.isEmpty ()) {
+			tempnode = stack.pop();
+			list.add(tempnode);
+			if(tempnode.derecha != null) {
+				 stack.push (tempnode.derecha);
+			}
+			
+			if(tempnode.izquierda != null) {
+				stack.push(tempnode.izquierda);
+			}
+			
+		}
+		
+		for(Nodo_ABB tn :list) {
+			System.out.print(tn.dato+",");
+		}
+	}
+
+	
+	public void PrintNiveles(Nodo_ABB root) {
+		int height =0;
+		
+		if(root.izquierda!=null) {
+			height++;
+		}
+		
+		if(root.derecha!=null) {
+			height++;
+		}
+	
+
+		List<Nodo_ABB> current = new ArrayList<Nodo_ABB>(), next = new ArrayList<Nodo_ABB>();
+
+		current.add(root);
+
+		for (int i = 0; i <= height; i++) {
+
+			for (Nodo_ABB n : current) {
+				if (n != null) {
+
+					System.out.printf("%d, ", n.dato);
+
+					next.add(n.izquierda);
+					next.add(n.derecha);
+				}
+			}
+
+			current = next;
+			next = new ArrayList<Nodo_ABB>();
+		}
+		System.out.println();
+	}
+
 
 	private void preorden(Nodo_ABB n) {
 		if (n != null) {
@@ -194,7 +282,6 @@ public class Arbol_Binario {
 		}
 		
 		public void imprimirDato() {
-			contador--;
 			System.out.println(this.getDato());
 		}
 	}
