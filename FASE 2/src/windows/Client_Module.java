@@ -421,9 +421,20 @@ public class Client_Module extends JFrame {
 						System.out.println("Listado de albumes");
 
 					} else if (comboBox_viewestruct.getSelectedItem() == "Capa") {
-
+						MatrizDispersa temp_Matriz = new MatrizDispersa();
 						int temp = Integer.valueOf(textField_idlayer.getText());
-						System.out.println(temp);
+						
+						//System.out.println(temp);
+						
+						String name = cliente.DPI + "_CapaLogica_"+temp;
+						cliente.ABBCapas.busquedaListColors(temp, temp_Matriz);
+						temp_Matriz.GrapghInvisibleNewLogico(name);
+						
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+						
+						
+						
 					}
 
 				} catch (Exception e1) {
