@@ -41,18 +41,22 @@ public class Arbol_AVL {
 			MaxId =value;
 		}
 		if (node == null) {
-			return (new Node(value,capas_list));
+			Node Nuwvo = new Node(value,capas_list);
+			ABBtree_sub(Nuwvo);
+			return (Nuwvo);
 		}
+		
+		
 
 		if (value < node.value) {
 			node.left = insert(node.left, value,capas_list);
-			
 		} else if (value ==  node.value) {
 			node.capas_list = capas_list;
 		}else {
 			node.right = insert(node.right, value,capas_list);
 		}
-
+		
+	
 		node.height = Math.max(height(node.left), height(node.right)) + 1;
 
 		int balance = getBalance(node);
@@ -74,6 +78,17 @@ public class Arbol_AVL {
 		}
 
 		return node;
+	}
+	
+	public void ABBtree_sub(Node node) {
+	
+	
+			for (Integer i : node.capas_list) {
+				node.ABBCapas_self.insertar(i, null);	
+			}
+		
+		
+		//node.ABBCapas_self.Niveles(node.ABBCapas_self.raiz);
 	}
 
 	private Node rightRotate(Node y) {
@@ -119,15 +134,7 @@ public class Arbol_AVL {
 	public void seraching(int id) {
 		this.buscado = null;
 		Search(this.root,id);
-		
-		if(this.buscado!=null) {
-			for (Integer i : this.buscado.capas_list) {
-				this.buscado.ABBCapas_self.insertar(i, null);	
-			}
-		}
-		
-		//this.buscado.ABBCapas_self.preorden();
-		
+			
 		this.buscado.ABBCapas_self.Niveles(this.buscado.ABBCapas_self.raiz);
 	}
 	

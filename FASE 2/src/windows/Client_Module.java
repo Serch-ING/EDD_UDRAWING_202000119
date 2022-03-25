@@ -477,6 +477,7 @@ public class Client_Module extends JFrame {
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
 
 		}
 	}
