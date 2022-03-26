@@ -8,6 +8,24 @@ public class Simple_Sublist_Album {
 		this.primero = null;
 	}
 
+	public String enlaces(int contador) {
+		String temp = "";
+		Nodo_Simple_Sub actual = this.primero;
+		while (actual != null) {
+			temp+= actual.info+ "[group="+contador+"];\n";
+			
+			if(actual.next!= null) {
+				temp += actual.info + "->" + actual.next.info+"\n";
+			}
+			
+			//System.out.println(actual.info);
+			actual = actual.next;
+		}
+		
+		return temp;
+
+	}
+
 	public void insert(int info) {
 		Nodo_Simple_Sub new_node = new Nodo_Simple_Sub(info);
 		if (isNone()) {

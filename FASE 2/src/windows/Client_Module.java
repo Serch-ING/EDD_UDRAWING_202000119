@@ -344,7 +344,7 @@ public class Client_Module extends JFrame {
 
 		JComboBox<String> comboBox_viewestruct = new JComboBox<String>();
 		comboBox_viewestruct.setModel(new DefaultComboBoxModel<String>(
-				new String[] { "arbol de imagenes", "arbol de capas", "Listado de albumes", "Capa" }));
+				new String[] { "arbol de imagenes", "arbol de capas", "Listado de albumes", "Capa","Imagen y Arbol de capas" }));
 		comboBox_viewestruct.setBounds(30, 83, 148, 22);
 		panel_5.add(comboBox_viewestruct);
 
@@ -418,23 +418,31 @@ public class Client_Module extends JFrame {
 						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 
 					} else if (comboBox_viewestruct.getSelectedItem() == "Listado de albumes") {
-						System.out.println("Listado de albumes");
+						
+						String name = cliente.DPI + "_Albumes";
+						
+						cliente.Album_list.graph(name);
+						
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+						
 
 					} else if (comboBox_viewestruct.getSelectedItem() == "Capa") {
 						MatrizDispersa temp_Matriz = new MatrizDispersa();
 						int temp = Integer.valueOf(textField_idlayer.getText());
-						
-						//System.out.println(temp);
 						
 						String name = cliente.DPI + "_CapaLogica_"+temp;
 						cliente.ABBCapas.busquedaListColors(temp, temp_Matriz);
 						temp_Matriz.GrapghInvisibleNewLogico(name);
 						
 						cliente.generate_struc.add(name);
-						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+						updateImg(comboBox_estrucgenerates,"Capa:" + temp,cliente);
+						
+					} else if (comboBox_viewestruct.getSelectedItem() == "Imagen y Arbol de capas") {
 						
 						
 						
+
 					}
 
 				} catch (Exception e1) {
@@ -638,14 +646,14 @@ public class Client_Module extends JFrame {
 				// System.out.println(data);
 
 				String name = (String) data.get("nombre_album");
-				System.out.println(name);
+				//System.out.println(name);
 
 				JSONArray images = (JSONArray) data.get("imgs");
 				// System.out.println(images);
 
 				if (cliente.Album_list.SearchValidacion(name) == false) {
 					cliente.Album_list.insert(name);
-					System.out.println("Se agrego");
+					//System.out.println("Se agrego");
 				}
 
 				cliente.Album_list.insernews(cliente.Album_list.SearchValidacionNode(name), images);

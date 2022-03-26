@@ -94,7 +94,7 @@ public class Arbol_Binario {
 		temp= existeListColor(this.raiz, busqueda);
 		
 		if(temp!= null) {
-			System.out.println("Se encontro: " + busqueda);
+			//System.out.println("Se encontro: " + busqueda);
 			for (Nodes_Colors nodes_Colors : temp) {
 				temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
 			}

@@ -1,6 +1,12 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 import org.json.simple.JSONArray;
+
+
+
 
 public class Simple_Album {
 
@@ -19,7 +25,94 @@ public class Simple_Album {
 			this.primero = new_node;
 		}
 	}
+	
+	public void graph(String name) {
+		int contador = 0;
+		StringBuilder dot = new StringBuilder();
+		
+		dot.append("digraph G {\n");
+		dot.append("node[shape=note fillcolor=\"#A181FF\" style =filled]\n");
+		dot.append("subgraph cluster_p{\n");
+		dot.append("    label= \" Albumes \"\n");
+		dot.append("    bgcolor = \"#FF7878\"\n");
+		dot.append("");
+		String nombresNodos = "";
+		String conexiones = "";
+		String tempNombreNodos = "";
+		String temp = "";
+		String enlaces= "";
+		
+		Nodo_Simple aux = this.primero;
+		
+		while (aux != null) {
+			
+			
+			String info =  aux.info;
+			tempNombreNodos = "Nodo" + aux.hashCode() ;
+			nombresNodos +="	" +tempNombreNodos+ "[label=\"" + info + "\",fillcolor=\"#81FFDA\" group=" + contador +" ]\n";
+			temp += tempNombreNodos+";";
+			
+			if (aux.next != null) {
+				conexiones += String.format("	\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
+			}
+			
+			if(aux.Sublist.isNone() == false) {
+				
+				enlaces += aux.Sublist.enlaces(contador);
+				enlaces += "	\nNodo" + aux.hashCode() + "->" + aux.Sublist.primero.info+";\n";
+			}
+			contador++;
+			aux = aux.next;
+		}
 
+		String rank = "{rank=same;" + temp + "}\n";
+		
+		dot.append(nombresNodos);
+		dot.append(conexiones);
+		dot.append(enlaces);
+		dot.append(rank);
+
+		dot.append("}}");
+
+		//System.out.println(dot);
+		Draw_Graphiz(name,dot.toString());
+	}
+	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
+	
+	public void Draw_Graphiz(String name, String dot) {
+
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			//System.out.println(Text_Graphivz());
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void showList() {
 		if (isNone() == false) {
 			Nodo_Simple actual = this.primero;
@@ -115,6 +208,9 @@ public class Simple_Album {
 			}
 		}
 	}
+	
+	
+	
 
 	public Boolean isNone() {
 		return this.primero == null;

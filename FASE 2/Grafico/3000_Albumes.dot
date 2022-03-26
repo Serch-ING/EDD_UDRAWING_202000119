@@ -1,0 +1,24 @@
+digraph G {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Albumes "
+    bgcolor = "#FF7878"
+	Nodo1467308752[label="Album 3",fillcolor="#81FFDA" group=0 ]
+	Nodo970789446[label="Album 2",fillcolor="#81FFDA" group=1 ]
+	Nodo1398732626[label="Album 1",fillcolor="#81FFDA" group=2 ]
+	
+Nodo1467308752 -> Nodo970789446
+	
+Nodo970789446 -> Nodo1398732626
+2[group=1];
+	
+Nodo970789446->2;
+5[group=2];
+5->3
+3[group=2];
+3->1
+1[group=2];
+	
+Nodo1398732626->5;
+{rank=same;Nodo1467308752;Nodo970789446;Nodo1398732626;}
+}}
