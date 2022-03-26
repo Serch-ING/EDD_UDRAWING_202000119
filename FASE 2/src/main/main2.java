@@ -12,13 +12,14 @@ public class main2 {
 
 				B arbolB = new B(5);
 				int[] edad = { 6, 11, 5, 4, 8, 9, 12, 21, 14, 10, 19, 28, 3, 17, 32, 15, 16, 26, 27 };
+				//int[] edad = { 6, 11, 5, 4, 8, 9, 12, 21, 14, 10, 19, 28, 3, 17, 32, 15, 16};
 				//int[] edad = { 6 };
 				for (int i : edad) {
 					arbolB.insertar(i);
 				}
 				
 
-				arbolB.raiz.imprimircompleto();
+				arbolB.raiz.print_start(arbolB.raiz.primero);
 				System.out.println("algo");
 
 			}

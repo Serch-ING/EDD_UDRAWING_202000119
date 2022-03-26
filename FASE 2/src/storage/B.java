@@ -7,7 +7,7 @@ package storage;
 
 
 public class B {
-    int orden_arbol;
+    public int orden_arbol;
     public Pagina raiz;
     
     public B(int orden) {
