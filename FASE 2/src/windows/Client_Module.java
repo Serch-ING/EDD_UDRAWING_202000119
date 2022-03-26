@@ -440,8 +440,6 @@ public class Client_Module extends JFrame {
 						
 					} else if (comboBox_viewestruct.getSelectedItem() == "Imagen y Arbol de capas") {
 						
-						
-						
 
 					}
 

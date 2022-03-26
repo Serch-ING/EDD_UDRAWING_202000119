@@ -321,13 +321,39 @@ public class Arbol_AVL {
 		dot = "digraph G {\n";
 		dot += "nodesep=0; \n";
 		dot += "ranksep=0.4;\n";
-
+		dot += "node[style = filled fillcolor=\"#88E1F7\"];\n";
+		
+		
 		GenerarArbol(root);
 
 		dot += "}";
 
 		//System.out.println(dot);
 		generate_grapgh(name,dot);
+	}
+	
+	
+	public void GenerarArboGrapgh(Node actual) {
+		if (actual.left != null) {
+			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"  ];\n");
+			dot += ("	NodoAVL" + actual.left.value + "[ label=\"" + actual.left.value + "\"];\n");
+			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.left.value + "\n";
+			GenerarArbol(actual.left);
+		} else {
+
+			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
+			dot += "NodoAVL" + actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+		}
+		
+		if (actual.right != null) {
+			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"];\n");
+			dot += ("	NodoAVL" + actual.right.value + "[ label=\"" + actual.right.value + "\" ];\n");
+			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.right.value + "\n";
+			GenerarArbol(actual.right);
+		} else {
+			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
+			dot += "NodoAVL" + actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+		}
 	}
 	
 

@@ -29,6 +29,8 @@ public class Arbol_Binario {
 		dot = "digraph G {\n";
 		dot += "nodesep=0; \n";
 		dot += "ranksep=0.4;\n";
+		dot += "node[style = filled fillcolor=\"#F788DF\"];\n";
+		
 
 		GenerarArbol(root);
 
@@ -41,19 +43,24 @@ public class Arbol_Binario {
 
 	public void GenerarArbol(Nodo_ABB actual) {
 		if (actual.izquierda != null) {
-			dot += actual.dato + "-> " + actual.izquierda.dato + "\n";
+			dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"  ];\n");
+			dot += ("	NodoABB" + actual.izquierda.dato + "[ label=\"" + actual.izquierda.dato + "\"];\n");
+			dot += "NodoABB" + actual.dato + "->NodoABB" + actual.izquierda.dato + "\n";
 			GenerarArbol(actual.izquierda);
 		} else {
 
 			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
-			dot += actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+			dot += "NodoABB" + actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
 		}
+		
 		if (actual.derecha != null) {
-			dot += actual.dato + "-> " + actual.derecha.dato + "\n";
+			dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"];\n");
+			dot += ("	NodoABB" + actual.derecha.dato + "[ label=\"" + actual.derecha.dato + "\" ];\n");
+			dot += "NodoABB" + actual.dato + "->NodoABB" + actual.derecha.dato + "\n";
 			GenerarArbol(actual.derecha);
 		} else {
 			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
-			dot += actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+			dot += "NodoABB" + actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
 		}
 	}
 	
