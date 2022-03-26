@@ -1,0 +1,64 @@
+digraph G {
+nodesep=0; 
+ranksep=0.4;
+node[style = filled fillcolor="#88E1F7"];
+	NodoAVL5[ label="5"  ];
+	NodoAVL2[ label="2"];
+NodoAVL5->NodoAVL2
+	NodoAVL2[ label="2"  ];
+	NodoAVL1[ label="1"];
+NodoAVL2->NodoAVL1
+Invisible219936980[style=invis];
+NodoAVL1-> Invisible219936980[arrowsize=0 style= invisible] 
+Invisible219936980[style=invis];
+NodoAVL1-> Invisible219936980[arrowsize=0 style= invisible] 
+	NodoAVL2[ label="2"];
+	NodoAVL3[ label="3" ];
+NodoAVL2->NodoAVL3
+Invisible419326396[style=invis];
+NodoAVL3-> Invisible419326396[arrowsize=0 style= invisible] 
+Invisible419326396[style=invis];
+NodoAVL3-> Invisible419326396[arrowsize=0 style= invisible] 
+	NodoAVL5[ label="5"];
+	NodoAVL6[ label="6" ];
+NodoAVL5->NodoAVL6
+Invisible759326409[style=invis];
+NodoAVL6-> Invisible759326409[arrowsize=0 style= invisible] 
+	NodoAVL6[ label="6"];
+	NodoAVL9[ label="9" ];
+NodoAVL6->NodoAVL9
+Invisible697067219[style=invis];
+NodoAVL9-> Invisible697067219[arrowsize=0 style= invisible] 
+Invisible697067219[style=invis];
+NodoAVL9-> Invisible697067219[arrowsize=0 style= invisible] 
+	NodoABB15[ label="15"  ];
+	NodoABB14[ label="14"];
+NodoABB15->NodoABB14
+	NodoABB14[ label="14"  ];
+	NodoABB13[ label="13"];
+NodoABB14->NodoABB13
+Invisible656415539[style=invis];
+NodoABB13-> Invisible656415539[arrowsize=0 style= invisible] 
+Invisible656415539[style=invis];
+NodoABB13-> Invisible656415539[arrowsize=0 style= invisible] 
+Invisible60809588[style=invis];
+NodoABB14-> Invisible60809588[arrowsize=0 style= invisible] 
+	NodoABB15[ label="15"];
+	NodoABB16[ label="16" ];
+NodoABB15->NodoABB16
+Invisible483032886[style=invis];
+NodoABB16-> Invisible483032886[arrowsize=0 style= invisible] 
+	NodoABB16[ label="16"];
+	NodoABB18[ label="18" ];
+NodoABB16->NodoABB18
+	NodoABB18[ label="18"  ];
+	NodoABB17[ label="17"];
+NodoABB18->NodoABB17
+Invisible125234109[style=invis];
+NodoABB17-> Invisible125234109[arrowsize=0 style= invisible] 
+Invisible125234109[style=invis];
+NodoABB17-> Invisible125234109[arrowsize=0 style= invisible] 
+Invisible547918307[style=invis];
+NodoABB18-> Invisible547918307[arrowsize=0 style= invisible] 
+NodoAVL1->NodoABB15[label="CAPAS"]
+}

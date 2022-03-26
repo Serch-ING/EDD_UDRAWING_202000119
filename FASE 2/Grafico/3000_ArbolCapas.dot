@@ -11,52 +11,52 @@ NodoABB3->NodoABB1
 	NodoABB1[ label="1"  ];
 	NodoABB0[ label="0"];
 NodoABB1->NodoABB0
-Invisible1320761834[style=invis];
-NodoABB0-> Invisible1320761834[arrowsize=0 style= invisible] 
-Invisible1320761834[style=invis];
-NodoABB0-> Invisible1320761834[arrowsize=0 style= invisible] 
+Invisible1947287903[style=invis];
+NodoABB0-> Invisible1947287903[arrowsize=0 style= invisible] 
+Invisible1947287903[style=invis];
+NodoABB0-> Invisible1947287903[arrowsize=0 style= invisible] 
 	NodoABB1[ label="1"];
 	NodoABB2[ label="2" ];
 NodoABB1->NodoABB2
-Invisible1825885257[style=invis];
-NodoABB2-> Invisible1825885257[arrowsize=0 style= invisible] 
-Invisible1825885257[style=invis];
-NodoABB2-> Invisible1825885257[arrowsize=0 style= invisible] 
+Invisible2122310284[style=invis];
+NodoABB2-> Invisible2122310284[arrowsize=0 style= invisible] 
+Invisible2122310284[style=invis];
+NodoABB2-> Invisible2122310284[arrowsize=0 style= invisible] 
 	NodoABB3[ label="3"];
 	NodoABB6[ label="6" ];
 NodoABB3->NodoABB6
 	NodoABB6[ label="6"  ];
 	NodoABB4[ label="4"];
 NodoABB6->NodoABB4
-Invisible101608289[style=invis];
-NodoABB4-> Invisible101608289[arrowsize=0 style= invisible] 
+Invisible1980783580[style=invis];
+NodoABB4-> Invisible1980783580[arrowsize=0 style= invisible] 
 	NodoABB4[ label="4"];
 	NodoABB5[ label="5" ];
 NodoABB4->NodoABB5
-Invisible689327212[style=invis];
-NodoABB5-> Invisible689327212[arrowsize=0 style= invisible] 
-Invisible689327212[style=invis];
-NodoABB5-> Invisible689327212[arrowsize=0 style= invisible] 
+Invisible2039028101[style=invis];
+NodoABB5-> Invisible2039028101[arrowsize=0 style= invisible] 
+Invisible2039028101[style=invis];
+NodoABB5-> Invisible2039028101[arrowsize=0 style= invisible] 
 	NodoABB6[ label="6"];
 	NodoABB8[ label="8" ];
 NodoABB6->NodoABB8
 	NodoABB8[ label="8"  ];
 	NodoABB7[ label="7"];
 NodoABB8->NodoABB7
-Invisible786912973[style=invis];
-NodoABB7-> Invisible786912973[arrowsize=0 style= invisible] 
-Invisible786912973[style=invis];
-NodoABB7-> Invisible786912973[arrowsize=0 style= invisible] 
-Invisible1687908828[style=invis];
-NodoABB8-> Invisible1687908828[arrowsize=0 style= invisible] 
+Invisible124560466[style=invis];
+NodoABB7-> Invisible124560466[arrowsize=0 style= invisible] 
+Invisible124560466[style=invis];
+NodoABB7-> Invisible124560466[arrowsize=0 style= invisible] 
+Invisible109465009[style=invis];
+NodoABB8-> Invisible109465009[arrowsize=0 style= invisible] 
 	NodoABB9[ label="9"];
 	NodoABB15[ label="15" ];
 NodoABB9->NodoABB15
 	NodoABB15[ label="15"  ];
 	NodoABB10[ label="10"];
 NodoABB15->NodoABB10
-Invisible289098573[style=invis];
-NodoABB10-> Invisible289098573[arrowsize=0 style= invisible] 
+Invisible1924933638[style=invis];
+NodoABB10-> Invisible1924933638[arrowsize=0 style= invisible] 
 	NodoABB10[ label="10"];
 	NodoABB14[ label="14" ];
 NodoABB10->NodoABB14
@@ -66,34 +66,34 @@ NodoABB14->NodoABB12
 	NodoABB12[ label="12"  ];
 	NodoABB11[ label="11"];
 NodoABB12->NodoABB11
-Invisible181731370[style=invis];
-NodoABB11-> Invisible181731370[arrowsize=0 style= invisible] 
-Invisible181731370[style=invis];
-NodoABB11-> Invisible181731370[arrowsize=0 style= invisible] 
+Invisible1128813285[style=invis];
+NodoABB11-> Invisible1128813285[arrowsize=0 style= invisible] 
+Invisible1128813285[style=invis];
+NodoABB11-> Invisible1128813285[arrowsize=0 style= invisible] 
 	NodoABB12[ label="12"];
 	NodoABB13[ label="13" ];
 NodoABB12->NodoABB13
-Invisible504393347[style=invis];
-NodoABB13-> Invisible504393347[arrowsize=0 style= invisible] 
-Invisible504393347[style=invis];
-NodoABB13-> Invisible504393347[arrowsize=0 style= invisible] 
-Invisible565901580[style=invis];
-NodoABB14-> Invisible565901580[arrowsize=0 style= invisible] 
+Invisible560214250[style=invis];
+NodoABB13-> Invisible560214250[arrowsize=0 style= invisible] 
+Invisible560214250[style=invis];
+NodoABB13-> Invisible560214250[arrowsize=0 style= invisible] 
+Invisible356190898[style=invis];
+NodoABB14-> Invisible356190898[arrowsize=0 style= invisible] 
 	NodoABB15[ label="15"];
 	NodoABB18[ label="18" ];
 NodoABB15->NodoABB18
 	NodoABB18[ label="18"  ];
 	NodoABB16[ label="16"];
 NodoABB18->NodoABB16
-Invisible1787871061[style=invis];
-NodoABB16-> Invisible1787871061[arrowsize=0 style= invisible] 
+Invisible106228747[style=invis];
+NodoABB16-> Invisible106228747[arrowsize=0 style= invisible] 
 	NodoABB16[ label="16"];
 	NodoABB17[ label="17" ];
 NodoABB16->NodoABB17
-Invisible1223046781[style=invis];
-NodoABB17-> Invisible1223046781[arrowsize=0 style= invisible] 
-Invisible1223046781[style=invis];
-NodoABB17-> Invisible1223046781[arrowsize=0 style= invisible] 
-Invisible1436499348[style=invis];
-NodoABB18-> Invisible1436499348[arrowsize=0 style= invisible] 
+Invisible118118750[style=invis];
+NodoABB17-> Invisible118118750[arrowsize=0 style= invisible] 
+Invisible118118750[style=invis];
+NodoABB17-> Invisible118118750[arrowsize=0 style= invisible] 
+Invisible124377653[style=invis];
+NodoABB18-> Invisible124377653[arrowsize=0 style= invisible] 
 }

@@ -23,6 +23,14 @@ public class Arbol_Binario {
 	}
 	
 	String dot = "";
+	
+	public String DrawGraph_return(Nodo_ABB root) {
+		dot += "\n\nnode[style = filled fillcolor=\"#F788DF\"];\n";
+		GenerarArbol(root);
+
+		//System.out.println(dot);
+		return dot;
+	}
 
 	public void DrawGraph(Nodo_ABB root,String name) {
 
@@ -343,7 +351,7 @@ public class Arbol_Binario {
 	
 
 	class Nodo_ABB {
-		private int dato;
+		int dato;
 		private Nodo_ABB izquierda, derecha;
 		public LinkedList<Nodes_Colors> Nodos  = new LinkedList<Nodes_Colors>();
 	

@@ -132,24 +132,24 @@ public class Arbol_AVL {
 		}
 	}
 	
+
+	
 	public void seraching(int id, Clients cliente, MatrizDispersa temp_Matriz) {
 		this.buscado = null;
 		Search(this.root,id);
 		List<Integer> List_int = new LinkedList<Integer>();	
 		
-		//this.buscado.ABBCapas_self.Niveles(this.buscado.ABBCapas_self.raiz);
-		List_int =this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
 		
-		cliente.ABBCapas.temp="";
-		for(Integer tn :List_int) {
-			cliente.ABBCapas.busquedaListColors(tn,temp_Matriz);
-			cliente.ABBCapas.temp+= "  -> " +tn;
-			
-		}
-		
-		//cliente.ABBCapas.recorridoLimitado(temp);
-		//cliente.ABBCapas.preordenLimited(cliente.ABBCapas.raiz, temp_Matriz);
-		
+		if(this.buscado!=null) {
+			List_int =this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
+
+			cliente.ABBCapas.temp="";
+			for(Integer tn :List_int) {
+				cliente.ABBCapas.busquedaListColors(tn,temp_Matriz);
+				cliente.ABBCapas.temp+= "  -> " +tn;
+				
+			}
+		}		
 	}
 	
 	
@@ -316,6 +316,40 @@ public class Arbol_AVL {
 
 	String dot = "";
 
+	public void DrawGraph_Binary(Node root,String name,int id) {
+
+		dot = "digraph G {\n";
+		dot += "nodesep=0; \n";
+		dot += "ranksep=0.4;\n";
+		dot += "node[style = filled fillcolor=\"#88E1F7\"];\n";
+		
+		
+		GenerarArboGrapgh(root);
+		
+		if(search_value(id)) {
+			dot +=  this.buscado.ABBCapas_self.DrawGraph_return(this.buscado.ABBCapas_self.raiz);
+			dot += "NodoAVL" + this.buscado.value + "->NodoABB" + this.buscado.ABBCapas_self.raiz.dato + "[label=\"CAPAS,RAIZ\"]\n";
+		}else {
+			dot += "NodoAVL" + this.buscado.value + "->NULL\n";
+		}
+
+		dot += "}";
+
+		//System.out.println(dot);
+		generate_grapgh(name,dot);
+	}
+	
+	public boolean search_value(int id) {
+		this.buscado = null;
+		Search(this.root,id);
+		
+		if(this.buscado.ABBCapas_self.raiz!=null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public void DrawGraph(Node root,String name) {
 
 		dot = "digraph G {\n";
@@ -324,7 +358,7 @@ public class Arbol_AVL {
 		dot += "node[style = filled fillcolor=\"#88E1F7\"];\n";
 		
 		
-		GenerarArbol(root);
+		GenerarArboGrapgh(root);
 
 		dot += "}";
 
@@ -338,7 +372,7 @@ public class Arbol_AVL {
 			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"  ];\n");
 			dot += ("	NodoAVL" + actual.left.value + "[ label=\"" + actual.left.value + "\"];\n");
 			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.left.value + "\n";
-			GenerarArbol(actual.left);
+			GenerarArboGrapgh(actual.left);
 		} else {
 
 			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
@@ -349,7 +383,7 @@ public class Arbol_AVL {
 			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"];\n");
 			dot += ("	NodoAVL" + actual.right.value + "[ label=\"" + actual.right.value + "\" ];\n");
 			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.right.value + "\n";
-			GenerarArbol(actual.right);
+			GenerarArboGrapgh(actual.right);
 		} else {
 			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
 			dot += "NodoAVL" + actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
@@ -357,24 +391,7 @@ public class Arbol_AVL {
 	}
 	
 
-	public void GenerarArbol(Node actual) {
-		if (actual.left != null) {
-			dot += actual.value + "-> " + actual.left.value + "\n";
-			GenerarArbol(actual.left);
-		} else {
 
-			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
-			dot += actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
-		}
-		if (actual.right != null) {
-			dot += actual.value + "-> " + actual.right.value + "\n";
-			GenerarArbol(actual.right);
-		} else {
-			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
-			dot += actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
-		}
-
-	}
 	
 	public void generate_grapgh(String name, String dot) {
 		try {
@@ -476,7 +493,7 @@ public class Arbol_AVL {
 		}
 	}
 
-	
+	/*
 		public static <T> void main(String args[]) {
 	
 		Arbol_AVL t = new Arbol_AVL();
@@ -515,7 +532,7 @@ public class Arbol_AVL {
 			}
 		}
 	
-	}
+	}*/
 	  
 
 }

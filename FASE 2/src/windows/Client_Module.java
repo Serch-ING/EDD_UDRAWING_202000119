@@ -353,8 +353,8 @@ public class Client_Module extends JFrame {
 		panel_5.add(textField_idlayer);
 		textField_idlayer.setColumns(10);
 
-		JLabel lblNewLabel_2 = new JLabel("id de capa a visualizar");
-		lblNewLabel_2.setBounds(30, 135, 148, 14);
+		JLabel lblNewLabel_2 = new JLabel("id de capa o imagen a visualizar");
+		lblNewLabel_2.setBounds(22, 135, 168, 14);
 		panel_5.add(lblNewLabel_2);
 
 		JButton btnGenerar = new JButton("Generar");
@@ -439,7 +439,13 @@ public class Client_Module extends JFrame {
 						updateImg(comboBox_estrucgenerates,"Capa:" + temp,cliente);
 						
 					} else if (comboBox_viewestruct.getSelectedItem() == "Imagen y Arbol de capas") {
+						int temp = Integer.valueOf(textField_idlayer.getText());
 						
+						String name = cliente.DPI + "_ArbolImagenesYCapa_"+temp;
+						
+						cliente.AVLImages.DrawGraph_Binary(cliente.AVLImages.root,name,temp);
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 
 					}
 
