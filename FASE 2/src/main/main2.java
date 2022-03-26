@@ -17,9 +17,9 @@ public class main2 {
 				for (int i : edad) {
 					arbolB.insertar(i);
 				}
+				arbolB.draw_start(arbolB.raiz.primero,"_ArbolB");
 				
-
-				arbolB.raiz.print_start(arbolB.raiz.primero);
+				//arbolB.raiz.print_start(arbolB.raiz.primero);
 				System.out.println("algo");
 
 			}

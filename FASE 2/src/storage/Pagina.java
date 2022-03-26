@@ -70,14 +70,19 @@ public class Pagina {
 			aux = aux.siguiente;
 		}
 	}
+	
+	
+	
 
 	public void print_start(NodoB primero) {
+		
 		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
 		cola_nodos.offer(primero);
 
 		while (cola_nodos.peek() != null) {
 			imprimircompleto(cola_nodos.poll(), cola_nodos);
 		}
+		
 
 	}
 
@@ -87,14 +92,15 @@ public class Pagina {
 
 		while (aux != null) {
 
-			String print = (aux.siguiente == null) ? aux.id + "\n" : aux.id + ", ";
-			System.out.print(print);
+			String temp = (aux.siguiente == null) ? aux.id + "\n" : aux.id + ", ";
+			System.out.print(temp);
+			
 
 			if (aux.izquierda != null) {
 				cola_nodos.offer(aux.izquierda.primero);
 			}
 
-			if (aux.derecha != null&&aux.siguiente == null ) {
+			if (aux.derecha != null && aux.siguiente == null ) {
 				cola_nodos.offer(aux.derecha.primero);
 			}
 		
