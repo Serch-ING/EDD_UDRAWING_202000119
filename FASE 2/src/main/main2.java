@@ -23,7 +23,7 @@ public class main2 {
 				//arbolB.raiz.print_start(arbolB.raiz.primero);
 				System.out.println("algo");*/
 				
-				int[] edad = { 6, 11, 5, 4, 8, 9,9, 12, 21, 14, 10, 19, 28, 3, 17, 32, 15, 16, 26, 27 };
+				int[] edad = { 6, 11, 5, 4, 8, 9,12, 21, 14, 10, 19, 28, 3, 17, 32, 15, 16, 26, 27 };
 				//int[] edad = { 6,4,4,4 };
 				
 

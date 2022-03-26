@@ -10,8 +10,8 @@ public class BTree {
 
 	public class Node {
 		int n;
-		int key[] = new int[2 * T - 1];
-		Node child[] = new Node[2 * T];
+		int key[] = new int[ T - 1];
+		Node child[] = new Node[ T];
 		boolean leaf = true;
 
 		public int Find(int k) {
@@ -82,7 +82,7 @@ public class BTree {
 // Insert the key
 	public void Insert(final int key) {
 		Node r = root;
-		if (r.n == 2 * T - 1) {
+		if (r.n ==  T ) {
 			Node s = new Node();
 			root = s;
 			s.leaf = false;
@@ -112,7 +112,7 @@ public class BTree {
 			;
 			i++;
 			Node tmp = x.child[i];
-			if (tmp.n == 2 * T - 1) {
+			if (tmp.n == T ) {
 				Split(x, i, tmp);
 				if (k > x.key[i]) {
 					i++;
