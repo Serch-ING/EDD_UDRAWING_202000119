@@ -6,10 +6,8 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- *
- * @author Alex Rose
- */
+import objects.Clients;
+
 
 
 public class B {
@@ -25,8 +23,8 @@ public class B {
         this.orden_arbol = orden;
     }
     
-    public void insertar(int id) {
-        NodoB nodo = new NodoB(id);
+    public void insertar(Long id,Clients cliente) {
+        NodoB nodo = new NodoB(id,cliente);
         NodoB obj = insertar_en_pagina(nodo, raiz);
         if (obj != null) {
            
@@ -116,17 +114,12 @@ public class B {
 				drawing(cola_nodos.poll(), cola_nodos);
 			}
 			
-			//System.out.print(dot);
-			//System.out.println("\\\\\\\\\\\\\\\\\\\\");
 			String[] files = dot.split("\n");
-			
-			//   struct210066276    [label="{{1|2|3|4|5|6|7|8}|<here>}"];
 			
 			for (String i : files) {
 				
 				Grap +="struct"+names.poll() +"[label=\"{{";
 				
-				//System.out.println(i);
 				String[] columns = i.split(",");
 				int temp = columns.length;
 				
@@ -134,7 +127,6 @@ public class B {
 				
 					Grap += (temp-1 == 0)? j + "}": j + "|";
 					temp--;
-					//System.out.println(j);
 				}
 				
 				Grap +="|<here>}\"];\n";	
@@ -143,14 +135,11 @@ public class B {
 			Grap+="\n" + Connectios;
 			Grap+="}";
 			//System.out.println(Grap);
-			//System.out.println("\\\\\\\\\\\\\\\\\\\\");
-			//System.out.println(Connectios);
 			generate_grapgh(name,Grap);
 		}
 	
 	
-		public void drawing(NodoB primero, Queue<NodoB> cola_nodos) {
-			
+	public void drawing(NodoB primero, Queue<NodoB> cola_nodos) {
 			NodoB aux = primero;
 			String data =String.valueOf(primero.hashCode());
 			names.offer(data);
@@ -159,7 +148,6 @@ public class B {
 	
 				dot += (aux.siguiente == null) ? aux.id + "\n" : aux.id + ", ";
 				
-	
 				if (aux.izquierda != null) {
 					Connectios += "struct" + data + "->struct"+ aux.izquierda.primero.hashCode() + ";\n";
 					cola_nodos.offer(aux.izquierda.primero);
@@ -175,7 +163,7 @@ public class B {
 		}
     
     private NodoB dividir(Pagina rama) {
-        int val = -999;
+    	Long val = (long) -999;
         NodoB temp, Nuevito;
         NodoB aux = rama.primero;
         Pagina rderecha = new Pagina();
@@ -184,17 +172,17 @@ public class B {
         int cont = 0;
         while (aux != null) {
             cont++;
-            //implementacion para dividir unicamente ramas de 4 nodos
+            
             if (cont < 3) {
                 temp = new NodoB(aux.id, aux.izquierda,aux.siguiente.izquierda);
-                //si la rama posee ramas deja de ser hoja
+                
                 rizquierda.hoja= !(temp.derecha != null && temp.izquierda != null);
                 rizquierda.insertar(temp);
             } else if (cont == 3) {
                 val = aux.id;
             } else {
                 temp = new NodoB(aux.id, aux.izquierda,aux.derecha);
-                //si la rama posee ramas deja de ser hoja
+                
                 rderecha.hoja= !(temp.derecha != null && temp.izquierda != null);
                 rderecha.insertar(temp);
             }

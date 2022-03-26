@@ -7,6 +7,7 @@ import objects.Clients;
 
 
 public class Storage {
+	public  B ClientesB = new B(5);
 	public  LinkedList<Clients> List_clients  = new LinkedList<Clients>();
 	public Clients  clientJoin;
 	
@@ -15,17 +16,23 @@ public class Storage {
 		List_clients.add(new_client);
 	}
 	
-	public void InsertClients(Clients client_new) {
-		List_clients.add(client_new);
+	public void InsertClients(Clients client_new, Long dPI_Long) {
+		
+		ClientesB.insertar(dPI_Long,client_new);
+		//List_clients.add(client_new);
 	}
 	
 	public void showClients() {
-		for (Clients clients : List_clients) {
+		ClientesB.raiz.print_start(ClientesB.raiz.primero);
+		System.out.println("------------------------------");
+		/*for (Clients clients : List_clients) {
 			System.out.println("Cleinte DPI: " + clients.DPI + " Nombre: " + clients.Name + " contrase;a: " + clients.Password);
-		}
+		}*/
 	}
 	
 	public Boolean SerchClient(String name, String password) {
+		
+		
 		
 		for (Clients clients : List_clients) {
 			if (name.equals(clients.Name) && password.equals(clients.Password)) {

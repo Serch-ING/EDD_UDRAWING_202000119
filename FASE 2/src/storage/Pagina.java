@@ -3,9 +3,11 @@ package storage;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import objects.Clients;
+
 public class Pagina {
-	boolean hoja;// identificar si es una hoja
-	int contador;// identificar la cantidad de elementos que tiene la pagina
+	boolean hoja;
+	int contador;
 	public NodoB primero;
 
 	public Pagina() {
@@ -16,31 +18,29 @@ public class Pagina {
 
 	public void insertar(NodoB nuevo) {
 		if (primero == null) {
-			// primero en la lista
+			
 			primero = nuevo;
 			contador++;
 		} else {
-			// recorrer e insertar
+			
 			NodoB aux = primero;
 			while (aux != null) {
-				if (aux.id == nuevo.id) {// ------------->ya existe en el arbol
+				if (aux.id == nuevo.id) {
 					System.out.println("El ID " + nuevo.id + " ya existe");
 					break;
 				} else {
 					if (aux.id > nuevo.id) {
-						if (aux == primero) {// ------------->insertar al inicio
+						if (aux == primero) {
 							aux.anterior = nuevo;
 							nuevo.siguiente = aux;
-							// ramas del nodo
 							aux.izquierda = nuevo.derecha;
 							nuevo.derecha = null;
 
 							primero = nuevo;
 							contador++;
 							break;
-						} else {// ------------->insertar en medio;
+						} else {
 							nuevo.siguiente = aux;
-							// ramas del nodo
 							aux.izquierda = nuevo.derecha;
 							nuevo.derecha = null;
 
@@ -50,7 +50,7 @@ public class Pagina {
 							contador++;
 							break;
 						}
-					} else if (aux.siguiente == null) {// ------------->insertar al final
+					} else if (aux.siguiente == null) {
 						aux.siguiente = nuevo;
 						nuevo.anterior = aux;
 						contador++;
@@ -72,8 +72,6 @@ public class Pagina {
 	}
 	
 	
-	
-
 	public void print_start(NodoB primero) {
 		
 		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
@@ -82,8 +80,6 @@ public class Pagina {
 		while (cola_nodos.peek() != null) {
 			imprimircompleto(cola_nodos.poll(), cola_nodos);
 		}
-		
-
 	}
 
 	public void imprimircompleto(NodoB primero, Queue<NodoB> cola_nodos) {
@@ -111,19 +107,21 @@ public class Pagina {
 }
 
 class NodoB {
-	// Valores
-	int id; // --> clave
-	// Apuntadores
+	
+	Long id; 
+
 	NodoB anterior, siguiente;
 	Pagina izquierda, derecha;
+	Clients cliente;
 
-	public NodoB(int id) {
-		this.id = id;
+	public NodoB(Long dPI_Long,Clients cliente) {
+		this.id = dPI_Long;
 		this.anterior = this.siguiente = null;
 		this.izquierda = this.derecha = null;
+		this.cliente=cliente;
 	}
 
-	public NodoB(int id, Pagina izquierda, Pagina derecha) {
+	public NodoB(Long id, Pagina izquierda, Pagina derecha) {
 		this.id = id;
 		this.anterior = this.siguiente = null;
 		this.izquierda = izquierda;

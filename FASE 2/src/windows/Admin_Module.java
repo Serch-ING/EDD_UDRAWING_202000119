@@ -24,9 +24,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
@@ -75,14 +77,14 @@ public class Admin_Module extends JFrame {
 		fc.setCurrentDirectory(new File("./Test"));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 932, 643);
+		setBounds(100, 100, 1226, 713);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 41, 896, 552);
+		tabbedPane.setBounds(10, 41, 1190, 622);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -98,7 +100,7 @@ public class Admin_Module extends JFrame {
 		JLabel label_ruta = new JLabel("Null");
 		label_ruta.setForeground(Color.BLACK);
 		label_ruta.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_ruta.setBounds(48, 11, 569, 14);
+		label_ruta.setBounds(48, 11, 1127, 14);
 		panel.add(label_ruta);
 
 		JButton Button_Search = new JButton("Buscar Archivo");
@@ -117,7 +119,7 @@ public class Admin_Module extends JFrame {
 		panel.add(Button_LoadClients);
 		
 		JLabel lblNewLabel_4 = new JLabel("Clientes JSON ingresados");
-		lblNewLabel_4.setBounds(312, 50, 123, 14);
+		lblNewLabel_4.setBounds(312, 50, 171, 14);
 		panel.add(lblNewLabel_4);
 
 		JPanel panel_1 = new JPanel();
@@ -288,17 +290,35 @@ public class Admin_Module extends JFrame {
 		panel_2.setLayout(null);
 		
 		JPanel panel_7 = new JPanel();
-		panel_7.setBounds(10, 45, 871, 468);
+		panel_7.setBounds(10, 45, 1165, 538);
 		panel_2.add(panel_7);
 		panel_7.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(10, 11, 851, 446);
-		panel_7.add(lblNewLabel_2);
+		JLabel lblNewLabel_img = new JLabel("");
+		lblNewLabel_img.setBounds(10, 11, 1145, 516);
+		panel_7.add(lblNewLabel_img);
 		
-		JLabel lblNewLabel_3 = new JLabel("Arbol de Cliente");
-		lblNewLabel_3.setBounds(408, 20, 92, 14);
+		JLabel lblNewLabel_3 = new JLabel("Arbol de Clientes");
+		lblNewLabel_3.setBounds(10, 20, 116, 14);
 		panel_2.add(lblNewLabel_3);
+		
+		JButton Button_btree = new JButton("Generar");
+		
+		Button_btree.setBounds(136, 16, 131, 23);
+		panel_2.add(Button_btree);
+		
+		JButton Button_btree_1 = new JButton("Visualizar");
+
+		Button_btree_1.setBounds(594, 16, 131, 23);
+		panel_2.add(Button_btree_1);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Nombre del archivo:");
+		lblNewLabel_3_1.setBounds(277, 20, 144, 14);
+		panel_2.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_1_1 = new JLabel("Admin_Btree_Clients");
+		lblNewLabel_3_1_1.setBounds(431, 20, 153, 14);
+		panel_2.add(lblNewLabel_3_1_1);
 
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Reportes", null, panel_3, null);
@@ -309,7 +329,26 @@ public class Admin_Module extends JFrame {
 		Button_closesesion.setBounds(775, 23, 131, 23);
 		contentPane.add(Button_closesesion);
 
-		// Buttons
+		// Buttons-----------------------------------------------------------------------------------------------------------
+		Button_btree_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = "Admin_Btree_Clients";
+				String ruta = "Grafico\\" + name + ".png";
+				System.out.println(name);
+				ImageIcon imagen = new ImageIcon(ruta);
+				lblNewLabel_img.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(lblNewLabel_img.getWidth(),lblNewLabel_img.getHeight(), Image.SCALE_SMOOTH)));
+			}
+		});
+		
+		Button_btree.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				storage.ClientesB.draw_start(storage.ClientesB.raiz.primero, "Admin_Btree_Clients");
+				JOptionPane.showMessageDialog(null, "Se creo grafo: arbol B de clientes");
+			}
+		});
+		
+		
 		Button_Search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (fc.showOpenDialog(Button_Search) == JFileChooser.APPROVE_OPTION) {
@@ -335,8 +374,6 @@ public class Admin_Module extends JFrame {
 				if (!label_ruta.getText().equals("Null")) {
 
 					 textOut.setText( ReadJson(label_ruta.getText(),storage));
-					
-					
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
@@ -367,23 +404,28 @@ public class Admin_Module extends JFrame {
 			//System.out.println(jsonList + "\n");
 			
 			for (Object object : jsonList) {
-			
+				
+				
 				JSONObject data = (JSONObject) object;
 				//System.out.println(data);
 				
 				String name = (String) data.get("nombre_cliente");
 				//System.out.println(name);
 				
-				String dpi = (String) data.get("dpi");
-				//System.out.println(dpi);
+				String dpi = ((String) data.get("dpi"));
+				Long DPI_Long = Long.valueOf(dpi);
+				//System.out.println(DPI_Long);
+				
+			
 				
 				String password = (String) data.get("password");
 				//System.out.println(password);
+				
 				Clients client_new = new Clients(name,password,dpi);
 				
 				if(dpi != null && name != null && password != null) {
 					temp+= object + "\n\n";
-					storage.InsertClients(client_new);
+					storage.InsertClients(client_new,DPI_Long);
 				}
 			}
 			storage.showClients();
