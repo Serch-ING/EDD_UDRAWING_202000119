@@ -68,14 +68,14 @@ public class Admin_Module extends JFrame {
 		fc.setCurrentDirectory(new File("./Test"));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1226, 713);
+		setBounds(100, 100, 1526, 913);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 41, 1190, 622);
+		tabbedPane.setBounds(10, 41, 1490, 822);
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
@@ -261,12 +261,12 @@ public class Admin_Module extends JFrame {
 		panel_2.setLayout(null);
 
 		JPanel panel_7 = new JPanel();
-		panel_7.setBounds(10, 45, 1165, 538);
+		panel_7.setBounds(10, 45, 1465, 738);
 		panel_2.add(panel_7);
 		panel_7.setLayout(null);
 
 		JLabel lblNewLabel_img = new JLabel("");
-		lblNewLabel_img.setBounds(10, 11, 1145, 516);
+		lblNewLabel_img.setBounds(10, 11, 1445, 716);
 		panel_7.add(lblNewLabel_img);
 
 		JLabel lblNewLabel_3 = new JLabel("Arbol de Clientes");

@@ -24,6 +24,7 @@ public class ArbolB {
 	public String Grap = "";
 	public String Connectios = "";
 	Queue<String> names = new LinkedList<String>();
+	Queue<Clients> info = new LinkedList<Clients>();
 
 	int orden_arbol = 5;
 	public RamaB raiz;
@@ -234,6 +235,7 @@ public class ArbolB {
 
 	public void draw_start(NodoB primero, String name) {
 		names = new LinkedList<String>();
+		info = new LinkedList<Clients>();
 		dot = "";
 		Connectios = "";
 		Grap= "";
@@ -258,8 +260,9 @@ public class ArbolB {
 			int temp = columns.length;
 
 			for (String j : columns) {
-
-				Grap += (temp - 1 == 0) ? j + "}" : j + "|";
+				Clients clienttemp = info.poll();
+				String display = "DPI:" + j + "\\nName:" + clienttemp.Name  ;
+				Grap += (temp - 1 == 0) ? display + "}" : display + "|";
 				temp--;
 			}
 
@@ -280,10 +283,12 @@ public class ArbolB {
 		while (aux != null) {
 
 			dot += (aux.siguiente == null) ? aux.id + "\n" : aux.id + ", ";
+			info.offer(aux.cliente);
 
 			if (aux.izquierda != null) {
 				Connectios += "struct" + data + "->struct" + aux.izquierda.primero.hashCode() + ";\n";
 				cola_nodos.offer(aux.izquierda.primero);
+				
 			}
 
 			if (aux.derecha != null && aux.siguiente == null) {
