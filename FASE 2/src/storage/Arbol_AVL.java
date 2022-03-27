@@ -5,9 +5,8 @@ import java.util.*;
 import javax.swing.JOptionPane;
 import objects.Clients;
 
-
 public class Arbol_AVL {
-	public int no_nodos=0;
+	public int no_nodos = 0;
 	public Node buscado = null;
 	public Node root = null;
 	public int MaxId = 0;
@@ -46,9 +45,9 @@ public class Arbol_AVL {
 		if (value < node.value) {
 			node.left = insert(node.left, value, capas_list);
 		} else if (value == node.value) {
-			
+
 			JOptionPane.showMessageDialog(null, "Id de capa repetida: " + value);
-			//node.capas_list = capas_list;
+			// node.capas_list = capas_list;
 		} else {
 			node.right = insert(node.right, value, capas_list);
 		}
@@ -116,13 +115,13 @@ public class Arbol_AVL {
 			return 0;
 		return height(N.left) - height(N.right);
 	}
-	
+
 	public int cantidad_images() {
 		no_nodos = 0;
 		contar(root);
 		return no_nodos;
 	}
-	
+
 	public void contar(Node root) {
 		if (root != null) {
 			contar(root.left);
@@ -131,7 +130,6 @@ public class Arbol_AVL {
 			contar(root.right);
 		}
 	}
-
 
 	public void preOrder(Node root) {
 		if (root != null) {
@@ -147,13 +145,14 @@ public class Arbol_AVL {
 		List<Integer> List_int = new LinkedList<Integer>();
 
 		if (this.buscado != null) {
-			List_int = this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
+			if (this.buscado.ABBCapas_self.raiz != null) {
+				List_int = this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
 
-			cliente.ABBCapas.temp = "";
-			for (Integer tn : List_int) {
-				cliente.ABBCapas.busquedaListColors(tn, temp_Matriz);
-				cliente.ABBCapas.temp += "  -> " + tn;
-
+				cliente.ABBCapas.temp = "";
+				for (Integer tn : List_int) {
+					cliente.ABBCapas.busquedaListColors(tn, temp_Matriz);
+					cliente.ABBCapas.temp += "  -> " + tn;
+				}
 			}
 		}
 	}
@@ -332,10 +331,10 @@ public class Arbol_AVL {
 
 		if (search_value(id)) {
 			dot += this.buscado.ABBCapas_self.DrawGraph_return(this.buscado.ABBCapas_self.raiz);
-			dot += "NodoAVL" + this.buscado.value + "->NodoABB" + this.buscado.ABBCapas_self.raiz.dato
-					+ "[label=\"CAPAS,RAIZ\"]\n";
+			
+			dot += "NodoAVL" + this.buscado.value + "->NodoABB" + this.buscado.ABBCapas_self.raiz.dato+ "[label=\"CAPAS,RAIZ\"]\n";
 		} else {
-			dot += "NodoAVL" + this.buscado.value + "->NULL\n";
+			dot += "NodoAVL" + this.buscado.value + "->NULL[label=\"CAPAS,RAIZ\" fillcolor=\"pink\"]\n";
 		}
 
 		dot += "}";
@@ -371,10 +370,10 @@ public class Arbol_AVL {
 	}
 
 	public void GenerarArboGrapgh(Node actual) {
-		
+
 		dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"  ];\n");
 		if (actual.left != null) {
-			
+
 			dot += ("	NodoAVL" + actual.left.value + "[ label=\"" + actual.left.value + "\"];\n");
 			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.left.value + "\n";
 			GenerarArboGrapgh(actual.left);
@@ -385,7 +384,7 @@ public class Arbol_AVL {
 		}
 
 		if (actual.right != null) {
-			
+
 			dot += ("	NodoAVL" + actual.right.value + "[ label=\"" + actual.right.value + "\" ];\n");
 			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.right.value + "\n";
 			GenerarArboGrapgh(actual.right);
@@ -494,44 +493,31 @@ public class Arbol_AVL {
 		}
 	}
 	/*
-	public static <T> void main(String args[]) {
-
-	Arbol_AVL t = new Arbol_AVL();
-
-	//int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
-	int[] edad = { 3, 1, 2,11};
-	while (true) {
-		System.out.println("(1) Insert");
-		System.out.println("(2) Delete");
-
-		try {
-			BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-			String s = bufferRead.readLine();
-
-			if (Integer.parseInt(s) == 1) {
-				System.out.print("Value to be inserted: \n");
-
-				for (int i : edad) {
-					
-					t.root = t.insert(t.root, i,null);
-				}
-				// root = t.insert(root, Integer.parseInt(bufferRead.readLine()));
-			} else if (Integer.parseInt(s) == 2) {
-				System.out.print("Value to be deleted: ");
-				t.root = t.deleteNode(t.root, Integer.parseInt(bufferRead.readLine()));
-			} else {
-				System.out.println("Invalid choice, try again!");
-				continue;
-			}
-
-			t.print(t.root);
-			//t.DrawGraph(t.root);
-			t.PrintNiveles(t.root);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-}*/
+	 * public static <T> void main(String args[]) {
+	 * 
+	 * Arbol_AVL t = new Arbol_AVL();
+	 * 
+	 * //int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 }; int[] edad = { 3, 1,
+	 * 2,11}; while (true) { System.out.println("(1) Insert");
+	 * System.out.println("(2) Delete");
+	 * 
+	 * try { BufferedReader bufferRead = new BufferedReader(new
+	 * InputStreamReader(System.in)); String s = bufferRead.readLine();
+	 * 
+	 * if (Integer.parseInt(s) == 1) { System.out.print("Value to be inserted: \n");
+	 * 
+	 * for (int i : edad) {
+	 * 
+	 * t.root = t.insert(t.root, i,null); } // root = t.insert(root,
+	 * Integer.parseInt(bufferRead.readLine())); } else if (Integer.parseInt(s) ==
+	 * 2) { System.out.print("Value to be deleted: "); t.root = t.deleteNode(t.root,
+	 * Integer.parseInt(bufferRead.readLine())); } else {
+	 * System.out.println("Invalid choice, try again!"); continue; }
+	 * 
+	 * t.print(t.root); //t.DrawGraph(t.root); t.PrintNiveles(t.root); } catch
+	 * (IOException e) { e.printStackTrace(); } }
+	 * 
+	 * }
+	 */
 
 }

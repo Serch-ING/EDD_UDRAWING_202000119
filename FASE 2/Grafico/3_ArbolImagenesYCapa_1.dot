@@ -1,0 +1,31 @@
+digraph G {
+nodesep=0; 
+ranksep=0.4;
+node[style = filled fillcolor="#88E1F7"];
+	NodoAVL2[ label="2"  ];
+	NodoAVL1[ label="1"];
+NodoAVL2->NodoAVL1
+	NodoAVL1[ label="1"  ];
+Invisible2118512295[style=invis];
+NodoAVL1-> Invisible2118512295[arrowsize=0 style= invisible] 
+Invisible2118512295[style=invis];
+NodoAVL1-> Invisible2118512295[arrowsize=0 style= invisible] 
+	NodoAVL4[ label="4" ];
+NodoAVL2->NodoAVL4
+	NodoAVL4[ label="4"  ];
+	NodoAVL3[ label="3"];
+NodoAVL4->NodoAVL3
+	NodoAVL3[ label="3"  ];
+Invisible44849562[style=invis];
+NodoAVL3-> Invisible44849562[arrowsize=0 style= invisible] 
+Invisible44849562[style=invis];
+NodoAVL3-> Invisible44849562[arrowsize=0 style= invisible] 
+	NodoAVL5[ label="5" ];
+NodoAVL4->NodoAVL5
+	NodoAVL5[ label="5"  ];
+Invisible97696000[style=invis];
+NodoAVL5-> Invisible97696000[arrowsize=0 style= invisible] 
+Invisible97696000[style=invis];
+NodoAVL5-> Invisible97696000[arrowsize=0 style= invisible] 
+NodoAVL1->NULL[label="CAPAS,RAIZ" fillcolor="pink"]
+}

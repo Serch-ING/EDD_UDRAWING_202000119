@@ -30,15 +30,10 @@ NodoAVL5-> Invisible438722032[arrowsize=0 style= invisible]
 
 
 node[style = filled fillcolor="#F788DF"];
-	NodoABB0[ label="0"  ];
-Invisible1402351105[style=invis];
-NodoABB0-> Invisible1402351105[arrowsize=0 style= invisible] 
-	NodoABB1[ label="1" ];
-NodoABB0->NodoABB1
 	NodoABB1[ label="1"  ];
-Invisible1111421921[style=invis];
-NodoABB1-> Invisible1111421921[arrowsize=0 style= invisible] 
-Invisible1111421921[style=invis];
-NodoABB1-> Invisible1111421921[arrowsize=0 style= invisible] 
-NodoAVL3->NodoABB0[label="CAPAS,RAIZ"]
+Invisible570342364[style=invis];
+NodoABB1-> Invisible570342364[arrowsize=0 style= invisible] 
+Invisible570342364[style=invis];
+NodoABB1-> Invisible570342364[arrowsize=0 style= invisible] 
+NodoAVL4->NodoABB1[label="CAPAS,RAIZ"]
 }

@@ -262,6 +262,7 @@ public class Client_Module extends JFrame {
 
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Se debe ingresar un dato");
+					System.out.println(e2);
 				}
 			}
 		});
@@ -469,6 +470,8 @@ public class Client_Module extends JFrame {
 					}
 					
 					JOptionPane.showMessageDialog(null, "Imagen con id: " + id + " ingresada");
+					
+					capas_list = capas_insersion(id_int,capas_list,cliente);
 					cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id_int, capas_list);
 					
 					
@@ -718,7 +721,10 @@ public class Client_Module extends JFrame {
 				}
 				
 				capas_list = capas_insersion(id,capas_list,cliente);
+				
 				cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id, capas_list);
+				
+				
 			}
 
 			// cliente.AVLImages.print(cliente.AVLImages.root);
