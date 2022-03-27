@@ -40,8 +40,6 @@ public class Arbol_Binario {
 		}
 	}
 
-
-	
 	String dot = "";
 	
 	public String DrawGraph_return(Nodo_ABB root) {
@@ -68,7 +66,6 @@ public class Arbol_Binario {
 		generate_grapgh(name,dot);
 	}
 	
-
 	public void GenerarArbol(Nodo_ABB actual) {
 		dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"  ];\n");
 		
@@ -125,6 +122,8 @@ public class Arbol_Binario {
 
 	}
 
+	
+	
 	public void busquedaListColors(int busqueda, MatrizDispersa temp_Matriz) {
 		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
 		
@@ -136,6 +135,18 @@ public class Arbol_Binario {
 				temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
 			}
 		}
+	}
+	
+	public boolean busquedaExistencia(int busqueda) {
+		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
+		
+		temp= existeListColor(this.raiz, busqueda);
+		
+		if(temp!= null) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	private LinkedList<Nodes_Colors> existeListColor(Nodo_ABB n, int busqueda) {

@@ -716,7 +716,8 @@ public class Client_Module extends JFrame {
 					// System.out.println(capa_no);
 					capas_list.add(capa_no);
 				}
-
+				
+				capas_list = capas_insersion(id,capas_list,cliente);
 				cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id, capas_list);
 			}
 
@@ -730,6 +731,24 @@ public class Client_Module extends JFrame {
 			System.out.println(e);
 
 		}
+	}
+	
+	public LinkedList<Integer> capas_insersion(Integer id, LinkedList<Integer> capas_list, Clients cliente) {
+		LinkedList<Integer> capas = new LinkedList<Integer>();
+		boolean validacion= false;
+		for (Integer i : capas_list) {
+			if(cliente.ABBCapas.busquedaExistencia(i)) {
+				capas.add(i);
+			}else {
+				validacion = true;
+			}
+		}
+		
+		if(validacion){
+			JOptionPane.showMessageDialog(null, "Hubieron capas que existen, se descartaron de la imagen: " + id);
+		}
+		
+		return capas;
 	}
 
 	public void ReadAlbums(String ruta, Storage storage, Clients cliente) {
