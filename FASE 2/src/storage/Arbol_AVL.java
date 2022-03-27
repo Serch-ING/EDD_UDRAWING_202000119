@@ -10,6 +10,7 @@ import objects.Clients;
 import storage.Arbol_Binario.Nodo_ABB;
 
 public class Arbol_AVL {
+	public int no_nodos=0;
 	public Node buscado = null;
 	public Node root = null;
 	public int MaxId = 0;
@@ -48,7 +49,9 @@ public class Arbol_AVL {
 		if (value < node.value) {
 			node.left = insert(node.left, value, capas_list);
 		} else if (value == node.value) {
+			
 			JOptionPane.showMessageDialog(null, "Id de capa repetida");
+			//node.capas_list = capas_list;
 		} else {
 			node.right = insert(node.right, value, capas_list);
 		}
@@ -116,6 +119,22 @@ public class Arbol_AVL {
 			return 0;
 		return height(N.left) - height(N.right);
 	}
+	
+	public int cantidad_images() {
+		no_nodos = 0;
+		contar(root);
+		return no_nodos;
+	}
+	
+	public void contar(Node root) {
+		if (root != null) {
+			contar(root.left);
+			no_nodos++;
+			System.out.printf("%d ", root.value);
+			contar(root.right);
+		}
+	}
+
 
 	public void preOrder(Node root) {
 		if (root != null) {

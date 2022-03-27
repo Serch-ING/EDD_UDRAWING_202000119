@@ -2,6 +2,7 @@ package storage;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 
 import org.json.simple.JSONArray;
 
@@ -9,7 +10,7 @@ import org.json.simple.JSONArray;
 
 
 public class Simple_Album {
-
+	public LinkedList<String> albums = new LinkedList<String>();
 	Nodo_Simple primero;
 
 	public Simple_Album() {
@@ -25,6 +26,36 @@ public class Simple_Album {
 			this.primero = new_node;
 		}
 	}
+	
+	public void recorrardata() {
+		if (isNone() == false) {
+			Nodo_Simple actual = this.primero;
+			while (actual != null) {
+				System.out.println("Album: " + actual.info);
+				for (String i : actual.images) {
+					System.out.println(i);
+				}
+				actual = actual.next;
+			}
+		}
+	}
+	
+	public void cantidad_albums() {
+		if (isNone() == false) {
+			Nodo_Simple actual = this.primero;
+			while (actual != null) {
+				albums.add(actual.info);
+				System.out.println(actual.info);
+				if(actual.Sublist.isNone() == false) {
+					System.out.println("->");
+					actual.images = actual.Sublist.catindad_imagenes();
+					System.out.println("----");
+				}
+				actual = actual.next;
+			}
+		}
+	}
+
 	
 	public void graph(String name) {
 		int contador = 0;
@@ -218,7 +249,7 @@ public class Simple_Album {
 }
 
 class Nodo_Simple {
-
+	LinkedList<String> images = new LinkedList<String>();
 	Nodo_Simple next;
 	String info;
 	Simple_Sublist_Album Sublist = new Simple_Sublist_Album();

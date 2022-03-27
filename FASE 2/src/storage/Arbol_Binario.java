@@ -16,6 +16,7 @@ import storage.Arbol_AVL.Node;
 
 
 public class Arbol_Binario {
+	public int no_nodos= 0;
 	public String temp;
 	public Nodo_ABB raiz;
 	public int contador = 0;
@@ -23,6 +24,23 @@ public class Arbol_Binario {
 	public Arbol_Binario() {
 		raiz = null;
 	}
+	
+	public int cantidad_images() {
+		no_nodos = 0;
+		contar(raiz);
+		return no_nodos;
+	}
+	
+	public void contar(Nodo_ABB root) {
+		if (root != null) {
+			contar(root.izquierda);
+			no_nodos++;
+			System.out.printf("%d ", root.dato);
+			contar(root.derecha);
+		}
+	}
+
+
 	
 	String dot = "";
 	

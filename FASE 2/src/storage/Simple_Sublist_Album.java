@@ -1,11 +1,28 @@
 package storage;
 
+import java.util.LinkedList;
+
 public class Simple_Sublist_Album {
 
 	Nodo_Simple_Sub primero;
 
 	public Simple_Sublist_Album() {
 		this.primero = null;
+	}
+	
+	public LinkedList<String> catindad_imagenes() {
+		LinkedList<String> temp = new LinkedList<String>();
+		if (isNone() == false) {
+			Nodo_Simple_Sub actual = this.primero;
+			while (actual != null) {
+				temp.add(String.valueOf(actual.info));
+				System.out.println(actual.info);
+				actual = actual.next;
+			}
+			return temp;
+		}
+		
+		return temp;
 	}
 
 	public String enlaces(int contador) {

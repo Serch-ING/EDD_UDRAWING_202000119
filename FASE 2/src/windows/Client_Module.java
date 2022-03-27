@@ -485,12 +485,20 @@ public class Client_Module extends JFrame {
 				if (label_ruta.getText() != "Null") {
 					if (comboBox.getSelectedItem() == "Capas") {
 						ReadLayers(label_ruta.getText(), storage, cliente);
+						int  no = cliente.ABBCapas.cantidad_images();
+						System.out.println("No iamges: " + no);
 
 					} else if (comboBox.getSelectedItem() == "Imagenes") {
 						ReadImages(label_ruta.getText(), storage, cliente);
+						int  no = cliente.AVLImages.cantidad_images();
+						System.out.println("No iamges: " + no);
 
 					} else if (comboBox.getSelectedItem() == "Albums") {
 						ReadAlbums(label_ruta.getText(), storage, cliente);
+						cliente.Album_list.cantidad_albums();
+						System.out.println("Canrida de albums: " + cliente.Album_list.albums.size());
+						cliente.Album_list.recorrardata();
+						
 
 					}
 				} else {
