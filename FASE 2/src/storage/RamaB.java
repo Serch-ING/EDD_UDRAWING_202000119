@@ -19,7 +19,7 @@ public class RamaB {
 
     boolean hoja;//identificar si es una hoja
     int contador;//identificar la cantidad de elementos que tiene la rama
-    NodoB primero;
+    public NodoB primero;
 
     public RamaB() {
         this.primero = null;

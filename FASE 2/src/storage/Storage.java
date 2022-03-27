@@ -23,7 +23,8 @@ public class Storage {
 	}
 	
 	public void showClients() {
-		//ClientesB.raiz.print_start(ClientesB.raiz.primero);
+		ClientesB.raiz.print_start(ClientesB.raiz.primero);
+		System.out.println("------------------------------");
 		ClientesB.raiz.print_start_Cleintes(ClientesB.raiz.primero);
 		System.out.println("------------------------------");
 		/*for (Clients clients : List_clients) {

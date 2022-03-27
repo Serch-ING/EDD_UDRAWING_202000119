@@ -357,7 +357,7 @@ public class Admin_Module extends JFrame {
 		Button_btree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				//storage.ClientesB.draw_start(storage.ClientesB.raiz.primero, "Admin_Btree_Clients");
+				storage.ClientesB.draw_start(storage.ClientesB.raiz.primero, "Admin_Btree_Clients");
 				JOptionPane.showMessageDialog(null, "Se creo grafo: arbol B de clientes");
 			}
 		});
@@ -376,7 +376,7 @@ public class Admin_Module extends JFrame {
 				} else {
 					label_ruta.setText("Null");
 				}
-
+//DPI:2299062130101\nName: Sergie Daniel\nPassword: 1234
 			}
 		});
 

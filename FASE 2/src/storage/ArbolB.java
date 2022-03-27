@@ -26,7 +26,7 @@ public class ArbolB {
 	Queue<String> names = new LinkedList<String>();
 
 	int orden_arbol = 5;
-	RamaB raiz;
+	public RamaB raiz;
 
 	public ArbolB() {
 		this.raiz = null;
@@ -236,7 +236,7 @@ public class ArbolB {
 		names = new LinkedList<String>();
 		dot = "";
 		Connectios = "";
-
+		Grap= "";
 		Grap += "digraph structs {\n";
 		Grap += "  bgcolor = \"#E3FFFA\"\n";
 		Grap += " node [shape=Mrecord fillcolor=\"#FFE3FF\" style =filled];\n";
