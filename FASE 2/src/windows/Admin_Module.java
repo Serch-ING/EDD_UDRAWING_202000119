@@ -294,6 +294,11 @@ public class Admin_Module extends JFrame {
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Reportes", null, panel_3, null);
 		panel_3.setLayout(null);
+		
+		TextArea textOut_1 = new TextArea();
+		textOut_1.setEditable(false);
+		textOut_1.setBounds(439, 10, 908, 774);
+		panel_3.add(textOut_1);
 
 		JButton Button_closesesion = new JButton("Cerrar sesion");
 

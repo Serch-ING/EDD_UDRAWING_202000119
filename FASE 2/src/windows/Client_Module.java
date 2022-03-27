@@ -187,7 +187,7 @@ public class Client_Module extends JFrame {
 		panel_2_1_1.add(lblNewLabel_1_1_2_1_1);
 
 		JComboBox<String> comboBox_IMGS = new JComboBox<String>();
-
+		comboBox_IMGS.setModel(new DefaultComboBoxModel(cliente.generate_struc.toArray()));
 		comboBox_IMGS.setBounds(380, 36, 295, 22);
 		panel_1.add(comboBox_IMGS);
 
@@ -373,6 +373,7 @@ public class Client_Module extends JFrame {
 		panel_3_1.add(Label_img2);
 		
 		JComboBox<String> comboBox_estrucgenerates = new JComboBox<String>();
+		comboBox_estrucgenerates.setModel(new DefaultComboBoxModel(cliente.generated_images.toArray()));
 		comboBox_estrucgenerates.setBounds(212, 83, 206, 22);
 		panel_5.add(comboBox_estrucgenerates);
 		
