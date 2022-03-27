@@ -1,0 +1,191 @@
+digraph G{
+    node[shape=box,width=0.6 height=0.6 fontname="Arial" fillcolor="white" style=filled /*invisible*/]
+	edge[style = "bold" /* style= invisible arrowsize=0 */ ]
+    raiz[label = "f/c" fillcolor="#FFFFFF" pos = "-1,1!"  ]; 
+	Columna0[ label="C0" fillcolor="#FFFFFF" pos="0,1!" ];
+	raiz->Columna0
+	Columna0->Columna1
+	Columna1->Columna0
+	Columna1[ label="C1" fillcolor="#FFFFFF" pos="1,1!" ];
+	Columna1->Columna2
+	Columna2->Columna1
+	Columna2[ label="C2" fillcolor="#FFFFFF" pos="2,1!" ];
+	Columna2->Columna3
+	Columna3->Columna2
+	Columna3[ label="C3" fillcolor="#FFFFFF" pos="3,1!" ];
+	Columna3->Columna4
+	Columna4->Columna3
+	Columna4[ label="C4" fillcolor="#FFFFFF" pos="4,1!" ];
+	Columna4->Columna5
+	Columna5->Columna4
+	Columna5[ label="C5" fillcolor="#FFFFFF" pos="5,1!" ];
+	Columna5->Columna6
+	Columna6->Columna5
+	Columna6[ label="C6" fillcolor="#FFFFFF" pos="6,1!" ];
+	Columna6->Columna7
+	Columna7->Columna6
+	Columna7[ label="C7" fillcolor="#FFFFFF" pos="7,1!" ];
+	Columna7->Columna8
+	Columna8->Columna7
+	Columna8[ label="C8" fillcolor="#FFFFFF" pos="8,1!" ];
+	Columna8->Columna9
+	Columna9->Columna8
+	Columna9[ label="C9" fillcolor="#FFFFFF" pos="9,1!" ];
+	Columna9->Columna10
+	Columna10->Columna9
+	Columna10[ label="C10" fillcolor="#FFFFFF" pos="10,1!" ];
+	Columna10->Columna11
+	Columna11->Columna10
+	Columna11[ label="C11" fillcolor="#FFFFFF" pos="11,1!" ];
+	Columna11->Columna12
+	Columna12->Columna11
+	Columna12[ label="C12" fillcolor="#FFFFFF" pos="12,1!" ];
+	Columna12->Columna13
+	Columna13->Columna12
+	Columna13[ label="C13" fillcolor="#FFFFFF" pos="13,1!" ];
+	Columna13->Columna14
+	Columna14->Columna13
+	Columna14[ label="C14" fillcolor="#FFFFFF" pos="14,1!" ];
+	Columna14->Columna15
+	Columna15->Columna14
+	Columna15[ label="C15" fillcolor="#FFFFFF" pos="15,1!" ];
+	Columna15->Columna16
+	Columna16->Columna15
+	Columna16[ label="C16" fillcolor="#FFFFFF" pos="16,1!" ];
+	Columna16->Columna17
+	Columna17->Columna16
+	Columna17[ label="C17" fillcolor="#FFFFFF" pos="17,1!" ];
+	Columna17->Columna18
+	Columna18->Columna17
+	Columna18[ label="C18" fillcolor="#FFFFFF" pos="18,1!" ];
+	Columna18->Columna19
+	Columna19->Columna18
+	Columna19[ label="C19" fillcolor="#FFFFFF" pos="19,1!" ];
+	Columna19->Columna20
+	Columna20->Columna19
+	Columna20[ label="C20" fillcolor="#FFFFFF" pos="20,1!" ];
+	Columna20->Columna21
+	Columna21->Columna20
+	Columna21[ label="C21" fillcolor="#FFFFFF" pos="21,1!" ];
+	Columna21->Columna22
+	Columna22->Columna21
+	Columna22[ label="C22" fillcolor="#FFFFFF" pos="22,1!" ];
+	Columna22->Columna23
+	Columna23->Columna22
+	Columna23[ label="C23" fillcolor="#FFFFFF" pos="23,1!" ];
+	Columna23->Columna24
+	Columna24->Columna23
+	Columna24[ label="C24" fillcolor="#FFFFFF" pos="24,1!" ];
+	Columna24->Columna25
+	Columna25->Columna24
+	Columna25[ label="C25" fillcolor="#FFFFFF" pos="25,1!" ];
+	Columna25->Columna26
+	Columna26->Columna25
+	Columna26[ label="C26" fillcolor="#FFFFFF" pos="26,1!" ];
+	Columna26->Columna27
+	Columna27->Columna26
+	Columna27[ label="C27" fillcolor="#FFFFFF" pos="27,1!" ];
+	Columna27->Columna28
+	Columna28->Columna27
+	Columna28[ label="C28" fillcolor="#FFFFFF" pos="28,1!" ];
+	Columna28->Columna29
+	Columna29->Columna28
+	Columna29[ label="C29" fillcolor="#FFFFFF" pos="29,1!" ];
+	Columna29->Columna30
+	Columna30->Columna29
+	Columna30[ label="C30" fillcolor="#FFFFFF" pos="30,1!" ];
+	Columna30->Columna31
+	Columna31->Columna30
+	Columna31[ label="C31" fillcolor="#FFFFFF" pos="31,1!" ];
+	Columna31->Columna32
+	Columna32->Columna31
+	Columna32[ label="C32" fillcolor="#FFFFFF" pos="32,1!" ];
+	Columna32->Columna33
+	Columna33->Columna32
+	Columna33[ label="C33" fillcolor="#FFFFFF" pos="33,1!" ];
+	Columna33->Columna34
+	Columna34->Columna33
+	Columna34[ label="C34" fillcolor="#FFFFFF" pos="34,1!" ];
+	Columna34->Columna35
+	Columna35->Columna34
+	Columna35[ label="C35" fillcolor="#FFFFFF" pos="35,1!" ];
+	Columna35->Columna36
+	Columna36->Columna35
+	Columna36[ label="C36" fillcolor="#FFFFFF" pos="36,1!" ];
+	Columna36->Columna37
+	Columna37->Columna36
+	Columna37[ label="C37" fillcolor="#FFFFFF" pos="37,1!" ];
+	Fila0[ label="F0" fillcolor="#FFFFFF" pos="-1,-0!"];
+	raiz->Fila0
+	Fila0->Fila1
+	Fila1->Fila0
+	Fila1[ label="F1" fillcolor="#FFFFFF" pos="-1,-1!"];
+	Fila1->Fila2
+	Fila2->Fila1
+	Fila2[ label="F2" fillcolor="#FFFFFF" pos="-1,-2!"];
+	Fila2->Fila3
+	Fila3->Fila2
+	Fila3[ label="F3" fillcolor="#FFFFFF" pos="-1,-3!"];
+	Fila3->Fila4
+	Fila4->Fila3
+	Fila4[ label="F4" fillcolor="#FFFFFF" pos="-1,-4!"];
+	Fila4->Fila5
+	Fila5->Fila4
+	Fila5[ label="F5" fillcolor="#FFFFFF" pos="-1,-5!"];
+	Fila5->Fila6
+	Fila6->Fila5
+	Fila6[ label="F6" fillcolor="#FFFFFF" pos="-1,-6!"];
+	Fila6->Fila7
+	Fila7->Fila6
+	Fila7[ label="F7" fillcolor="#FFFFFF" pos="-1,-7!"];
+	Fila7->Fila8
+	Fila8->Fila7
+	Fila8[ label="F8" fillcolor="#FFFFFF" pos="-1,-8!"];
+	Fila8->Fila9
+	Fila9->Fila8
+	Fila9[ label="F9" fillcolor="#FFFFFF" pos="-1,-9!"];
+	Fila9->Fila10
+	Fila10->Fila9
+	Fila10[ label="F10" fillcolor="#FFFFFF" pos="-1,-10!"];
+	Fila10->Fila11
+	Fila11->Fila10
+	Fila11[ label="F11" fillcolor="#FFFFFF" pos="-1,-11!"];
+	Fila11->Fila12
+	Fila12->Fila11
+	Fila12[ label="F12" fillcolor="#FFFFFF" pos="-1,-12!"];
+	Fila12->Fila13
+	Fila13->Fila12
+	Fila13[ label="F13" fillcolor="#FFFFFF" pos="-1,-13!"];
+	Fila13->Fila14
+	Fila14->Fila13
+	Fila14[ label="F14" fillcolor="#FFFFFF" pos="-1,-14!"];
+	Fila14->Fila15
+	Fila15->Fila14
+	Fila15[ label="F15" fillcolor="#FFFFFF" pos="-1,-15!"];
+	Fila15->Fila16
+	Fila16->Fila15
+	Fila16[ label="F16" fillcolor="#FFFFFF" pos="-1,-16!"];
+	Fila16->Fila17
+	Fila17->Fila16
+	Fila17[ label="F17" fillcolor="#FFFFFF" pos="-1,-17!"];
+	Fila17->Fila18
+	Fila18->Fila17
+	Fila18[ label="F18" fillcolor="#FFFFFF" pos="-1,-18!"];
+	Fila18->Fila19
+	Fila19->Fila18
+	Fila19[ label="F19" fillcolor="#FFFFFF" pos="-1,-19!"];
+	Fila19->Fila20
+	Fila20->Fila19
+	Fila20[ label="F20" fillcolor="#FFFFFF" pos="-1,-20!"];
+	Fila20->Fila21
+	Fila21->Fila20
+	Fila21[ label="F21" fillcolor="#FFFFFF" pos="-1,-21!"];
+
+
+	Nodo37_21[style= filled  label="	" fillcolor="#BF62AB" pos="37,-21!"];
+Fila21->Nodo37_21
+Nodo37_21->Fila21
+	Columna37->Nodo37_21
+	Nodo37_21->Columna37
+
+}

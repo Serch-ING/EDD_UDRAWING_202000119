@@ -415,9 +415,9 @@ public class MatrizDispersa {
 		DOT = "";
 		DOT += "digraph G{\n";
 		DOT += "    node[shape=box,width=0.6 height=0.6 fontname=\"Arial\" fillcolor=\"white\" style=filled /*invisible*/]\n";
-		DOT += "	edge[style = \"bold\" dir= \"both\"/* style= invisible arrowsize=0 */ ]\n";
+		DOT += "	edge[style = \"bold\" /* style= invisible arrowsize=0 */ ]\n";
 		
-		DOT += "    raiz[label = \"f/c\" fillcolor=\"darkolivegreen1\" pos = \"-1,1!\"  ]; \n";
+		DOT += "    raiz[label = \"f/c\" fillcolor=\"#FFFFFF\" pos = \"-1,1!\"  ]; \n";
 
 		int files = MaxFile(this.raiz);
 		int columns = MaxColum(this.raiz);
@@ -432,6 +432,7 @@ public class MatrizDispersa {
 				}
 				if (i + 1 <= files) {
 					DOT += "	Columna" + (i) + "->Columna" + (i + 1) + "\n";
+					DOT += "	Columna" + (i + 1) + "->Columna" + (i) + "\n";
 				}
 			}
 			
@@ -446,6 +447,7 @@ public class MatrizDispersa {
 				}
 				if (i + 1 <= columns) {
 					DOT += "	Fila" + (i) + "->Fila" + (i + 1) + "\n";
+					DOT += "	Fila" + (i+1) + "->Fila" + (i) + "\n";
 				}
 			}
 		}
@@ -478,20 +480,25 @@ public class MatrizDispersa {
 
 						if (actual.anterior.i == -1) {
 
-							DOT += ("	Fila" + actual.anterior.j + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+							DOT += ("Fila" + actual.anterior.j + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+							DOT += ("Nodo" +actual.i + "_" + actual.j + "->Fila"  + actual.anterior.j + "\n");
 							
 						} else {
 
 							DOT += ("	Nodo" + actual.anterior.i + "_" + actual.anterior.j + "->Nodo" + actual.i + "_"+ actual.j + "\n");
+							DOT += ("	Nodo" + actual.i + "_"+ actual.j + "->Nodo" + actual.anterior.i + "_" + actual.anterior.j + "\n");
 							
 						}
 
 						if (actual.arriba.j == -1) {
 						
 							DOT += ("	Columna" + actual.arriba.i + "->Nodo" + actual.i + "_" + actual.j+ "\n");
+							DOT += ("	Nodo" + actual.i + "_" + actual.j + "->Columna" + actual.arriba.i + "\n");
+							
 						} else {
 							
 							DOT += ("	Nodo" + actual.arriba.i + "_" + actual.arriba.j + "->Nodo" + actual.i + "_"+ actual.j + "\n");
+							DOT += ("	Nodo" + actual.i + "_"+ actual.j + "->Nodo" + actual.arriba.i + "_" + actual.arriba.j + "\n");
 							
 						}
 

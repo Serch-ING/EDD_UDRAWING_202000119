@@ -1,10 +1,14 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
+
+import javax.swing.JOptionPane;
 
 import objects.Nodes_Colors;
 import storage.Arbol_AVL.Node;
@@ -12,6 +16,7 @@ import storage.Arbol_AVL.Node;
 
 
 public class Arbol_Binario {
+	public int no_nodos= 0;
 	public String temp;
 	public Nodo_ABB raiz;
 	public int contador = 0;
@@ -19,9 +24,103 @@ public class Arbol_Binario {
 	public Arbol_Binario() {
 		raiz = null;
 	}
-
-
 	
+	public int cantidad_images() {
+		no_nodos = 0;
+		contar(raiz);
+		return no_nodos;
+	}
+	
+	public void contar(Nodo_ABB root) {
+		if (root != null) {
+			contar(root.izquierda);
+			no_nodos++;
+			System.out.printf("%d ", root.dato);
+			contar(root.derecha);
+		}
+	}
+
+	String dot = "";
+	
+	public String DrawGraph_return(Nodo_ABB root) {
+		dot += "\n\nnode[style = filled fillcolor=\"#F788DF\"];\n";
+		GenerarArbol(root);
+
+		//System.out.println(dot);
+		return dot;
+	}
+
+	public void DrawGraph(Nodo_ABB root,String name) {
+
+		dot = "digraph G {\n";
+		dot += "nodesep=0; \n";
+		dot += "ranksep=0.4;\n";
+		dot += "node[style = filled fillcolor=\"#F788DF\"];\n";
+		
+
+		GenerarArbol(root);
+
+		dot += "}";
+
+		//System.out.println(dot);
+		generate_grapgh(name,dot);
+	}
+	
+	public void GenerarArbol(Nodo_ABB actual) {
+		dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"  ];\n");
+		
+		if (actual.izquierda != null) {
+			
+			dot += ("	NodoABB" + actual.izquierda.dato + "[ label=\"" + actual.izquierda.dato + "\"];\n");
+			dot += "NodoABB" + actual.dato + "->NodoABB" + actual.izquierda.dato + "\n";
+			GenerarArbol(actual.izquierda);
+		} else {
+
+			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
+			dot += "NodoABB" + actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+		}
+		
+		if (actual.derecha != null) {
+			
+			dot += ("	NodoABB" + actual.derecha.dato + "[ label=\"" + actual.derecha.dato + "\" ];\n");
+			dot += "NodoABB" + actual.dato + "->NodoABB" + actual.derecha.dato + "\n";
+			GenerarArbol(actual.derecha);
+		} else {
+			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
+			dot += "NodoABB" + actual.dato + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
+		}
+	}
+	
+	public void generate_grapgh(String name, String dot) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
 
 	
 	
@@ -31,11 +130,23 @@ public class Arbol_Binario {
 		temp= existeListColor(this.raiz, busqueda);
 		
 		if(temp!= null) {
-			System.out.println("Se encontro: " + busqueda);
+			//System.out.println("Se encontro: " + busqueda);
 			for (Nodes_Colors nodes_Colors : temp) {
 				temp_Matriz.insertarNodo(nodes_Colors.columna, nodes_Colors.fila,  nodes_Colors.color);
 			}
 		}
+	}
+	
+	public boolean busquedaExistencia(int busqueda) {
+		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
+		
+		temp= existeListColor(this.raiz, busqueda);
+		
+		if(temp!= null) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	private LinkedList<Nodes_Colors> existeListColor(Nodo_ABB n, int busqueda) {
@@ -68,7 +179,8 @@ public class Arbol_Binario {
 				this.insertar(padre.getDerecha(), dato,Nodos_new);
 			}
 		}else if(dato == padre.getDato() ) {
-			padre.Nodos = Nodos_new;
+			JOptionPane.showMessageDialog(null, "Id de imagen repetida: " + dato);
+			//padre.Nodos = Nodos_new;
 		} else {
 			if (padre.getIzquierda() == null) {
 				padre.setIzquierda(new Nodo_ABB(dato,Nodos_new));
@@ -273,7 +385,7 @@ public class Arbol_Binario {
 	
 
 	class Nodo_ABB {
-		private int dato;
+		int dato;
 		private Nodo_ABB izquierda, derecha;
 		public LinkedList<Nodes_Colors> Nodos  = new LinkedList<Nodes_Colors>();
 	

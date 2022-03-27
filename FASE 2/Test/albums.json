@@ -10,5 +10,9 @@
     {
         "nombre_album":"Album 3",
         "imgs":[]
+    },
+    {
+        "nombre_album":"Album 99",
+        "imgs":[90,12]
     }
 ]

@@ -1,0 +1,15 @@
+digraph G {
+nodesep=0; 
+ranksep=0.4;
+node[style = filled fillcolor="#88E1F7"];
+	NodoAVL5[ label="5"  ];
+	NodoAVL3[ label="3"];
+NodoAVL5->NodoAVL3
+	NodoAVL3[ label="3"  ];
+Invisible718696084[style=invis];
+NodoAVL3-> Invisible718696084[arrowsize=0 style= invisible] 
+Invisible718696084[style=invis];
+NodoAVL3-> Invisible718696084[arrowsize=0 style= invisible] 
+Invisible241149629[style=invis];
+NodoAVL5-> Invisible241149629[arrowsize=0 style= invisible] 
+}

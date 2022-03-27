@@ -42,6 +42,10 @@ public class Client_Module extends JFrame {
 	private JTextField textField_setlayers;
 	private JTextField textField_IDtreeImg;
 	private JTextField textField_layers;
+	private JTextField textField_idlayer;
+	private JTextField textField_idinser;
+	private JTextField textField_layersInsert;
+	private JTextField textField_IdDelete;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -186,7 +190,7 @@ public class Client_Module extends JFrame {
 		panel_2_1_1.add(lblNewLabel_1_1_2_1_1);
 
 		JComboBox<String> comboBox_IMGS = new JComboBox<String>();
-
+		comboBox_IMGS.setModel(new DefaultComboBoxModel(cliente.generated_images.toArray()));
 		comboBox_IMGS.setBounds(380, 36, 295, 22);
 		panel_1.add(comboBox_IMGS);
 
@@ -214,19 +218,19 @@ public class Client_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					MatrizDispersa temp_Matriz = new MatrizDispersa();
-					
+
 					String temp = textField_layers.getText();
-					int[] listlayer_no = Arrays.stream(temp.split(",")).mapToInt(Integer::parseInt).toArray(); 
-					
-					cliente.ABBCapas.temp="";
-					
+					int[] listlayer_no = Arrays.stream(temp.split(",")).mapToInt(Integer::parseInt).toArray();
+
+					cliente.ABBCapas.temp = "";
+
 					for (int i : listlayer_no) {
-						cliente.ABBCapas.busquedaListColors(i,temp_Matriz);
-						cliente.ABBCapas.temp+= "  -> " +i;
-						
-						//System.out.println(i);
+						cliente.ABBCapas.busquedaListColors(i, temp_Matriz);
+						cliente.ABBCapas.temp += "  -> " + i;
+
+						// System.out.println(i);
 					}
-					
+
 					String name = cliente.DPI + "_ListaCapas_" + temp + "_";
 					name += cliente.ID_IMG;
 					temp_Matriz.GrapghInvisibleNewAplicacion(name);
@@ -258,6 +262,7 @@ public class Client_Module extends JFrame {
 
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Se debe ingresar un dato");
+					System.out.println(e2);
 				}
 			}
 		});
@@ -336,17 +341,250 @@ public class Client_Module extends JFrame {
 		JPanel panel_4 = new JPanel();
 		tabbedPane.addTab("Registro y eliminacion de imagenes", null, panel_4, null);
 		panel_4.setLayout(null);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(Color.LIGHT_GRAY);
+		panel_6.setBounds(10, 11, 298, 426);
+		panel_4.add(panel_6);
+		panel_6.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("Insertar imagense");
+		lblNewLabel_3.setBounds(10, 11, 130, 14);
+		panel_6.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("ID de imagen:");
+		lblNewLabel_3_1.setBounds(10, 48, 130, 14);
+		panel_6.add(lblNewLabel_3_1);
+		
+		textField_idinser = new JTextField();
+		textField_idinser.setBounds(10, 73, 238, 20);
+		panel_6.add(textField_idinser);
+		textField_idinser.setColumns(10);
+		
+		JLabel lblNewLabel_3_1_1 = new JLabel("Capas de la imagen separadas por comas \",\"");
+		lblNewLabel_3_1_1.setBounds(10, 119, 278, 14);
+		panel_6.add(lblNewLabel_3_1_1);
+		
+		textField_layersInsert = new JTextField();
+		textField_layersInsert.setColumns(10);
+		textField_layersInsert.setBounds(10, 144, 238, 20);
+		panel_6.add(textField_layersInsert);
+		
+		JButton Button_insertnewImage = new JButton("Agregar");
+		
+		Button_insertnewImage.setBounds(83, 193, 89, 23);
+		panel_6.add(Button_insertnewImage);
+		
+		JPanel panel_6_1 = new JPanel();
+		panel_6_1.setLayout(null);
+		panel_6_1.setBackground(Color.LIGHT_GRAY);
+		panel_6_1.setBounds(318, 11, 310, 426);
+		panel_4.add(panel_6_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Eliminar imagense");
+		lblNewLabel_3_2.setBounds(10, 11, 130, 14);
+		panel_6_1.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_1_2 = new JLabel("ID de imagen:");
+		lblNewLabel_3_1_2.setBounds(10, 36, 130, 14);
+		panel_6_1.add(lblNewLabel_3_1_2);
+		
+		textField_IdDelete = new JTextField();
+		textField_IdDelete.setColumns(10);
+		textField_IdDelete.setBounds(10, 61, 238, 20);
+		panel_6_1.add(textField_IdDelete);
+		
+		JButton Button_DeleteImg = new JButton("Eliminar");
+		
+		Button_DeleteImg.setBounds(97, 92, 89, 23);
+		panel_6_1.add(Button_DeleteImg);
 
 		JPanel panel_5 = new JPanel();
 		tabbedPane.addTab("Visualizar estructuras", null, panel_5, null);
 		panel_5.setLayout(null);
+
+		JComboBox<String> comboBox_viewestruct = new JComboBox<String>();
+		comboBox_viewestruct.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "arbol de imagenes", "arbol de capas", "Listado de albumes", "Capa","Imagen y Arbol de capas" }));
+		comboBox_viewestruct.setBounds(30, 83, 148, 22);
+		panel_5.add(comboBox_viewestruct);
+
+		textField_idlayer = new JTextField();
+		textField_idlayer.setBounds(30, 160, 148, 20);
+		panel_5.add(textField_idlayer);
+		textField_idlayer.setColumns(10);
+
+		JLabel lblNewLabel_2 = new JLabel("id de capa o imagen a visualizar");
+		lblNewLabel_2.setBounds(22, 135, 168, 14);
+		panel_5.add(lblNewLabel_2);
+
+		JButton btnGenerar = new JButton("Generar");
+
+		btnGenerar.setBounds(30, 203, 89, 23);
+		panel_5.add(btnGenerar);
+
+		JPanel panel_3_1 = new JPanel();
+		panel_3_1.setLayout(null);
+		panel_3_1.setBackground(Color.GRAY);
+		panel_3_1.setBounds(464, 11, 1185, 788);
+		panel_5.add(panel_3_1);
+
+		JLabel Label_img2 = new JLabel("");
+		Label_img2.setBounds(10, 11, 1165, 766);
+		panel_3_1.add(Label_img2);
+		
+		JComboBox<String> comboBox_estrucgenerates = new JComboBox<String>();
+		comboBox_estrucgenerates.setModel(new DefaultComboBoxModel(cliente.generate_struc.toArray()));
+		comboBox_estrucgenerates.setBounds(212, 83, 206, 22);
+		panel_5.add(comboBox_estrucgenerates);
+		
+		JButton btnVer = new JButton("Ver");
+		
+		btnVer.setBounds(332, 131, 89, 23);
+		panel_5.add(btnVer);
 
 		JButton btnNewButton = new JButton("Cerrar sesion");
 
 		btnNewButton.setBounds(964, 11, 118, 23);
 		contentPane.add(btnNewButton);
 
-		// buttons
+		// buttons=---------------------------------------------------------------------------------------------------------------------
+		Button_DeleteImg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String id = textField_IdDelete.getText();
+					int id_int = Integer.valueOf(id);
+					 cliente.AVLImages.root = cliente.AVLImages.deleteNode(cliente.AVLImages.root, id_int);
+					
+					cliente.Album_list.validacion_existenimg(cliente);
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "El id de la imagen debe ser un digito");
+					System.out.println(e2);
+				}
+				
+			}
+		});
+		
+		Button_insertnewImage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String id = textField_idinser.getText();
+					String layers = textField_layersInsert.getText();
+					String[] layer_ind = layers.split(",");
+					LinkedList<Integer> capas_list = new LinkedList<Integer>();
+					int id_int = Integer.valueOf(id);
+					
+					for (String i : layer_ind) {
+						int temp = Integer.valueOf(i);
+						capas_list.add(temp);
+					}
+					
+					JOptionPane.showMessageDialog(null, "Imagen con id: " + id + " ingresada");
+					
+					capas_list = capas_insersion(id_int,capas_list,cliente);
+					cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id_int, capas_list);
+					
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Ocurrio un error, verificar que las estructuras tengan datos o colocar un numero en id");
+				}
+			}
+		});
+		btnVer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = comboBox_estrucgenerates.getSelectedItem().toString();
+				String ruta = "Grafico\\" + name + ".png";
+				System.out.println(name);
+				ImageIcon imagen = new ImageIcon(ruta);
+				Label_img2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(Label_img2.getWidth(),Label_img2.getHeight(), Image.SCALE_SMOOTH)));
+			}
+		});
+		
+		btnGenerar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					if (comboBox_viewestruct.getSelectedItem() == "arbol de imagenes") {
+						
+						String name = cliente.DPI + "_ArbolImagenes";
+						
+						cliente.AVLImages.DrawGraph(cliente.AVLImages.root,name);
+						
+						boolean repetido= false;
+						for (String String : cliente.generate_struc) {
+							if(String.equals(name)) {
+								repetido=true;
+							}
+						}
+						if(!repetido) {
+							cliente.generate_struc.add(name);
+						}
+						
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+						
+					} else if (comboBox_viewestruct.getSelectedItem() == "arbol de capas") {
+						String name = cliente.DPI + "_ArbolCapas";
+						
+						cliente.ABBCapas.DrawGraph(cliente.ABBCapas.raiz,name);
+						boolean repetido= false;
+						for (String String : cliente.generate_struc) {
+							if(String.equals(name)) {
+								repetido=true;
+							}
+						}
+						if(!repetido) {
+							cliente.generate_struc.add(name);
+						}
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+
+					} else if (comboBox_viewestruct.getSelectedItem() == "Listado de albumes") {
+						
+						String name = cliente.DPI + "_Albumes";
+						
+						cliente.Album_list.graph(name);
+						
+						boolean repetido= false;
+						for (String String : cliente.generate_struc) {
+							if(String.equals(name)) {
+								repetido=true;
+							}
+						}
+						if(!repetido) {
+							cliente.generate_struc.add(name);
+						}
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+						
+
+					} else if (comboBox_viewestruct.getSelectedItem() == "Capa") {
+						MatrizDispersa temp_Matriz = new MatrizDispersa();
+						int temp = Integer.valueOf(textField_idlayer.getText());
+						
+						String name = cliente.DPI + "_CapaLogica_"+temp;
+						cliente.ABBCapas.busquedaListColors(temp, temp_Matriz);
+						temp_Matriz.GrapghInvisibleNewLogico(name);
+						
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Capa:" + temp,cliente);
+						
+					} else if (comboBox_viewestruct.getSelectedItem() == "Imagen y Arbol de capas") {
+						int temp = Integer.valueOf(textField_idlayer.getText());
+						
+						String name = cliente.DPI + "_ArbolImagenesYCapa_"+temp;
+						
+						cliente.AVLImages.DrawGraph_Binary(cliente.AVLImages.root,name,temp);
+						cliente.generate_struc.add(name);
+						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
+
+					}
+
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, "Ocurrio un error, verificar que las estructuras tengan datos o colocar un numero en id");
+					System.out.println(e);
+				}
+			}
+		});
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login login = new Login(storage);
@@ -375,12 +613,20 @@ public class Client_Module extends JFrame {
 				if (label_ruta.getText() != "Null") {
 					if (comboBox.getSelectedItem() == "Capas") {
 						ReadLayers(label_ruta.getText(), storage, cliente);
+						int  no = cliente.ABBCapas.cantidad_images();
+						System.out.println("No capas: " + no);
 
 					} else if (comboBox.getSelectedItem() == "Imagenes") {
 						ReadImages(label_ruta.getText(), storage, cliente);
+						int  no = cliente.AVLImages.cantidad_images();
+						System.out.println("No iamges: " + no);
 
 					} else if (comboBox.getSelectedItem() == "Albums") {
 						ReadAlbums(label_ruta.getText(), storage, cliente);
+						cliente.Album_list.cantidad_albums();
+						System.out.println("Canrida de albums: " + cliente.Album_list.albums.size());
+						//cliente.Album_list.recorrardata();
+						
 
 					}
 				} else {
@@ -391,6 +637,17 @@ public class Client_Module extends JFrame {
 		});
 
 	}
+	
+	public void mesageGenerateEstruu(String tipo) {
+		JOptionPane.showMessageDialog(null, "Imagen generada con exito: " + tipo);
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void updateImg(JComboBox<String> combo, String tipo,Clients cliente) {
+		combo.setModel(new DefaultComboBoxModel(cliente.generate_struc.toArray()));
+		mesageGenerateEstruu(tipo);
+	}
+	
 
 	public void mesageGenerate(Clients cliente) {
 		JOptionPane.showMessageDialog(null, "Imagen generandose con las capas Recorrido:   " + cliente.ABBCapas.temp);
@@ -499,8 +756,12 @@ public class Client_Module extends JFrame {
 					// System.out.println(capa_no);
 					capas_list.add(capa_no);
 				}
-
+				
+				capas_list = capas_insersion(id,capas_list,cliente);
+				
 				cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id, capas_list);
+				
+				
 			}
 
 			// cliente.AVLImages.print(cliente.AVLImages.root);
@@ -513,6 +774,24 @@ public class Client_Module extends JFrame {
 			System.out.println(e);
 
 		}
+	}
+	
+	public LinkedList<Integer> capas_insersion(Integer id, LinkedList<Integer> capas_list, Clients cliente) {
+		LinkedList<Integer> capas = new LinkedList<Integer>();
+		boolean validacion= false;
+		for (Integer i : capas_list) {
+			if(cliente.ABBCapas.busquedaExistencia(i)) {
+				capas.add(i);
+			}else {
+				validacion = true;
+			}
+		}
+		
+		if(validacion){
+			JOptionPane.showMessageDialog(null, "Hubieron capas que existen, se descartaron de la imagen: " + id);
+		}
+		
+		return capas;
 	}
 
 	public void ReadAlbums(String ruta, Storage storage, Clients cliente) {
@@ -530,18 +809,18 @@ public class Client_Module extends JFrame {
 				// System.out.println(data);
 
 				String name = (String) data.get("nombre_album");
-				System.out.println(name);
+				//System.out.println(name);
 
 				JSONArray images = (JSONArray) data.get("imgs");
 				// System.out.println(images);
 
 				if (cliente.Album_list.SearchValidacion(name) == false) {
 					cliente.Album_list.insert(name);
-					System.out.println("Se agrego");
+					//System.out.println("Se agrego");
 				}
 
 				cliente.Album_list.insernews(cliente.Album_list.SearchValidacionNode(name), images);
-
+				cliente.Album_list.validacion_existenimg(cliente);
 				/*
 				 * for (Object object2 : images) { Integer img_no =((Long) object2).intValue();
 				 * System.out.println(img_no);
