@@ -451,7 +451,18 @@ public class Client_Module extends JFrame {
 		// buttons=---------------------------------------------------------------------------------------------------------------------
 		Button_DeleteImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id = textField_IdDelete.getText();
+				try {
+					String id = textField_IdDelete.getText();
+					int id_int = Integer.valueOf(id);
+					 cliente.AVLImages.root = cliente.AVLImages.deleteNode(cliente.AVLImages.root, id_int);
+					
+					cliente.Album_list.validacion_existenimg(cliente);
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "El id de la imagen debe ser un digito");
+					System.out.println(e2);
+				}
+				
 			}
 		});
 		
@@ -499,14 +510,32 @@ public class Client_Module extends JFrame {
 						String name = cliente.DPI + "_ArbolImagenes";
 						
 						cliente.AVLImages.DrawGraph(cliente.AVLImages.root,name);
-						cliente.generate_struc.add(name);
+						
+						boolean repetido= false;
+						for (String String : cliente.generate_struc) {
+							if(String.equals(name)) {
+								repetido=true;
+							}
+						}
+						if(!repetido) {
+							cliente.generate_struc.add(name);
+						}
+						
 						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 						
 					} else if (comboBox_viewestruct.getSelectedItem() == "arbol de capas") {
 						String name = cliente.DPI + "_ArbolCapas";
 						
 						cliente.ABBCapas.DrawGraph(cliente.ABBCapas.raiz,name);
-						cliente.generate_struc.add(name);
+						boolean repetido= false;
+						for (String String : cliente.generate_struc) {
+							if(String.equals(name)) {
+								repetido=true;
+							}
+						}
+						if(!repetido) {
+							cliente.generate_struc.add(name);
+						}
 						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 
 					} else if (comboBox_viewestruct.getSelectedItem() == "Listado de albumes") {
@@ -515,7 +544,15 @@ public class Client_Module extends JFrame {
 						
 						cliente.Album_list.graph(name);
 						
-						cliente.generate_struc.add(name);
+						boolean repetido= false;
+						for (String String : cliente.generate_struc) {
+							if(String.equals(name)) {
+								repetido=true;
+							}
+						}
+						if(!repetido) {
+							cliente.generate_struc.add(name);
+						}
 						updateImg(comboBox_estrucgenerates,"Arbol de imagenes",cliente);
 						
 
@@ -783,7 +820,7 @@ public class Client_Module extends JFrame {
 				}
 
 				cliente.Album_list.insernews(cliente.Album_list.SearchValidacionNode(name), images);
-
+				cliente.Album_list.validacion_existenimg(cliente);
 				/*
 				 * for (Object object2 : images) { Integer img_no =((Long) object2).intValue();
 				 * System.out.println(img_no);

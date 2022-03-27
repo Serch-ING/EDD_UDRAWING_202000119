@@ -3,13 +3,13 @@ nodesep=0;
 ranksep=0.4;
 node[style = filled fillcolor="#F788DF"];
 	NodoABB0[ label="0"  ];
-Invisible603712984[style=invis];
-NodoABB0-> Invisible603712984[arrowsize=0 style= invisible] 
+Invisible1607531427[style=invis];
+NodoABB0-> Invisible1607531427[arrowsize=0 style= invisible] 
 	NodoABB1[ label="1" ];
 NodoABB0->NodoABB1
 	NodoABB1[ label="1"  ];
-Invisible985115094[style=invis];
-NodoABB1-> Invisible985115094[arrowsize=0 style= invisible] 
-Invisible985115094[style=invis];
-NodoABB1-> Invisible985115094[arrowsize=0 style= invisible] 
+Invisible2050560346[style=invis];
+NodoABB1-> Invisible2050560346[arrowsize=0 style= invisible] 
+Invisible2050560346[style=invis];
+NodoABB1-> Invisible2050560346[arrowsize=0 style= invisible] 
 }

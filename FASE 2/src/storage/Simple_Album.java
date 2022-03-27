@@ -4,7 +4,11 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
+
 import org.json.simple.JSONArray;
+
+import objects.Clients;
 
 
 
@@ -16,6 +20,23 @@ public class Simple_Album {
 
 	public Simple_Album() {
 		this.primero = null;
+	}
+	
+	public void validacion_existenimg(Clients cliente) {
+		boolean validacion = false;
+		if (isNone() == false) {
+			Nodo_Simple actual = this.primero;
+			
+			while (actual != null) {
+				validacion = actual.Sublist.validacion_existe(cliente);
+				if(validacion) {
+					JOptionPane.showMessageDialog(null, "Se descarton imagenes inexistentes de album: " + actual.info);
+				}
+				actual = actual.next;
+			}
+		}
+		
+		
 	}
 	
 	public Object[][] data_toshow() {

@@ -156,6 +156,17 @@ public class Arbol_AVL {
 			}
 		}
 	}
+	
+	public boolean validandoALbum(int id) {
+		this.buscado = null;
+		Search(this.root, id);
+		
+		if (this.buscado != null) {
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	public void Search(Node root, int id) {
 		if (root != null) {
@@ -176,11 +187,12 @@ public class Arbol_AVL {
 		return current;
 	}
 
-	private Node deleteNode(Node root, int value) {
+	public Node deleteNode(Node root, int value) {
 
-		if (root == null)
+		if (root == null) {
+			
 			return root;
-
+		}
 		if (value < root.value)
 			root.left = deleteNode(root.left, value);
 
@@ -212,6 +224,7 @@ public class Arbol_AVL {
 
 				root.right = deleteNode(root.right, temp.value);
 			}
+			JOptionPane.showMessageDialog(null, "Se elimino la imagen: "+value);
 		}
 
 		if (root == null)
@@ -492,32 +505,27 @@ public class Arbol_AVL {
 			next = new ArrayList<Node>(elements);
 		}
 	}
-	/*
-	 * public static <T> void main(String args[]) {
-	 * 
-	 * Arbol_AVL t = new Arbol_AVL();
-	 * 
-	 * //int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 }; int[] edad = { 3, 1,
-	 * 2,11}; while (true) { System.out.println("(1) Insert");
-	 * System.out.println("(2) Delete");
-	 * 
-	 * try { BufferedReader bufferRead = new BufferedReader(new
-	 * InputStreamReader(System.in)); String s = bufferRead.readLine();
-	 * 
-	 * if (Integer.parseInt(s) == 1) { System.out.print("Value to be inserted: \n");
-	 * 
-	 * for (int i : edad) {
-	 * 
-	 * t.root = t.insert(t.root, i,null); } // root = t.insert(root,
-	 * Integer.parseInt(bufferRead.readLine())); } else if (Integer.parseInt(s) ==
-	 * 2) { System.out.print("Value to be deleted: "); t.root = t.deleteNode(t.root,
-	 * Integer.parseInt(bufferRead.readLine())); } else {
-	 * System.out.println("Invalid choice, try again!"); continue; }
-	 * 
-	 * t.print(t.root); //t.DrawGraph(t.root); t.PrintNiveles(t.root); } catch
-	 * (IOException e) { e.printStackTrace(); } }
-	 * 
-	 * }
-	 */
+	
+    public static <T> void main(String args[]) {
+    	LinkedList<Integer> capas_list = new LinkedList<Integer>();
+    	capas_list.add(1);
+        Arbol_AVL t = new Arbol_AVL();
+		
+        
+        int[ ] edad = {50,8,9,30,11,1,15,5,33,88};  
+		
+		for (int i : edad) {
+			t.root = t.insert(t.root, i, capas_list);
+		}
+		
+		t.root = t.deleteNode(t.root, 33);
+		//t.PrintNiveles(t.root);
+		 //t.print(t.root);
+		t.PrintNiveles(t.root);
+		System.out.println("/////////////////////");
+		
+			
+	
 
-}
+     }
+    }
