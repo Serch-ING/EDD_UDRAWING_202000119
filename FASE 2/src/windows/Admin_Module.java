@@ -31,6 +31,8 @@ import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
 import javax.swing.JTextField;
@@ -67,7 +69,7 @@ public class Admin_Module extends JFrame {
 	public Admin_Module(Storage storage) {
 		String[] Colums_table1 = { "DPI", "Nombre", "Password", "Cantidad de imagenes", "Cantidad de capas","Cantidad de Albumes" };
 		String[] Colums_table2 = { "Album", "Imagenes" };
-		String[] Colums_table3 = {"New column", "New column", "New column"};
+		String[] Colums_table3 = {"Cliente", "DPI", "Total de imagenes"};
 
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
@@ -382,7 +384,23 @@ public class Admin_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if (comboBox_estrucgenerates.getSelectedItem() == "Listar clientes") {
+						Queue<Clients> info ;
+						info =storage.ClientesB.print_start(storage.ClientesB.raiz.primero);
+						Object[][] list = new Object[info.size()][3];
+						int contador = 0;
 						
+						while (info.peek() != null) {
+							Clients temp = info.poll();
+							
+							list[contador][0] = temp.Name;
+							list[contador][1] = temp.DPI;
+							
+							Object  no_images = temp.AVLImages.cantidad_images();
+							list[contador][2] = no_images;
+							
+							contador++;
+						}
+						table_3.setModel(new DefaultTableModel(list,Colums_table3));
 						
 					} else if (comboBox_estrucgenerates.getSelectedItem() == "Buscar cliente por id") {
 						Long id = Long.valueOf(textField_id_searching.getText());

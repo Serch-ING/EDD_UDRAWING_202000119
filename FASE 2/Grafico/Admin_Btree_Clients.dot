@@ -1,10 +1,14 @@
 digraph structs {
   bgcolor = "#E3FFFA"
  node [shape=Mrecord fillcolor="#FFE3FF" style =filled];
-struct1955638246[label="{{DPI:4999062130101\nName:Estructura de datos}|<here>}"];
-struct1250075467[label="{{DPI:2299062130101\nName:Matematica Basica 1|DPI: 2999062130101\nName:Mario Bross|DPI: 3000523830101\nName:Serchi|DPI: 3999062130101\nName:Sonic}|<here>}"];
-struct353179037[label="{{DPI:6999062130101\nName:Lenguajes Formales y de Programacion|DPI: 7999062130101\nName:Estructura de datos|DPI: 8999062130101\nName:Compiladores 1|DPI: 9999062130101\nName:Compiladores 2}|<here>}"];
+struct1312041202[label="{{DPI:1234567890123\nName:Mario Bross|DPI: 4999062130101\nName:AUX EDD|DPI: 7999062130101\nName:Estructura de datos}|<here>}"];
+struct222338922[label="{{DPI:3\nName:ni idea|DPI: 132\nName:Sergie}|<here>}"];
+struct418354459[label="{{DPI:2299062130101\nName:Matematica Basica 1|DPI: 2999062130101\nName:Mario Bross|DPI: 3999062130101\nName:Sonic}|<here>}"];
+struct463907292[label="{{DPI:6745567890123\nName:cliente 2|DPI: 6999062130101\nName:Lenguajes Formales y de Programacion}|<here>}"];
+struct1958371810[label="{{DPI:8999062130101\nName:Compiladores 1|DPI: 9999062130101\nName:Compiladores 2}|<here>}"];
 
-struct1955638246->struct1250075467;
-struct1955638246->struct353179037;
+struct1312041202->struct222338922;
+struct1312041202->struct418354459;
+struct1312041202->struct463907292;
+struct1312041202->struct1958371810;
 }

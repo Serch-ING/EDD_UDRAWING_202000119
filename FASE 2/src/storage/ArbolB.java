@@ -141,6 +141,44 @@ public class ArbolB {
 		return Nuevito;
 	}
 //Propios-----------------------------------------------------------------------------------------------------------------------------------------
+	public Queue<Clients>  print_start(NodoB primero) {
+		info = new LinkedList<Clients>();
+		
+		System.out.println("Recorrer por niveles");
+		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
+		cola_nodos.offer(primero);
+
+		while (cola_nodos.peek() != null) {
+			imprimircompleto(cola_nodos.poll(), cola_nodos);
+		}
+		
+		return info;
+	}
+
+	public void imprimircompleto(NodoB primero, Queue<NodoB> cola_nodos) {
+
+		NodoB aux = primero;
+
+		while (aux != null) {
+
+			String temp = (aux.siguiente == null) ? aux.id + "\n" : aux.id + ", ";
+			System.out.print(temp);
+			info.offer(aux.cliente);
+
+			if (aux.izquierda != null) {
+				cola_nodos.offer(aux.izquierda.primero);
+			}
+
+			if (aux.derecha != null && aux.siguiente == null ) {
+				cola_nodos.offer(aux.derecha.primero);
+			}
+		
+			aux = aux.siguiente;
+
+		}
+	}
+	
+	
 
 	public void buscar(NodoB primero, Long id, String name, String Password) {
 		NodoB temp = buscar_start(primero, id);
