@@ -35,6 +35,9 @@ import javax.swing.JFileChooser;
 import storage.*;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Client_Module extends JFrame {
 
@@ -46,6 +49,10 @@ public class Client_Module extends JFrame {
 	private JTextField textField_idinser;
 	private JTextField textField_layersInsert;
 	private JTextField textField_IdDelete;
+	private JTable table_listar;
+	private JTable table_top5;
+	private JTable table_capashojas;
+	private JTable table_profundidad;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -55,6 +62,11 @@ public class Client_Module extends JFrame {
 	 */
 
 	public Client_Module(Storage storage, Clients cliente) {
+		String[] Colums_table1 = { "Profundida del arbol de capas" };
+		String[] Colums_table2 = { "Top 5 imgenes con mas capas", "no. de capas" };
+		String[] Colums_table3 = {"Capas que son hojas"};
+		String[] Colums_table4 = {"preorden", "inorden", "postorden"};
+		
 		// JOptionPane.showMessageDialog(null, "Bienvenido: " + cliente.Name + " DPI: "
 		// + cliente.DPI );
 		JFileChooser fc = new JFileChooser();
@@ -442,6 +454,107 @@ public class Client_Module extends JFrame {
 		
 		btnVer.setBounds(332, 131, 89, 23);
 		panel_5.add(btnVer);
+		
+		JPanel PANELEX = new JPanel();
+		tabbedPane.addTab("New tab", null, PANELEX, null);
+		PANELEX.setLayout(null);
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setLayout(null);
+		panel_9.setBackground(Color.LIGHT_GRAY);
+		panel_9.setBounds(1209, 11, 440, 787);
+		PANELEX.add(panel_9);
+		
+		JLabel lblNewLabel_2_3 = new JLabel("Listar capas");
+		lblNewLabel_2_3.setBounds(10, 11, 200, 14);
+		panel_9.add(lblNewLabel_2_3);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 36, 420, 740);
+		panel_9.add(scrollPane);
+		
+		table_listar = new JTable();
+		table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
+		scrollPane.setViewportView(table_listar);
+		
+		JPanel panel_9_1 = new JPanel();
+		panel_9_1.setLayout(null);
+		panel_9_1.setBackground(Color.LIGHT_GRAY);
+		panel_9_1.setBounds(517, 11, 345, 165);
+		PANELEX.add(panel_9_1);
+		
+		JLabel lblNewLabel_2_3_1 = new JLabel("Top 5 imagenes con mas capas");
+		lblNewLabel_2_3_1.setBounds(10, 11, 200, 14);
+		panel_9_1.add(lblNewLabel_2_3_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 39, 325, 115);
+		panel_9_1.add(scrollPane_1);
+		
+		table_top5 = new JTable();
+		scrollPane_1.setViewportView(table_top5);
+		table_top5.setModel(new DefaultTableModel(new Object[][] {{null},{null},{null},{null},{null},},Colums_table2));
+		
+		JPanel panel_9_1_1 = new JPanel();
+		panel_9_1_1.setLayout(null);
+		panel_9_1_1.setBackground(Color.LIGHT_GRAY);
+		panel_9_1_1.setBounds(872, 11, 327, 787);
+		PANELEX.add(panel_9_1_1);
+		
+		JLabel lblNewLabel_2_3_1_1 = new JLabel("capas que son hojas");
+		lblNewLabel_2_3_1_1.setBounds(10, 11, 200, 14);
+		panel_9_1_1.add(lblNewLabel_2_3_1_1);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(10, 36, 307, 740);
+		panel_9_1_1.add(scrollPane_2);
+		
+		table_capashojas = new JTable();
+		table_capashojas.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table3));
+		scrollPane_2.setViewportView(table_capashojas);
+		
+		JPanel panel_9_1_2 = new JPanel();
+		panel_9_1_2.setLayout(null);
+		panel_9_1_2.setBackground(Color.LIGHT_GRAY);
+		panel_9_1_2.setBounds(517, 187, 345, 165);
+		PANELEX.add(panel_9_1_2);
+		
+		JLabel lblNewLabel_2_3_1_2 = new JLabel("Profundidad del arbol de capas");
+		lblNewLabel_2_3_1_2.setBounds(10, 11, 200, 14);
+		panel_9_1_2.add(lblNewLabel_2_3_1_2);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(10, 36, 325, 118);
+		panel_9_1_2.add(scrollPane_3);
+		
+		table_profundidad = new JTable();
+		scrollPane_3.setViewportView(table_profundidad);
+		table_profundidad.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table1));
+		
+		JButton btnNewButton_generate_reports = new JButton("Generar reportes");
+		
+		btnNewButton_generate_reports.setBounds(10, 133, 149, 23);
+		PANELEX.add(btnNewButton_generate_reports);
+		
+		JLabel lblNewLabel_2_3_1_2_1 = new JLabel("Reportes a generar");
+		lblNewLabel_2_3_1_2_1.setBounds(10, 11, 200, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1);
+		
+		JLabel lblNewLabel_2_3_1_2_1_1 = new JLabel("\u25CF Top 5 de ima\u0301genes con ma\u0301s nu\u0301mero de capas");
+		lblNewLabel_2_3_1_2_1_1.setBounds(10, 61, 356, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_1);
+		
+		JLabel lblNewLabel_2_3_1_2_1_2 = new JLabel("\u25CF Todas las capas que son hojas");
+		lblNewLabel_2_3_1_2_1_2.setBounds(10, 83, 336, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_2);
+		
+		JLabel lblNewLabel_2_3_1_2_1_3 = new JLabel("\u25CF Profundidad de a\u0301rbol de capas");
+		lblNewLabel_2_3_1_2_1_3.setBounds(10, 36, 317, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_3);
+		
+		JLabel lblNewLabel_2_3_1_2_1_1_1 = new JLabel("\u25CF Listar las capas en: preorden, inorden, postorden");
+		lblNewLabel_2_3_1_2_1_1_1.setBounds(10, 108, 356, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_1_1);
 
 		JButton btnNewButton = new JButton("Cerrar sesion");
 
@@ -449,6 +562,23 @@ public class Client_Module extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// buttons=---------------------------------------------------------------------------------------------------------------------
+		btnNewButton_generate_reports.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					System.out.println("funciona");
+					table_profundidad.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table1));
+					table_top5.setModel(new DefaultTableModel(new Object[][] {{null},{null},{null},{null},{null},},Colums_table2));
+					table_capashojas.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table3));
+					table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Ocurrio un erro, data insuficinete para reportes");
+					System.out.println(e2);
+				}
+				
+			}
+		});
+		
 		Button_DeleteImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
