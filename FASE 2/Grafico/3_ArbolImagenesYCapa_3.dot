@@ -1,0 +1,109 @@
+digraph G {
+nodesep=0; 
+ranksep=0.4;
+node[style = filled fillcolor="#88E1F7"];
+	NodoAVL3[ label="3"  ];
+Invisible1963899776[style=invis];
+NodoAVL3-> Invisible1963899776[arrowsize=0 style= invisible] 
+Invisible1963899776[style=invis];
+NodoAVL3-> Invisible1963899776[arrowsize=0 style= invisible] 
+
+
+node[style = filled fillcolor="#F788DF"];
+	NodoABB9[ label="9"  ];
+	NodoABB3[ label="3"];
+NodoABB9->NodoABB3
+	NodoABB3[ label="3"  ];
+	NodoABB1[ label="1"];
+NodoABB3->NodoABB1
+	NodoABB1[ label="1"  ];
+	NodoABB0[ label="0"];
+NodoABB1->NodoABB0
+	NodoABB0[ label="0"  ];
+Invisible526500490[style=invis];
+NodoABB0-> Invisible526500490[arrowsize=0 style= invisible] 
+Invisible526500490[style=invis];
+NodoABB0-> Invisible526500490[arrowsize=0 style= invisible] 
+	NodoABB2[ label="2" ];
+NodoABB1->NodoABB2
+	NodoABB2[ label="2"  ];
+Invisible1496282740[style=invis];
+NodoABB2-> Invisible1496282740[arrowsize=0 style= invisible] 
+Invisible1496282740[style=invis];
+NodoABB2-> Invisible1496282740[arrowsize=0 style= invisible] 
+	NodoABB6[ label="6" ];
+NodoABB3->NodoABB6
+	NodoABB6[ label="6"  ];
+	NodoABB4[ label="4"];
+NodoABB6->NodoABB4
+	NodoABB4[ label="4"  ];
+Invisible471550863[style=invis];
+NodoABB4-> Invisible471550863[arrowsize=0 style= invisible] 
+	NodoABB5[ label="5" ];
+NodoABB4->NodoABB5
+	NodoABB5[ label="5"  ];
+Invisible1762536183[style=invis];
+NodoABB5-> Invisible1762536183[arrowsize=0 style= invisible] 
+Invisible1762536183[style=invis];
+NodoABB5-> Invisible1762536183[arrowsize=0 style= invisible] 
+	NodoABB8[ label="8" ];
+NodoABB6->NodoABB8
+	NodoABB8[ label="8"  ];
+	NodoABB7[ label="7"];
+NodoABB8->NodoABB7
+	NodoABB7[ label="7"  ];
+Invisible2028650702[style=invis];
+NodoABB7-> Invisible2028650702[arrowsize=0 style= invisible] 
+Invisible2028650702[style=invis];
+NodoABB7-> Invisible2028650702[arrowsize=0 style= invisible] 
+Invisible1515492721[style=invis];
+NodoABB8-> Invisible1515492721[arrowsize=0 style= invisible] 
+	NodoABB15[ label="15" ];
+NodoABB9->NodoABB15
+	NodoABB15[ label="15"  ];
+	NodoABB10[ label="10"];
+NodoABB15->NodoABB10
+	NodoABB10[ label="10"  ];
+Invisible483785351[style=invis];
+NodoABB10-> Invisible483785351[arrowsize=0 style= invisible] 
+	NodoABB14[ label="14" ];
+NodoABB10->NodoABB14
+	NodoABB14[ label="14"  ];
+	NodoABB12[ label="12"];
+NodoABB14->NodoABB12
+	NodoABB12[ label="12"  ];
+	NodoABB11[ label="11"];
+NodoABB12->NodoABB11
+	NodoABB11[ label="11"  ];
+Invisible76821112[style=invis];
+NodoABB11-> Invisible76821112[arrowsize=0 style= invisible] 
+Invisible76821112[style=invis];
+NodoABB11-> Invisible76821112[arrowsize=0 style= invisible] 
+	NodoABB13[ label="13" ];
+NodoABB12->NodoABB13
+	NodoABB13[ label="13"  ];
+Invisible718696084[style=invis];
+NodoABB13-> Invisible718696084[arrowsize=0 style= invisible] 
+Invisible718696084[style=invis];
+NodoABB13-> Invisible718696084[arrowsize=0 style= invisible] 
+Invisible1415027106[style=invis];
+NodoABB14-> Invisible1415027106[arrowsize=0 style= invisible] 
+	NodoABB18[ label="18" ];
+NodoABB15->NodoABB18
+	NodoABB18[ label="18"  ];
+	NodoABB16[ label="16"];
+NodoABB18->NodoABB16
+	NodoABB16[ label="16"  ];
+Invisible1743077485[style=invis];
+NodoABB16-> Invisible1743077485[arrowsize=0 style= invisible] 
+	NodoABB17[ label="17" ];
+NodoABB16->NodoABB17
+	NodoABB17[ label="17"  ];
+Invisible1111996699[style=invis];
+NodoABB17-> Invisible1111996699[arrowsize=0 style= invisible] 
+Invisible1111996699[style=invis];
+NodoABB17-> Invisible1111996699[arrowsize=0 style= invisible] 
+Invisible1543294217[style=invis];
+NodoABB18-> Invisible1543294217[arrowsize=0 style= invisible] 
+NodoAVL3->NodoABB9[label="CAPAS,RAIZ"]
+}

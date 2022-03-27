@@ -43,6 +43,9 @@ public class Client_Module extends JFrame {
 	private JTextField textField_IDtreeImg;
 	private JTextField textField_layers;
 	private JTextField textField_idlayer;
+	private JTextField textField_idinser;
+	private JTextField textField_layersInsert;
+	private JTextField textField_IdDelete;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -337,6 +340,63 @@ public class Client_Module extends JFrame {
 		JPanel panel_4 = new JPanel();
 		tabbedPane.addTab("Registro y eliminacion de imagenes", null, panel_4, null);
 		panel_4.setLayout(null);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(Color.LIGHT_GRAY);
+		panel_6.setBounds(10, 11, 298, 426);
+		panel_4.add(panel_6);
+		panel_6.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("Insertar imagense");
+		lblNewLabel_3.setBounds(10, 11, 130, 14);
+		panel_6.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("ID de imagen:");
+		lblNewLabel_3_1.setBounds(10, 48, 130, 14);
+		panel_6.add(lblNewLabel_3_1);
+		
+		textField_idinser = new JTextField();
+		textField_idinser.setBounds(10, 73, 238, 20);
+		panel_6.add(textField_idinser);
+		textField_idinser.setColumns(10);
+		
+		JLabel lblNewLabel_3_1_1 = new JLabel("Capas de la imagen separadas por comas \",\"");
+		lblNewLabel_3_1_1.setBounds(10, 119, 278, 14);
+		panel_6.add(lblNewLabel_3_1_1);
+		
+		textField_layersInsert = new JTextField();
+		textField_layersInsert.setColumns(10);
+		textField_layersInsert.setBounds(10, 144, 238, 20);
+		panel_6.add(textField_layersInsert);
+		
+		JButton Button_insertnewImage = new JButton("Agregar");
+		
+		Button_insertnewImage.setBounds(83, 193, 89, 23);
+		panel_6.add(Button_insertnewImage);
+		
+		JPanel panel_6_1 = new JPanel();
+		panel_6_1.setLayout(null);
+		panel_6_1.setBackground(Color.LIGHT_GRAY);
+		panel_6_1.setBounds(318, 11, 310, 426);
+		panel_4.add(panel_6_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Eliminar imagense");
+		lblNewLabel_3_2.setBounds(10, 11, 130, 14);
+		panel_6_1.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_1_2 = new JLabel("ID de imagen:");
+		lblNewLabel_3_1_2.setBounds(10, 36, 130, 14);
+		panel_6_1.add(lblNewLabel_3_1_2);
+		
+		textField_IdDelete = new JTextField();
+		textField_IdDelete.setColumns(10);
+		textField_IdDelete.setBounds(10, 61, 238, 20);
+		panel_6_1.add(textField_IdDelete);
+		
+		JButton Button_DeleteImg = new JButton("Eliminar");
+		
+		Button_DeleteImg.setBounds(97, 92, 89, 23);
+		panel_6_1.add(Button_DeleteImg);
 
 		JPanel panel_5 = new JPanel();
 		tabbedPane.addTab("Visualizar estructuras", null, panel_5, null);
@@ -388,7 +448,35 @@ public class Client_Module extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// buttons=---------------------------------------------------------------------------------------------------------------------
+		Button_DeleteImg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String id = textField_IdDelete.getText();
+			}
+		});
 		
+		Button_insertnewImage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String id = textField_idinser.getText();
+					String layers = textField_layersInsert.getText();
+					String[] layer_ind = layers.split(",");
+					LinkedList<Integer> capas_list = new LinkedList<Integer>();
+					int id_int = Integer.valueOf(id);
+					
+					for (String i : layer_ind) {
+						int temp = Integer.valueOf(i);
+						capas_list.add(temp);
+					}
+					
+					JOptionPane.showMessageDialog(null, "Imagen con id: " + id + " ingresada");
+					cliente.AVLImages.root = cliente.AVLImages.insert(cliente.AVLImages.root, id_int, capas_list);
+					
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Ocurrio un error, verificar que las estructuras tengan datos o colocar un numero en id");
+				}
+			}
+		});
 		btnVer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = comboBox_estrucgenerates.getSelectedItem().toString();

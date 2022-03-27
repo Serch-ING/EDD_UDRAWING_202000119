@@ -143,5 +143,30 @@ public class RamaB {
 
 		}
 	}
+	
+
+
+	public void asdadasdd(NodoB primero,Long id) {
+
+		NodoB aux = primero;
+
+		while (aux != null) {
+
+			System.out.println(aux.id + ", ");
+			if(aux.id == id) {
+				System.out.println("ENCONTRADO:" + id);
+			}
+			
+			if (aux.izquierda != null) {
+				asdadasdd(aux.izquierda.primero,id);
+			}
+
+			if (aux.derecha != null && aux.siguiente == null ) {
+				asdadasdd(aux.derecha.primero,id);
+			}
+		
+			aux = aux.siguiente;
+		}
+	}
 
 }

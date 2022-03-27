@@ -172,13 +172,9 @@ public class ArbolB {
 			if (aux.derecha != null && aux.siguiente == null ) {
 				cola_nodos.offer(aux.derecha.primero);
 			}
-		
 			aux = aux.siguiente;
-
 		}
 	}
-	
-	
 
 	public void buscar(NodoB primero, Long id, String name, String Password) {
 		NodoB temp = buscar_start(primero, id);

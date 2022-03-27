@@ -70,8 +70,10 @@ public class Arbol_Binario {
 	
 
 	public void GenerarArbol(Nodo_ABB actual) {
+		dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"  ];\n");
+		
 		if (actual.izquierda != null) {
-			dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"  ];\n");
+			
 			dot += ("	NodoABB" + actual.izquierda.dato + "[ label=\"" + actual.izquierda.dato + "\"];\n");
 			dot += "NodoABB" + actual.dato + "->NodoABB" + actual.izquierda.dato + "\n";
 			GenerarArbol(actual.izquierda);
@@ -82,7 +84,7 @@ public class Arbol_Binario {
 		}
 		
 		if (actual.derecha != null) {
-			dot += ("	NodoABB" + actual.dato + "[ label=\"" + actual.dato + "\"];\n");
+			
 			dot += ("	NodoABB" + actual.derecha.dato + "[ label=\"" + actual.derecha.dato + "\" ];\n");
 			dot += "NodoABB" + actual.dato + "->NodoABB" + actual.derecha.dato + "\n";
 			GenerarArbol(actual.derecha);
@@ -166,7 +168,7 @@ public class Arbol_Binario {
 				this.insertar(padre.getDerecha(), dato,Nodos_new);
 			}
 		}else if(dato == padre.getDato() ) {
-			JOptionPane.showMessageDialog(null, "Id de imagen repetida");
+			JOptionPane.showMessageDialog(null, "Id de imagen repetida: " + dato);
 			//padre.Nodos = Nodos_new;
 		} else {
 			if (padre.getIzquierda() == null) {

@@ -50,7 +50,7 @@ public class Arbol_AVL {
 			node.left = insert(node.left, value, capas_list);
 		} else if (value == node.value) {
 			
-			JOptionPane.showMessageDialog(null, "Id de capa repetida");
+			JOptionPane.showMessageDialog(null, "Id de capa repetida: " + value);
 			//node.capas_list = capas_list;
 		} else {
 			node.right = insert(node.right, value, capas_list);
@@ -374,8 +374,10 @@ public class Arbol_AVL {
 	}
 
 	public void GenerarArboGrapgh(Node actual) {
+		
+		dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"  ];\n");
 		if (actual.left != null) {
-			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"  ];\n");
+			
 			dot += ("	NodoAVL" + actual.left.value + "[ label=\"" + actual.left.value + "\"];\n");
 			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.left.value + "\n";
 			GenerarArboGrapgh(actual.left);
@@ -386,7 +388,7 @@ public class Arbol_AVL {
 		}
 
 		if (actual.right != null) {
-			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"];\n");
+			
 			dot += ("	NodoAVL" + actual.right.value + "[ label=\"" + actual.right.value + "\" ];\n");
 			dot += "NodoAVL" + actual.value + "->NodoAVL" + actual.right.value + "\n";
 			GenerarArboGrapgh(actual.right);
