@@ -140,7 +140,7 @@ public class ArbolB {
 		Nuevito.izquierda = rizquierda;
 		return Nuevito;
 	}
-//Propios
+//Propios-----------------------------------------------------------------------------------------------------------------------------------------
 
 	public void buscar(NodoB primero, Long id, String name, String Password) {
 		NodoB temp = buscar_start(primero, id);
@@ -163,6 +163,8 @@ public class ArbolB {
 		}
 	}
 
+	
+	
 	public NodoB buscar_start(NodoB primero, Long id) {
 
 		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();

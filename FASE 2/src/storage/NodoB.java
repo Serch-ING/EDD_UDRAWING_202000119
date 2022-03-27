@@ -15,7 +15,7 @@ public class NodoB {
 
     //Valores
     Long id;
-    Clients cliente;
+    public Clients cliente;
     //Apuntadores
     NodoB siguiente;
     NodoB anterior;

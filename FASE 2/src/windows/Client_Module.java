@@ -486,7 +486,7 @@ public class Client_Module extends JFrame {
 					if (comboBox.getSelectedItem() == "Capas") {
 						ReadLayers(label_ruta.getText(), storage, cliente);
 						int  no = cliente.ABBCapas.cantidad_images();
-						System.out.println("No iamges: " + no);
+						System.out.println("No capas: " + no);
 
 					} else if (comboBox.getSelectedItem() == "Imagenes") {
 						ReadImages(label_ruta.getText(), storage, cliente);
@@ -497,7 +497,7 @@ public class Client_Module extends JFrame {
 						ReadAlbums(label_ruta.getText(), storage, cliente);
 						cliente.Album_list.cantidad_albums();
 						System.out.println("Canrida de albums: " + cliente.Album_list.albums.size());
-						cliente.Album_list.recorrardata();
+						//cliente.Album_list.recorrardata();
 						
 
 					}

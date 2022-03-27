@@ -12,9 +12,41 @@ import org.json.simple.JSONArray;
 public class Simple_Album {
 	public LinkedList<String> albums = new LinkedList<String>();
 	Nodo_Simple primero;
+	Object[][] data;
 
 	public Simple_Album() {
 		this.primero = null;
+	}
+	
+	public Object[][] data_toshow() {
+		data = new Object[albums.size()][2];
+		int contador = 0;
+		
+		if (isNone() == false) {
+			Nodo_Simple actual = this.primero;
+			
+			while (actual != null) {
+				data[contador][0] = actual.info;
+				System.out.println("Album: " + actual.info);
+				
+				String temp="";
+				
+				for (String i : actual.images) {
+					temp += i +" , ";
+					System.out.println(i);
+				}
+				if(temp.equals("")) {
+					data[contador][1] = "Vacio";
+				}else {
+					data[contador][1] = temp;
+				}
+				
+				contador++;
+				actual = actual.next;
+			}
+		}
+		
+		return data;
 	}
 
 	public void insert(String info) {
@@ -41,11 +73,13 @@ public class Simple_Album {
 	}
 	
 	public void cantidad_albums() {
+		albums = new LinkedList<String>();
 		if (isNone() == false) {
 			Nodo_Simple actual = this.primero;
 			while (actual != null) {
 				albums.add(actual.info);
 				System.out.println(actual.info);
+				actual.images = new LinkedList<String>();
 				if(actual.Sublist.isNone() == false) {
 					System.out.println("->");
 					actual.images = actual.Sublist.catindad_imagenes();

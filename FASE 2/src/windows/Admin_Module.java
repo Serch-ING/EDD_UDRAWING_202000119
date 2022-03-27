@@ -1,22 +1,18 @@
 package windows;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.xml.transform.Source;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.deser.impl.ObjectIdReferenceProperty;
 
 import objects.Clients;
+import storage.NodoB;
 import storage.Storage;
 
 import javax.swing.JTabbedPane;
@@ -37,12 +33,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.awt.event.ActionEvent;
 import java.awt.TextArea;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Panel;
 import javax.swing.JScrollPane;
 
 public class Admin_Module extends JFrame {
@@ -58,9 +52,10 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_View_Name;
 	private JTextField textField_View_Password;
 	private JTextField textField_View_DPI;
-	private JTextField textField_1;
+	private JTextField textField_id_searching;
 	private JTable table;
-	private JTable table_1;
+	private JTable table_2;
+	private JTable table_3;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -70,6 +65,10 @@ public class Admin_Module extends JFrame {
 	 */
 
 	public Admin_Module(Storage storage) {
+		String[] Colums_table1 = { "DPI", "Nombre", "Password", "Cantidad de imagenes", "Cantidad de capas","Cantidad de Albumes" };
+		String[] Colums_table2 = { "Album", "Imagenes" };
+		String[] Colums_table3 = {"New column", "New column", "New column"};
+
 		JFileChooser fc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON", "JSON");
 		fc.setFileFilter(filter);
@@ -183,7 +182,7 @@ public class Admin_Module extends JFrame {
 		panel_5.add(textField_DPI_search);
 
 		JButton btnBuscarYModificar = new JButton("Buscar y modificar");
-		
+
 		btnBuscarYModificar.setBounds(170, 173, 155, 23);
 		panel_5.add(btnBuscarYModificar);
 
@@ -302,54 +301,76 @@ public class Admin_Module extends JFrame {
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Reportes", null, panel_3, null);
 		panel_3.setLayout(null);
-		
+
 		JComboBox<String> comboBox_estrucgenerates = new JComboBox<String>();
+		comboBox_estrucgenerates.setModel(
+				new DefaultComboBoxModel<String>(new String[] { "Listar clientes", "Buscar cliente por id" }));
 		comboBox_estrucgenerates.setBounds(10, 51, 206, 22);
 		panel_3.add(comboBox_estrucgenerates);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(226, 52, 113, 20);
-		panel_3.add(textField_1);
-		textField_1.setColumns(10);
-		
+
+		textField_id_searching = new JTextField();
+		textField_id_searching.setBounds(226, 52, 143, 20);
+		panel_3.add(textField_id_searching);
+		textField_id_searching.setColumns(10);
+
+		String[] rows__table1 = new String[0];
+
+		JButton btnNewButton_1 = new JButton("Generar reporte");
+
+		btnNewButton_1.setBounds(379, 51, 138, 23);
+		panel_3.add(btnNewButton_1);
+
+		JPanel panel_8 = new JPanel();
+		panel_8.setBackground(Color.LIGHT_GRAY);
+		panel_8.setBounds(527, 26, 948, 757);
+		panel_3.add(panel_8);
+		panel_8.setLayout(null);
+
+		JLabel lblNewLabel_2 = new JLabel("Informacion del cliente  buscado");
+		lblNewLabel_2.setBounds(10, 11, 200, 14);
+		panel_8.add(lblNewLabel_2);
+
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(541, 37, 934, 72);
-		panel_3.add(scrollPane);
-		
+		scrollPane.setBounds(10, 36, 934, 72);
+		panel_8.add(scrollPane);
+
 		table = new JTable();
-		
-		
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null},
-			},
-			new String[] {
-				"DPI", "Nombre", "Password", "Cantidad de imagenes", "Cantidad de capas", "Cantidad de Albumes"
-			}
-		) 
-			
-		);
-		
-		
+		table.setModel(
+				new DefaultTableModel(new Object[][] { { null, null, null, null, null, null }, }, Colums_table1));
+
 		table.getColumnModel().getColumn(1).setResizable(false);
 		scrollPane.setViewportView(table);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(541, 159, 934, 624);
-		panel_3.add(scrollPane_1);
+		scrollPane_1.setBounds(125, 133, 689, 613);
+		panel_8.add(scrollPane_1);
+
+		table_2 = new JTable();
+		table_2.setModel(new DefaultTableModel(new Object[][] { { null, null }, }, Colums_table2));
+
+		scrollPane_1.setViewportView(table_2);
+
+		JPanel panel_9 = new JPanel();
+		panel_9.setBackground(Color.LIGHT_GRAY);
+		panel_9.setBounds(10, 105, 507, 678);
+		panel_3.add(panel_9);
+		panel_9.setLayout(null);
+
+		JLabel lblNewLabel_2_3 = new JLabel("Clientes del arbol B por niveles");
+		lblNewLabel_2_3.setBounds(10, 11, 200, 14);
+		panel_9.add(lblNewLabel_2_3);
+
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(10, 36, 487, 631);
+		panel_9.add(scrollPane_2);
+
+		table_3 = new JTable();
+		table_3.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table3));
+		scrollPane_2.setViewportView(table_3);
 		
-		table_1 = new JTable();
-		
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-			},
-			new String[] {
-				"Capa", "Imagenes"
-			}
-		));
-		
-		scrollPane_1.setViewportView(table_1);
+		JLabel lblNewLabel_2_4 = new JLabel("DPI buscado");
+		lblNewLabel_2_4.setBounds(225, 37, 200, 14);
+		panel_3.add(lblNewLabel_2_4);
 
 		JButton Button_closesesion = new JButton("Cerrar sesion");
 
@@ -357,6 +378,50 @@ public class Admin_Module extends JFrame {
 		contentPane.add(Button_closesesion);
 
 		// Buttons-----------------------------------------------------------------------------------------------------------
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					if (comboBox_estrucgenerates.getSelectedItem() == "Listar clientes") {
+						
+						
+					} else if (comboBox_estrucgenerates.getSelectedItem() == "Buscar cliente por id") {
+						Long id = Long.valueOf(textField_id_searching.getText());
+						
+						NodoB nodotemp = storage.ClientesB.buscar_start(storage.ClientesB.raiz.primero,id);
+						System.out.println("\n\n------Registro--------");
+						
+						Object DPI = nodotemp.cliente.DPI;
+						Object name = nodotemp.cliente.Name;
+						Object password = nodotemp.cliente.Password;
+						
+						Object  no_capas = nodotemp.cliente.ABBCapas.cantidad_images();
+						System.out.println("No capas: " + no_capas);
+						
+						Object  no_images = nodotemp.cliente.AVLImages.cantidad_images();
+						System.out.println("No iamges: " + no_images);
+						
+						nodotemp.cliente.Album_list.cantidad_albums();
+						Object  no_albums = nodotemp.cliente.Album_list.albums.size();
+						
+						System.out.println("Canrida de albums: " + no_albums);
+						
+						Object[][] data_albums = nodotemp.cliente.Album_list.data_toshow();
+						
+						table.setModel(new DefaultTableModel(new Object[][] { {  DPI, name, password, no_images, no_capas, no_albums }, }, Colums_table1));
+						table_2.setModel(new DefaultTableModel(data_albums, Colums_table2));
+					}
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
+					table.setModel(new DefaultTableModel(new Object[][] { { null, null, null, null, null, null }, }, Colums_table1));
+					table_2.setModel(new DefaultTableModel(new Object[][] { { null, null }, }, Colums_table2));
+					table_3.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table3));
+					System.out.println(e2);
+				}
+
+			}
+		});
+
 		btnBuscarYModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -365,7 +430,7 @@ public class Admin_Module extends JFrame {
 					String password = textField_Password_Modify.getText();
 					Long DPI_long = Long.valueOf(DPI);
 					storage.modifyClient(DPI_long, name, password);
-					
+
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
 					System.out.println(e2);
@@ -388,7 +453,6 @@ public class Admin_Module extends JFrame {
 						JOptionPane.showMessageDialog(null, "Se Ingreso DPI");
 						storage.InsertClients(cliente_temp, DPI_number);
 
-						
 					} else {
 						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
 					}
@@ -492,7 +556,7 @@ public class Admin_Module extends JFrame {
 					storage.InsertClients(client_new, DPI_Long);
 				}
 			}
-			 //storage.showClients();
+			// storage.showClients();
 
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;
