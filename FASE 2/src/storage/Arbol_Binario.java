@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
+import javax.swing.JOptionPane;
+
 import objects.Nodes_Colors;
 import storage.Arbol_AVL.Node;
 
@@ -146,7 +148,8 @@ public class Arbol_Binario {
 				this.insertar(padre.getDerecha(), dato,Nodos_new);
 			}
 		}else if(dato == padre.getDato() ) {
-			padre.Nodos = Nodos_new;
+			JOptionPane.showMessageDialog(null, "Id de imagen repetida");
+			//padre.Nodos = Nodos_new;
 		} else {
 			if (padre.getIzquierda() == null) {
 				padre.setIzquierda(new Nodo_ABB(dato,Nodos_new));

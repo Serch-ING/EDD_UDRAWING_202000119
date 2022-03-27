@@ -10,54 +10,49 @@ import objects.Clients;
 import storage.Arbol_Binario.Nodo_ABB;
 
 public class Arbol_AVL {
-	public Node buscado=null;
+	public Node buscado = null;
 	public Node root = null;
-	public int MaxId= 0;
+	public int MaxId = 0;
+
 	public class Node {
-	
-		
+
 		private Node left, right;
 		private int height = 1;
 		private int value;
 		LinkedList<Integer> capas_list = new LinkedList<Integer>();
-		public Arbol_Binario ABBCapas_self  = new Arbol_Binario();
-		private Node(int val,LinkedList<Integer> capas_list) {
+		public Arbol_Binario ABBCapas_self = new Arbol_Binario();
+
+		private Node(int val, LinkedList<Integer> capas_list) {
 			this.value = val;
-			this.capas_list=capas_list;
+			this.capas_list = capas_list;
 		}
-		
+
 	}
-	
-	
+
 	private int height(Node N) {
 		if (N == null)
 			return 0;
 		return N.height;
 	}
 
-	
-
-	public Node insert(Node node, int value,LinkedList<Integer> capas_list) {
-		if(value>MaxId) {
-			MaxId =value;
+	public Node insert(Node node, int value, LinkedList<Integer> capas_list) {
+		if (value > MaxId) {
+			MaxId = value;
 		}
 		if (node == null) {
-			Node Nuwvo = new Node(value,capas_list);
+			Node Nuwvo = new Node(value, capas_list);
 			ABBtree_sub(Nuwvo);
 			return (Nuwvo);
 		}
-		
-		
 
 		if (value < node.value) {
-			node.left = insert(node.left, value,capas_list);
-		} else if (value ==  node.value) {
-			node.capas_list = capas_list;
-		}else {
-			node.right = insert(node.right, value,capas_list);
+			node.left = insert(node.left, value, capas_list);
+		} else if (value == node.value) {
+			JOptionPane.showMessageDialog(null, "Id de capa repetida");
+		} else {
+			node.right = insert(node.right, value, capas_list);
 		}
-		
-	
+
 		node.height = Math.max(height(node.left), height(node.right)) + 1;
 
 		int balance = getBalance(node);
@@ -80,16 +75,14 @@ public class Arbol_AVL {
 
 		return node;
 	}
-	
+
 	public void ABBtree_sub(Node node) {
-	
-	
-			for (Integer i : node.capas_list) {
-				node.ABBCapas_self.insertar(i, null);	
-			}
-		
-		
-		//node.ABBCapas_self.Niveles(node.ABBCapas_self.raiz);
+
+		for (Integer i : node.capas_list) {
+			node.ABBCapas_self.insertar(i, null);
+		}
+
+		// node.ABBCapas_self.Niveles(node.ABBCapas_self.raiz);
 	}
 
 	private Node rightRotate(Node y) {
@@ -131,36 +124,32 @@ public class Arbol_AVL {
 			preOrder(root.right);
 		}
 	}
-	
 
-	
 	public void seraching(int id, Clients cliente, MatrizDispersa temp_Matriz) {
 		this.buscado = null;
-		Search(this.root,id);
-		List<Integer> List_int = new LinkedList<Integer>();	
-		
-		
-		if(this.buscado!=null) {
-			List_int =this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
+		Search(this.root, id);
+		List<Integer> List_int = new LinkedList<Integer>();
 
-			cliente.ABBCapas.temp="";
-			for(Integer tn :List_int) {
-				cliente.ABBCapas.busquedaListColors(tn,temp_Matriz);
-				cliente.ABBCapas.temp+= "  -> " +tn;
-				
+		if (this.buscado != null) {
+			List_int = this.buscado.ABBCapas_self.NivelesRetorno(this.buscado.ABBCapas_self.raiz);
+
+			cliente.ABBCapas.temp = "";
+			for (Integer tn : List_int) {
+				cliente.ABBCapas.busquedaListColors(tn, temp_Matriz);
+				cliente.ABBCapas.temp += "  -> " + tn;
+
 			}
-		}		
+		}
 	}
-	
-	
-	public void Search(Node root,int id) {
+
+	public void Search(Node root, int id) {
 		if (root != null) {
-			Search(root.left,id);
-			if(id == root.value) {
+			Search(root.left, id);
+			if (id == root.value) {
 				this.buscado = root;
 			}
 
-			Search(root.right,id);
+			Search(root.right, id);
 		}
 	}
 
@@ -316,57 +305,55 @@ public class Arbol_AVL {
 
 	String dot = "";
 
-	public void DrawGraph_Binary(Node root,String name,int id) {
+	public void DrawGraph_Binary(Node root, String name, int id) {
 
 		dot = "digraph G {\n";
 		dot += "nodesep=0; \n";
 		dot += "ranksep=0.4;\n";
 		dot += "node[style = filled fillcolor=\"#88E1F7\"];\n";
-		
-		
+
 		GenerarArboGrapgh(root);
-		
-		if(search_value(id)) {
-			dot +=  this.buscado.ABBCapas_self.DrawGraph_return(this.buscado.ABBCapas_self.raiz);
-			dot += "NodoAVL" + this.buscado.value + "->NodoABB" + this.buscado.ABBCapas_self.raiz.dato + "[label=\"CAPAS,RAIZ\"]\n";
-		}else {
+
+		if (search_value(id)) {
+			dot += this.buscado.ABBCapas_self.DrawGraph_return(this.buscado.ABBCapas_self.raiz);
+			dot += "NodoAVL" + this.buscado.value + "->NodoABB" + this.buscado.ABBCapas_self.raiz.dato
+					+ "[label=\"CAPAS,RAIZ\"]\n";
+		} else {
 			dot += "NodoAVL" + this.buscado.value + "->NULL\n";
 		}
 
 		dot += "}";
 
-		//System.out.println(dot);
-		generate_grapgh(name,dot);
+		// System.out.println(dot);
+		generate_grapgh(name, dot);
 	}
-	
+
 	public boolean search_value(int id) {
 		this.buscado = null;
-		Search(this.root,id);
-		
-		if(this.buscado.ABBCapas_self.raiz!=null) {
+		Search(this.root, id);
+
+		if (this.buscado.ABBCapas_self.raiz != null) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
-	public void DrawGraph(Node root,String name) {
+
+	public void DrawGraph(Node root, String name) {
 
 		dot = "digraph G {\n";
 		dot += "nodesep=0; \n";
 		dot += "ranksep=0.4;\n";
 		dot += "node[style = filled fillcolor=\"#88E1F7\"];\n";
-		
-		
+
 		GenerarArboGrapgh(root);
 
 		dot += "}";
 
-		//System.out.println(dot);
-		generate_grapgh(name,dot);
+		// System.out.println(dot);
+		generate_grapgh(name, dot);
 	}
-	
-	
+
 	public void GenerarArboGrapgh(Node actual) {
 		if (actual.left != null) {
 			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"  ];\n");
@@ -378,7 +365,7 @@ public class Arbol_AVL {
 			dot += "Invisible" + actual.hashCode() + "[style=invis];\n";
 			dot += "NodoAVL" + actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
 		}
-		
+
 		if (actual.right != null) {
 			dot += ("	NodoAVL" + actual.value + "[ label=\"" + actual.value + "\"];\n");
 			dot += ("	NodoAVL" + actual.right.value + "[ label=\"" + actual.right.value + "\" ];\n");
@@ -389,10 +376,7 @@ public class Arbol_AVL {
 			dot += "NodoAVL" + actual.value + "-> Invisible" + actual.hashCode() + "[arrowsize=0 style= invisible] \n";
 		}
 	}
-	
 
-
-	
 	public void generate_grapgh(String name, String dot) {
 		try {
 			Create_File("Grafico\\" + name + ".dot", dot);
@@ -404,7 +388,7 @@ public class Arbol_AVL {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void Create_File(String route, String contents) {
 
 		FileWriter fw = null;
@@ -424,7 +408,6 @@ public class Arbol_AVL {
 
 	}
 
-	
 	public void PrintNiveles(Node root) {
 
 		int height = root.height;
@@ -492,47 +475,45 @@ public class Arbol_AVL {
 			next = new ArrayList<Node>(elements);
 		}
 	}
-
 	/*
-		public static <T> void main(String args[]) {
-	
-		Arbol_AVL t = new Arbol_AVL();
-	
-		//int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
-		int[] edad = { 3, 1, 2,11};
-		while (true) {
-			System.out.println("(1) Insert");
-			System.out.println("(2) Delete");
-	
-			try {
-				BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-				String s = bufferRead.readLine();
-	
-				if (Integer.parseInt(s) == 1) {
-					System.out.print("Value to be inserted: \n");
-	
-					for (int i : edad) {
-						
-						t.root = t.insert(t.root, i,null);
-					}
-					// root = t.insert(root, Integer.parseInt(bufferRead.readLine()));
-				} else if (Integer.parseInt(s) == 2) {
-					System.out.print("Value to be deleted: ");
-					t.root = t.deleteNode(t.root, Integer.parseInt(bufferRead.readLine()));
-				} else {
-					System.out.println("Invalid choice, try again!");
-					continue;
+	public static <T> void main(String args[]) {
+
+	Arbol_AVL t = new Arbol_AVL();
+
+	//int[] edad = { 50, 8, 9, 30, 11, 1, 15, 5, 33, 88 };
+	int[] edad = { 3, 1, 2,11};
+	while (true) {
+		System.out.println("(1) Insert");
+		System.out.println("(2) Delete");
+
+		try {
+			BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+			String s = bufferRead.readLine();
+
+			if (Integer.parseInt(s) == 1) {
+				System.out.print("Value to be inserted: \n");
+
+				for (int i : edad) {
+					
+					t.root = t.insert(t.root, i,null);
 				}
-	
-				t.print(t.root);
-				//t.DrawGraph(t.root);
-				t.PrintNiveles(t.root);
-			} catch (IOException e) {
-				e.printStackTrace();
+				// root = t.insert(root, Integer.parseInt(bufferRead.readLine()));
+			} else if (Integer.parseInt(s) == 2) {
+				System.out.print("Value to be deleted: ");
+				t.root = t.deleteNode(t.root, Integer.parseInt(bufferRead.readLine()));
+			} else {
+				System.out.println("Invalid choice, try again!");
+				continue;
 			}
+
+			t.print(t.root);
+			//t.DrawGraph(t.root);
+			t.PrintNiveles(t.root);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	
-	}*/
-	  
+	}
+
+}*/
 
 }

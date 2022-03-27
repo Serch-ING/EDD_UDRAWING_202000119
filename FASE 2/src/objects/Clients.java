@@ -15,6 +15,9 @@ public class Clients {
 	public int ID_IMG = 0;
 	public LinkedList<String> generated_images = new LinkedList<String>();
 	public LinkedList<String> generate_struc  = new LinkedList<String>();
+	public int no_capas= 0;
+	public int no_images= 0;
+	public int no_albumes= 0;
 	
 	
 	public Clients(String Name, String Password, String DPI) {

@@ -39,6 +39,11 @@ import java.awt.event.ActionEvent;
 import java.awt.TextArea;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Panel;
+import javax.swing.JScrollPane;
 
 public class Admin_Module extends JFrame {
 
@@ -53,6 +58,9 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_View_Name;
 	private JTextField textField_View_Password;
 	private JTextField textField_View_DPI;
+	private JTextField textField_1;
+	private JTable table;
+	private JTable table_1;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -295,10 +303,53 @@ public class Admin_Module extends JFrame {
 		tabbedPane.addTab("Reportes", null, panel_3, null);
 		panel_3.setLayout(null);
 		
-		TextArea textOut_1 = new TextArea();
-		textOut_1.setEditable(false);
-		textOut_1.setBounds(439, 10, 908, 774);
-		panel_3.add(textOut_1);
+		JComboBox<String> comboBox_estrucgenerates = new JComboBox<String>();
+		comboBox_estrucgenerates.setBounds(10, 51, 206, 22);
+		panel_3.add(comboBox_estrucgenerates);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(226, 52, 113, 20);
+		panel_3.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(541, 37, 934, 72);
+		panel_3.add(scrollPane);
+		
+		table = new JTable();
+		
+		
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"DPI", "Nombre", "Password", "Cantidad de imagenes", "Cantidad de capas", "Cantidad de Albumes"
+			}
+		) 
+			
+		);
+		
+		
+		table.getColumnModel().getColumn(1).setResizable(false);
+		scrollPane.setViewportView(table);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(541, 159, 934, 624);
+		panel_3.add(scrollPane_1);
+		
+		table_1 = new JTable();
+		
+		table_1.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+			},
+			new String[] {
+				"Capa", "Imagenes"
+			}
+		));
+		
+		scrollPane_1.setViewportView(table_1);
 
 		JButton Button_closesesion = new JButton("Cerrar sesion");
 
