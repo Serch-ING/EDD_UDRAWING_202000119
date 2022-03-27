@@ -47,7 +47,6 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_Nuevo_DPI;
 	private JTextField textField_Nuevo_Name;
 	private JTextField textField_DPI_search;
-	private JTextField textField_DPI_Modify;
 	private JTextField textField_Name_Modify;
 	private JTextField textField_Password_Modify;
 	private JTextField textField;
@@ -175,52 +174,31 @@ public class Admin_Module extends JFrame {
 		textField_DPI_search.setBounds(121, 34, 237, 20);
 		panel_5.add(textField_DPI_search);
 
-		JButton Button_Search_Modify = new JButton("Buscar");
-		Button_Search_Modify.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		Button_Search_Modify.setBounds(402, 30, 89, 23);
-		panel_5.add(Button_Search_Modify);
+		JButton btnBuscarYModificar = new JButton("Buscar y modificar");
+		
+		btnBuscarYModificar.setBounds(170, 173, 155, 23);
+		panel_5.add(btnBuscarYModificar);
 
 		JLabel lblNewLabel_2_2_2 = new JLabel("Nombre cliente:");
-		lblNewLabel_2_2_2.setBounds(15, 163, 117, 14);
+		lblNewLabel_2_2_2.setBounds(15, 117, 117, 14);
 		panel_5.add(lblNewLabel_2_2_2);
-
-		JLabel lblNewLabel_2_1_2 = new JLabel("DPI:");
-		lblNewLabel_2_1_2.setBounds(51, 129, 46, 14);
-		panel_5.add(lblNewLabel_2_1_2);
-
-		textField_DPI_Modify = new JTextField();
-		textField_DPI_Modify.setEnabled(false);
-		textField_DPI_Modify.setColumns(10);
-		textField_DPI_Modify.setBounds(121, 129, 237, 20);
-		panel_5.add(textField_DPI_Modify);
 
 		textField_Name_Modify = new JTextField();
 		textField_Name_Modify.setColumns(10);
-		textField_Name_Modify.setBounds(121, 160, 237, 20);
+		textField_Name_Modify.setBounds(121, 114, 237, 20);
 		panel_5.add(textField_Name_Modify);
 
 		JLabel lblNewLabel_2_2_1_1 = new JLabel("Contrase\u00F1a:");
-		lblNewLabel_2_2_1_1.setBounds(15, 203, 117, 14);
+		lblNewLabel_2_2_1_1.setBounds(15, 142, 117, 14);
 		panel_5.add(lblNewLabel_2_2_1_1);
 
 		textField_Password_Modify = new JTextField();
 		textField_Password_Modify.setColumns(10);
-		textField_Password_Modify.setBounds(121, 200, 237, 20);
+		textField_Password_Modify.setBounds(121, 142, 237, 20);
 		panel_5.add(textField_Password_Modify);
 
-		JButton Button_Modify = new JButton("Modificar");
-		Button_Modify.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		Button_Modify.setBounds(212, 255, 89, 23);
-		panel_5.add(Button_Modify);
-
-		JLabel lblNewLabel_2_1_1_2 = new JLabel("Datos del cliente:");
-		lblNewLabel_2_1_1_2.setBounds(15, 92, 97, 14);
+		JLabel lblNewLabel_2_1_1_2 = new JLabel("Datos del cliente a modificar:  ");
+		lblNewLabel_2_1_1_2.setBounds(15, 92, 164, 14);
 		panel_5.add(lblNewLabel_2_1_1_2);
 
 		JPanel panel_6 = new JPanel();
@@ -323,21 +301,38 @@ public class Admin_Module extends JFrame {
 		contentPane.add(Button_closesesion);
 
 		// Buttons-----------------------------------------------------------------------------------------------------------
+		btnBuscarYModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String DPI = textField_DPI_search.getText();
+					String name = textField_Name_Modify.getText();
+					String password = textField_Password_Modify.getText();
+					Long DPI_long = Long.valueOf(DPI);
+					storage.modifyClient(DPI_long, name, password);
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
+					System.out.println(e2);
+				}
+			}
+		});
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 
 					String DPI = textField_Nuevo_DPI.getText();
-					String Name = textField_Nuevo_DPI.getText();
-					String Password = textField_Nuevo_DPI.getText();
+					String Name = textField_Nuevo_Name.getText();
+					String Password = textField_Nuevo_Password.getText();
 
 					if (!(DPI.equals("") | Name.equals("") | Password.equals(""))) {
 						Long DPI_number = Long.valueOf(DPI);
-						
+
 						Clients cliente_temp = new Clients(Name, Password, DPI);
+						JOptionPane.showMessageDialog(null, "Se Ingreso DPI");
 						storage.InsertClients(cliente_temp, DPI_number);
+
 						
-						JOptionPane.showMessageDialog(null, "El usuario fue ingresado correctamente");
 					} else {
 						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
 					}
@@ -362,7 +357,7 @@ public class Admin_Module extends JFrame {
 		Button_btree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				storage.ClientesB.draw_start(storage.ClientesB.raiz.primero, "Admin_Btree_Clients");
+				//storage.ClientesB.draw_start(storage.ClientesB.raiz.primero, "Admin_Btree_Clients");
 				JOptionPane.showMessageDialog(null, "Se creo grafo: arbol B de clientes");
 			}
 		});
@@ -441,7 +436,7 @@ public class Admin_Module extends JFrame {
 					storage.InsertClients(client_new, DPI_Long);
 				}
 			}
-			// storage.showClients();
+			 //storage.showClients();
 
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;
@@ -449,6 +444,7 @@ public class Admin_Module extends JFrame {
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
 			return null;
 		}
 	}

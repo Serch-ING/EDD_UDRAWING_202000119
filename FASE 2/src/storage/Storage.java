@@ -7,7 +7,7 @@ import objects.Clients;
 
 
 public class Storage {
-	public  B ClientesB = new B(5);
+	public  ArbolB ClientesB = new ArbolB();
 	public  LinkedList<Clients> List_clients  = new LinkedList<Clients>();
 	public Clients  clientJoin;
 	
@@ -23,16 +23,22 @@ public class Storage {
 	}
 	
 	public void showClients() {
-		ClientesB.raiz.print_start(ClientesB.raiz.primero);
+		//ClientesB.raiz.print_start(ClientesB.raiz.primero);
+		ClientesB.raiz.print_start_Cleintes(ClientesB.raiz.primero);
 		System.out.println("------------------------------");
 		/*for (Clients clients : List_clients) {
 			System.out.println("Cleinte DPI: " + clients.DPI + " Nombre: " + clients.Name + " contrase;a: " + clients.Password);
 		}*/
 	}
 	
+	public void modifyClient(Long id,String name,String password) {
+		ClientesB.buscar(ClientesB.raiz.primero, id, name, password);
+		
+	}
+	
+	
+	
 	public Boolean SerchClient(String name, String password) {
-		
-		
 		
 		for (Clients clients : List_clients) {
 			if (name.equals(clients.Name) && password.equals(clients.Password)) {
