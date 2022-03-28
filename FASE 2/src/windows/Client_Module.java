@@ -27,12 +27,17 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 
 import storage.*;
+import storage.Arbol_AVL.Node;
+import storage.Arbol_Binario.Nodo_ABB;
+
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.JScrollPane;
@@ -63,7 +68,7 @@ public class Client_Module extends JFrame {
 
 	public Client_Module(Storage storage, Clients cliente) {
 		String[] Colums_table1 = { "Profundida del arbol de capas" };
-		String[] Colums_table2 = { "Top 5 imgenes con mas capas", "no. de capas" };
+		String[] Colums_table2 = { "Id imagen", "no. de capas" };
 		String[] Colums_table3 = {"Capas que son hojas"};
 		String[] Colums_table4 = {"preorden", "inorden", "postorden"};
 		
@@ -427,7 +432,7 @@ public class Client_Module extends JFrame {
 		textField_idlayer.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("id de capa o imagen a visualizar");
-		lblNewLabel_2.setBounds(22, 135, 168, 14);
+		lblNewLabel_2.setBounds(22, 135, 222, 14);
 		panel_5.add(lblNewLabel_2);
 
 		JButton btnGenerar = new JButton("Generar");
@@ -480,7 +485,7 @@ public class Client_Module extends JFrame {
 		JPanel panel_9_1 = new JPanel();
 		panel_9_1.setLayout(null);
 		panel_9_1.setBackground(Color.LIGHT_GRAY);
-		panel_9_1.setBounds(517, 11, 345, 165);
+		panel_9_1.setBounds(457, 11, 345, 165);
 		PANELEX.add(panel_9_1);
 		
 		JLabel lblNewLabel_2_3_1 = new JLabel("Top 5 imagenes con mas capas");
@@ -498,7 +503,7 @@ public class Client_Module extends JFrame {
 		JPanel panel_9_1_1 = new JPanel();
 		panel_9_1_1.setLayout(null);
 		panel_9_1_1.setBackground(Color.LIGHT_GRAY);
-		panel_9_1_1.setBounds(872, 11, 327, 787);
+		panel_9_1_1.setBounds(812, 11, 387, 787);
 		PANELEX.add(panel_9_1_1);
 		
 		JLabel lblNewLabel_2_3_1_1 = new JLabel("capas que son hojas");
@@ -506,7 +511,7 @@ public class Client_Module extends JFrame {
 		panel_9_1_1.add(lblNewLabel_2_3_1_1);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(10, 36, 307, 740);
+		scrollPane_2.setBounds(10, 36, 367, 740);
 		panel_9_1_1.add(scrollPane_2);
 		
 		table_capashojas = new JTable();
@@ -516,7 +521,7 @@ public class Client_Module extends JFrame {
 		JPanel panel_9_1_2 = new JPanel();
 		panel_9_1_2.setLayout(null);
 		panel_9_1_2.setBackground(Color.LIGHT_GRAY);
-		panel_9_1_2.setBounds(517, 187, 345, 165);
+		panel_9_1_2.setBounds(457, 187, 345, 165);
 		PANELEX.add(panel_9_1_2);
 		
 		JLabel lblNewLabel_2_3_1_2 = new JLabel("Profundidad del arbol de capas");
@@ -570,6 +575,26 @@ public class Client_Module extends JFrame {
 					table_top5.setModel(new DefaultTableModel(new Object[][] {{null},{null},{null},{null},{null},},Colums_table2));
 					table_capashojas.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table3));
 					table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
+					
+					
+					Node[] list_images = cliente.AVLImages.recolecdata();
+					Object[][] List_table_top5= new Object[5][2];
+					
+					for (int i = 0; i < list_images.length; i++) {
+						if(i<5) {
+							List_table_top5[i][0]= list_images[i].value;
+							List_table_top5[i][1]= list_images[i].capas_list.size();
+							
+							System.out.println(list_images[i].value + " - " + list_images[i].capas_list.size() );
+						}else {
+							break;
+						}
+					}
+					
+					table_top5.setModel(new DefaultTableModel(List_table_top5,Colums_table2));
+					
+					
+					
 					
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Ocurrio un erro, data insuficinete para reportes");
@@ -852,6 +877,7 @@ public class Client_Module extends JFrame {
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
 
 		}
 	}
@@ -966,6 +992,7 @@ public class Client_Module extends JFrame {
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
 
 		}
 	}

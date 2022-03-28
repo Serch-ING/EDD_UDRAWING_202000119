@@ -137,6 +137,47 @@ public class Arbol_Binario {
 		}
 	}
 	
+	
+	public Nodo_ABB[]  recolecdata() {
+		Queue<Nodo_ABB> temp = new LinkedList<Nodo_ABB>();
+
+		alldata(this.raiz,temp);
+		
+		Nodo_ABB[] new_list = new Nodo_ABB[temp.size()];
+		int contador = 0;
+		
+		while (temp.peek() != null) {
+			new_list[contador] = temp.poll();
+		}
+		
+		 int n = new_list.length;  
+		 Nodo_ABB temp_switch;  
+		
+		 for(int i=0; i < n; i++){  
+			 for(int j=1; j < (n-i); j++){  
+                
+				 if(new_list[j-1].Nodos.size() > new_list[j].Nodos.size()){  
+					
+					 temp_switch = new_list[j-1];  
+					 new_list[j-1] = new_list[j];  
+					 new_list[j] = temp_switch;    
+				 } 
+             }           
+         }  
+		
+		return new_list;
+	}
+	
+	public void alldata(Nodo_ABB n, Queue<Nodo_ABB> temp2) {
+		if (n != null) {
+			postorden(n.getIzquierda());
+			postorden(n.getDerecha());
+			temp2.offer(n);
+			//n.imprimirDato();
+		}
+	}
+
+	
 	public boolean busquedaExistencia(int busqueda) {
 		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
 		
@@ -384,8 +425,8 @@ public class Arbol_Binario {
 	}
 	
 
-	class Nodo_ABB {
-		int dato;
+	public class Nodo_ABB {
+		public int dato;
 		private Nodo_ABB izquierda, derecha;
 		public LinkedList<Nodes_Colors> Nodos  = new LinkedList<Nodes_Colors>();
 	

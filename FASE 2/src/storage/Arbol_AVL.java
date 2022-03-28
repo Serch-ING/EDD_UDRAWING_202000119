@@ -4,19 +4,21 @@ import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import objects.Clients;
+import storage.Arbol_Binario.Nodo_ABB;
 
 public class Arbol_AVL {
+	public Queue<Node> temp_list = new LinkedList<Node>();
 	public int no_nodos = 0;
 	public Node buscado = null;
 	public Node root = null;
 	public int MaxId = 0;
-
+	
 	public class Node {
 
 		private Node left, right;
 		private int height = 1;
-		private int value;
-		LinkedList<Integer> capas_list = new LinkedList<Integer>();
+		public int value;
+		public LinkedList<Integer> capas_list = new LinkedList<Integer>();
 		public Arbol_Binario ABBCapas_self = new Arbol_Binario();
 
 		private Node(int val, LinkedList<Integer> capas_list) {
@@ -31,6 +33,8 @@ public class Arbol_AVL {
 			return 0;
 		return N.height;
 	}
+	
+	
 
 	public Node insert(Node node, int value, LinkedList<Integer> capas_list) {
 		if (value > MaxId) {
@@ -136,6 +140,46 @@ public class Arbol_AVL {
 			preOrder(root.left);
 			System.out.printf("%d ", root.value);
 			preOrder(root.right);
+		}
+	}
+	
+	public Node[]  recolecdata() {
+		temp_list = new LinkedList<Node>();
+
+		alldata(this.root);
+		int size = temp_list.size();
+		Node[] new_list = new Node[size];
+		int contador = 0;
+		
+		while (temp_list.peek() != null) {
+			new_list[contador] = temp_list.poll();
+			contador++;
+		}
+		
+		 int n = new_list.length;  
+		 Node temp_switch;  
+		
+		 for(int i=0; i < n; i++){  
+			 for(int j=1; j < (n-i); j++){  
+                
+				 if(new_list[j-1].capas_list.size() < new_list[j].capas_list.size()){  
+					
+					 temp_switch = new_list[j-1];  
+					 new_list[j-1] = new_list[j];  
+					 new_list[j] = temp_switch;    
+				 } 
+             }           
+         }  
+		
+		return new_list;
+	}
+	
+	public void alldata(Node n) {
+		if (n != null) {
+			alldata(n.left);
+			alldata(n.right);
+			temp_list.offer(n);
+			//n.imprimirDato();
 		}
 	}
 
@@ -505,7 +549,7 @@ public class Arbol_AVL {
 			next = new ArrayList<Node>(elements);
 		}
 	}
-	
+	/*
     public static <T> void main(String args[]) {
     	LinkedList<Integer> capas_list = new LinkedList<Integer>();
     	capas_list.add(1);
@@ -527,5 +571,5 @@ public class Arbol_AVL {
 			
 	
 
-     }
+     }*/
     }
