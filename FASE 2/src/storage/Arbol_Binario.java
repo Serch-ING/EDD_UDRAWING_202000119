@@ -156,6 +156,7 @@ public class Arbol_Binario {
 		return new_list;
 	}
 	
+	
 	public void alldata(Nodo_ABB n) {
 		if (n != null) {
 			
@@ -268,6 +269,21 @@ public class Arbol_Binario {
 		return List_int;
 	}
 
+	
+	public int valorProfundidad(Nodo_ABB actual) {
+		   if (actual == null)
+		       return 0;
+		    int max = 0;
+		    
+		    if(actual.izquierda!= null) {
+		    	 max = Math.max(max, valorProfundidad(actual.izquierda));
+		    }
+		    if(actual.derecha!= null) {
+		    	max = Math.max(max, valorProfundidad(actual.derecha));
+		    }  
+		    
+		    return 1 + max;
+	}
 
 	public void Profundidad(Nodo_ABB root) {
 		 Stack <Nodo_ABB> stack = new Stack <Nodo_ABB> ();

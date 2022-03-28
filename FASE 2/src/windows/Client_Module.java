@@ -571,7 +571,7 @@ public class Client_Module extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					System.out.println("funciona");
-					table_profundidad.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table1));
+					
 					
 					table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
 					
@@ -593,7 +593,15 @@ public class Client_Module extends JFrame {
 					//Nodos hijas
 					Object[][] lista_table_capashijas = cliente.ABBCapas.recolecdata();
 					
+					//Profundidad
+					int capas_profundida =  cliente.ABBCapas.valorProfundidad(cliente.ABBCapas.raiz);
+					//System.out.println(capas_profundida);
 					
+					//Listar
+					
+				
+					
+					table_profundidad.setModel(new DefaultTableModel(new Object[][] {{capas_profundida},},Colums_table1));
 					table_capashojas.setModel(new DefaultTableModel(lista_table_capashijas,Colums_table3));
 					table_top5.setModel(new DefaultTableModel(List_table_top5,Colums_table2));
 					
