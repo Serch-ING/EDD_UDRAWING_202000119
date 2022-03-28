@@ -225,6 +225,56 @@ public class Arbol_Binario {
 		}
 	}
 	
+	public Queue<Nodo_ABB> Listar_preorden_start() {
+		temp_list = new LinkedList<Nodo_ABB>();
+		Listarpreorden(this.raiz);
+		
+		return temp_list;
+	}
+	
+	
+	
+	public void Listarpreorden(Nodo_ABB n) {
+		if (n != null) {
+			//n.imprimirDato();
+			temp_list.offer(n);
+			Listarpreorden(n.getIzquierda());
+			Listarpreorden(n.getDerecha());
+		}
+	}
+	
+	public Queue<Nodo_ABB> Listar_inorden_start() {
+		temp_list = new LinkedList<Nodo_ABB>();
+		Listarinorden(this.raiz);
+		
+		return temp_list;
+	}
+
+	public void Listarinorden(Nodo_ABB n) {
+		if (n != null) {
+			Listarinorden(n.getIzquierda());
+			temp_list.offer(n);
+			//n.imprimirDato();
+			Listarinorden(n.getDerecha());
+		}
+	}
+	
+	public Queue<Nodo_ABB> Listar_postorden_start() {
+		temp_list = new LinkedList<Nodo_ABB>();
+		Listarpostorden(this.raiz);
+		
+		return temp_list;
+	}
+	
+	public void Listarpostorden(Nodo_ABB n) {
+		if (n != null) {
+			Listarpostorden(n.getIzquierda());
+			Listarpostorden(n.getDerecha());
+			temp_list.offer(n);
+			//n.imprimirDato();
+		}
+	}
+	
 	
 	public  void Niveles(Nodo_ABB root) {
 		Nodo_ABB tempnode = root;
@@ -264,8 +314,6 @@ public class Arbol_Binario {
 				queue.add(tempnode.derecha);
 			}
 		}
-		
-
 		return List_int;
 	}
 

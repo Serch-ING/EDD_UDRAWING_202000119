@@ -573,7 +573,7 @@ public class Client_Module extends JFrame {
 					System.out.println("funciona");
 					
 					
-					table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
+					
 					
 					//Top 5
 					Node[] list_images = cliente.AVLImages.recolecdata();
@@ -598,9 +598,38 @@ public class Client_Module extends JFrame {
 					//System.out.println(capas_profundida);
 					
 					//Listar
+					Queue<Nodo_ABB> queue_preorden = cliente.ABBCapas.Listar_preorden_start();
+					Queue<Nodo_ABB> queue_inorden = cliente.ABBCapas.Listar_inorden_start();
+					Queue<Nodo_ABB> queue_postorden = cliente.ABBCapas.Listar_postorden_start();
+					
+					Object[][] List_table_tolist= new Object[Math.max(Math.max(queue_preorden.size(),queue_inorden.size()),queue_postorden.size())][3];
+					int contador = 0;
+					
+					while (queue_preorden.peek() != null || queue_inorden.peek() != null ||  queue_postorden.peek() != null) {
+						
+						if(queue_preorden.peek()!= null) {
+							List_table_tolist[contador][0] = queue_preorden.poll().dato; 
+						}else {
+							List_table_tolist[contador][0] = null;
+						}
+						
+						if(queue_inorden.peek()!= null) {
+							List_table_tolist[contador][1] = queue_inorden.poll().dato; 
+						}else {
+							List_table_tolist[contador][1] = null;
+						}
+						
+						if(queue_postorden.peek()!= null) {
+							List_table_tolist[contador][2] = queue_postorden.poll().dato; 
+						}else {
+							List_table_tolist[contador][2] = null;
+						}
+						
+						contador++;
+					}
 					
 				
-					
+					table_listar.setModel(new DefaultTableModel(List_table_tolist,Colums_table4));
 					table_profundidad.setModel(new DefaultTableModel(new Object[][] {{capas_profundida},},Colums_table1));
 					table_capashojas.setModel(new DefaultTableModel(lista_table_capashijas,Colums_table3));
 					table_top5.setModel(new DefaultTableModel(List_table_top5,Colums_table2));
