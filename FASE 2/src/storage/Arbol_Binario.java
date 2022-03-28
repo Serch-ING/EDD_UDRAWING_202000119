@@ -16,6 +16,7 @@ import storage.Arbol_AVL.Node;
 
 
 public class Arbol_Binario {
+	public Queue<Nodo_ABB> temp_list = new LinkedList<Nodo_ABB>();
 	public int no_nodos= 0;
 	public String temp;
 	public Nodo_ABB raiz;
@@ -138,41 +139,33 @@ public class Arbol_Binario {
 	}
 	
 	
-	public Nodo_ABB[]  recolecdata() {
-		Queue<Nodo_ABB> temp = new LinkedList<Nodo_ABB>();
+	
+	public Object[][]  recolecdata() {
+		temp_list = new LinkedList<Nodo_ABB>();
 
-		alldata(this.raiz,temp);
+		alldata(this.raiz);
 		
-		Nodo_ABB[] new_list = new Nodo_ABB[temp.size()];
+		Object[][] new_list = new Object[temp_list.size()][1];
 		int contador = 0;
 		
-		while (temp.peek() != null) {
-			new_list[contador] = temp.poll();
+		while (temp_list.peek() != null) {
+			new_list[contador][0] = temp_list.poll().dato;
+			contador++;
 		}
-		
-		 int n = new_list.length;  
-		 Nodo_ABB temp_switch;  
-		
-		 for(int i=0; i < n; i++){  
-			 for(int j=1; j < (n-i); j++){  
-                
-				 if(new_list[j-1].Nodos.size() > new_list[j].Nodos.size()){  
-					
-					 temp_switch = new_list[j-1];  
-					 new_list[j-1] = new_list[j];  
-					 new_list[j] = temp_switch;    
-				 } 
-             }           
-         }  
-		
+			
 		return new_list;
 	}
 	
-	public void alldata(Nodo_ABB n, Queue<Nodo_ABB> temp2) {
+	public void alldata(Nodo_ABB n) {
 		if (n != null) {
-			postorden(n.getIzquierda());
-			postorden(n.getDerecha());
-			temp2.offer(n);
+			
+			alldata(n.getIzquierda());
+			alldata(n.getDerecha());
+			if(n.getIzquierda() == null && n.getDerecha() == null) {
+				temp_list.offer(n);
+			}
+			
+			
 			//n.imprimirDato();
 		}
 	}

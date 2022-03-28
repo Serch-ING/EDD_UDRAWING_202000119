@@ -572,11 +572,10 @@ public class Client_Module extends JFrame {
 				try {
 					System.out.println("funciona");
 					table_profundidad.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table1));
-					table_top5.setModel(new DefaultTableModel(new Object[][] {{null},{null},{null},{null},{null},},Colums_table2));
-					table_capashojas.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table3));
+					
 					table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
 					
-					
+					//Top 5
 					Node[] list_images = cliente.AVLImages.recolecdata();
 					Object[][] List_table_top5= new Object[5][2];
 					
@@ -585,12 +584,17 @@ public class Client_Module extends JFrame {
 							List_table_top5[i][0]= list_images[i].value;
 							List_table_top5[i][1]= list_images[i].capas_list.size();
 							
-							System.out.println(list_images[i].value + " - " + list_images[i].capas_list.size() );
+							//System.out.println(list_images[i].value + " - " + list_images[i].capas_list.size() );
 						}else {
 							break;
 						}
 					}
 					
+					//Nodos hijas
+					Object[][] lista_table_capashijas = cliente.ABBCapas.recolecdata();
+					
+					
+					table_capashojas.setModel(new DefaultTableModel(lista_table_capashijas,Colums_table3));
 					table_top5.setModel(new DefaultTableModel(List_table_top5,Colums_table2));
 					
 					
