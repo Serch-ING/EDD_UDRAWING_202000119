@@ -16,6 +16,7 @@ import storage.Arbol_AVL.Node;
 
 
 public class Arbol_Binario {
+	public Queue<Nodo_ABB> temp_list = new LinkedList<Nodo_ABB>();
 	public int no_nodos= 0;
 	public String temp;
 	public Nodo_ABB raiz;
@@ -137,6 +138,40 @@ public class Arbol_Binario {
 		}
 	}
 	
+	
+	
+	public Object[][]  recolecdata() {
+		temp_list = new LinkedList<Nodo_ABB>();
+
+		alldata(this.raiz);
+		
+		Object[][] new_list = new Object[temp_list.size()][1];
+		int contador = 0;
+		
+		while (temp_list.peek() != null) {
+			new_list[contador][0] = temp_list.poll().dato;
+			contador++;
+		}
+			
+		return new_list;
+	}
+	
+	
+	public void alldata(Nodo_ABB n) {
+		if (n != null) {
+			
+			alldata(n.getIzquierda());
+			alldata(n.getDerecha());
+			if(n.getIzquierda() == null && n.getDerecha() == null) {
+				temp_list.offer(n);
+			}
+			
+			
+			//n.imprimirDato();
+		}
+	}
+
+	
 	public boolean busquedaExistencia(int busqueda) {
 		LinkedList<Nodes_Colors> temp = new LinkedList<Nodes_Colors>();
 		
@@ -190,6 +225,56 @@ public class Arbol_Binario {
 		}
 	}
 	
+	public Queue<Nodo_ABB> Listar_preorden_start() {
+		temp_list = new LinkedList<Nodo_ABB>();
+		Listarpreorden(this.raiz);
+		
+		return temp_list;
+	}
+	
+	
+	
+	public void Listarpreorden(Nodo_ABB n) {
+		if (n != null) {
+			//n.imprimirDato();
+			temp_list.offer(n);
+			Listarpreorden(n.getIzquierda());
+			Listarpreorden(n.getDerecha());
+		}
+	}
+	
+	public Queue<Nodo_ABB> Listar_inorden_start() {
+		temp_list = new LinkedList<Nodo_ABB>();
+		Listarinorden(this.raiz);
+		
+		return temp_list;
+	}
+
+	public void Listarinorden(Nodo_ABB n) {
+		if (n != null) {
+			Listarinorden(n.getIzquierda());
+			temp_list.offer(n);
+			//n.imprimirDato();
+			Listarinorden(n.getDerecha());
+		}
+	}
+	
+	public Queue<Nodo_ABB> Listar_postorden_start() {
+		temp_list = new LinkedList<Nodo_ABB>();
+		Listarpostorden(this.raiz);
+		
+		return temp_list;
+	}
+	
+	public void Listarpostorden(Nodo_ABB n) {
+		if (n != null) {
+			Listarpostorden(n.getIzquierda());
+			Listarpostorden(n.getDerecha());
+			temp_list.offer(n);
+			//n.imprimirDato();
+		}
+	}
+	
 	
 	public  void Niveles(Nodo_ABB root) {
 		Nodo_ABB tempnode = root;
@@ -229,11 +314,24 @@ public class Arbol_Binario {
 				queue.add(tempnode.derecha);
 			}
 		}
-		
-
 		return List_int;
 	}
 
+	
+	public int valorProfundidad(Nodo_ABB actual) {
+		   if (actual == null)
+		       return 0;
+		    int max = 0;
+		    
+		    if(actual.izquierda!= null) {
+		    	 max = Math.max(max, valorProfundidad(actual.izquierda));
+		    }
+		    if(actual.derecha!= null) {
+		    	max = Math.max(max, valorProfundidad(actual.derecha));
+		    }  
+		    
+		    return 1 + max;
+	}
 
 	public void Profundidad(Nodo_ABB root) {
 		 Stack <Nodo_ABB> stack = new Stack <Nodo_ABB> ();
@@ -384,8 +482,8 @@ public class Arbol_Binario {
 	}
 	
 
-	class Nodo_ABB {
-		int dato;
+	public class Nodo_ABB {
+		public int dato;
 		private Nodo_ABB izquierda, derecha;
 		public LinkedList<Nodes_Colors> Nodos  = new LinkedList<Nodes_Colors>();
 	

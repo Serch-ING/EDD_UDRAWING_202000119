@@ -27,14 +27,22 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 
 import storage.*;
+import storage.Arbol_AVL.Node;
+import storage.Arbol_Binario.Nodo_ABB;
+
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Client_Module extends JFrame {
 
@@ -46,6 +54,10 @@ public class Client_Module extends JFrame {
 	private JTextField textField_idinser;
 	private JTextField textField_layersInsert;
 	private JTextField textField_IdDelete;
+	private JTable table_listar;
+	private JTable table_top5;
+	private JTable table_capashojas;
+	private JTable table_profundidad;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -55,6 +67,11 @@ public class Client_Module extends JFrame {
 	 */
 
 	public Client_Module(Storage storage, Clients cliente) {
+		String[] Colums_table1 = { "Profundida del arbol de capas" };
+		String[] Colums_table2 = { "Id imagen", "no. de capas" };
+		String[] Colums_table3 = {"Capas que son hojas"};
+		String[] Colums_table4 = {"preorden", "inorden", "postorden"};
+		
 		// JOptionPane.showMessageDialog(null, "Bienvenido: " + cliente.Name + " DPI: "
 		// + cliente.DPI );
 		JFileChooser fc = new JFileChooser();
@@ -415,7 +432,7 @@ public class Client_Module extends JFrame {
 		textField_idlayer.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("id de capa o imagen a visualizar");
-		lblNewLabel_2.setBounds(22, 135, 168, 14);
+		lblNewLabel_2.setBounds(22, 135, 222, 14);
 		panel_5.add(lblNewLabel_2);
 
 		JButton btnGenerar = new JButton("Generar");
@@ -442,6 +459,107 @@ public class Client_Module extends JFrame {
 		
 		btnVer.setBounds(332, 131, 89, 23);
 		panel_5.add(btnVer);
+		
+		JPanel PANELEX = new JPanel();
+		tabbedPane.addTab("New tab", null, PANELEX, null);
+		PANELEX.setLayout(null);
+		
+		JPanel panel_9 = new JPanel();
+		panel_9.setLayout(null);
+		panel_9.setBackground(Color.LIGHT_GRAY);
+		panel_9.setBounds(1209, 11, 440, 787);
+		PANELEX.add(panel_9);
+		
+		JLabel lblNewLabel_2_3 = new JLabel("Listar capas");
+		lblNewLabel_2_3.setBounds(10, 11, 200, 14);
+		panel_9.add(lblNewLabel_2_3);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 36, 420, 740);
+		panel_9.add(scrollPane);
+		
+		table_listar = new JTable();
+		table_listar.setModel(new DefaultTableModel(new Object[][] {{null, null, null},},Colums_table4));
+		scrollPane.setViewportView(table_listar);
+		
+		JPanel panel_9_1 = new JPanel();
+		panel_9_1.setLayout(null);
+		panel_9_1.setBackground(Color.LIGHT_GRAY);
+		panel_9_1.setBounds(457, 11, 345, 165);
+		PANELEX.add(panel_9_1);
+		
+		JLabel lblNewLabel_2_3_1 = new JLabel("Top 5 imagenes con mas capas");
+		lblNewLabel_2_3_1.setBounds(10, 11, 200, 14);
+		panel_9_1.add(lblNewLabel_2_3_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 39, 325, 115);
+		panel_9_1.add(scrollPane_1);
+		
+		table_top5 = new JTable();
+		scrollPane_1.setViewportView(table_top5);
+		table_top5.setModel(new DefaultTableModel(new Object[][] {{null},{null},{null},{null},{null},},Colums_table2));
+		
+		JPanel panel_9_1_1 = new JPanel();
+		panel_9_1_1.setLayout(null);
+		panel_9_1_1.setBackground(Color.LIGHT_GRAY);
+		panel_9_1_1.setBounds(812, 11, 387, 787);
+		PANELEX.add(panel_9_1_1);
+		
+		JLabel lblNewLabel_2_3_1_1 = new JLabel("capas que son hojas");
+		lblNewLabel_2_3_1_1.setBounds(10, 11, 200, 14);
+		panel_9_1_1.add(lblNewLabel_2_3_1_1);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(10, 36, 367, 740);
+		panel_9_1_1.add(scrollPane_2);
+		
+		table_capashojas = new JTable();
+		table_capashojas.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table3));
+		scrollPane_2.setViewportView(table_capashojas);
+		
+		JPanel panel_9_1_2 = new JPanel();
+		panel_9_1_2.setLayout(null);
+		panel_9_1_2.setBackground(Color.LIGHT_GRAY);
+		panel_9_1_2.setBounds(457, 187, 345, 165);
+		PANELEX.add(panel_9_1_2);
+		
+		JLabel lblNewLabel_2_3_1_2 = new JLabel("Profundidad del arbol de capas");
+		lblNewLabel_2_3_1_2.setBounds(10, 11, 200, 14);
+		panel_9_1_2.add(lblNewLabel_2_3_1_2);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(10, 36, 325, 118);
+		panel_9_1_2.add(scrollPane_3);
+		
+		table_profundidad = new JTable();
+		scrollPane_3.setViewportView(table_profundidad);
+		table_profundidad.setModel(new DefaultTableModel(new Object[][] {{null},},Colums_table1));
+		
+		JButton btnNewButton_generate_reports = new JButton("Generar reportes");
+		
+		btnNewButton_generate_reports.setBounds(10, 133, 149, 23);
+		PANELEX.add(btnNewButton_generate_reports);
+		
+		JLabel lblNewLabel_2_3_1_2_1 = new JLabel("Reportes a generar");
+		lblNewLabel_2_3_1_2_1.setBounds(10, 11, 200, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1);
+		
+		JLabel lblNewLabel_2_3_1_2_1_1 = new JLabel("\u25CF Top 5 de ima\u0301genes con ma\u0301s nu\u0301mero de capas");
+		lblNewLabel_2_3_1_2_1_1.setBounds(10, 61, 356, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_1);
+		
+		JLabel lblNewLabel_2_3_1_2_1_2 = new JLabel("\u25CF Todas las capas que son hojas");
+		lblNewLabel_2_3_1_2_1_2.setBounds(10, 83, 336, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_2);
+		
+		JLabel lblNewLabel_2_3_1_2_1_3 = new JLabel("\u25CF Profundidad de a\u0301rbol de capas");
+		lblNewLabel_2_3_1_2_1_3.setBounds(10, 36, 317, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_3);
+		
+		JLabel lblNewLabel_2_3_1_2_1_1_1 = new JLabel("\u25CF Listar las capas en: preorden, inorden, postorden");
+		lblNewLabel_2_3_1_2_1_1_1.setBounds(10, 108, 356, 14);
+		PANELEX.add(lblNewLabel_2_3_1_2_1_1_1);
 
 		JButton btnNewButton = new JButton("Cerrar sesion");
 
@@ -449,6 +567,84 @@ public class Client_Module extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// buttons=---------------------------------------------------------------------------------------------------------------------
+		btnNewButton_generate_reports.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					System.out.println("funciona");
+					
+					
+					
+					
+					//Top 5
+					Node[] list_images = cliente.AVLImages.recolecdata();
+					Object[][] List_table_top5= new Object[5][2];
+					
+					for (int i = 0; i < list_images.length; i++) {
+						if(i<5) {
+							List_table_top5[i][0]= list_images[i].value;
+							List_table_top5[i][1]= list_images[i].capas_list.size();
+							
+							//System.out.println(list_images[i].value + " - " + list_images[i].capas_list.size() );
+						}else {
+							break;
+						}
+					}
+					
+					//Nodos hijas
+					Object[][] lista_table_capashijas = cliente.ABBCapas.recolecdata();
+					
+					//Profundidad
+					int capas_profundida =  cliente.ABBCapas.valorProfundidad(cliente.ABBCapas.raiz);
+					//System.out.println(capas_profundida);
+					
+					//Listar
+					Queue<Nodo_ABB> queue_preorden = cliente.ABBCapas.Listar_preorden_start();
+					Queue<Nodo_ABB> queue_inorden = cliente.ABBCapas.Listar_inorden_start();
+					Queue<Nodo_ABB> queue_postorden = cliente.ABBCapas.Listar_postorden_start();
+					
+					Object[][] List_table_tolist= new Object[Math.max(Math.max(queue_preorden.size(),queue_inorden.size()),queue_postorden.size())][3];
+					int contador = 0;
+					
+					while (queue_preorden.peek() != null || queue_inorden.peek() != null ||  queue_postorden.peek() != null) {
+						
+						if(queue_preorden.peek()!= null) {
+							List_table_tolist[contador][0] = queue_preorden.poll().dato; 
+						}else {
+							List_table_tolist[contador][0] = null;
+						}
+						
+						if(queue_inorden.peek()!= null) {
+							List_table_tolist[contador][1] = queue_inorden.poll().dato; 
+						}else {
+							List_table_tolist[contador][1] = null;
+						}
+						
+						if(queue_postorden.peek()!= null) {
+							List_table_tolist[contador][2] = queue_postorden.poll().dato; 
+						}else {
+							List_table_tolist[contador][2] = null;
+						}
+						
+						contador++;
+					}
+					
+				
+					table_listar.setModel(new DefaultTableModel(List_table_tolist,Colums_table4));
+					table_profundidad.setModel(new DefaultTableModel(new Object[][] {{capas_profundida},},Colums_table1));
+					table_capashojas.setModel(new DefaultTableModel(lista_table_capashijas,Colums_table3));
+					table_top5.setModel(new DefaultTableModel(List_table_top5,Colums_table2));
+					
+					
+					
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Ocurrio un erro, data insuficinete para reportes");
+					System.out.println(e2);
+				}
+				
+			}
+		});
+		
 		Button_DeleteImg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -722,6 +918,7 @@ public class Client_Module extends JFrame {
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
 
 		}
 	}
@@ -836,6 +1033,7 @@ public class Client_Module extends JFrame {
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
 
 		}
 	}
