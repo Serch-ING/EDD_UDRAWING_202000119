@@ -143,6 +143,20 @@ public class Arbol_AVL {
 		}
 	}
 	
+	public void voltera(Node root) {
+		if (root != null) {
+			voltera(root.left);
+			voltera(root.right);
+			
+			Node temp = root.left;
+			root.left = root.right;
+			root.right = temp;
+				
+			
+		}
+	}
+	
+	
 	public Node[]  recolecdata() {
 		temp_list = new LinkedList<Node>();
 
@@ -549,7 +563,7 @@ public class Arbol_AVL {
 			next = new ArrayList<Node>(elements);
 		}
 	}
-	/*
+	
     public static <T> void main(String args[]) {
     	LinkedList<Integer> capas_list = new LinkedList<Integer>();
     	capas_list.add(1);
@@ -562,14 +576,18 @@ public class Arbol_AVL {
 			t.root = t.insert(t.root, i, capas_list);
 		}
 		
-		t.root = t.deleteNode(t.root, 33);
+		//t.root = t.deleteNode(t.root, 33);
 		//t.PrintNiveles(t.root);
-		 //t.print(t.root);
-		t.PrintNiveles(t.root);
+		t.print(t.root);
+		System.out.println("\n");
+		t.voltera(t.root);
+		System.out.println("\n");
+		t.print(t.root);
+		//t.PrintNiveles(t.root);
 		System.out.println("/////////////////////");
 		
 			
 	
 
-     }*/
+     }
     }
