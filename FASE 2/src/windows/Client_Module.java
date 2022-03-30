@@ -461,7 +461,7 @@ public class Client_Module extends JFrame {
 		panel_5.add(btnVer);
 		
 		JPanel PANELEX = new JPanel();
-		tabbedPane.addTab("New tab", null, PANELEX, null);
+		tabbedPane.addTab("Reportes", null, PANELEX, null);
 		PANELEX.setLayout(null);
 		
 		JPanel panel_9 = new JPanel();

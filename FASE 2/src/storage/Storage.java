@@ -51,6 +51,7 @@ public class Storage {
 			
 			if (nodotemp.cliente.DPI.equals(DPI) && nodotemp.cliente.Password.equals(password)) {
 				clientJoin = nodotemp.cliente;
+				JOptionPane.showMessageDialog(null, "Bienvenido: " + clientJoin.Name);
 				return true;
 			}
 			

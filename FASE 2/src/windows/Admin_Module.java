@@ -50,10 +50,7 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_DPI_search;
 	private JTextField textField_Name_Modify;
 	private JTextField textField_Password_Modify;
-	private JTextField textField;
-	private JTextField textField_View_Name;
-	private JTextField textField_View_Password;
-	private JTextField textField_View_DPI;
+	private JTextField textField_deleteclient;
 	private JTextField textField_id_searching;
 	private JTable table;
 	private JTable table_2;
@@ -207,62 +204,25 @@ public class Admin_Module extends JFrame {
 		panel_5.add(textField_Password_Modify);
 
 		JLabel lblNewLabel_2_1_1_2 = new JLabel("Datos del cliente a modificar:  ");
-		lblNewLabel_2_1_1_2.setBounds(15, 92, 164, 14);
+		lblNewLabel_2_1_1_2.setBounds(15, 92, 202, 14);
 		panel_5.add(lblNewLabel_2_1_1_2);
 
 		JPanel panel_6 = new JPanel();
 		tabbedPane_1.addTab("Eliminar cliente", null, panel_6, null);
 		panel_6.setLayout(null);
 
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(136, 39, 237, 20);
-		panel_6.add(textField);
+		textField_deleteclient = new JTextField();
+		textField_deleteclient.setColumns(10);
+		textField_deleteclient.setBounds(136, 39, 237, 20);
+		panel_6.add(textField_deleteclient);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("DPI:");
 		lblNewLabel_2_1_1_1.setBounds(66, 39, 46, 14);
 		panel_6.add(lblNewLabel_2_1_1_1);
 
-		JButton Button_Search_Delete = new JButton("Buscar");
-		Button_Search_Delete.setBounds(417, 35, 89, 23);
-		panel_6.add(Button_Search_Delete);
-
-		JLabel lblNewLabel_2_2_2_1 = new JLabel("Nombre cliente:");
-		lblNewLabel_2_2_2_1.setBounds(30, 190, 117, 14);
-		panel_6.add(lblNewLabel_2_2_2_1);
-
-		textField_View_Name = new JTextField();
-		textField_View_Name.setEnabled(false);
-		textField_View_Name.setColumns(10);
-		textField_View_Name.setBounds(136, 187, 237, 20);
-		panel_6.add(textField_View_Name);
-
-		JLabel lblNewLabel_2_2_1_1_1 = new JLabel("Contrase\u00F1a:");
-		lblNewLabel_2_2_1_1_1.setBounds(30, 230, 117, 14);
-		panel_6.add(lblNewLabel_2_2_1_1_1);
-
-		textField_View_Password = new JTextField();
-		textField_View_Password.setEnabled(false);
-		textField_View_Password.setColumns(10);
-		textField_View_Password.setBounds(136, 227, 237, 20);
-		panel_6.add(textField_View_Password);
-
-		JLabel lblNewLabel_2_1_1_2_1 = new JLabel("Datos del cliente:");
-		lblNewLabel_2_1_1_2_1.setBounds(30, 111, 97, 14);
-		panel_6.add(lblNewLabel_2_1_1_2_1);
-
-		JLabel lblNewLabel_2_1_2_1 = new JLabel("DPI:");
-		lblNewLabel_2_1_2_1.setBounds(66, 148, 46, 14);
-		panel_6.add(lblNewLabel_2_1_2_1);
-
-		textField_View_DPI = new JTextField();
-		textField_View_DPI.setEnabled(false);
-		textField_View_DPI.setColumns(10);
-		textField_View_DPI.setBounds(136, 148, 237, 20);
-		panel_6.add(textField_View_DPI);
-
 		JButton Button_Delete_Client = new JButton("Eliminar");
-		Button_Delete_Client.setBounds(217, 280, 89, 23);
+		
+		Button_Delete_Client.setBounds(211, 83, 89, 23);
 		panel_6.add(Button_Delete_Client);
 
 		JPanel panel_2 = new JPanel();
@@ -380,6 +340,22 @@ public class Admin_Module extends JFrame {
 		contentPane.add(Button_closesesion);
 
 		// Buttons-----------------------------------------------------------------------------------------------------------
+		Button_Delete_Client.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					
+					String DPI = textField_deleteclient.getText();
+					int DPI_int = Integer.valueOf(DPI);
+					
+					System.out.println(DPI_int);
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
+					System.out.println(e2);
+				}
+			}
+		});
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

@@ -23,6 +23,7 @@ public class Login extends JFrame {
 	private JTextField UserText;
 	private JPasswordField passwordField;
 	private JLabel lblContrasea;
+	private JButton Button_register;
 
 	/*
 	public static void main(String[] args) {
@@ -47,9 +48,9 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Usuario:");
+		JLabel lblNewLabel = new JLabel("Usuario(DPI):");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(104, 95, 60, 14);
+		lblNewLabel.setBounds(75, 95, 89, 14);
 		contentPane.add(lblNewLabel);
 
 		UserText = new JTextField();
@@ -70,8 +71,21 @@ public class Login extends JFrame {
 
 		Button_join.setBounds(237, 176, 89, 23);
 		contentPane.add(Button_join);
+		
+		Button_register = new JButton("Registrarse");
+	
+		Button_register.setBounds(207, 210, 119, 23);
+		contentPane.add(Button_register);
 
 		// Botenes
+		Button_register.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				check_in log_up = new check_in(storage);	
+				log_up.setVisible(true);
+				dispose();
+			}
+		});
+		
 		Button_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -82,15 +96,18 @@ public class Login extends JFrame {
 						//JOptionPane.showMessageDialog(null, "Ingreso");
 
 						Admin_Module admin_window = new Admin_Module(storage);
+						JOptionPane.showMessageDialog(null, "Bienvenido: Administrador");
 						admin_window.setVisible(true);
+						
 						dispose();
 
 					}else if (storage.SerchClient(User,password)) {
 						//JOptionPane.showMessageDialog(null, "Client joined");
 						
-				
+						
 						Client_Module frame = new Client_Module(storage,storage.ClientJoin());
 						frame.setVisible(true);
+						
 						dispose();
 						
 						
