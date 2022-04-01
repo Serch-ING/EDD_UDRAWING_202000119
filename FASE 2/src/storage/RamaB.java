@@ -11,10 +11,6 @@ import java.util.Queue;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author Alex Rose
- */
 public class RamaB {
 
     boolean hoja;//identificar si es una hoja

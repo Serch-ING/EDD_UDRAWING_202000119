@@ -345,10 +345,10 @@ public class Admin_Module extends JFrame {
 				try {
 					
 					String DPI = textField_deleteclient.getText();
-					int DPI_int = Integer.valueOf(DPI);
+					Long DPI_int = Long.valueOf(DPI);
 					
-					System.out.println(DPI_int);
-					
+					//System.out.println(DPI_int);
+					storage.RemovingClient(DPI_int);
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
 					System.out.println(e2);

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package storage;
 
 import java.io.FileWriter;
@@ -14,12 +10,13 @@ import javax.swing.JOptionPane;
 
 import objects.Clients;
 
-/**
- *
- * @author Alex Rose
- */
-public class ArbolB {
 
+public class ArbolB {
+	RamaB RamaRemove;
+	NodoB NodeRemove;
+	
+	
+	
 	public String dot = "";
 	public String Grap = "";
 	public String Connectios = "";
@@ -195,9 +192,7 @@ public class ArbolB {
 		} else {
 			JOptionPane.showMessageDialog(null, "No se encontro el DPI a modificar");
 		}
-	}
-
-	
+	}	
 	
 	public NodoB buscar_start(NodoB primero, Long id) {
 
@@ -334,6 +329,93 @@ public class ArbolB {
 
 			aux = aux.siguiente;
 		}
+	}
+	
+	public void buscartoRomove(RamaB raiz, Long id) {
+		NodoB temp = remove_start(raiz, id);
+
+		if (temp != null) {
+			
+			if(RamaRemove.hoja) {
+				System.out.println("Es hoja: " + RamaRemove.hoja);
+				System.out.println("Contador  " + RamaRemove.contador);
+				
+				System.out.println("\n\nEliminando\n\n");
+				
+				RamaRemove.contador--;
+				System.out.println("Es hoja: " + RamaRemove.hoja);
+				System.out.println("Contador  " + RamaRemove.contador);
+				System.out.println("\n\n/////////Otro//////////");
+				Removing(temp);
+			}else {
+				System.out.println("NO ES HOJA");
+				System.out.println("Es hoja: " + RamaRemove.hoja);
+				System.out.println("Contador  " + RamaRemove.contador);
+				
+				System.out.println("\n\nEliminando\n\n");
+				
+			}
+			
+			JOptionPane.showMessageDialog(null, "Se elimino cliente: \nDPI: " + temp.id + "\nNombre: "+ temp.cliente.Name + "\nPassword: " + temp.cliente.Password);
+		} else {
+			JOptionPane.showMessageDialog(null, "No se encontro el DPI a eliminar");
+		}
+	}
+	
+	public void Removing(NodoB temp) {
+		   
+        if (RamaRemove.primero == temp) {
+        	RamaRemove.primero = temp.siguiente;
+        	RamaRemove.primero.anterior = null;
+        }else {
+        	
+        	if(temp.siguiente == null) {
+        		temp.anterior.siguiente = null;	
+        	}else {
+        		temp.anterior.siguiente = temp.siguiente;
+        		temp = null;
+        	}
+        }     
+	}
+	
+	public NodoB Removecompleto(NodoB primero, Queue<NodoB> cola_nodos, Long id) {
+
+		NodoB aux = primero;
+		
+		while (aux != null) {
+			Long temp = aux.id;
+			if (temp.compareTo(id) == 0) {
+				return aux;
+			}
+
+			if (aux.izquierda != null) {
+				cola_nodos.offer(aux.izquierda.primero);
+			}
+
+			if (aux.derecha != null && aux.siguiente == null) {
+				cola_nodos.offer(aux.derecha.primero);
+			}
+
+			aux = aux.siguiente;
+
+		}
+		return null;
+	}
+	
+	public NodoB remove_start(RamaB raiz, Long id) {
+
+		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
+		cola_nodos.offer(raiz.primero);
+		RamaRemove = raiz;
+		
+		while (cola_nodos.peek() != null) {
+
+			NodoB temp = Removecompleto(cola_nodos.poll(), cola_nodos, id);
+			if (temp != null) {
+				return temp;
+			}
+		}
+		return null;
 	}
 
 }
