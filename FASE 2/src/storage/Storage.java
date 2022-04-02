@@ -29,9 +29,19 @@ public class Storage {
 		ClientesB.insertar(id2, new_client2);
 		ClientesB.insertar(id3, new_client3);
 		
-		Clients new_client4 = new Clients("jasmin","j","550");
+		Clients new_client4 = new Clients("Fernanda","f","550");
 		Long id4 = Long.valueOf("550");
-		ClientesB.insertar(id4, new_client4);
+		//ClientesB.insertar(id4, new_client4);
+		
+		Clients new_client5 = new Clients("Ana","a","1");
+		Long id5 = Long.valueOf("1");
+		//ClientesB.insertar(id5, new_client5);
+		Clients new_client6 = new Clients("Daniel","d","10");
+		Long id6 = Long.valueOf("10");
+		//ClientesB.insertar(id6, new_client6);
+		Clients new_client7 = new Clients("Gabriela","g","4");
+		Long id7 = Long.valueOf("4");
+		//ClientesB.insertar(id7, new_client7);
 	}
 	
 	public void InsertClients(Clients client_new, Long dPI_Long) {

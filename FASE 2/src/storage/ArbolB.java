@@ -10,13 +10,12 @@ import javax.swing.JOptionPane;
 
 import objects.Clients;
 
-
 public class ArbolB {
+	RamaB RamaIz;
+	RamaB RamaDer;
 	RamaB RamaRemove;
 	NodoB NodeRemove;
-	
-	
-	
+
 	public String dot = "";
 	public String Grap = "";
 	public String Connectios = "";
@@ -137,10 +136,11 @@ public class ArbolB {
 		Nuevito.izquierda = rizquierda;
 		return Nuevito;
 	}
+
 //Propios-----------------------------------------------------------------------------------------------------------------------------------------
-	public Queue<Clients>  print_start(NodoB primero) {
+	public Queue<Clients> print_start(NodoB primero) {
 		info = new LinkedList<Clients>();
-		
+
 		System.out.println("Recorrer por niveles");
 		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
 		cola_nodos.offer(primero);
@@ -148,7 +148,7 @@ public class ArbolB {
 		while (cola_nodos.peek() != null) {
 			imprimircompleto(cola_nodos.poll(), cola_nodos);
 		}
-		
+
 		return info;
 	}
 
@@ -166,7 +166,7 @@ public class ArbolB {
 				cola_nodos.offer(aux.izquierda.primero);
 			}
 
-			if (aux.derecha != null && aux.siguiente == null ) {
+			if (aux.derecha != null && aux.siguiente == null) {
 				cola_nodos.offer(aux.derecha.primero);
 			}
 			aux = aux.siguiente;
@@ -177,7 +177,8 @@ public class ArbolB {
 		NodoB temp = buscar_start(primero, id);
 
 		if (temp != null) {
-			JOptionPane.showMessageDialog(null, "Se encontro cliente: \nDPI: " + temp.id + "\nNombre: "+ temp.cliente.Name + "\nPassword: " + temp.cliente.Password);
+			JOptionPane.showMessageDialog(null, "Se encontro cliente: \nDPI: " + temp.id + "\nNombre: "
+					+ temp.cliente.Name + "\nPassword: " + temp.cliente.Password);
 
 			if (!(name.equals(""))) {
 				temp.cliente.Name = name;
@@ -192,8 +193,8 @@ public class ArbolB {
 		} else {
 			JOptionPane.showMessageDialog(null, "No se encontro el DPI a modificar");
 		}
-	}	
-	
+	}
+
 	public NodoB buscar_start(NodoB primero, Long id) {
 
 		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
@@ -269,37 +270,39 @@ public class ArbolB {
 		info = new LinkedList<Clients>();
 		dot = "";
 		Connectios = "";
-		Grap= "";
+		Grap = "";
 		Grap += "digraph structs {\n";
 		Grap += "  bgcolor = \"#E3FFFA\"\n";
 		Grap += " node [shape=Mrecord fillcolor=\"#FFE3FF\" style =filled];\n";
+		if (primero != null) {
+			Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
+			cola_nodos.offer(primero);
 
-		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
-		cola_nodos.offer(primero);
-
-		while (cola_nodos.peek() != null) {
-			drawing(cola_nodos.poll(), cola_nodos);
-		}
-
-		String[] files = dot.split("\n");
-
-		for (String i : files) {
-
-			Grap += "struct" + names.poll() + "[label=\"{{";
-
-			String[] columns = i.split(",");
-			int temp = columns.length;
-
-			for (String j : columns) {
-				Clients clienttemp = info.poll();
-				String display = "DPI:" + j + "\\nName:" + clienttemp.Name  ;
-				Grap += (temp - 1 == 0) ? display + "}" : display + "|";
-				temp--;
+			while (cola_nodos.peek() != null) {
+				drawing(cola_nodos.poll(), cola_nodos);
 			}
 
-			Grap += "|<here>}\"];\n";
-		}
+			String[] files = dot.split("\n");
 
+			for (String i : files) {
+
+				Grap += "struct" + names.poll() + "[label=\"{{";
+
+				String[] columns = i.split(",");
+				int temp = columns.length;
+
+				for (String j : columns) {
+					Clients clienttemp = info.poll();
+					String display = "DPI:" + j + "\\nName:" + clienttemp.Name;
+					Grap += (temp - 1 == 0) ? display + "}" : display + "|";
+					temp--;
+				}
+
+				Grap += "|<here>}\"];\n";
+			}
+		}else {
+			Grap += "struct1517940428[label=\"{{Vacio}|<here>}\"];\n";
+		}
 		Grap += "\n" + Connectios;
 		Grap += "}";
 		// System.out.println(Grap);
@@ -319,7 +322,7 @@ public class ArbolB {
 			if (aux.izquierda != null) {
 				Connectios += "struct" + data + "->struct" + aux.izquierda.primero.hashCode() + ";\n";
 				cola_nodos.offer(aux.izquierda.primero);
-				
+
 			}
 
 			if (aux.derecha != null && aux.siguiente == null) {
@@ -330,91 +333,143 @@ public class ArbolB {
 			aux = aux.siguiente;
 		}
 	}
-	
-	public void buscartoRomove(RamaB raiz, Long id) {
-		NodoB temp = remove_start(raiz, id);
 
-		if (temp != null) {
-			
-			if(RamaRemove.hoja) {
-				System.out.println("Es hoja: " + RamaRemove.hoja);
-				System.out.println("Contador  " + RamaRemove.contador);
-				
-				System.out.println("\n\nEliminando\n\n");
-				
-				RamaRemove.contador--;
-				System.out.println("Es hoja: " + RamaRemove.hoja);
-				System.out.println("Contador  " + RamaRemove.contador);
-				System.out.println("\n\n/////////Otro//////////");
-				Removing(temp);
-			}else {
+	public void buscartoRomove(RamaB raiz, Long id) {
+		NodeRemove = null;
+		RamaIz = null;
+		RamaDer = null;
+		RamaRemove = null;
+
+		Removecompleto(raiz.primero, id, raiz, raiz.primero);
+
+		if (NodeRemove != null) {
+
+			if (RamaRemove.hoja) {
+
+				ReducirRama(NodeRemove);
+				if (RamaRemove != this.raiz) {
+					if (RamaRemove.contador < 2) {
+						reordenarNodos();
+					}
+				}
+
+			} else {
+
 				System.out.println("NO ES HOJA");
 				System.out.println("Es hoja: " + RamaRemove.hoja);
 				System.out.println("Contador  " + RamaRemove.contador);
-				
+
 				System.out.println("\n\nEliminando\n\n");
-				
+
 			}
-			
-			JOptionPane.showMessageDialog(null, "Se elimino cliente: \nDPI: " + temp.id + "\nNombre: "+ temp.cliente.Name + "\nPassword: " + temp.cliente.Password);
+
+			JOptionPane.showMessageDialog(null, "Se elimino cliente: \nDPI: " + NodeRemove.id + "\nNombre: "
+					+ NodeRemove.cliente.Name + "\nPassword: " + NodeRemove.cliente.Password);
 		} else {
 			JOptionPane.showMessageDialog(null, "No se encontro el DPI a eliminar");
 		}
 	}
-	
-	public void Removing(NodoB temp) {
-		   
-        if (RamaRemove.primero == temp) {
-        	RamaRemove.primero = temp.siguiente;
-        	RamaRemove.primero.anterior = null;
-        }else {
-        	
-        	if(temp.siguiente == null) {
-        		temp.anterior.siguiente = null;	
-        	}else {
-        		temp.anterior.siguiente = temp.siguiente;
-        		temp = null;
-        	}
-        }     
+
+	public void ReducirRama(NodoB temp) {
+
+		System.out.println("Es hoja: " + RamaRemove.hoja);
+		System.out.println("Contador  " + RamaRemove.contador);
+
+		System.out.println("\n\nEliminando\n\n");
+
+		System.out.println("Es hoja: " + RamaRemove.hoja);
+		System.out.println("Contador  " + RamaRemove.contador);
+		System.out.println("\n\n/////////Otro//////////");
+		Removing(temp);
+
 	}
-	
-	public NodoB Removecompleto(NodoB primero, Queue<NodoB> cola_nodos, Long id) {
+
+	public void reordenarNodos() {
+		System.out.println("///ReordenarNodeos///");
+		if (RamaIz != null) {
+			System.out.println("Iz: " + RamaIz.primero.id);
+		} else {
+			System.out.println("No iz");
+		}
+
+		if (RamaDer != null) {
+			System.out.println("Derecho: " + RamaDer.primero.id);
+		} else {
+			System.out.println("No der");
+		}
+
+	}
+
+	public void Removing(NodoB temp) {
+		System.out.println("Hojas: " + RamaRemove.contador);
+		System.out.println("Hoja id:" + temp.id);
+		System.out.println("Primero: " + RamaRemove.primero.id + "\n\nad");
+
+		if (RamaRemove.primero == temp) {
+			if (RamaRemove.contador == 1) {
+				RamaRemove.primero = null;
+			} else {
+				RamaRemove.primero = temp.siguiente;
+				RamaRemove.primero.anterior = null;
+			}
+
+		} else {
+
+			if (temp.siguiente == null) {
+				temp.anterior.siguiente = null;
+			} else {
+				temp.anterior.siguiente = temp.siguiente;
+				temp.siguiente.anterior = temp.anterior; 
+				temp = null;
+			}
+		}
+
+		RamaRemove.contador--;
+
+	}
+
+	public String Removecompleto(NodoB primero, Long id, RamaB raiz, NodoB auxAnterior) {
 
 		NodoB aux = primero;
-		
+
 		while (aux != null) {
+
 			Long temp = aux.id;
 			if (temp.compareTo(id) == 0) {
-				return aux;
+				NodeRemove = aux;
+				RamaRemove = raiz;
+
+				if (auxAnterior.izquierda == raiz) {
+					RamaDer = auxAnterior.derecha;
+
+					if (auxAnterior.anterior != null) {
+						RamaIz = auxAnterior.anterior.izquierda;
+					} else {
+						RamaIz = null;
+					}
+
+				} else if (auxAnterior.derecha == raiz) {
+					RamaIz = auxAnterior.izquierda;
+					RamaDer = null;
+				}
+
+				return null;
 			}
 
 			if (aux.izquierda != null) {
-				cola_nodos.offer(aux.izquierda.primero);
+
+				Removecompleto(aux.izquierda.primero, id, aux.izquierda, aux);
 			}
 
 			if (aux.derecha != null && aux.siguiente == null) {
-				cola_nodos.offer(aux.derecha.primero);
+
+				Removecompleto(aux.derecha.primero, id, aux.derecha, aux);
 			}
 
 			aux = aux.siguiente;
 
 		}
-		return null;
-	}
-	
-	public NodoB remove_start(RamaB raiz, Long id) {
 
-		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
-		cola_nodos.offer(raiz.primero);
-		RamaRemove = raiz;
-		
-		while (cola_nodos.peek() != null) {
-
-			NodoB temp = Removecompleto(cola_nodos.poll(), cola_nodos, id);
-			if (temp != null) {
-				return temp;
-			}
-		}
 		return null;
 	}
 

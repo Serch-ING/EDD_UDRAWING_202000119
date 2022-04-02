@@ -1,10 +1,6 @@
 digraph structs {
   bgcolor = "#E3FFFA"
  node [shape=Mrecord fillcolor="#FFE3FF" style =filled];
-struct1018473880[label="{{DPI:500\nName:jasmin}|<here>}"];
-struct810676208[label="{{DPI:3\nName:sergie|DPI: 123\nName:maria}|<here>}"];
-struct1482209435[label="{{DPI:550\nName:jasmin|DPI: 900\nName:jasmin}|<here>}"];
+struct1517940428[label="{{Vacio}|<here>}"];
 
-struct1018473880->struct810676208;
-struct1018473880->struct1482209435;
 }
