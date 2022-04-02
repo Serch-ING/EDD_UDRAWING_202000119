@@ -31,7 +31,7 @@ public class main2 {
 			    
 			   // System.out.println(myStr1.compareTo(myStr2));
 				
-				ArbolB arbol = new ArbolB();
+				/*ArbolB arbol = new ArbolB();
 				String[] edad = { "6", "11", "5" };
 				
 				for (String string : edad) {
@@ -42,10 +42,11 @@ public class main2 {
 				
 				Long id = Long.valueOf("6");
 				arbol.raiz.asdadasdd(arbol.raiz.primero,id);
-				
-				
+				*/
+				Long id = Long.valueOf("100");
+				Long id2 = Long.valueOf("9000");
 			   
-			    
+			    System.out.println(id.compareTo(id2));
 
 			}
 		});

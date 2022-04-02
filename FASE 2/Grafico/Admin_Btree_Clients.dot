@@ -1,12 +1,14 @@
 digraph structs {
   bgcolor = "#E3FFFA"
  node [shape=Mrecord fillcolor="#FFE3FF" style =filled];
-struct1383990012[label="{{DPI:5\nName:NUEVO7|DPI: 9\nName:NUEVO9}|<here>}"];
-struct273113860[label="{{DPI:3\nName:sergie|DPI: 4\nName:NUEVO4}|<here>}"];
-struct1243362011[label="{{DPI:7\nName:NUEVO7|DPI: 8\nName:NUEVO8}|<here>}"];
-struct773669930[label="{{DPI:10\nName:NUEVO10|DPI: 11\nName:NUEVO11}|<here>}"];
+struct1143935714[label="{{DPI:5\nName:NUEVO5|DPI: 11\nName:NUEVO11|DPI: 19\nName:NUEVO19}|<here>}"];
+struct1504750279[label="{{DPI:3\nName:NUEVO3|DPI: 4\nName:NUEVO4}|<here>}"];
+struct393914336[label="{{DPI:6\nName:NUEVO8|DPI: 8\nName:NUEVO8}|<here>}"];
+struct746869395[label="{{DPI:12\nName:NUEVO12|DPI: 14\nName:NUEVO14}|<here>}"];
+struct268496355[label="{{DPI:21\nName:NUEVO21|DPI: 28\nName:NUEVO28}|<here>}"];
 
-struct1383990012->struct273113860;
-struct1383990012->struct1243362011;
-struct1383990012->struct773669930;
+struct1143935714->struct1504750279;
+struct1143935714->struct393914336;
+struct1143935714->struct746869395;
+struct1143935714->struct268496355;
 }

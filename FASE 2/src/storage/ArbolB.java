@@ -397,6 +397,7 @@ public class ArbolB {
 			if (RamaIz.contador > 2) {
 				validacion = true;
 				System.out.println("En izquierda hay espacio");
+				PrestarIzquierda();
 			} else {
 				System.out.println("En izquierda NO hay espacio");
 			}
@@ -439,6 +440,11 @@ public class ArbolB {
 		temp.anterior = PadreDer.anterior;
 		temp.derecha = PadreDer.derecha;
 		temp.izquierda = PadreDer.izquierda;
+		
+		//validando que sea raiz
+		if(raiz.primero == PadreDer ) {
+			raiz.primero = temp;
+		}
 
 		// borrando enlaces de los padres
 		if (PadreDer.anterior != null) {
@@ -453,7 +459,6 @@ public class ArbolB {
 		PadreDer.siguiente = null;
 		PadreDer.derecha = null;
 		PadreDer.izquierda = null;
-		// NodeRemove
 
 		// colocar el temp en la pagina desbalanceada
 		if (RamaRemove.primero == NodeRemove) {
@@ -464,11 +469,63 @@ public class ArbolB {
 		RamaRemove.primero.siguiente = PadreDer;
 		PadreDer.anterior = RamaRemove.primero;
 
-		// raiz.primero.siguiente = null;
 	}
 
 	public void PrestarIzquierda() {
+		System.out.println("Separador: " + PadreIz.id);
 
+		
+		
+		// guardando encabezado
+		NodoB temp = null;
+		NodoB aux = PadreIz.izquierda.primero ;
+		
+		while (aux!=null) {
+			
+			if( aux.siguiente== null) {
+				temp = aux;
+			}
+			
+			aux = aux.siguiente;
+		}
+		
+		PadreIz.izquierda.contador--;
+		
+		//limpiando nodos anteriores izquierdo
+		temp.anterior.siguiente = null;
+
+		// modificando el ex primero
+		temp.siguiente = PadreIz.siguiente;
+		temp.anterior = PadreIz.anterior;
+		temp.derecha = PadreIz.derecha;
+		temp.izquierda = PadreIz.izquierda;
+
+		//validando que sea raiz
+		if(raiz.primero == PadreIz ) {
+			raiz.primero = temp;
+		}
+		
+		// borrando enlaces de los padres
+		if (PadreIz.anterior != null) {
+			PadreIz.anterior.siguiente = temp;
+		}
+
+		if (PadreIz.siguiente != null) {
+			PadreIz.siguiente.anterior = temp;
+		}
+
+		// borando ramas del padre
+		PadreIz.anterior = null;
+		PadreIz.derecha = null;
+		PadreIz.izquierda = null;
+		PadreIz.siguiente = null;
+
+		// colocar el temp en la pagina desbalanceada
+		PadreIz.siguiente = RamaRemove.primero;
+		RamaRemove.primero = PadreIz;
+		RamaRemove.primero.siguiente.anterior =RamaRemove.primero;
+		
+		
 	}
 
 	public void Removing(NodoB temp) {

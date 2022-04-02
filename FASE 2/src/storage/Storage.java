@@ -14,18 +14,21 @@ public class Storage {
 	public Clients  clientJoin;
 	
 	public void initilize() {
-		Clients new_client = new Clients("sergie","s","3");
-		Long id = Long.valueOf("3");
-		ClientesB.insertar(id, new_client);
-		//List_clients.add(new_client);
+		//Clients new_client = new Clients("sergie","s","3");
+		//Long id = Long.valueOf("3");
+		//ClientesB.insertar(id, new_client);
 		
-		for (int i = 4; i < 12; i++) {
+		//List_clients.add(new_client);
+		int[] edad = { 6, 11, 5, 4, 8, 9, 12, 21, 14, 19, 28, 3 };
+		
+		for (int i : edad) {
 			String temp = String.valueOf(i);
 			Long id7 = Long.valueOf(temp);
 			
 			Clients new_client7 = new Clients("NUEVO" + i,"n",temp);
 			ClientesB.insertar(id7, new_client7);
 		}
+
 		
 	}
 	
