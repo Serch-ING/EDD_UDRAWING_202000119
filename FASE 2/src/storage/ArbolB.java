@@ -15,6 +15,8 @@ public class ArbolB {
 	RamaB RamaDer;
 	RamaB RamaRemove;
 	NodoB NodeRemove;
+	NodoB PadreDer;
+	NodoB PadreIz;
 
 	public String dot = "";
 	public String Grap = "";
@@ -300,7 +302,7 @@ public class ArbolB {
 
 				Grap += "|<here>}\"];\n";
 			}
-		}else {
+		} else {
 			Grap += "struct1517940428[label=\"{{Vacio}|<here>}\"];\n";
 		}
 		Grap += "\n" + Connectios;
@@ -335,6 +337,8 @@ public class ArbolB {
 	}
 
 	public void buscartoRomove(RamaB raiz, Long id) {
+		PadreDer = null;
+		PadreIz = null;
 		NodeRemove = null;
 		RamaIz = null;
 		RamaDer = null;
@@ -385,21 +389,51 @@ public class ArbolB {
 	}
 
 	public void reordenarNodos() {
+		boolean validacion = false;
 		System.out.println("///ReordenarNodeos///");
 		if (RamaIz != null) {
 			System.out.println("Iz: " + RamaIz.primero.id);
-		} else {
+
+			if (RamaIz.contador > 2) {
+				validacion = true;
+				System.out.println("En izquierda hay espacio");
+			}else {
+				System.out.println("En izquierda NO hay espacio");
+			}
+			
+		}else {
 			System.out.println("No iz");
 		}
-
-		if (RamaDer != null) {
-			System.out.println("Derecho: " + RamaDer.primero.id);
-		} else {
-			System.out.println("No der");
+		
+		if (!validacion) {
+			if (RamaDer != null) {
+				System.out.println("Derecho: " + RamaDer.primero.id);
+				
+				if (RamaDer.contador > 2) {
+					validacion = true;
+					System.out.println("En derecha hay espacio");
+					PrestarDerecha();
+				}else {
+					System.out.println("En derecha NO hay espacio");
+				}
+				
+				
+			} else {
+				System.out.println("No der");
+			}
 		}
-
 	}
 
+	
+	public void PrestarDerecha() {
+		System.out.println("Separador: " + PadreDer.id);
+		//raiz.primero.siguiente = null;
+	}
+	
+	public void PrestarIzquierda() {
+			
+	}
+	
 	public void Removing(NodoB temp) {
 		System.out.println("Hojas: " + RamaRemove.contador);
 		System.out.println("Hoja id:" + temp.id);
@@ -419,7 +453,7 @@ public class ArbolB {
 				temp.anterior.siguiente = null;
 			} else {
 				temp.anterior.siguiente = temp.siguiente;
-				temp.siguiente.anterior = temp.anterior; 
+				temp.siguiente.anterior = temp.anterior;
 				temp = null;
 			}
 		}
@@ -428,7 +462,7 @@ public class ArbolB {
 
 	}
 
-	public String Removecompleto(NodoB primero, Long id, RamaB raiz, NodoB auxAnterior) {
+	public String Removecompleto(NodoB primero, Long id, RamaB raiz, NodoB padre) {
 
 		NodoB aux = primero;
 
@@ -438,18 +472,27 @@ public class ArbolB {
 			if (temp.compareTo(id) == 0) {
 				NodeRemove = aux;
 				RamaRemove = raiz;
+				
+				if (padre.izquierda == raiz) {
+					RamaDer = padre.derecha;
+					PadreDer = padre;
+					if (RamaDer == null) {
+						if (padre.siguiente != null) {
+							RamaDer = padre.siguiente.izquierda;
+							PadreDer =  padre.siguiente;
+						}
+					}
 
-				if (auxAnterior.izquierda == raiz) {
-					RamaDer = auxAnterior.derecha;
-
-					if (auxAnterior.anterior != null) {
-						RamaIz = auxAnterior.anterior.izquierda;
+					if (padre.anterior != null) {
+						RamaIz = padre.anterior.izquierda;
+						PadreIz =  padre.anterior;
 					} else {
 						RamaIz = null;
 					}
-
-				} else if (auxAnterior.derecha == raiz) {
-					RamaIz = auxAnterior.izquierda;
+					
+				} else if (padre.derecha == raiz) {
+					RamaIz = padre.izquierda;
+					PadreIz = padre;
 					RamaDer = null;
 				}
 

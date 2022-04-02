@@ -19,29 +19,14 @@ public class Storage {
 		ClientesB.insertar(id, new_client);
 		//List_clients.add(new_client);
 		
-		Clients new_client1 = new Clients("maria","m","123");
-		Long id1 = Long.valueOf("123");
-		Clients new_client2 = new Clients("juan","j","500");
-		Long id2 = Long.valueOf("500");
-		Clients new_client3 = new Clients("jasmin","j","900");
-		Long id3 = Long.valueOf("900");
-		ClientesB.insertar(id1, new_client1);
-		ClientesB.insertar(id2, new_client2);
-		ClientesB.insertar(id3, new_client3);
+		for (int i = 4; i < 12; i++) {
+			String temp = String.valueOf(i);
+			Long id7 = Long.valueOf(temp);
+			
+			Clients new_client7 = new Clients("NUEVO" + i,"n",temp);
+			ClientesB.insertar(id7, new_client7);
+		}
 		
-		Clients new_client4 = new Clients("Fernanda","f","550");
-		Long id4 = Long.valueOf("550");
-		//ClientesB.insertar(id4, new_client4);
-		
-		Clients new_client5 = new Clients("Ana","a","1");
-		Long id5 = Long.valueOf("1");
-		//ClientesB.insertar(id5, new_client5);
-		Clients new_client6 = new Clients("Daniel","d","10");
-		Long id6 = Long.valueOf("10");
-		//ClientesB.insertar(id6, new_client6);
-		Clients new_client7 = new Clients("Gabriela","g","4");
-		Long id7 = Long.valueOf("4");
-		//ClientesB.insertar(id7, new_client7);
 	}
 	
 	public void InsertClients(Clients client_new, Long dPI_Long) {
