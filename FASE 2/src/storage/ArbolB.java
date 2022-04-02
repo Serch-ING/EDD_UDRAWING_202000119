@@ -397,43 +397,80 @@ public class ArbolB {
 			if (RamaIz.contador > 2) {
 				validacion = true;
 				System.out.println("En izquierda hay espacio");
-			}else {
+			} else {
 				System.out.println("En izquierda NO hay espacio");
 			}
-			
-		}else {
+
+		} else {
 			System.out.println("No iz");
 		}
-		
+
 		if (!validacion) {
 			if (RamaDer != null) {
 				System.out.println("Derecho: " + RamaDer.primero.id);
-				
+
 				if (RamaDer.contador > 2) {
 					validacion = true;
 					System.out.println("En derecha hay espacio");
 					PrestarDerecha();
-				}else {
+				} else {
 					System.out.println("En derecha NO hay espacio");
 				}
-				
-				
+
 			} else {
 				System.out.println("No der");
 			}
 		}
 	}
 
-	
 	public void PrestarDerecha() {
 		System.out.println("Separador: " + PadreDer.id);
-		//raiz.primero.siguiente = null;
+
+		// guardando encabezado
+		NodoB temp = PadreDer.derecha.primero;
+		PadreDer.derecha.contador--;
+
+		// cambiando encabezado
+		PadreDer.derecha.primero = PadreDer.derecha.primero.siguiente;
+		PadreDer.derecha.primero.anterior = null;
+
+		// modificando el ex primero
+		temp.siguiente = PadreDer.siguiente;
+		temp.anterior = PadreDer.anterior;
+		temp.derecha = PadreDer.derecha;
+		temp.izquierda = PadreDer.izquierda;
+
+		// borrando enlaces de los padres
+		if (PadreDer.anterior != null) {
+			PadreDer.anterior.siguiente = temp;
+		}
+
+		if (PadreDer.siguiente != null) {
+			PadreDer.siguiente.anterior = temp;
+		}
+
+		// borando ramas del padre
+		PadreDer.siguiente = null;
+		PadreDer.derecha = null;
+		PadreDer.izquierda = null;
+		// NodeRemove
+
+		// colocar el temp en la pagina desbalanceada
+		if (RamaRemove.primero == NodeRemove) {
+			RamaRemove.primero = NodeRemove.siguiente;
+			RamaRemove.primero.anterior = null;
+		}
+		
+		RamaRemove.primero.siguiente = PadreDer;
+		PadreDer.anterior = RamaRemove.primero;
+
+		// raiz.primero.siguiente = null;
 	}
-	
+
 	public void PrestarIzquierda() {
-			
+
 	}
-	
+
 	public void Removing(NodoB temp) {
 		System.out.println("Hojas: " + RamaRemove.contador);
 		System.out.println("Hoja id:" + temp.id);
@@ -472,24 +509,24 @@ public class ArbolB {
 			if (temp.compareTo(id) == 0) {
 				NodeRemove = aux;
 				RamaRemove = raiz;
-				
+
 				if (padre.izquierda == raiz) {
 					RamaDer = padre.derecha;
 					PadreDer = padre;
 					if (RamaDer == null) {
 						if (padre.siguiente != null) {
 							RamaDer = padre.siguiente.izquierda;
-							PadreDer =  padre.siguiente;
+							PadreDer = padre.siguiente;
 						}
 					}
 
 					if (padre.anterior != null) {
 						RamaIz = padre.anterior.izquierda;
-						PadreIz =  padre.anterior;
+						PadreIz = padre.anterior;
 					} else {
 						RamaIz = null;
 					}
-					
+
 				} else if (padre.derecha == raiz) {
 					RamaIz = padre.izquierda;
 					PadreIz = padre;
