@@ -522,6 +522,37 @@ public class ArbolB {
 
 		} else {
 			System.out.println("Por derecha");
+			NodoB anterior = PadreDer.anterior;
+			if (PadreDer.siguiente != null) {
+				PadreDer.siguiente.anterior = PadreDer.anterior;
+			}
+			
+			if (raiz.primero == PadreDer.anterior) {
+				PadreDer.anterior = null;
+				raiz.primero = PadreDer;
+			}
+			PadreDer.anterior = null;
+			
+			PadreDer.izquierda.contador += 2;
+			
+			NodoB actual = RamaDer.primero;
+
+			RamaRemove.primero.siguiente = anterior;
+			RamaRemove.primero.siguiente.izquierda = null;
+			RamaRemove.primero.siguiente.derecha = null;
+			RamaRemove.primero.siguiente.anterior = RamaRemove.primero;
+			
+			RamaDer.primero = RamaRemove.primero;
+			RamaRemove.primero.siguiente.siguiente = actual;
+			
+			NodoB aux = RamaDer.primero;
+			
+			while (aux!= null) {
+				System.out.println("," + aux.id);
+				aux =aux.siguiente;
+			}
+			
+			print_start(this.raiz.primero);
 		}
 
 	}
