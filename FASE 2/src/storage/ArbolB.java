@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import objects.Clients;
 
 public class ArbolB {
+	RamaB RamaPadres;
 	RamaB RamaIz;
 	RamaB RamaDer;
 	RamaB RamaRemove;
@@ -383,7 +384,7 @@ public class ArbolB {
 		Removing(temp);
 
 	}
-	
+
 	public void Removing(NodoB temp) {
 		System.out.println("Hojas: " + RamaRemove.contador);
 		System.out.println("Hoja id:" + temp.id);
@@ -408,7 +409,6 @@ public class ArbolB {
 			}
 		}
 
-
 		RamaRemove.contador--;
 		System.out.println("\nSe elimino");
 		System.out.println("Hojas: " + RamaRemove.contador);
@@ -416,7 +416,6 @@ public class ArbolB {
 		print_start(this.raiz.primero);
 
 	}
-
 
 	public void reordenarNodos() {
 		boolean validacion = false;
@@ -426,7 +425,7 @@ public class ArbolB {
 
 			if (RamaIz.contador > 2) {
 				validacion = true;
-				System.out.println("En izquierda hay espacio" +RamaIz.contador );
+				System.out.println("En izquierda hay espacio" + RamaIz.contador);
 				PrestarIzquierda();
 			} else {
 				System.out.println("En izquierda NO hay espacio");
@@ -461,17 +460,30 @@ public class ArbolB {
 	public void rebalanceo() {
 		System.out.println("\n//////Rebalanceo////////");
 		System.out.println("Raiz: " + RamaRemove.primero.id);
-		
+
 		if (RamaIz != null) {
-			System.out.println("Izquierda: "+ RamaIz.primero.id);
+			System.out.println("Izquierda: " + RamaIz.primero.id);
 		}
- 
+
 		if (RamaDer != null) {
 			System.out.println("Derecho: " + RamaDer.primero.id);
 		}
-		
-		if (RamaIz != null) {
 
+		if (RamaIz != null) {
+			// Dato busqeuda//
+			NodoB Busqueda = PadreIz;
+			NodoB FINAl = null;
+			if (Busqueda.anterior == null) {
+				FINAl = Busqueda.siguiente;
+			} else {
+				while (Busqueda != null) {
+					if (Busqueda.anterior == null) {
+						FINAl = Busqueda;
+					}
+					Busqueda = Busqueda.anterior;
+				}
+			}
+			// FIN//
 			NodoB ultimo = null;
 			NodoB actual = RamaIz.primero;
 
@@ -486,20 +498,18 @@ public class ArbolB {
 				PadreIz.anterior.siguiente = PadreIz.siguiente;
 			}
 
-
 			if (PadreIz.siguiente != null) {
 				PadreIz.siguiente.anterior = PadreIz.anterior;
 			}
-			
 
 			PadreIz.izquierda.contador += 2;
 
-			if(PadreIz.siguiente != null) {
+			if (PadreIz.siguiente != null) {
 				PadreIz.siguiente.izquierda = RamaIz;
-			}else if (PadreIz.anterior != null) {
+			} else if (PadreIz.anterior != null) {
 				PadreIz.anterior.derecha = RamaIz;
 			}
-			
+
 			if (raiz.primero == PadreIz) {
 				raiz.primero = PadreIz.siguiente;
 			}
@@ -510,51 +520,110 @@ public class ArbolB {
 			PadreIz.siguiente = RamaRemove.primero;
 			ultimo.siguiente = PadreIz;
 			PadreIz.anterior = ultimo.siguiente;
-			
-			NodoB aux = RamaIz.primero;
-			
-			while (aux!= null) {
-				System.out.println("," + aux.id);
-				aux =aux.siguiente;
-			}
-			
-			print_start(this.raiz.primero);
+
+			/*
+			 * NodoB aux = RamaIz.primero;
+			 * 
+			 * while (aux != null) { System.out.println("," + aux.id); aux = aux.siguiente;
+			 * }
+			 */
+
+			BuscarRamaRestar(FINAl, this.raiz,null,3);
 
 		} else {
+			// Dato busqeuda//
+			NodoB Busqueda = PadreDer.anterior;
+			NodoB FINAl = null;
+			if (Busqueda.anterior == null) {
+				FINAl = Busqueda.siguiente;
+			} else {
+				while (Busqueda != null) {
+					if (Busqueda.anterior == null) {
+						FINAl = Busqueda;
+					}
+					Busqueda = Busqueda.anterior;
+				}
+			}
+			// FIN//
 			System.out.println("Por derecha");
 			NodoB anterior = PadreDer.anterior;
 			if (PadreDer.siguiente != null) {
 				PadreDer.siguiente.anterior = PadreDer.anterior;
 			}
-			
+
 			if (raiz.primero == PadreDer.anterior) {
 				PadreDer.anterior = null;
 				raiz.primero = PadreDer;
 			}
 			PadreDer.anterior = null;
-			
+
 			PadreDer.izquierda.contador += 2;
-			
+
 			NodoB actual = RamaDer.primero;
 
 			RamaRemove.primero.siguiente = anterior;
 			RamaRemove.primero.siguiente.izquierda = null;
 			RamaRemove.primero.siguiente.derecha = null;
 			RamaRemove.primero.siguiente.anterior = RamaRemove.primero;
-			
+
 			RamaDer.primero = RamaRemove.primero;
 			RamaRemove.primero.siguiente.siguiente = actual;
-			
-			NodoB aux = RamaDer.primero;
-			
-			while (aux!= null) {
-				System.out.println("," + aux.id);
-				aux =aux.siguiente;
+
+			/*
+			 * NodoB aux = RamaDer.primero;
+			 * 
+			 * while (aux != null) { System.out.println("," + aux.id); aux = aux.siguiente;
+			 * }
+			 */
+			 BuscarRamaRestar(FINAl,this.raiz,null,3);
+
+		}
+		System.out.println("//////Terminado balanceo //////\n");
+		print_start(this.raiz.primero);
+	}
+
+	public String BuscarRamaRestar(NodoB primero, RamaB raiz,NodoB padre,int tipo) {
+		NodoB aux = raiz.primero;
+
+		while (aux != null) {
+			if (raiz.primero == primero) {
+				//System.out.println("ENCONTRADO capa:" + raiz.primero.id);
+				//System.out.println("contador:" + raiz.contador);
+				raiz.contador--;
+				if(raiz != this.raiz) {
+					if(raiz.contador<2) {
+						System.out.println("requiere balanceo de nuevo");
+					}
+				}
+				return null;
 			}
-			
-			print_start(this.raiz.primero);
+			if (aux.izquierda != null) {
+				BuscarRamaRestar(primero, aux.izquierda,aux,0);
+			}
+			if (aux.derecha != null && aux.siguiente == null) {
+				BuscarRamaRestar(primero, aux.derecha,aux,1);
+			}
+			aux = aux.siguiente;
 		}
 
+		return null;
+	}
+
+	public void asdadasdd(NodoB primero, Long id) {
+		NodoB aux = primero;
+		while (aux != null) {
+			System.out.println(aux.id + ", ");
+			if (aux.id == id) {
+				System.out.println("ENCONTRADO:" + id);
+			}
+			if (aux.izquierda != null) {
+				asdadasdd(aux.izquierda.primero, id);
+			}
+			if (aux.derecha != null && aux.siguiente == null) {
+				asdadasdd(aux.derecha.primero, id);
+			}
+			aux = aux.siguiente;
+		}
 	}
 
 	public void PrestarDerecha() {
@@ -658,7 +727,6 @@ public class ArbolB {
 
 	}
 
-
 	public String Removecompleto(NodoB primero, Long id, RamaB raiz, NodoB padre) {
 
 		NodoB aux = primero;
@@ -674,12 +742,10 @@ public class ArbolB {
 					if (padre.siguiente != null) {
 						RamaDer = padre.siguiente.izquierda;
 						PadreDer = padre.siguiente;
-					}else {
+					} else {
 						RamaDer = padre.derecha;
 						PadreDer = padre;
 					}
-					
-					
 
 					if (padre.anterior != null) {
 						RamaIz = padre.anterior.izquierda;
