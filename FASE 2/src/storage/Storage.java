@@ -14,10 +14,22 @@ public class Storage {
 	public Clients  clientJoin;
 	
 	public void initilize() {
-		Clients new_client = new Clients("sergie","s","3");
-		Long id = Long.valueOf("3");
-		ClientesB.insertar(id, new_client);
+		//Clients new_client = new Clients("sergie","s","3");
+		//Long id = Long.valueOf("3");
+		//ClientesB.insertar(id, new_client);
+		
 		//List_clients.add(new_client);
+		/*int[] edad = {14,17,18,20,23,25,27,31,38,44,48,52,54,60,69,73,80,35,62,83,86,88,90};
+		
+		for (int i : edad) {
+			String temp = String.valueOf(i);
+			Long id7 = Long.valueOf(temp);
+			
+			Clients new_client7 = new Clients("NUEVO" + i,"n",temp);
+			ClientesB.insertar(id7, new_client7);
+		}*/
+		System.out.println("INICIANDO");
+		
 	}
 	
 	public void InsertClients(Clients client_new, Long dPI_Long) {
@@ -39,6 +51,10 @@ public class Storage {
 	public void modifyClient(Long id,String name,String password) {
 		ClientesB.buscar(ClientesB.raiz.primero, id, name, password);
 		
+	}
+	
+	public void RemovingClient(Long id) {	
+		ClientesB.buscartoRomove(ClientesB.raiz, id);	
 	}
 	
 	

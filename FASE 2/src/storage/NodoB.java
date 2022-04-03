@@ -14,6 +14,7 @@ public class NodoB {
     NodoB anterior;
     RamaB derecha;
     RamaB izquierda;
+    RamaB padre;
 
     public NodoB(Long id,Clients cliente) {
         this.id = id;
