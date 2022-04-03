@@ -19,7 +19,7 @@ public class Storage {
 		//ClientesB.insertar(id, new_client);
 		
 		//List_clients.add(new_client);
-		int[] edad = { 6, 11, 5, 4, 8, 9, 12, 21, 14, 19, 28, 3 };
+		int[] edad = { 6, 11, 5, 4, 8, 9, 12, 21};
 		
 		for (int i : edad) {
 			String temp = String.valueOf(i);

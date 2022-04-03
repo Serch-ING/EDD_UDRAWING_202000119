@@ -379,14 +379,44 @@ public class ArbolB {
 		System.out.println("Es hoja: " + RamaRemove.hoja);
 		System.out.println("Contador  " + RamaRemove.contador);
 
-		System.out.println("\n\nEliminando\n\n");
-
-		System.out.println("Es hoja: " + RamaRemove.hoja);
-		System.out.println("Contador  " + RamaRemove.contador);
-		System.out.println("\n\n/////////Otro//////////");
+		System.out.println("\n/////////Eliminando//////////");
 		Removing(temp);
 
 	}
+	
+	public void Removing(NodoB temp) {
+		System.out.println("Hojas: " + RamaRemove.contador);
+		System.out.println("Hoja id:" + temp.id);
+		System.out.println("Primero: " + RamaRemove.primero.id + "\n");
+
+		if (RamaRemove.primero == temp) {
+			if (RamaRemove.contador == 1) {
+				RamaRemove.primero = null;
+			} else {
+				RamaRemove.primero = temp.siguiente;
+				RamaRemove.primero.anterior = null;
+			}
+
+		} else {
+
+			if (temp.siguiente == null) {
+				temp.anterior.siguiente = null;
+			} else {
+				temp.anterior.siguiente = temp.siguiente;
+				temp.siguiente.anterior = temp.anterior;
+				temp = null;
+			}
+		}
+
+
+		RamaRemove.contador--;
+		System.out.println("\nSe elimino");
+		System.out.println("Hojas: " + RamaRemove.contador);
+		System.out.println("Primero: " + RamaRemove.primero.id + "\n");
+		print_start(this.raiz.primero);
+
+	}
+
 
 	public void reordenarNodos() {
 		boolean validacion = false;
@@ -396,7 +426,7 @@ public class ArbolB {
 
 			if (RamaIz.contador > 2) {
 				validacion = true;
-				System.out.println("En izquierda hay espacio");
+				System.out.println("En izquierda hay espacio" +RamaIz.contador );
 				PrestarIzquierda();
 			} else {
 				System.out.println("En izquierda NO hay espacio");
@@ -412,7 +442,7 @@ public class ArbolB {
 
 				if (RamaDer.contador > 2) {
 					validacion = true;
-					System.out.println("En derecha hay espacio");
+					System.out.println("En derecha hay espacio: " + RamaDer.contador);
 					PrestarDerecha();
 				} else {
 					System.out.println("En derecha NO hay espacio");
@@ -422,6 +452,78 @@ public class ArbolB {
 				System.out.println("No der");
 			}
 		}
+
+		if (!validacion) {
+			rebalanceo();
+		}
+	}
+
+	public void rebalanceo() {
+		System.out.println("\n//////Rebalanceo////////");
+		System.out.println("Raiz: " + RamaRemove.primero.id);
+		
+		if (RamaIz != null) {
+			System.out.println("Izquierda: "+ RamaIz.primero.id);
+		}
+ 
+		if (RamaDer != null) {
+			System.out.println("Derecho: " + RamaDer.primero.id);
+		}
+		
+		if (RamaIz != null) {
+
+			NodoB ultimo = null;
+			NodoB actual = RamaIz.primero;
+
+			while (actual != null) {
+				if (actual.siguiente == null) {
+					ultimo = actual;
+				}
+				actual = actual.siguiente;
+			}
+
+			if (PadreIz.anterior != null) {
+				PadreIz.anterior.siguiente = PadreIz.siguiente;
+			}
+
+
+			if (PadreIz.siguiente != null) {
+				PadreIz.siguiente.anterior = PadreIz.anterior;
+			}
+			
+
+			PadreIz.izquierda.contador += 2;
+
+			if(PadreIz.siguiente != null) {
+				PadreIz.siguiente.izquierda = RamaIz;
+			}else if (PadreIz.anterior != null) {
+				PadreIz.anterior.derecha = RamaIz;
+			}
+			
+			if (raiz.primero == PadreIz) {
+				raiz.primero = PadreIz.siguiente;
+			}
+
+			PadreIz.izquierda = null;
+			PadreIz.derecha = null;
+			PadreIz.anterior = null;
+			PadreIz.siguiente = RamaRemove.primero;
+			ultimo.siguiente = PadreIz;
+			PadreIz.anterior = ultimo.siguiente;
+			
+			NodoB aux = RamaIz.primero;
+			
+			while (aux!= null) {
+				System.out.println("," + aux.id);
+				aux =aux.siguiente;
+			}
+			
+			print_start(this.raiz.primero);
+
+		} else {
+			System.out.println("Por derecha");
+		}
+
 	}
 
 	public void PrestarDerecha() {
@@ -440,9 +542,9 @@ public class ArbolB {
 		temp.anterior = PadreDer.anterior;
 		temp.derecha = PadreDer.derecha;
 		temp.izquierda = PadreDer.izquierda;
-		
-		//validando que sea raiz
-		if(raiz.primero == PadreDer ) {
+
+		// validando que sea raiz
+		if (raiz.primero == PadreDer) {
 			raiz.primero = temp;
 		}
 
@@ -465,7 +567,7 @@ public class ArbolB {
 			RamaRemove.primero = NodeRemove.siguiente;
 			RamaRemove.primero.anterior = null;
 		}
-		
+
 		RamaRemove.primero.siguiente = PadreDer;
 		PadreDer.anterior = RamaRemove.primero;
 
@@ -474,24 +576,22 @@ public class ArbolB {
 	public void PrestarIzquierda() {
 		System.out.println("Separador: " + PadreIz.id);
 
-		
-		
 		// guardando encabezado
 		NodoB temp = null;
-		NodoB aux = PadreIz.izquierda.primero ;
-		
-		while (aux!=null) {
-			
-			if( aux.siguiente== null) {
+		NodoB aux = PadreIz.izquierda.primero;
+
+		while (aux != null) {
+
+			if (aux.siguiente == null) {
 				temp = aux;
 			}
-			
+
 			aux = aux.siguiente;
 		}
-		
+
 		PadreIz.izquierda.contador--;
-		
-		//limpiando nodos anteriores izquierdo
+
+		// limpiando nodos anteriores izquierdo
 		temp.anterior.siguiente = null;
 
 		// modificando el ex primero
@@ -500,11 +600,11 @@ public class ArbolB {
 		temp.derecha = PadreIz.derecha;
 		temp.izquierda = PadreIz.izquierda;
 
-		//validando que sea raiz
-		if(raiz.primero == PadreIz ) {
+		// validando que sea raiz
+		if (raiz.primero == PadreIz) {
 			raiz.primero = temp;
 		}
-		
+
 		// borrando enlaces de los padres
 		if (PadreIz.anterior != null) {
 			PadreIz.anterior.siguiente = temp;
@@ -523,38 +623,10 @@ public class ArbolB {
 		// colocar el temp en la pagina desbalanceada
 		PadreIz.siguiente = RamaRemove.primero;
 		RamaRemove.primero = PadreIz;
-		RamaRemove.primero.siguiente.anterior =RamaRemove.primero;
-		
-		
-	}
-
-	public void Removing(NodoB temp) {
-		System.out.println("Hojas: " + RamaRemove.contador);
-		System.out.println("Hoja id:" + temp.id);
-		System.out.println("Primero: " + RamaRemove.primero.id + "\n\nad");
-
-		if (RamaRemove.primero == temp) {
-			if (RamaRemove.contador == 1) {
-				RamaRemove.primero = null;
-			} else {
-				RamaRemove.primero = temp.siguiente;
-				RamaRemove.primero.anterior = null;
-			}
-
-		} else {
-
-			if (temp.siguiente == null) {
-				temp.anterior.siguiente = null;
-			} else {
-				temp.anterior.siguiente = temp.siguiente;
-				temp.siguiente.anterior = temp.anterior;
-				temp = null;
-			}
-		}
-
-		RamaRemove.contador--;
+		RamaRemove.primero.siguiente.anterior = RamaRemove.primero;
 
 	}
+
 
 	public String Removecompleto(NodoB primero, Long id, RamaB raiz, NodoB padre) {
 
@@ -568,14 +640,15 @@ public class ArbolB {
 				RamaRemove = raiz;
 
 				if (padre.izquierda == raiz) {
-					RamaDer = padre.derecha;
-					PadreDer = padre;
-					if (RamaDer == null) {
-						if (padre.siguiente != null) {
-							RamaDer = padre.siguiente.izquierda;
-							PadreDer = padre.siguiente;
-						}
+					if (padre.siguiente != null) {
+						RamaDer = padre.siguiente.izquierda;
+						PadreDer = padre.siguiente;
+					}else {
+						RamaDer = padre.derecha;
+						PadreDer = padre;
 					}
+					
+					
 
 					if (padre.anterior != null) {
 						RamaIz = padre.anterior.izquierda;
