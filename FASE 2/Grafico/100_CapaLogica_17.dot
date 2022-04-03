@@ -1,0 +1,229 @@
+digraph G{
+    node[shape=box,width=0.6 height=0.6 fontname="Arial" fillcolor="white" style=filled /*invisible*/]
+	edge[style = "bold" /* style= invisible arrowsize=0 */ ]
+    raiz[label = "f/c" fillcolor="#FFFFFF" pos = "-1,1!"  ]; 
+	Columna0[ label="C0" fillcolor="#FFFFFF" pos="0,1!" ];
+	raiz->Columna0
+	Columna0->Columna1
+	Columna1->Columna0
+	Columna1[ label="C1" fillcolor="#FFFFFF" pos="1,1!" ];
+	Columna1->Columna2
+	Columna2->Columna1
+	Columna2[ label="C2" fillcolor="#FFFFFF" pos="2,1!" ];
+	Columna2->Columna3
+	Columna3->Columna2
+	Columna3[ label="C3" fillcolor="#FFFFFF" pos="3,1!" ];
+	Columna3->Columna4
+	Columna4->Columna3
+	Columna4[ label="C4" fillcolor="#FFFFFF" pos="4,1!" ];
+	Columna4->Columna5
+	Columna5->Columna4
+	Columna5[ label="C5" fillcolor="#FFFFFF" pos="5,1!" ];
+	Columna5->Columna6
+	Columna6->Columna5
+	Columna6[ label="C6" fillcolor="#FFFFFF" pos="6,1!" ];
+	Columna6->Columna7
+	Columna7->Columna6
+	Columna7[ label="C7" fillcolor="#FFFFFF" pos="7,1!" ];
+	Columna7->Columna8
+	Columna8->Columna7
+	Columna8[ label="C8" fillcolor="#FFFFFF" pos="8,1!" ];
+	Columna8->Columna9
+	Columna9->Columna8
+	Columna9[ label="C9" fillcolor="#FFFFFF" pos="9,1!" ];
+	Columna9->Columna10
+	Columna10->Columna9
+	Columna10[ label="C10" fillcolor="#FFFFFF" pos="10,1!" ];
+	Columna10->Columna11
+	Columna11->Columna10
+	Columna11[ label="C11" fillcolor="#FFFFFF" pos="11,1!" ];
+	Columna11->Columna12
+	Columna12->Columna11
+	Columna12[ label="C12" fillcolor="#FFFFFF" pos="12,1!" ];
+	Columna12->Columna13
+	Columna13->Columna12
+	Columna13[ label="C13" fillcolor="#FFFFFF" pos="13,1!" ];
+	Columna13->Columna14
+	Columna14->Columna13
+	Columna14[ label="C14" fillcolor="#FFFFFF" pos="14,1!" ];
+	Fila0[ label="F0" fillcolor="#FFFFFF" pos="-1,-0!"];
+	raiz->Fila0
+	Fila0->Fila1
+	Fila1->Fila0
+	Fila1[ label="F1" fillcolor="#FFFFFF" pos="-1,-1!"];
+	Fila1->Fila2
+	Fila2->Fila1
+	Fila2[ label="F2" fillcolor="#FFFFFF" pos="-1,-2!"];
+	Fila2->Fila3
+	Fila3->Fila2
+	Fila3[ label="F3" fillcolor="#FFFFFF" pos="-1,-3!"];
+	Fila3->Fila4
+	Fila4->Fila3
+	Fila4[ label="F4" fillcolor="#FFFFFF" pos="-1,-4!"];
+	Fila4->Fila5
+	Fila5->Fila4
+	Fila5[ label="F5" fillcolor="#FFFFFF" pos="-1,-5!"];
+	Fila5->Fila6
+	Fila6->Fila5
+	Fila6[ label="F6" fillcolor="#FFFFFF" pos="-1,-6!"];
+	Fila6->Fila7
+	Fila7->Fila6
+	Fila7[ label="F7" fillcolor="#FFFFFF" pos="-1,-7!"];
+	Fila7->Fila8
+	Fila8->Fila7
+	Fila8[ label="F8" fillcolor="#FFFFFF" pos="-1,-8!"];
+	Fila8->Fila9
+	Fila9->Fila8
+	Fila9[ label="F9" fillcolor="#FFFFFF" pos="-1,-9!"];
+	Fila9->Fila10
+	Fila10->Fila9
+	Fila10[ label="F10" fillcolor="#FFFFFF" pos="-1,-10!"];
+
+
+	Nodo8_2[style= filled  label="	" fillcolor="#0000FF" pos="8,-2!"];
+Fila2->Nodo8_2
+Nodo8_2->Fila2
+	Columna8->Nodo8_2
+	Nodo8_2->Columna8
+	Nodo9_2[style= filled  label="	" fillcolor="#0000FF" pos="9,-2!"];
+	Nodo8_2->Nodo9_2
+	Nodo9_2->Nodo8_2
+	Columna9->Nodo9_2
+	Nodo9_2->Columna9
+	Nodo10_2[style= filled  label="	" fillcolor="#0000FF" pos="10,-2!"];
+	Nodo9_2->Nodo10_2
+	Nodo10_2->Nodo9_2
+	Columna10->Nodo10_2
+	Nodo10_2->Columna10
+	Nodo13_2[style= filled  label="	" fillcolor="#0000FF" pos="13,-2!"];
+	Nodo10_2->Nodo13_2
+	Nodo13_2->Nodo10_2
+	Columna13->Nodo13_2
+	Nodo13_2->Columna13
+	Nodo14_2[style= filled  label="	" fillcolor="#0000FF" pos="14,-2!"];
+	Nodo13_2->Nodo14_2
+	Nodo14_2->Nodo13_2
+	Columna14->Nodo14_2
+	Nodo14_2->Columna14
+	Nodo6_3[style= filled  label="	" fillcolor="#0000FF" pos="6,-3!"];
+Fila3->Nodo6_3
+Nodo6_3->Fila3
+	Columna6->Nodo6_3
+	Nodo6_3->Columna6
+	Nodo7_3[style= filled  label="	" fillcolor="#0000FF" pos="7,-3!"];
+	Nodo6_3->Nodo7_3
+	Nodo7_3->Nodo6_3
+	Columna7->Nodo7_3
+	Nodo7_3->Columna7
+	Nodo8_3[style= filled  label="	" fillcolor="#0000FF" pos="8,-3!"];
+	Nodo7_3->Nodo8_3
+	Nodo8_3->Nodo7_3
+	Nodo8_2->Nodo8_3
+	Nodo8_3->Nodo8_2
+	Nodo9_3[style= filled  label="	" fillcolor="#0000FF" pos="9,-3!"];
+	Nodo8_3->Nodo9_3
+	Nodo9_3->Nodo8_3
+	Nodo9_2->Nodo9_3
+	Nodo9_3->Nodo9_2
+	Nodo13_3[style= filled  label="	" fillcolor="#0000FF" pos="13,-3!"];
+	Nodo9_3->Nodo13_3
+	Nodo13_3->Nodo9_3
+	Nodo13_2->Nodo13_3
+	Nodo13_3->Nodo13_2
+	Nodo9_4[style= filled  label="	" fillcolor="#0000FF" pos="9,-4!"];
+Fila4->Nodo9_4
+Nodo9_4->Fila4
+	Nodo9_3->Nodo9_4
+	Nodo9_4->Nodo9_3
+	Nodo10_4[style= filled  label="	" fillcolor="#0000FF" pos="10,-4!"];
+	Nodo9_4->Nodo10_4
+	Nodo10_4->Nodo9_4
+	Nodo10_2->Nodo10_4
+	Nodo10_4->Nodo10_2
+	Nodo10_5[style= filled  label="	" fillcolor="#0000FF" pos="10,-5!"];
+Fila5->Nodo10_5
+Nodo10_5->Fila5
+	Nodo10_4->Nodo10_5
+	Nodo10_5->Nodo10_4
+	Nodo11_5[style= filled  label="	" fillcolor="#0000FF" pos="11,-5!"];
+	Nodo10_5->Nodo11_5
+	Nodo11_5->Nodo10_5
+	Columna11->Nodo11_5
+	Nodo11_5->Columna11
+	Nodo12_5[style= filled  label="	" fillcolor="#0000FF" pos="12,-5!"];
+	Nodo11_5->Nodo12_5
+	Nodo12_5->Nodo11_5
+	Columna12->Nodo12_5
+	Nodo12_5->Columna12
+	Nodo10_6[style= filled  label="	" fillcolor="#0000FF" pos="10,-6!"];
+Fila6->Nodo10_6
+Nodo10_6->Fila6
+	Nodo10_5->Nodo10_6
+	Nodo10_6->Nodo10_5
+	Nodo11_6[style= filled  label="	" fillcolor="#0000FF" pos="11,-6!"];
+	Nodo10_6->Nodo11_6
+	Nodo11_6->Nodo10_6
+	Nodo11_5->Nodo11_6
+	Nodo11_6->Nodo11_5
+	Nodo12_6[style= filled  label="	" fillcolor="#0000FF" pos="12,-6!"];
+	Nodo11_6->Nodo12_6
+	Nodo12_6->Nodo11_6
+	Nodo12_5->Nodo12_6
+	Nodo12_6->Nodo12_5
+	Nodo10_7[style= filled  label="	" fillcolor="#0000FF" pos="10,-7!"];
+Fila7->Nodo10_7
+Nodo10_7->Fila7
+	Nodo10_6->Nodo10_7
+	Nodo10_7->Nodo10_6
+	Nodo11_7[style= filled  label="	" fillcolor="#0000FF" pos="11,-7!"];
+	Nodo10_7->Nodo11_7
+	Nodo11_7->Nodo10_7
+	Nodo11_6->Nodo11_7
+	Nodo11_7->Nodo11_6
+	Nodo12_7[style= filled  label="	" fillcolor="#0000FF" pos="12,-7!"];
+	Nodo11_7->Nodo12_7
+	Nodo12_7->Nodo11_7
+	Nodo12_6->Nodo12_7
+	Nodo12_7->Nodo12_6
+	Nodo10_8[style= filled  label="	" fillcolor="#0000FF" pos="10,-8!"];
+Fila8->Nodo10_8
+Nodo10_8->Fila8
+	Nodo10_7->Nodo10_8
+	Nodo10_8->Nodo10_7
+	Nodo11_8[style= filled  label="	" fillcolor="#0000FF" pos="11,-8!"];
+	Nodo10_8->Nodo11_8
+	Nodo11_8->Nodo10_8
+	Nodo11_7->Nodo11_8
+	Nodo11_8->Nodo11_7
+	Nodo12_8[style= filled  label="	" fillcolor="#0000FF" pos="12,-8!"];
+	Nodo11_8->Nodo12_8
+	Nodo12_8->Nodo11_8
+	Nodo12_7->Nodo12_8
+	Nodo12_8->Nodo12_7
+	Nodo11_9[style= filled  label="	" fillcolor="#0000FF" pos="11,-9!"];
+Fila9->Nodo11_9
+Nodo11_9->Fila9
+	Nodo11_8->Nodo11_9
+	Nodo11_9->Nodo11_8
+	Nodo12_9[style= filled  label="	" fillcolor="#0000FF" pos="12,-9!"];
+	Nodo11_9->Nodo12_9
+	Nodo12_9->Nodo11_9
+	Nodo12_8->Nodo12_9
+	Nodo12_9->Nodo12_8
+	Nodo11_10[style= filled  label="	" fillcolor="#0000FF" pos="11,-10!"];
+Fila10->Nodo11_10
+Nodo11_10->Fila10
+	Nodo11_9->Nodo11_10
+	Nodo11_10->Nodo11_9
+	Nodo12_10[style= filled  label="	" fillcolor="#0000FF" pos="12,-10!"];
+	Nodo11_10->Nodo12_10
+	Nodo12_10->Nodo11_10
+	Nodo12_9->Nodo12_10
+	Nodo12_10->Nodo12_9
+	Nodo13_10[style= filled  label="	" fillcolor="#0000FF" pos="13,-10!"];
+	Nodo12_10->Nodo13_10
+	Nodo13_10->Nodo12_10
+	Nodo13_3->Nodo13_10
+	Nodo13_10->Nodo13_3
+
+}
