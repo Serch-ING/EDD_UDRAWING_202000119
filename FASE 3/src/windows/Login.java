@@ -1,4 +1,4 @@
-package ventanas;
+package windows;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -101,7 +101,7 @@ public class Login extends JFrame {
 						
 						dispose();
 
-					}else if (/*storage.SerchClient(User,password*/ true)) {
+					}else if (storage.SerchClient(User,password)) {
 						//JOptionPane.showMessageDialog(null, "Client joined");
 						
 						

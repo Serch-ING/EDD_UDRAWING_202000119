@@ -1,4 +1,4 @@
-package ventanas;
+package windows;
 
 
 import javax.swing.JFrame;

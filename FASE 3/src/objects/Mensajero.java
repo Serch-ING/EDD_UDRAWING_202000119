@@ -1,11 +1,11 @@
-package objetos;
+package objects;
 
-public class mensajero {
+public class Mensajero {
 	public long DPI; 
 	public String nombre,apellido,tipo_liciencia,genero,direccion;
 	public int telefono;
 	
-	public mensajero(long DPI,String nombre,String apellido,String tipo_liciencia,String genero,String direccion,int telefono) {
+	public Mensajero(long DPI,String nombre,String apellido,String tipo_liciencia,String genero,String direccion,int telefono) {
 		this.DPI= DPI;
 		this.nombre= nombre;
 		this.apellido= apellido;
