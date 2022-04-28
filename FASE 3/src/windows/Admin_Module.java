@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 
 import objects.Clients;
+import objects.Mensajero;
 import storage.NodoB;
 import storage.Storage;
 
@@ -91,7 +92,7 @@ public class Admin_Module extends JFrame {
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("Carga Masiva", null, panel, null);
+		tabbedPane.addTab("Carga Masiva Clientes", null, panel, null);
 		panel.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Ruta:");
@@ -124,6 +125,37 @@ public class Admin_Module extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Clientes JSON ingresados");
 		lblNewLabel_4.setBounds(312, 50, 171, 14);
 		panel.add(lblNewLabel_4);
+		
+		JButton Button_LoadMensajeros = new JButton("Cargar mensajeros");
+		
+		Button_LoadMensajeros.setBounds(10, 106, 123, 23);
+		panel.add(Button_LoadMensajeros);
+		
+		JPanel panel_10 = new JPanel();
+		tabbedPane.addTab("Carga Masiva mensajeros", null, panel_10, null);
+		panel_10.setLayout(null);
+		
+		JButton Button_Search_1 = new JButton("Buscar Archivo");
+		
+		Button_Search_1.setBounds(10, 36, 123, 23);
+		panel_10.add(Button_Search_1);
+		
+		JButton Button_LoadClients_1 = new JButton("Cargar clientes");
+		
+		Button_LoadClients_1.setBounds(10, 69, 123, 23);
+		panel_10.add(Button_LoadClients_1);
+		
+		JLabel lblNewLabel_6 = new JLabel("Ruta:");
+		lblNewLabel_6.setForeground(Color.BLACK);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_6.setBounds(10, 11, 46, 14);
+		panel_10.add(lblNewLabel_6);
+		
+		JLabel label_ruta_1 = new JLabel("Null");
+		label_ruta_1.setForeground(Color.BLACK);
+		label_ruta_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_ruta_1.setBounds(48, 11, 1127, 14);
+		panel_10.add(label_ruta_1);
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Operaciones de clientes", null, panel_1, null);
@@ -410,6 +442,30 @@ public class Admin_Module extends JFrame {
 		contentPane.add(Button_closesesion);
 
 		// Buttons-----------------------------------------------------------------------------------------------------------
+		Button_LoadMensajeros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!label_ruta.getText().equals("Null")) {
+
+					textOut.setText(ReadJsonMensajeros(label_ruta.getText(), storage));
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
+				}
+			}
+		});
+		
+		Button_LoadClients_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		Button_Search_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -655,6 +711,69 @@ public class Admin_Module extends JFrame {
 				if (dpi != null && name != null && user != null && mail != null && password != null && cellphone != null && direction != null && municipie_int > -1 ) {
 					temp += object + "\n\n";
 					storage.InsertClients(client_new, DPI_Long);
+				}else {
+					System.out.println("datos incompletos");
+				}
+			}
+			// storage.showClients();
+
+			System.out.println("El archivo se ingreso correctamente");
+			return temp;
+
+		} catch (Exception e) {
+
+			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");
+			System.out.println(e);
+			return null;
+		}
+	}
+	
+	
+
+	public String ReadJsonMensajeros(String ruta, Storage storage) {
+
+		JSONParser jsonParser = new JSONParser();
+
+		try (FileReader reader = new FileReader(ruta)) {
+			String temp = "";
+			Object obj = jsonParser.parse(reader);
+
+			JSONArray jsonList = (JSONArray) obj;
+			// System.out.println(jsonList + "\n");
+
+			for (Object object : jsonList) {
+
+				JSONObject data = (JSONObject) object;
+				System.out.println(data);
+				
+				String dpi = ((String) data.get("dpi"));
+				Long DPI_Long = Long.valueOf(dpi);
+				System.out.println(DPI_Long);
+
+				String name = (String) data.get("nombres");
+				System.out.println(name);
+
+				String apellidos = (String) data.get("apellidos");
+				System.out.println(apellidos);
+				
+				String tipo_licencia = (String) data.get("tipo_licencia");
+				System.out.println(tipo_licencia);
+				
+				String genero = (String) data.get("genero");
+				System.out.println(genero);
+				
+				String telefono = (String) data.get("telefono");
+				System.out.println(telefono);
+				
+				String direccion = (String) data.get("direccion");
+				System.out.println(direccion);
+				
+				
+				Mensajero mensajero_new = new Mensajero(DPI_Long,name,apellidos,tipo_licencia,genero,telefono,direccion);
+
+				if (dpi != null && name != null && apellidos != null && tipo_licencia != null && genero != null && telefono != null && direccion != null  ) {
+					temp += object + "\n\n";
+					//storage.InsertClients(client_new, DPI_Long);
 				}else {
 					System.out.println("datos incompletos");
 				}
