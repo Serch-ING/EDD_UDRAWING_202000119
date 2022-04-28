@@ -1,6 +1,9 @@
 {
     "Lugares": [
-        {"id":1,"departamento":"Alta Verapaz","nombre":"Cahabón","sn_sucursal":"no"},
+        {"id":1,
+        "departamento":"Alta Verapaz",
+    "nombre":"Cahabón",
+"sn_sucursal":"no    "},
         {"id":2,"departamento":"Alta Verapaz","nombre":"Chahal","sn_sucursal":"no"},
         {"id":3,"departamento":"Alta Verapaz","nombre":"Chisec","sn_sucursal":"no"},
         {"id":4,"departamento":"Alta Verapaz","nombre":"Cobán","sn_sucursal":"no"},

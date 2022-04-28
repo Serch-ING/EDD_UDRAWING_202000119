@@ -128,7 +128,7 @@ public class Admin_Module extends JFrame {
 		
 		JButton Button_LoadMensajeros = new JButton("Cargar mensajeros");
 		
-		Button_LoadMensajeros.setBounds(10, 106, 123, 23);
+		Button_LoadMensajeros.setBounds(10, 106, 165, 23);
 		panel.add(Button_LoadMensajeros);
 		
 		JPanel panel_10 = new JPanel();

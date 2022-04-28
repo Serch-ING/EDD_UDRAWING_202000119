@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import storage.Storage;
 import windows.Login;
+import windows.Required_Files;
 
 public class main {
 	static Storage storage = new Storage();
@@ -13,8 +14,10 @@ public class main {
 			public void run() {
 				try {
 					storage.initilize();
-					Login frame = new Login(storage);
-					frame.setVisible(true);
+					Required_Files files_new = new Required_Files(storage);
+					files_new.setVisible(true);
+					
+					
 					System.out.println("Start");
 				} catch (Exception e) {
 					e.printStackTrace();
