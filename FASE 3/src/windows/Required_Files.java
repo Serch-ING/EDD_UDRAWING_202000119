@@ -13,7 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import objects.Clients;
-import objects.Lugares;
+
+import storage.ListaDG;
 import storage.Storage;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -138,7 +139,8 @@ public class Required_Files extends JFrame {
 	}
 	
 	public String ReadPlaces(String ruta, Storage storage) {
-
+		ListaDG lista= new ListaDG();
+		
 		JSONParser jsonParser = new JSONParser();
 
 		try (FileReader reader = new FileReader(ruta)) {
@@ -182,11 +184,14 @@ public class Required_Files extends JFrame {
 				
 				//System.out.println(validacion);
 				
-				Lugares lugares = new Lugares(id_int, departamento, nombre, validacion);
+				//Lugares lugares = new Lugares(id_int, departamento, nombre, validacion);
+				storage.LLenando_Lista(id_int, departamento, nombre, validacion);
 				temp+=data;
 			}
+			
 
 			System.out.println("El archivo se ingreso correctamente");
+			storage.Lista_adyacente.showList();
 			return temp;
 
 		} catch (Exception e) {
@@ -210,28 +215,29 @@ public class Required_Files extends JFrame {
 			
 			for (Object object : arr) {
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				
 				String Inicio = String.valueOf(data.get("inicio"));
 				int Inicio_int = Integer.valueOf(Inicio);
-				System.out.println(Inicio_int);
+				//System.out.println(Inicio_int);
 				
 				String FIN = String.valueOf(data.get("final"));
 				int FIN_int = Integer.valueOf(FIN);
-				System.out.println(FIN_int);
+				//System.out.println(FIN_int);
 				
 				String Peso = String.valueOf(data.get("peso"));
 				int Peso_int = Integer.valueOf(Peso);
-				System.out.println(Peso_int);
+				//System.out.println(Peso_int);
 				
-				//Lugares lugares = new Lugares(id_int, departamento, nombre, validacion);
+				storage.Conexion_Lista(Inicio_int, FIN_int, Peso_int);
 				temp+=data;
 			}
-
+			
 			System.out.println("El archivo se ingreso correctamente");
+			storage.Lista_adyacente.showList();
 			return temp;
-
+			
 		} catch (Exception e) {
 
 			JOptionPane.showMessageDialog(null, "Ocurrio un error en la lectura del JSON");

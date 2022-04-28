@@ -10,27 +10,26 @@ import objects.Clients;
 
 public class Storage {
 	public  ArbolB ClientesB = new ArbolB();
-	//public  LinkedList<Clients> List_clients  = new LinkedList<Clients>();
+	public ListaDG Lista_adyacente= new ListaDG();
+
 	public Clients  clientJoin;
 	
 	public void initilize() {
 		Clients new_client = new Clients("3","Sergie","serch","sergie@gmail.com","123","+502xxxxxxxx","planes",1);
 		Long id = Long.valueOf("3");
 		ClientesB.insertar(id, new_client);
-		
-		//List_clients.add(new_client);
-		/*int[] edad = {14,17,18,20,23,25,27,31,38,44,48,52,54,60,69,73,80,35,62,83,86,88,90};
-		
-		for (int i : edad) {
-			String temp = String.valueOf(i);
-			Long id7 = Long.valueOf(temp);
-			
-			Clients new_client7 = new Clients("NUEVO" + i,"n",temp);
-			ClientesB.insertar(id7, new_client7);
-		}*/
 		System.out.println("INICIANDO");
 		
 	}
+	
+	public void LLenando_Lista(int id_int, String departamento, String nombre, Boolean validacion) {
+		Lista_adyacente.insert(id_int, departamento, nombre, validacion);
+	}
+	public void Conexion_Lista(int inicio, int fin, int peso) {
+		Lista_adyacente.conexion(inicio, fin, peso);
+	}
+	
+	
 	
 	public void InsertClients(Clients client_new, Long dPI_Long) {
 		
