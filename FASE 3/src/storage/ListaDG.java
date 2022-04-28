@@ -72,7 +72,7 @@ public class ListaDG {
 		if (isNone() == false) {
 			Nodo_Simple actual = this.primero;
 			while (actual != null) {
-				 System.out.print( actual.nombre+ "["+actual.id+"]->");
+				 System.out.print( actual.nombre+ "["+actual.id+"]");
 				 actual.imprimir();
 				 System.out.println();
 				// actual.nombre + " , " + actual.sucursal);
