@@ -11,8 +11,8 @@ public class Clients {
 	public String DPI;
 	
 	//Nuevos valores-----------------------
-	public String usuario,correo,direccion;
-	public int telefono,id_municipio;
+	public String usuario,correo,direccion,telefono;
+	public int id_municipio;
 	//-------------------------------------
 	
 	
@@ -27,11 +27,15 @@ public class Clients {
 	public int no_albumes= 0;
 	
 	
-	public Clients(String Name, String Password, String DPI) {
-		this.Name = Name;
-		this.Password = Password;
+	public Clients(String DPI,String Name,String usuario,String correo,String Password,String telefono,String direccion,int id_municipio ) {
 		this.DPI = DPI;
-		
+		this.Name = Name;
+		this.usuario = usuario;
+		this.correo = correo;
+		this.Password = Password;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.id_municipio = id_municipio;
 	}
 	
 }

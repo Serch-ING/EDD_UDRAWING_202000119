@@ -236,6 +236,50 @@ public class ArbolB {
 		}
 		return null;
 	}
+	
+	
+	//----------------------------------
+	
+	public NodoB buscar_start_string(NodoB primero, String usuario) {
+
+		Queue<NodoB> cola_nodos = new LinkedList<NodoB>();
+		cola_nodos.offer(primero);
+
+		while (cola_nodos.peek() != null) {
+
+			NodoB temp = buscarcompleto_string(cola_nodos.poll(), cola_nodos, usuario);
+			if (temp != null) {
+				return temp;
+			}
+		}
+		return null;
+	}
+
+	public NodoB buscarcompleto_string(NodoB primero, Queue<NodoB> cola_nodos, String usuario) {
+
+		NodoB aux = primero;
+
+		while (aux != null) {
+	
+			if (usuario.equals(aux.cliente.usuario)) {
+				return aux;
+			}
+
+			if (aux.izquierda != null) {
+				cola_nodos.offer(aux.izquierda.primero);
+			}
+
+			if (aux.derecha != null && aux.siguiente == null) {
+				cola_nodos.offer(aux.derecha.primero);
+			}
+
+			aux = aux.siguiente;
+
+		}
+		return null;
+	}
+	
+	//--------------------------------
 
 	public void generate_grapgh(String name, String dot) {
 		try {

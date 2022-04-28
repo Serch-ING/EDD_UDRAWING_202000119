@@ -17,7 +17,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
-	String passwordAdmin = "EDD2022", userAdmin = "admin";
+	//String passwordAdmin = "EDD2022", userAdmin = "admin";
+	String passwordAdmin = "1", userAdmin = "1";
+
 
 	private JPanel contentPane;
 	private JTextField UserText;
@@ -48,7 +50,7 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Usuario(DPI):");
+		JLabel lblNewLabel = new JLabel("Usuario:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(75, 95, 89, 14);
 		contentPane.add(lblNewLabel);

@@ -106,9 +106,9 @@ public class check_in extends JFrame {
 						if (Password.equals(Password_repeat)) {
 							
 							Long DPI_number = Long.valueOf(DPI);
-							Clients cliente_temp = new Clients(Name, Password, DPI);
+							//Clients cliente_temp = new Clients(Name, Password, DPI);
 							JOptionPane.showMessageDialog(null, "Se ah ingresado DPI: " + DPI);
-							storage.InsertClients(cliente_temp, DPI_number);
+							//storage.InsertClients(cliente_temp, DPI_number);
 							
 						}else {
 							JOptionPane.showMessageDialog(null, "La passwords no coinciden");

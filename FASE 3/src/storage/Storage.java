@@ -14,9 +14,9 @@ public class Storage {
 	public Clients  clientJoin;
 	
 	public void initilize() {
-		//Clients new_client = new Clients("sergie","s","3");
-		//Long id = Long.valueOf("3");
-		//ClientesB.insertar(id, new_client);
+		Clients new_client = new Clients("3","Sergie","serch","sergie@gmail.com","123","+502xxxxxxxx","planes",1);
+		Long id = Long.valueOf("3");
+		ClientesB.insertar(id, new_client);
 		
 		//List_clients.add(new_client);
 		/*int[] edad = {14,17,18,20,23,25,27,31,38,44,48,52,54,60,69,73,80,35,62,83,86,88,90};
@@ -59,13 +59,13 @@ public class Storage {
 	
 	
 	
-	public Boolean SerchClient(String DPI, String password) {
+	public Boolean SerchClient(String ususario, String password) {
 		try {
-			Long id = Long.valueOf(DPI);
 			
-			NodoB nodotemp = ClientesB.buscar_start(ClientesB.raiz.primero,id);
 			
-			if (nodotemp.cliente.DPI.equals(DPI) && nodotemp.cliente.Password.equals(password)) {
+			NodoB nodotemp = ClientesB.buscar_start_string(ClientesB.raiz.primero,ususario);
+			
+			if (nodotemp.cliente.usuario.equals(ususario) && nodotemp.cliente.Password.equals(password)) {
 				clientJoin = nodotemp.cliente;
 				JOptionPane.showMessageDialog(null, "Bienvenido: " + clientJoin.Name);
 				return true;
@@ -85,7 +85,7 @@ public class Storage {
 			
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
+			//JOptionPane.showMessageDialog(null, "error en busqueda de usuario");
 			clientJoin= null;
 			return false;
 			

@@ -443,9 +443,9 @@ public class Admin_Module extends JFrame {
 					if (!(DPI.equals("") | Name.equals("") | Password.equals(""))) {
 						Long DPI_number = Long.valueOf(DPI);
 
-						Clients cliente_temp = new Clients(Name, Password, DPI);
+						//Clients cliente_temp = new Clients(Name, Password, DPI);
 						JOptionPane.showMessageDialog(null, "Se Ingreso DPI");
-						storage.InsertClients(cliente_temp, DPI_number);
+						//storage.InsertClients(cliente_temp, DPI_number);
 
 					} else {
 						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
@@ -531,23 +531,41 @@ public class Admin_Module extends JFrame {
 			for (Object object : jsonList) {
 
 				JSONObject data = (JSONObject) object;
-				// System.out.println(data);
-
-				String name = (String) data.get("nombre_cliente");
-				// System.out.println(name);
-
+				System.out.println(data);
+				
 				String dpi = ((String) data.get("dpi"));
 				Long DPI_Long = Long.valueOf(dpi);
-				// System.out.println(DPI_Long);
+				System.out.println(DPI_Long);
 
+				String name = (String) data.get("nombre_cliente");
+				System.out.println(name);
+
+				String user = (String) data.get("usuario");
+				System.out.println(user);
+				
+				String mail = (String) data.get("correo");
+				System.out.println(mail);
+				
 				String password = (String) data.get("password");
-				// System.out.println(password);
+				System.out.println(password);
+				
+				String cellphone = (String) data.get("telefono");
+				//System.out.println(cellphone);
+				
+				String direction = (String) data.get("direccion");
+				//System.out.println(direction);
+				
+				String municipie = String.valueOf(data.get("id_municipio"));
+				int municipie_int = Integer.valueOf(municipie);
+				//System.out.println(municipie_int);
 
-				Clients client_new = new Clients(name, password, dpi);
+				Clients client_new = new Clients(dpi,name,user,mail,password,cellphone,direction,municipie_int);
 
-				if (dpi != null && name != null && password != null) {
+				if (dpi != null && name != null && user != null && mail != null && password != null && cellphone != null && direction != null && municipie_int > -1 ) {
 					temp += object + "\n\n";
 					storage.InsertClients(client_new, DPI_Long);
+				}else {
+					System.out.println("datos incompletos");
 				}
 			}
 			// storage.showClients();
