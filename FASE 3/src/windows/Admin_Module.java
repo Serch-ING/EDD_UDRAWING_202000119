@@ -44,9 +44,6 @@ import javax.swing.JScrollPane;
 public class Admin_Module extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField_Nuevo_Password;
-	private JTextField textField_Nuevo_DPI;
-	private JTextField textField_Nuevo_Name;
 	private JTextField textField_DPI_search;
 	private JTextField textField_Name_Modify;
 	private JTextField textField_Password_Modify;
@@ -55,6 +52,15 @@ public class Admin_Module extends JFrame {
 	private JTable table;
 	private JTable table_2;
 	private JTable table_3;
+	private JTextField textField_Nuevo_DPI;
+	private JTextField textField_Nuevo_Name;
+	private JTextField textField_Nuevo_Password;
+	private JTextField textField_passwordrepeat;
+	private JTextField textField_user;
+	private JTextField textField_cellphone;
+	private JTextField textField_direction;
+	private JTextField textField_idmunicipio;
+	private JTextField textField_mail;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -134,38 +140,102 @@ public class Admin_Module extends JFrame {
 		JPanel panel_4 = new JPanel();
 		tabbedPane_1.addTab("Insertar nuevo cliente", null, panel_4, null);
 		panel_4.setLayout(null);
-
-		textField_Nuevo_Password = new JTextField();
-		textField_Nuevo_Password.setBounds(139, 106, 237, 20);
-		panel_4.add(textField_Nuevo_Password);
-		textField_Nuevo_Password.setColumns(10);
-
-		JLabel lblNewLabel_2_1 = new JLabel("DPI:");
-		lblNewLabel_2_1.setBounds(69, 35, 46, 14);
-		panel_4.add(lblNewLabel_2_1);
-
-		JLabel lblNewLabel_2_2 = new JLabel("Nombre cliente:");
-		lblNewLabel_2_2.setBounds(33, 69, 117, 14);
-		panel_4.add(lblNewLabel_2_2);
-
+		
+		JPanel contentPane_1 = new JPanel();
+		contentPane_1.setLayout(null);
+		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane_1.setBounds(28, 0, 624, 437);
+		panel_4.add(contentPane_1);
+		
 		textField_Nuevo_DPI = new JTextField();
 		textField_Nuevo_DPI.setColumns(10);
-		textField_Nuevo_DPI.setBounds(139, 35, 237, 20);
-		panel_4.add(textField_Nuevo_DPI);
-
-		JLabel lblNewLabel_2_2_1 = new JLabel("Contrase\u00F1a:");
-		lblNewLabel_2_2_1.setBounds(33, 109, 117, 14);
-		panel_4.add(lblNewLabel_2_2_1);
-
+		textField_Nuevo_DPI.setBounds(202, 51, 237, 20);
+		contentPane_1.add(textField_Nuevo_DPI);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("DPI:");
+		lblNewLabel_2_1.setBounds(132, 51, 46, 14);
+		contentPane_1.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("Nombre cliente:");
+		lblNewLabel_2_2.setBounds(96, 85, 117, 14);
+		contentPane_1.add(lblNewLabel_2_2);
+		
 		textField_Nuevo_Name = new JTextField();
 		textField_Nuevo_Name.setColumns(10);
-		textField_Nuevo_Name.setBounds(139, 66, 237, 20);
-		panel_4.add(textField_Nuevo_Name);
-
-		JButton btnNewButton = new JButton("Insertar");
-
-		btnNewButton.setBounds(190, 171, 89, 23);
-		panel_4.add(btnNewButton);
+		textField_Nuevo_Name.setBounds(202, 82, 237, 20);
+		contentPane_1.add(textField_Nuevo_Name);
+		
+		JLabel lblNewLabel_2_2_1 = new JLabel("Contrase\u00F1a:");
+		lblNewLabel_2_2_1.setBounds(96, 289, 117, 14);
+		contentPane_1.add(lblNewLabel_2_2_1);
+		
+		textField_Nuevo_Password = new JTextField();
+		textField_Nuevo_Password.setColumns(10);
+		textField_Nuevo_Password.setBounds(202, 286, 237, 20);
+		contentPane_1.add(textField_Nuevo_Password);
+		
+		JButton btnRegistrar = new JButton("Registrar");
+		
+		btnRegistrar.setBounds(283, 363, 89, 23);
+		contentPane_1.add(btnRegistrar);
+		
+		textField_passwordrepeat = new JTextField();
+		textField_passwordrepeat.setColumns(10);
+		textField_passwordrepeat.setBounds(202, 320, 237, 20);
+		contentPane_1.add(textField_passwordrepeat);
+		
+		JLabel lblNewLabel_2_2_1_1_1 = new JLabel("Repertir contrase\u00F1a:");
+		lblNewLabel_2_2_1_1_1.setBounds(64, 323, 133, 14);
+		contentPane_1.add(lblNewLabel_2_2_1_1_1);
+		
+		JLabel lblNewLabel_5 = new JLabel("Registro  -- Nuevo Cliente");
+		lblNewLabel_5.setBounds(10, 11, 203, 14);
+		contentPane_1.add(lblNewLabel_5);
+		
+		textField_user = new JTextField();
+		textField_user.setColumns(10);
+		textField_user.setBounds(202, 110, 237, 20);
+		contentPane_1.add(textField_user);
+		
+		JLabel lblNewLabel_2_2_2_1 = new JLabel("usuario:");
+		lblNewLabel_2_2_2_1.setBounds(129, 113, 117, 14);
+		contentPane_1.add(lblNewLabel_2_2_2_1);
+		
+		textField_cellphone = new JTextField();
+		textField_cellphone.setColumns(10);
+		textField_cellphone.setBounds(202, 185, 237, 20);
+		contentPane_1.add(textField_cellphone);
+		
+		JLabel lblNewLabel_2_2_2_1_1 = new JLabel("telefono:");
+		lblNewLabel_2_2_2_1_1.setBounds(129, 188, 127, 14);
+		contentPane_1.add(lblNewLabel_2_2_2_1_1);
+		
+		JLabel lblNewLabel_2_2_2_1_1_1 = new JLabel("direccion:");
+		lblNewLabel_2_2_2_1_1_1.setBounds(10, 230, 117, 14);
+		contentPane_1.add(lblNewLabel_2_2_2_1_1_1);
+		
+		textField_direction = new JTextField();
+		textField_direction.setColumns(10);
+		textField_direction.setBounds(72, 227, 542, 20);
+		contentPane_1.add(textField_direction);
+		
+		JLabel lblNewLabel_2_2_2_1_2 = new JLabel("ID municipio:");
+		lblNewLabel_2_2_2_1_2.setBounds(129, 258, 127, 14);
+		contentPane_1.add(lblNewLabel_2_2_2_1_2);
+		
+		textField_idmunicipio = new JTextField();
+		textField_idmunicipio.setColumns(10);
+		textField_idmunicipio.setBounds(202, 255, 237, 20);
+		contentPane_1.add(textField_idmunicipio);
+		
+		textField_mail = new JTextField();
+		textField_mail.setColumns(10);
+		textField_mail.setBounds(202, 141, 237, 20);
+		contentPane_1.add(textField_mail);
+		
+		JLabel lblNewLabel_2_2_2_2 = new JLabel("correo:");
+		lblNewLabel_2_2_2_2.setBounds(129, 144, 117, 14);
+		contentPane_1.add(lblNewLabel_2_2_2_2);
 
 		JPanel panel_5 = new JPanel();
 		tabbedPane_1.addTab("Modificar cliente", null, panel_5, null);
@@ -340,6 +410,52 @@ public class Admin_Module extends JFrame {
 		contentPane.add(Button_closesesion);
 
 		// Buttons-----------------------------------------------------------------------------------------------------------
+		btnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					String DPI = textField_Nuevo_DPI.getText();
+					String Name = textField_Nuevo_Name.getText();
+					
+					String user = textField_user.getText();
+					String mail = textField_mail.getText();
+					String cellphone = textField_cellphone.getText();
+					String direction = textField_direction.getText();
+					String idmunicipio = textField_idmunicipio.getText();
+					
+					String Password = textField_Nuevo_Password.getText();
+					String Password_repeat = textField_passwordrepeat.getText();
+
+					if (!(DPI.equals("") | Name.equals("") | Password.equals("")|| Password_repeat.equals(""))) {
+						
+						if (Password.equals(Password_repeat)) {
+							int idmunicipie = Integer.valueOf(idmunicipio);
+							Long DPI_number = Long.valueOf(DPI);
+							Clients cliente_temp = new Clients(DPI,Name,user,mail,Password,cellphone,direction,idmunicipie);
+							JOptionPane.showMessageDialog(null, "Se ah ingresado DPI: " + DPI);
+							
+							if(storage.ClinteExite(user)) {
+								storage.InsertClients(cliente_temp, DPI_number);
+							}else {
+								JOptionPane.showMessageDialog(null, "Usuario ya existe");
+								System.out.println("Usuario ya existe");
+							}
+							
+						}else {
+							JOptionPane.showMessageDialog(null, "La passwords no coinciden");
+						}
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
+					}
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI e ID municipio");
+				}
+				
+			}
+		});
+		
+		
 		Button_Delete_Client.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -429,31 +545,6 @@ public class Admin_Module extends JFrame {
 					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
 					System.out.println(e2);
 				}
-			}
-		});
-
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-
-					String DPI = textField_Nuevo_DPI.getText();
-					String Name = textField_Nuevo_Name.getText();
-					String Password = textField_Nuevo_Password.getText();
-
-					if (!(DPI.equals("") | Name.equals("") | Password.equals(""))) {
-						Long DPI_number = Long.valueOf(DPI);
-
-						//Clients cliente_temp = new Clients(Name, Password, DPI);
-						JOptionPane.showMessageDialog(null, "Se Ingreso DPI");
-						//storage.InsertClients(cliente_temp, DPI_number);
-
-					} else {
-						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
-					}
-				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI");
-				}
-
 			}
 		});
 

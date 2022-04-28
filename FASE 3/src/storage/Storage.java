@@ -92,6 +92,24 @@ public class Storage {
 		}	
 	}
 	
+	
+	public Boolean ClinteExite(String ususario) {
+		try {
+			
+			NodoB nodotemp = ClientesB.buscar_start_string(ClientesB.raiz.primero,ususario);
+			
+			if (nodotemp == null ) {
+				return true;
+			}else {
+				return false;
+			}
+			
+			
+		} catch (Exception e) {
+			return false;	
+		}	
+	}
+	
 	public Clients ClientJoin() {
 		return clientJoin;
 	}
