@@ -10,17 +10,19 @@ public class aaa {
 		TablaHash tabla = new TablaHash();
 		tabla.mostar();
 		
-		Long dpi = Long.valueOf("3000523830101");
+		Long dpi = Long.valueOf("4");
 		
 		Mensajero mensajero = new Mensajero(dpi, null, null, null, null, null, null);
 		
-		tabla.insertar(mensajero);
-		tabla.mostar();
+		//tabla.insertar(mensajero);
+	
 		
-		tabla.insertar(mensajero);
-		tabla.mostar();
 		
-		tabla.insertar(mensajero);
+	
+		
+		for (int i = 0; i < 22; i++) {
+			tabla.insertar(mensajero);
+		}
 		tabla.mostar();
 
 		

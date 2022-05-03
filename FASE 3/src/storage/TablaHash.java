@@ -13,7 +13,8 @@ public class TablaHash {
 	public int capacidad;
 
 	public TablaHash() {
-		this.longitud = 37;
+		//this.longitud = 37;
+		this.longitud = 29;
 		tabla = new Mensajero[longitud];
 		capacidad = (int) Math.round(0.75 * longitud);
 
@@ -38,7 +39,7 @@ public class TablaHash {
 
 	public void CambiarTabla() {
 
-		Mensajero tablanew[] = new Mensajero[this.capacidad * 2];
+		Mensajero tablanew[] = new Mensajero[this.longitud * 2];
 		for (int i = 0; i < tabla.length; i++) {
 			tablanew[i] = this.tabla[i];
 		}
