@@ -26,6 +26,8 @@ public class Clients {
 	public int no_images= 0;
 	public int no_albumes= 0;
 	
+	public LinkedList<String> imgstoPrint  = new LinkedList<String>();
+	
 	
 	public Clients(String DPI,String Name,String usuario,String correo,String Password,String telefono,String direccion,int id_municipio ) {
 		this.DPI = DPI;

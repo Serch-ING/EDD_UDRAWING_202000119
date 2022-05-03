@@ -14,11 +14,11 @@ public class main {
 			public void run() {
 				try {
 					storage.initilize();
-					//Required_Files files_new = new Required_Files(storage);
-					//files_new.setVisible(true);
+					Required_Files files_new = new Required_Files(storage);
+					files_new.setVisible(true);
 					
-					Login login = new Login(storage);
-					login.setVisible(true);
+					//Login login = new Login(storage);
+					//.setVisible(true);
 					
 					
 					System.out.println("Start");

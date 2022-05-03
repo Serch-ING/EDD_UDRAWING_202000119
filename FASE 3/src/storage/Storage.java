@@ -5,12 +5,14 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 import objects.Clients;
+import objects.Lugares;
 
 
 
 public class Storage {
 	public  ArbolB ClientesB = new ArbolB();
 	public ListaDG Lista_adyacente= new ListaDG();
+	public LinkedList<Lugares> LugaresFacil = new LinkedList<Lugares>();
 
 	public Clients  clientJoin;
 	public TablaHash TablaHash_Mesajeros = new TablaHash();

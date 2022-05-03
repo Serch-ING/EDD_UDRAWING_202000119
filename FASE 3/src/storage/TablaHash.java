@@ -19,6 +19,32 @@ public class TablaHash {
 		capacidad = (int) Math.round(0.75 * longitud);
 
 	}
+	
+	public Object[][] retornarTable(){
+		Object[][] lista = new Object[this.longitud][7];
+		
+		int contador = 0;
+		for (int i = 0; i < tabla.length; i++) {
+			
+			if(this.tabla[i] != null) {
+				
+				lista[contador][0]= tabla[i].DPI;
+				lista[contador][1]= tabla[i].nombre;
+				lista[contador][2]= tabla[i].apellido;
+				lista[contador][3]= tabla[i].tipo_liciencia;
+				lista[contador][4]= tabla[i].genero;
+				lista[contador][5]= tabla[i].telefono;
+				lista[contador][6]= tabla[i].direccion;
+
+				contador++;
+			}
+			
+		}
+		
+		
+		return lista;
+	}
+	
 
 	public boolean EstaLlena() {
 

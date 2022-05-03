@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import objects.Clients;
-
+import objects.Lugares;
 import storage.ListaDG;
 import storage.Storage;
 import javax.swing.JButton;
@@ -184,7 +184,9 @@ public class Required_Files extends JFrame {
 				
 				//System.out.println(validacion);
 				
-				//Lugares lugares = new Lugares(id_int, departamento, nombre, validacion);
+				Lugares lugares = new Lugares(id_int, departamento, nombre, validacion);
+				storage.LugaresFacil.add(lugares);
+				
 				storage.LLenando_Lista(id_int, departamento, nombre, validacion);
 				temp+=data;
 			}

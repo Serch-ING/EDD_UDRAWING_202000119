@@ -229,8 +229,35 @@ public class Client_Module extends JFrame {
 		JLabel Label_img1 = new JLabel("");
 		Label_img1.setBounds(10, 11, 847, 766);
 		panel_3.add(Label_img1);
+		
+		JButton button_generara_envio = new JButton("Mandar a imprimir");
+		
+		button_generara_envio.setBounds(516, 169, 158, 23);
+		panel_1.add(button_generara_envio);
+		
+		JButton button_agregarImagen = new JButton("Agregar Imagen");
+		
+		button_agregarImagen.setBounds(517, 133, 158, 23);
+		panel_1.add(button_agregarImagen);
 
 		// Button-----------------------------------------------------------------------------------------------------------------
+		button_agregarImagen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = comboBox_IMGS.getSelectedItem().toString();
+				cliente.imgstoPrint.add(name);
+				JOptionPane.showMessageDialog(null, "Se agrego imagen: " + name);
+			}
+		});
+		
+		button_generara_envio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Delivery entrega = new Delivery(storage, cliente);
+				entrega.setVisible(true);
+				dispose();
+			}
+		});
+		
+		
 		btnNewButton_generateLayers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
