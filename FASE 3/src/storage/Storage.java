@@ -13,6 +13,7 @@ public class Storage {
 	public ListaDG Lista_adyacente= new ListaDG();
 
 	public Clients  clientJoin;
+	public TablaHash TablaHash_Mesajeros = new TablaHash();
 	
 	public void initilize() {
 		Clients new_client = new Clients("3","Sergie","serch","sergie@gmail.com","123","+502xxxxxxxx","planes",1);
@@ -22,6 +23,14 @@ public class Storage {
 		
 	}
 	
+	
+	
+	
+	//----------------------FASE 3---------------------------------------
+	
+
+	
+	//-------------------------------------------------------------------
 	public void LLenando_Lista(int id_int, String departamento, String nombre, Boolean validacion) {
 		Lista_adyacente.insert(id_int, departamento, nombre, validacion);
 	}

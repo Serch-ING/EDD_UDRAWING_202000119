@@ -13,8 +13,8 @@ public class TablaHash {
 	public int capacidad;
 
 	public TablaHash() {
-		//this.longitud = 37;
-		this.longitud = 29;
+		this.longitud = 37;
+		//this.longitud = 29;
 		tabla = new Mensajero[longitud];
 		capacidad = (int) Math.round(0.75 * longitud);
 
@@ -40,12 +40,15 @@ public class TablaHash {
 	public void CambiarTabla() {
 
 		Mensajero tablanew[] = new Mensajero[this.longitud * 2];
+		this.longitud *=2;
+		this.capacidad = (int) Math.round(0.75 * longitud);
+		
 		for (int i = 0; i < tabla.length; i++) {
 			tablanew[i] = this.tabla[i];
 		}
 
 		this.tabla = tablanew;
-		System.out.println("SE AMPLIO TABLA");
+		//System.out.println("SE AMPLIO TABLA");
 
 	}
 
@@ -62,7 +65,7 @@ public class TablaHash {
 
 	public void insertar(Mensajero mensajero) {
 		int indice = (int) (mensajero.DPI % this.longitud);
-		System.out.println("Inidce: " + indice);
+		//System.out.println("Inidce: " + indice);
 
 		for (int i = 0; i < tabla.length; i++) {
 			if (i == indice) {
@@ -79,18 +82,18 @@ public class TablaHash {
 		if (EstaLlena()) {
 			CambiarTabla();
 		}
-		System.out.println("Se ingeso mensajero");
+		//System.out.println("Se ingeso mensajero");
 	}
 
 	public void Colision(Mensajero mensajero, int IndiceOriginal, int i) {
-		System.out.println("Colision");
+		//System.out.println("Colision");
 		int nuevoIndice = (int) (mensajero.DPI % 7 + 1) * i;
 
-		System.out.println("nuevo indiice: " + nuevoIndice);
+		//System.out.println("nuevo indiice: " + nuevoIndice);
 
 		int temp = IndiceOriginal + nuevoIndice;
 
-		System.out.println("suma indiice: " + (IndiceOriginal + nuevoIndice));
+		//System.out.println("suma indiice: " + (IndiceOriginal + nuevoIndice));
 		
 		boolean validacion = true;
 		while (validacion) {

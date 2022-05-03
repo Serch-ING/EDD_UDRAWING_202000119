@@ -20,7 +20,7 @@ public class aaa {
 		
 	
 		
-		for (int i = 0; i < 22; i++) {
+		for (int i = 0; i < 28; i++) {
 			tabla.insertar(mensajero);
 		}
 		tabla.mostar();

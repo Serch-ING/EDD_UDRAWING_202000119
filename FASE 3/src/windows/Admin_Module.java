@@ -92,7 +92,7 @@ public class Admin_Module extends JFrame {
 		contentPane.add(tabbedPane);
 
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("Carga Masiva Clientes", null, panel, null);
+		tabbedPane.addTab("Carga Masivas", null, panel, null);
 		panel.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Ruta:");
@@ -130,32 +130,6 @@ public class Admin_Module extends JFrame {
 		
 		Button_LoadMensajeros.setBounds(10, 106, 165, 23);
 		panel.add(Button_LoadMensajeros);
-		
-		JPanel panel_10 = new JPanel();
-		tabbedPane.addTab("Carga Masiva mensajeros", null, panel_10, null);
-		panel_10.setLayout(null);
-		
-		JButton Button_Search_1 = new JButton("Buscar Archivo");
-		
-		Button_Search_1.setBounds(10, 36, 123, 23);
-		panel_10.add(Button_Search_1);
-		
-		JButton Button_LoadClients_1 = new JButton("Cargar clientes");
-		
-		Button_LoadClients_1.setBounds(10, 69, 123, 23);
-		panel_10.add(Button_LoadClients_1);
-		
-		JLabel lblNewLabel_6 = new JLabel("Ruta:");
-		lblNewLabel_6.setForeground(Color.BLACK);
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_6.setBounds(10, 11, 46, 14);
-		panel_10.add(lblNewLabel_6);
-		
-		JLabel label_ruta_1 = new JLabel("Null");
-		label_ruta_1.setForeground(Color.BLACK);
-		label_ruta_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_ruta_1.setBounds(48, 11, 1127, 14);
-		panel_10.add(label_ruta_1);
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Operaciones de clientes", null, panel_1, null);
@@ -440,8 +414,9 @@ public class Admin_Module extends JFrame {
 
 		Button_closesesion.setBounds(775, 23, 131, 23);
 		contentPane.add(Button_closesesion);
-
-		// Buttons-----------------------------------------------------------------------------------------------------------
+		
+		
+		
 		Button_LoadMensajeros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!label_ruta.getText().equals("Null")) {
@@ -454,16 +429,8 @@ public class Admin_Module extends JFrame {
 			}
 		});
 		
-		Button_LoadClients_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		
-		Button_Search_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		
 		
 		btnRegistrar.addActionListener(new ActionListener() {
@@ -744,41 +711,44 @@ public class Admin_Module extends JFrame {
 			for (Object object : jsonList) {
 
 				JSONObject data = (JSONObject) object;
-				System.out.println(data);
+				//System.out.println(data);
 				
 				String dpi = ((String) data.get("dpi"));
 				Long DPI_Long = Long.valueOf(dpi);
-				System.out.println(DPI_Long);
+				//System.out.println(DPI_Long);
 
 				String name = (String) data.get("nombres");
-				System.out.println(name);
+				//System.out.println(name);
 
 				String apellidos = (String) data.get("apellidos");
-				System.out.println(apellidos);
+				//System.out.println(apellidos);
 				
 				String tipo_licencia = (String) data.get("tipo_licencia");
-				System.out.println(tipo_licencia);
+				//System.out.println(tipo_licencia);
 				
 				String genero = (String) data.get("genero");
-				System.out.println(genero);
+				//System.out.println(genero);
 				
 				String telefono = (String) data.get("telefono");
-				System.out.println(telefono);
+				//System.out.println(telefono);
 				
 				String direccion = (String) data.get("direccion");
-				System.out.println(direccion);
+				//System.out.println(direccion);
 				
 				
 				Mensajero mensajero_new = new Mensajero(DPI_Long,name,apellidos,tipo_licencia,genero,telefono,direccion);
 
 				if (dpi != null && name != null && apellidos != null && tipo_licencia != null && genero != null && telefono != null && direccion != null  ) {
 					temp += object + "\n\n";
-					//storage.InsertClients(client_new, DPI_Long);
+					storage.TablaHash_Mesajeros.insertar(mensajero_new);
+				
 				}else {
 					System.out.println("datos incompletos");
 				}
+				
 			}
-			// storage.showClients();
+			storage.TablaHash_Mesajeros.mostar();
+			
 
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;
