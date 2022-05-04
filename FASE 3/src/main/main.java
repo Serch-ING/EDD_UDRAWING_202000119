@@ -18,7 +18,7 @@ public class main {
 					files_new.setVisible(true);
 					
 					//Login login = new Login(storage);
-					//.setVisible(true);
+					//login.setVisible(true);
 					
 					
 					System.out.println("Start");

@@ -238,6 +238,10 @@ public class Required_Files extends JFrame {
 			
 			System.out.println("El archivo se ingreso correctamente");
 			storage.Lista_adyacente.showList();
+			System.out.println("-------");
+			System.out.println(storage.Lista_adyacente.cantidad);
+			System.out.println("------------");
+			storage.Lista_adyacente.CaminoMasCorto(10,9);
 			return temp;
 			
 		} catch (Exception e) {

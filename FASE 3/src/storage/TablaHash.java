@@ -141,5 +141,20 @@ public class TablaHash {
 			}
 		}
 	}
+	
+	public Mensajero retornoMensajero(Long DPI){
+		
+		for (int i = 0; i < tabla.length; i++) {
+			if(this.tabla[i] != null) {
+				if(this.tabla[i].DPI == DPI.longValue()) {
+					return this.tabla[i];
+				}
+			}	
+		}
+		
+		
+		return null;
+	}
+	
 
 }
