@@ -207,7 +207,8 @@ public class Delivery extends JFrame {
 					
 					System.out.println("Inicio: " + id_sucursal);
 
-					
+					storage.Lista_adyacente.CaminoMasCorto(10,9);
+
 					//Cliente
 						
 					

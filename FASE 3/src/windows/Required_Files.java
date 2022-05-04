@@ -241,7 +241,7 @@ public class Required_Files extends JFrame {
 			System.out.println("-------");
 			System.out.println(storage.Lista_adyacente.cantidad);
 			System.out.println("------------");
-			storage.Lista_adyacente.CaminoMasCorto(10,9);
+			//storage.Lista_adyacente.CaminoMasCorto(10,9);
 			return temp;
 			
 		} catch (Exception e) {
