@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import objects.Clients;
 import objects.Lugares;
 import objects.Mensajero;
+import storage.Simple_recorrrido;
 import storage.Storage;
 
 import javax.swing.JTextField;
@@ -207,7 +208,8 @@ public class Delivery extends JFrame {
 					
 					System.out.println("Inicio: " + id_sucursal);
 
-					storage.Lista_adyacente.CaminoMasCorto(10,9);
+					Simple_recorrrido Lista_recorrido = storage.Lista_adyacente.CaminoMasCorto(10,9);
+					Lista_recorrido.showList_recorrido();
 
 					//Cliente
 						

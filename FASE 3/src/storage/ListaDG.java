@@ -103,7 +103,9 @@ public class ListaDG {
 
 	// Metodo ruta mas corta
 	// ----------------------------------------------------------------------------------------
-	public void CaminoMasCorto(int start, int end) {
+	public Simple_recorrrido CaminoMasCorto(int start, int end) {
+		Simple_recorrrido Lista_recorrido = new Simple_recorrrido();
+		
 		System.out.println("Comenzando desmadre");
 		Nodo_Simple inicio = Search_id(start);
 		Nodo_Simple finalizancion = Search_id(end);
@@ -140,6 +142,7 @@ public class ListaDG {
 					padre = datos.Padre;
 				}
 			}
+			Lista_recorrido.insert(finalizancion.id,finalizancion);
 			
 			System.out.println("El padre de: "+ finalizancion.id + " es: " + padre.id);
 			
@@ -156,9 +159,10 @@ public class ListaDG {
 				
 				if(padre_buscado!= null) {
 					System.out.println("El padre de " + padre.id + " es: " + padre_buscado.id);
-
+					Lista_recorrido.insert(padre_buscado.id,padre_buscado);
 					
 				}else {
+					
 					System.out.println(" La raiz se encontro");
 
 				}
@@ -172,7 +176,8 @@ public class ListaDG {
 		} else {
 			System.out.println("Error");
 		}
-
+		
+		return Lista_recorrido;
 	}
 
 	public void comenzando_recorrido(Nodo_Simple inicio, Nodo_Simple finalizancion, LinkedList<Nodo_Simple> visitados,
