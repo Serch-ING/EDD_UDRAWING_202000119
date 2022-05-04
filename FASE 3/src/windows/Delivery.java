@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import objects.Clients;
 import objects.Lugares;
 import objects.Mensajero;
+import objects.transaccion;
 import storage.Simple_recorrrido;
 import storage.Storage;
 
@@ -59,7 +60,7 @@ public class Delivery extends JFrame {
 		String[] Colums_table3 = {"DPI", "Nombre", "Apellidos","Tipo de licencia", "genero","direccion","telefono"};
 		
 
-		 String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+		 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -210,7 +211,10 @@ public class Delivery extends JFrame {
 
 					Simple_recorrrido Lista_recorrido = storage.Lista_adyacente.CaminoMasCorto(10,9);
 					Lista_recorrido.showList_recorrido();
-
+					
+					
+					transaccion data = new transaccion(direeccion,cliente.direccion,Fecha,cliente.Name,mensajero.nombre + " " + mensajero.apellido);
+					data.GenerarJson();
 					//Cliente
 						
 					

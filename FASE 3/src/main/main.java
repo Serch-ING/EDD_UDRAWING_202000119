@@ -13,10 +13,19 @@ public class main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					Thread hilo1 = new Thread(storage);
+					hilo1.start();
+					
+
+					
 					storage.initilize();
 					Required_Files files_new = new Required_Files(storage);
 					files_new.setVisible(true);
 					
+					
+					
+									
 					//Login login = new Login(storage);
 					//login.setVisible(true);
 					

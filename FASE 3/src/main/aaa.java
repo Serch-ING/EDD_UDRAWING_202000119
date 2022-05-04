@@ -5,10 +5,21 @@ import java.util.LinkedList;
 
 import objects.Mensajero;
 import storage.TablaHash;
+import java.lang.Thread;
 
 public class aaa {
 
 	public static void main(String[] args) {
+		
+		
+		saber sabo = new saber();
+		
+		Thread hilo1 = new Thread(sabo);
+		hilo1.start();
+		
+		sabo.setVisible(true);
+		
+		/*
 		// TODO Auto-generated method stub
 		TablaHash tabla = new TablaHash();
 		tabla.mostar();
@@ -45,7 +56,7 @@ public class aaa {
             // Print the sorted LinkedList
             System.out.println("rank: "+ s.Rank + " name: " + s.Name + " id: "+ s.Id);
         }
-		
+		*/
 	}
 
 }
