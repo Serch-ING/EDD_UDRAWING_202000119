@@ -1,6 +1,0 @@
-digraph structs {
-  bgcolor = "#E3FFFA"
- node [shape=Mrecord fillcolor="#FFE3FF" style =filled];
-struct981971352[label="{{DPI:3\nName:Sergie|DPI: 3000523830101\nName:Sergie Arizandieta }|<here>}"];
-
-}

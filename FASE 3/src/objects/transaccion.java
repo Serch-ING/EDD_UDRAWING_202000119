@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class transaccion {
 	String Sede, Destino, datetime, cliente, mensajero;
+	public boolean nulo;
+	public String aux;
 
 	public transaccion(String Sede, String Destino, String datetime, String cliente, String mensajero) {
 		this.Sede = Sede;
@@ -15,6 +17,12 @@ public class transaccion {
 		this.datetime = datetime;
 		this.cliente = cliente;
 		this.mensajero = mensajero;
+	}
+	
+	public String Data() {
+		String data;
+		data = this.Sede + " , " + this.Destino + " , " + this.datetime + " , " + this.cliente + " , " + this.mensajero;
+		return data;
 	}
 
 	@SuppressWarnings("unchecked")

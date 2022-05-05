@@ -17,8 +17,7 @@ public class Storage implements Runnable {
 	public TablaHash TablaHash_Mesajeros = new TablaHash();
 
 	public void initilize() {
-		Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",
-				9);
+		Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",9);
 		Long id = Long.valueOf("3");
 		ClientesB.insertar(id, new_client);
 		System.out.println("INICIANDO");

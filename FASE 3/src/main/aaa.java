@@ -4,21 +4,58 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 import objects.Mensajero;
+import objects.transaccion;
+import storage.Merkle_tree;
+import storage.Merkle_tree.nodo_merkle;
 import storage.TablaHash;
 import java.lang.Thread;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 
 public class aaa {
 
 	public static void main(String[] args) {
 		
 		
+		transaccion trans1 = new transaccion("Guatemala", "Villa Nueva", "5/05/2022 22:43", "Sergie Arizandieta", "Richars");
+		LinkedList<transaccion> Lista_transiciones = new  LinkedList<transaccion>();
+
+		for (int i = 0; i < 9; i++) {
+			Lista_transiciones.add(trans1);
+			System.out.println(i+1);
+		}
+		
+		Merkle_tree arbole_merkle = new Merkle_tree();
+		
+		arbole_merkle.principal(Lista_transiciones);
+		
+		
+		/*
+		
+		try {
+				
+			
+			String text= "hola";
+			
+			MessageDigest digest = MessageDigest.getInstance("SHA-256");
+			digest.reset();
+			digest.update(text.getBytes("utf8"));
+			String hash = String.format("%064x", new BigInteger(1, digest.digest()));
+			
+			System.out.println(hash);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}*/
+				/*
 		saber sabo = new saber();
 		
 		Thread hilo1 = new Thread(sabo);
 		hilo1.start();
 		
 		sabo.setVisible(true);
-		
+		*/
 		/*
 		// TODO Auto-generated method stub
 		TablaHash tabla = new TablaHash();
@@ -57,7 +94,7 @@ public class aaa {
             System.out.println("rank: "+ s.Rank + " name: " + s.Name + " id: "+ s.Id);
         }
 		*/
-	}
+ 	}
 
 }
 

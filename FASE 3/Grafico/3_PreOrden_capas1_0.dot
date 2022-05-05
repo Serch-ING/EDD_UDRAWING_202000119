@@ -1,8 +1,0 @@
-digraph G{
-    node[shape=box,width=1 height=1 fontname="Arial" fillcolor="white" style=invisible]
-	edge[style = "bold" dir= "both" style= invisible arrowsize=0  ]
-    raiz[label = "f/c" fillcolor="darkolivegreen1" pos = "-1,1!"  ]; 
-
-
-
-}
