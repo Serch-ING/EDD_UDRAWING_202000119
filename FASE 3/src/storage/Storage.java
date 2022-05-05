@@ -13,10 +13,16 @@ import objects.transaccion;
 import storage.Merkle_tree.nodo_merkle;
 
 public class Storage implements Runnable {
-	int contador_bloques =0;
-	public LinkedList<transaccion> Lista_transacciones = new  LinkedList<transaccion>();
-	
-	private	Merkle_tree arbole_merkle = new Merkle_tree();
+	int contador_bloques = 0;
+	public int cantidad_ceros = 4;
+
+	public int tiempo_bloque = 180;
+	public int timepo_app = 0;
+
+	public LinkedList<transaccion> Lista_transacciones = new LinkedList<transaccion>();
+	public Simple_Bloques blockchain = new Simple_Bloques();
+
+	private Merkle_tree arbole_merkle = new Merkle_tree();
 	public ArbolB ClientesB = new ArbolB();
 	public ListaDG Lista_adyacente = new ListaDG();
 	public LinkedList<Lugares> LugaresFacil = new LinkedList<Lugares>();
@@ -25,7 +31,8 @@ public class Storage implements Runnable {
 	public TablaHash TablaHash_Mesajeros = new TablaHash();
 
 	public void initilize() {
-		Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",9);
+		Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",
+				9);
 		Long id = Long.valueOf("3");
 		ClientesB.insertar(id, new_client);
 		System.out.println("INICIANDO");
@@ -117,8 +124,6 @@ public class Storage implements Runnable {
 		return clientJoin;
 	}
 
-	int timepo_app = 0;
-
 	@Override
 	public void run() {
 		try {
@@ -128,14 +133,14 @@ public class Storage implements Runnable {
 				System.out.println(timepo_app);
 
 				Thread.sleep(250);
-				
-				if(timepo_app == 180) {
+
+				if (timepo_app >= tiempo_bloque) {
 					System.out.println("PASARON 3 MINUTOS -- SE GENERO BLOQUE");
 					Generar_Arbol_Merkle();
 					contador_bloques++;
-					timepo_app=0;
+					timepo_app = 0;
 				}
-				
+
 			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -143,25 +148,34 @@ public class Storage implements Runnable {
 		}
 
 	}
-	
+
 	public void Generar_Arbol_Merkle() {
 		JOptionPane.showMessageDialog(null, "Se generara arbol Merkle");
 		nodo_merkle Raiz;
-		
-		if(Lista_transacciones.size() <1 ) {
-			Raiz = arbole_merkle.GenerarNodoInicio("-1","-1");
-		}else {
-			 Raiz = arbole_merkle.principal(Lista_transacciones);
+
+		if (Lista_transacciones.size() < 1) {
+			Raiz = arbole_merkle.GenerarNodoInicio("-1", "-1");
+		} else {
+			Raiz = arbole_merkle.principal(Lista_transacciones);
 		}
-		
+
 		String timeStamp = new SimpleDateFormat("dd-MM-yyyy::HH:mm:ss").format(Calendar.getInstance().getTime());
-		
-		
 		Raiz.DrawGraph(Raiz, "Merkle_" + contador_bloques);
-		
-		Bloque Bloque_generado = new Bloque(contador_bloques, timeStamp,0, Lista_transacciones, "previus", Raiz.hash, "hash");
+
+		String PreviusHash = "";
+		String hash = "";
+
+		if (!blockchain.isNone()) {
+			PreviusHash = blockchain.Ultimo_Hash_bloque();
+		}
+
+		Bloque Bloque_generado = new Bloque(contador_bloques, timeStamp, Lista_transacciones, PreviusHash, Raiz.hash);
+		Bloque_generado.Generar_Hash(arbole_merkle,cantidad_ceros);
+
 		Bloque_generado.GenerarJson();
-		Lista_transacciones= new  LinkedList<transaccion>();
+
+		blockchain.insert(Bloque_generado);
+		Lista_transacciones = new LinkedList<transaccion>();
 	}
 
 }

@@ -22,6 +22,14 @@ public class aaa {
 		 String timeStamp = new SimpleDateFormat("dd-MM-yyyy::HH:mm:ss").format(Calendar.getInstance().getTime());
 
 		 System.out.println(timeStamp);
+		 
+		 
+		 String palabra = "0000x";
+		 char[] caracteres = palabra.toCharArray();
+		 if(caracteres[0] == '0' && caracteres[1] == '0'&&caracteres[2] == '0'&&caracteres[3] == '0') {
+			 System.out.println("Todo bien");
+		 }
+		   
 		/*
 		transaccion trans1 = new transaccion("Guatemala", "Villa Nueva", "5/05/2022 22:43", "Sergie Arizandieta", "Richars");
 		LinkedList<transaccion> Lista_transiciones = new  LinkedList<transaccion>();

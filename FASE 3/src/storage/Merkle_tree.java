@@ -137,7 +137,7 @@ public class Merkle_tree {
 	
 	}
 	
-	private String GenerarHash(String text) {
+	public String GenerarHash(String text) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			digest.reset();

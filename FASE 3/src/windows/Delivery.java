@@ -63,6 +63,7 @@ public class Delivery extends JFrame {
 		String timeStamp = new SimpleDateFormat("dd-MM-yyyy::HH:mm:ss").format(Calendar.getInstance().getTime());
 		
 		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1522, 666);
 		contentPane = new JPanel();
@@ -214,7 +215,7 @@ public class Delivery extends JFrame {
 					
 					
 					transaccion data = new transaccion(direeccion,cliente.direccion,Fecha,cliente.Name,mensajero.nombre + " " + mensajero.apellido);
-					data.GenerarJson();
+					//data.GenerarJson();
 					storage.Lista_transacciones.add(data);
 					//Cliente
 						
