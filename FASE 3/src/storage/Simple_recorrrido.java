@@ -1,5 +1,7 @@
 package storage;
 
+import javax.swing.JOptionPane;
+
 import storage.ListaDG.Nodo_Simple;
 
 public class Simple_recorrrido {
@@ -33,10 +35,13 @@ public class Simple_recorrrido {
 	
 
 	public void showList_recorrido() {
+		int Contador =0;
 		System.out.println("Comenzando recorrido");
 		if (isNone() == false) {
 			Nodo_Simple_recorrido actual = this.primero;
 			while (actual != null) {
+				JOptionPane.showMessageDialog(null,"Mensajero se encuntra en:\n id: " + actual.data.id  + "\nUbicacion: " + actual.data.departamento + ", " + actual.data.nombre + "\nTimpo: " + Contador + " h");
+				Contador +=  Math.floor(Math.random()*(1-3+1)+3);
 				System.out.print(actual.data.id + " -> " );
 				actual = actual.next;
 			}
