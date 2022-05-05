@@ -137,7 +137,7 @@ public class Storage implements Runnable {
 				if (timepo_app >= tiempo_bloque) {
 					System.out.println("PASARON 3 MINUTOS -- SE GENERO BLOQUE");
 					Generar_Arbol_Merkle();
-					contador_bloques++;
+					
 					timepo_app = 0;
 				}
 
@@ -150,7 +150,7 @@ public class Storage implements Runnable {
 	}
 
 	public void Generar_Arbol_Merkle() {
-		JOptionPane.showMessageDialog(null, "Se generara arbol Merkle");
+		JOptionPane.showMessageDialog(null, "Se generará arbol Merkle y bloque");
 		nodo_merkle Raiz;
 
 		if (Lista_transacciones.size() < 1) {
@@ -176,6 +176,8 @@ public class Storage implements Runnable {
 
 		blockchain.insert(Bloque_generado);
 		Lista_transacciones = new LinkedList<transaccion>();
+		contador_bloques++;
+		JOptionPane.showMessageDialog(null, "Se generaro arbol Merkle y bloque");
 	}
 
 }

@@ -459,11 +459,11 @@ public class Admin_Module extends JFrame {
 		tabbedPane.addTab("Sitema de bloackchain", null, panel_10, null);
 		panel_10.setLayout(null);
 		
-		JLabel lblNewLabel_6 = new JLabel("Modificar tiempo de generacion de bloques color car numero en  milisegundos 1s = 1000ms");
-		lblNewLabel_6.setBounds(21, 11, 448, 14);
+		JLabel lblNewLabel_6 = new JLabel("Modificar tiempo de generacion de bloques color car numero en  segundos");
+		lblNewLabel_6.setBounds(21, 11, 560, 14);
 		panel_10.add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_6_1 = new JLabel("*Por defecto estaa en 3 s");
+		JLabel lblNewLabel_6_1 = new JLabel("*Por defecto estaa en 180 s = 3 min");
 		lblNewLabel_6_1.setBounds(21, 31, 448, 14);
 		panel_10.add(lblNewLabel_6_1);
 		
@@ -499,7 +499,19 @@ public class Admin_Module extends JFrame {
 			
 			btnVerBlockchain.setBounds(1336, 7, 139, 23);
 			panel_10.add(btnVerBlockchain);
+			
+			JButton GenerarBloque = new JButton("Generar Bloque");
+			
+			GenerarBloque.setBounds(1336, 55, 139, 23);
+			panel_10.add(GenerarBloque);
 			///Butons ------------------------------------------------------------------------------------
+			
+			GenerarBloque.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					storage.Generar_Arbol_Merkle();
+				}
+			});
+			
 			btnVerBlockchain.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					storage.blockchain.recorrido_bloques();

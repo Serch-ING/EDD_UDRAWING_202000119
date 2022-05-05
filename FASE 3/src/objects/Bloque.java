@@ -71,20 +71,31 @@ public class Bloque {
 
 	public void Generar_Hash(Merkle_tree arbole_merkle, int no_ceros) {
 		Nonce = 0;
+	
 		while (true) {
+			Boolean SalirWhile = true;
 			String text = Index + TimesTamp + PreviusHash + RootMerkle + Nonce;
 			String hash = arbole_merkle.GenerarHash(text);
 
 			char[] caracteres = hash.toCharArray();
-			
+
 			for (int i = 0; i < no_ceros; i++) {
-				if(caracteres[i] == '0') {
+				if (caracteres[i] == '0') {
 					continue;
-				}else {
+				} else {
+					SalirWhile = false;
 					Nonce++;
+					break;
 				}
-				
 			}
+			if(caracteres[no_ceros] != '0' && SalirWhile) {
+				Hash = hash;
+				break;
+			}else {
+				Nonce++;
+				continue;
+			}
+
 		}
 	}
 
