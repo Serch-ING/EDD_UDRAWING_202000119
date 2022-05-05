@@ -60,4 +60,30 @@ public class transaccion {
 		}
 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public JSONObject RegresarJSON() {
+		try {
+			
+
+			JSONObject myObject = new JSONObject();
+
+			// Cadenas de texto básicas
+			myObject.put("Sede", Sede);
+			myObject.put("Destino", Destino);
+			myObject.put("datetime", datetime);
+			myObject.put("cliente", cliente);
+			myObject.put("mensajero", mensajero);			
+			
+			
+			
+			return myObject;
+		
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+		
+
+	}
 }

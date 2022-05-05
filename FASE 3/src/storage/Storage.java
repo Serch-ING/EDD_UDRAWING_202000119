@@ -1,14 +1,22 @@
 package storage;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
 
+import objects.Bloque;
 import objects.Clients;
 import objects.Lugares;
+import objects.transaccion;
+import storage.Merkle_tree.nodo_merkle;
 
 public class Storage implements Runnable {
-
+	int contador_bloques =0;
+	public LinkedList<transaccion> Lista_transacciones = new  LinkedList<transaccion>();
+	
+	private	Merkle_tree arbole_merkle = new Merkle_tree();
 	public ArbolB ClientesB = new ArbolB();
 	public ListaDG Lista_adyacente = new ListaDG();
 	public LinkedList<Lugares> LugaresFacil = new LinkedList<Lugares>();
@@ -117,13 +125,14 @@ public class Storage implements Runnable {
 			while (true) {
 				timepo_app++;
 
-				//System.out.println(timepo_app);
+				System.out.println(timepo_app);
 
-				Thread.sleep(1000);
+				Thread.sleep(250);
 				
 				if(timepo_app == 180) {
 					System.out.println("PASARON 3 MINUTOS -- SE GENERO BLOQUE");
-					//Funcion_aparte();
+					Generar_Arbol_Merkle();
+					contador_bloques++;
 					timepo_app=0;
 				}
 				
@@ -135,9 +144,24 @@ public class Storage implements Runnable {
 
 	}
 	
-	public void Funcion_aparte() {
-		JOptionPane.showMessageDialog(null, "a timepo");
-
+	public void Generar_Arbol_Merkle() {
+		JOptionPane.showMessageDialog(null, "Se generara arbol Merkle");
+		nodo_merkle Raiz;
+		
+		if(Lista_transacciones.size() <1 ) {
+			Raiz = arbole_merkle.GenerarNodoInicio("-1","-1");
+		}else {
+			 Raiz = arbole_merkle.principal(Lista_transacciones);
+		}
+		
+		String timeStamp = new SimpleDateFormat("dd-MM-yyyy::HH:mm:ss").format(Calendar.getInstance().getTime());
+		
+		
+		Raiz.DrawGraph(Raiz, "Merkle_" + contador_bloques);
+		
+		Bloque Bloque_generado = new Bloque(contador_bloques, timeStamp,0, Lista_transacciones, "previus", Raiz.hash, "hash");
+		Bloque_generado.GenerarJson();
+		Lista_transacciones= new  LinkedList<transaccion>();
 	}
 
 }

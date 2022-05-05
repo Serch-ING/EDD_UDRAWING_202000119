@@ -11,7 +11,7 @@ import storage.Arbol_Binario.Nodo_ABB;
 
 public class Merkle_tree {
 	
-	public void principal(LinkedList<transaccion> Lista_transiciones) {
+	public nodo_merkle principal(LinkedList<transaccion> Lista_transiciones) {
 		
 		
 		LinkedList<String> List = new LinkedList<String>();
@@ -24,9 +24,9 @@ public class Merkle_tree {
 		System.out.println(Raiz.hash);
 		System.out.println(Raiz.hijos);
 		
-		Raiz.DrawGraph(Raiz, "GRAFO");
+		//Raiz.DrawGraph(Raiz, "GRAFO");
 	
-			
+		return	Raiz;
 	}
 	
 	private nodo_merkle Inicial(LinkedList<String> List) {
@@ -106,7 +106,7 @@ public class Merkle_tree {
 		return GenerarNodoInicio(nodo1,nodo2);
 	}
 				
-	private nodo_merkle GenerarNodoInicio(String nodo1,String nodo2) {
+	public nodo_merkle GenerarNodoInicio(String nodo1,String nodo2) {
 		nodo_merkle nodo_merkle_1 = new nodo_merkle();
 		nodo_merkle nodo_merkle_2 = new nodo_merkle();
 		
@@ -127,7 +127,9 @@ public class Merkle_tree {
 		return padre;
 		
 	}
-
+	
+	
+	
 	private void CrearCopia(LinkedList<nodo_merkle> temporal, LinkedList<nodo_merkle> padres) {
 		for (nodo_merkle nodo_merkle : padres) {
 			temporal.add(nodo_merkle);

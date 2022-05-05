@@ -60,7 +60,7 @@ public class Delivery extends JFrame {
 		String[] Colums_table3 = {"DPI", "Nombre", "Apellidos","Tipo de licencia", "genero","direccion","telefono"};
 		
 
-		 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		String timeStamp = new SimpleDateFormat("dd-MM-yyyy::HH:mm:ss").format(Calendar.getInstance().getTime());
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -215,6 +215,7 @@ public class Delivery extends JFrame {
 					
 					transaccion data = new transaccion(direeccion,cliente.direccion,Fecha,cliente.Name,mensajero.nombre + " " + mensajero.apellido);
 					data.GenerarJson();
+					storage.Lista_transacciones.add(data);
 					//Cliente
 						
 					

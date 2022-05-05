@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -12,12 +13,16 @@ import java.lang.Thread;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 
 public class aaa {
 
 	public static void main(String[] args) {
-		
-		
+		// String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		 String timeStamp = new SimpleDateFormat("dd-MM-yyyy::HH:mm:ss").format(Calendar.getInstance().getTime());
+
+		 System.out.println(timeStamp);
+		/*
 		transaccion trans1 = new transaccion("Guatemala", "Villa Nueva", "5/05/2022 22:43", "Sergie Arizandieta", "Richars");
 		LinkedList<transaccion> Lista_transiciones = new  LinkedList<transaccion>();
 
@@ -29,7 +34,7 @@ public class aaa {
 		Merkle_tree arbole_merkle = new Merkle_tree();
 		
 		arbole_merkle.principal(Lista_transiciones);
-		
+		*/
 		
 		/*
 		
