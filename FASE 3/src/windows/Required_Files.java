@@ -80,6 +80,16 @@ public class Required_Files extends JFrame {
 		Button_Next.setBounds(382, 229, 325, 23);
 		contentPane.add(Button_Next);
 		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(1057, 9, 139, 23);
+		contentPane.add(btnSalir);
+		
 		/*Botones ---------------------------------------------------------------------------*/
 		Button_Search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

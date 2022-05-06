@@ -26,6 +26,7 @@ public class Login extends JFrame {
 	private JPasswordField passwordField;
 	private JLabel lblContrasea;
 	private JButton Button_register;
+	private JButton btnSalir;
 
 	/*
 	public static void main(String[] args) {
@@ -78,6 +79,16 @@ public class Login extends JFrame {
 	
 		Button_register.setBounds(207, 210, 119, 23);
 		contentPane.add(Button_register);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(285, 11, 139, 23);
+		contentPane.add(btnSalir);
 
 		// Botenes
 		Button_register.addActionListener(new ActionListener() {

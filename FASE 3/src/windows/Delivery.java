@@ -180,6 +180,16 @@ public class Delivery extends JFrame {
 		butn_regresar.setBounds(747, 15, 132, 23);
 		contentPane.add(butn_regresar);
 		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(1357, 15, 139, 23);
+		contentPane.add(btnSalir);
+		
 		///BUtons----------------------------------------------------------------
 		btnRealizarPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

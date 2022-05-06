@@ -62,6 +62,7 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_mail;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JButton btnSalir;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -510,12 +511,7 @@ public class Admin_Module extends JFrame {
 		combo_Trasacciones.setBounds(1107, 136, 368, 22);
 		panel_10.add(combo_Trasacciones);
 		
-		JButton Ver_merkle = new JButton("Ver Grafo");
-		
-		Ver_merkle.setBounds(1206, 172, 269, 23);
-		panel_10.add(Ver_merkle);
-		
-		JButton Grafos_rutas = new JButton("rutas");
+		JButton Grafos_rutas = new JButton("Ver grafo");
 		
 		Grafos_rutas.setBounds(1206, 233, 269, 23);
 		panel_10.add(Grafos_rutas);
@@ -523,17 +519,10 @@ public class Admin_Module extends JFrame {
 		/// ------------------------------------------------------------------------------------
 		Grafos_rutas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-		
-		Ver_merkle.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 				String name =  combo_Trasacciones.getSelectedItem().toString();
 				String ruta = "./Grafico/" + name + ".png";
 				System.out.println(ruta);
-				Graph grafico = new Graph(ruta);
+				Grapgh2 grafico = new Grapgh2(ruta);
 				grafico.setVisible(true);
 			}
 		});
@@ -583,6 +572,16 @@ public class Admin_Module extends JFrame {
 
 		Button_closesesion.setBounds(775, 23, 131, 23);
 		contentPane.add(Button_closesesion);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(1361, 11, 139, 23);
+		contentPane.add(btnSalir);
 
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
