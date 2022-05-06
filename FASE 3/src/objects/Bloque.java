@@ -1,5 +1,6 @@
 package objects;
 
+import java.io.FileWriter;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -20,13 +21,14 @@ public class Bloque {
 	public String RootMerkle;
 	public String Hash;
 
-	public Bloque(int Index, String TimesTamp, LinkedList<transaccion> Data, String PreviusHash, String RootMerkle) {
+	public Bloque(int Index, String TimesTamp,int Nonce ,LinkedList<transaccion> Data, String PreviusHash, String RootMerkle,String Hash) {
 		this.Index = Index;
-
 		this.Data = Data;
 		this.PreviusHash = PreviusHash;
 		this.RootMerkle = RootMerkle;
 		this.TimesTamp = TimesTamp;
+		this.Hash=Hash;
+		this.Nonce =Nonce;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -62,6 +64,15 @@ public class Bloque {
 
 			System.out.println("Nuevo");
 			System.out.println(formattedJson);
+			
+			FileWriter file = new FileWriter("./blockchain/Bloques/" + Index + "_" + TimesTamp+".json");
+			file.write(formattedJson);
+			file.flush();
+			file.close();
+
+			
+			
+			
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception

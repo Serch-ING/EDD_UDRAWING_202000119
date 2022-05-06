@@ -29,6 +29,10 @@ public class Simple_Bloques {
 			control_indice++;
 		}
 	}
+	
+	public int Control_indices() {
+		return control_indice;
+	}
 
 	public void showList() {
 		if (isNone() == false) {

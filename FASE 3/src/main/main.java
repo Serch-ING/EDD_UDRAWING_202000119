@@ -20,6 +20,9 @@ public class main {
 
 					
 					storage.initilize();
+					
+					
+					
 					Required_Files files_new = new Required_Files(storage);
 					files_new.setVisible(true);
 					
