@@ -30,6 +30,7 @@ import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.awt.event.ActionEvent;
@@ -60,6 +61,9 @@ public class Admin_Module extends JFrame {
 	private JTextField textField_direction;
 	private JTextField textField_idmunicipio;
 	private JTextField textField_mail;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton btnSalir;
 
 	/*
 	 * public static void main(String[] args) { EventQueue.invokeLater(new
@@ -89,90 +93,90 @@ public class Admin_Module extends JFrame {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 41, 1490, 822);
 		contentPane.add(tabbedPane);
-		
-				JPanel panel = new JPanel();
-				tabbedPane.addTab("Carga Masivas", null, panel, null);
-				panel.setLayout(null);
-				
-						JLabel lblNewLabel = new JLabel("Ruta:");
-						lblNewLabel.setForeground(Color.BLACK);
-						lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-						lblNewLabel.setBounds(10, 11, 46, 14);
-						panel.add(lblNewLabel);
-						
-								JLabel label_ruta = new JLabel("Null");
-								label_ruta.setForeground(Color.BLACK);
-								label_ruta.setFont(new Font("Tahoma", Font.PLAIN, 14));
-								label_ruta.setBounds(48, 11, 1127, 14);
-								panel.add(label_ruta);
-								
-										JButton Button_Search = new JButton("Buscar Archivo");
-										
-												Button_Search.setBounds(10, 36, 123, 23);
-												panel.add(Button_Search);
-												
-														TextArea textOut = new TextArea();
-														textOut.setEditable(false);
-														textOut.setBounds(312, 72, 569, 442);
-														panel.add(textOut);
-														
-																JButton Button_LoadClients = new JButton("Cargar clientes");
-																
-																		Button_LoadClients.setBounds(10, 69, 123, 23);
-																		panel.add(Button_LoadClients);
-																		
-																				JLabel lblNewLabel_4 = new JLabel("Clientes JSON ingresados");
-																				lblNewLabel_4.setBounds(312, 50, 171, 14);
-																				panel.add(lblNewLabel_4);
-																				
-																						JButton Button_LoadMensajeros = new JButton("Cargar mensajeros");
-																						
-																								Button_LoadMensajeros.setBounds(10, 106, 165, 23);
-																								panel.add(Button_LoadMensajeros);
-																								
-																										Button_LoadMensajeros.addActionListener(new ActionListener() {
-																											public void actionPerformed(ActionEvent e) {
-																												if (!label_ruta.getText().equals("Null")) {
-																								
-																													textOut.setText(ReadJsonMensajeros(label_ruta.getText(), storage));
-																								
-																												} else {
-																													JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
-																												}
-																											}
-																										});
-																										
-																												Button_Search.addActionListener(new ActionListener() {
-																													public void actionPerformed(ActionEvent e) {
-																														if (fc.showOpenDialog(Button_Search) == JFileChooser.APPROVE_OPTION) {
-																															try {
-																																textOut.setText(" ");
-																										
-																																label_ruta.setText(fc.getSelectedFile().toString());
-																										
-																															} catch (Exception e2) {
-																										
-																															}
-																														} else {
-																															label_ruta.setText("Null");
-																														}
-																														// DPI:2299062130101\nName: Sergie Daniel\nPassword: 1234
-																													}
-																												});
-																												
-																														Button_LoadClients.addActionListener(new ActionListener() {
-																															public void actionPerformed(ActionEvent e) {
-																												
-																																if (!label_ruta.getText().equals("Null")) {
-																												
-																																	textOut.setText(ReadJson(label_ruta.getText(), storage));
-																												
-																																} else {
-																																	JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
-																																}
-																												
-																															}
-																														});
+
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("Carga Masivas", null, panel, null);
+		panel.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("Ruta:");
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel.setBounds(10, 11, 46, 14);
+		panel.add(lblNewLabel);
+
+		JLabel label_ruta = new JLabel("Null");
+		label_ruta.setForeground(Color.BLACK);
+		label_ruta.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_ruta.setBounds(48, 11, 1127, 14);
+		panel.add(label_ruta);
+
+		JButton Button_Search = new JButton("Buscar Archivo");
+
+		Button_Search.setBounds(10, 36, 123, 23);
+		panel.add(Button_Search);
+
+		TextArea textOut = new TextArea();
+		textOut.setEditable(false);
+		textOut.setBounds(312, 72, 569, 442);
+		panel.add(textOut);
+
+		JButton Button_LoadClients = new JButton("Cargar clientes");
+
+		Button_LoadClients.setBounds(10, 69, 123, 23);
+		panel.add(Button_LoadClients);
+
+		JLabel lblNewLabel_4 = new JLabel("Clientes JSON ingresados");
+		lblNewLabel_4.setBounds(312, 50, 171, 14);
+		panel.add(lblNewLabel_4);
+
+		JButton Button_LoadMensajeros = new JButton("Cargar mensajeros");
+
+		Button_LoadMensajeros.setBounds(10, 106, 165, 23);
+		panel.add(Button_LoadMensajeros);
+
+		Button_LoadMensajeros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!label_ruta.getText().equals("Null")) {
+
+					textOut.setText(ReadJsonMensajeros(label_ruta.getText(), storage));
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
+				}
+			}
+		});
+
+		Button_Search.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (fc.showOpenDialog(Button_Search) == JFileChooser.APPROVE_OPTION) {
+					try {
+						textOut.setText(" ");
+
+						label_ruta.setText(fc.getSelectedFile().toString());
+
+					} catch (Exception e2) {
+
+					}
+				} else {
+					label_ruta.setText("Null");
+				}
+				// DPI:2299062130101\nName: Sergie Daniel\nPassword: 1234
+			}
+		});
+
+		Button_LoadClients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (!label_ruta.getText().equals("Null")) {
+
+					textOut.setText(ReadJson(label_ruta.getText(), storage));
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Seleccionar un archivo");
+				}
+
+			}
+		});
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Operaciones de clientes", null, panel_1, null);
@@ -285,6 +289,65 @@ public class Admin_Module extends JFrame {
 		JLabel lblNewLabel_2_2_2_2 = new JLabel("correo:");
 		lblNewLabel_2_2_2_2.setBounds(129, 144, 117, 14);
 		contentPane_1.add(lblNewLabel_2_2_2_2);
+		
+		JButton btnBuscarYModificar_1 = new JButton("Buscar y modificar");
+		btnBuscarYModificar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					String DPI = textField_Nuevo_DPI.getText();
+					String Name = textField_Nuevo_Name.getText();
+
+					String user = textField_user.getText();
+					String mail = textField_mail.getText();
+					String cellphone = textField_cellphone.getText();
+					String direction = textField_direction.getText();
+					String idmunicipio = textField_idmunicipio.getText();
+
+					String Password = textField_Nuevo_Password.getText();
+					String Password_repeat = textField_passwordrepeat.getText();
+
+					if (!(DPI.equals("") | Name.equals("") | Password.equals("") || Password_repeat.equals(""))) {
+
+						if (Password.equals(Password_repeat)) {
+							int idmunicipie = Integer.valueOf(idmunicipio);
+						
+							JOptionPane.showMessageDialog(null, "Se ah ingresado DPI: " + DPI);
+							NodoB usar = storage.RegresarCLeinte(user);
+							if (usar != null) {
+								JOptionPane.showMessageDialog(null, "Datos del cleinte: \n" + usar.cliente.Name + "\n" +usar.cliente.correo + "\n" +  usar.cliente.telefono+ "\n" + usar.cliente.direccion +"\n" +usar.cliente.id_municipio );
+								
+								usar.cliente.Name = Name;
+								usar.cliente.correo = mail;
+								usar.cliente.telefono = cellphone;
+								usar.cliente.direccion = direction;
+								usar.cliente.id_municipio = idmunicipie;
+								usar.cliente.Password = Password;
+								
+								JOptionPane.showMessageDialog(null, "Datos del cliente actulizado: \n" + usar.cliente.Name + "\n" +usar.cliente.correo + "\n" +  usar.cliente.telefono+ "\n" + usar.cliente.direccion +"\n" +usar.cliente.id_municipio );
+								
+								
+								
+								
+							} else {
+								JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+							
+							}
+
+						} else {
+							JOptionPane.showMessageDialog(null, "La passwords no coinciden");
+						}
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
+					}
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI e ID municipio");
+				}
+			}
+		});
+		btnBuscarYModificar_1.setBounds(459, 363, 155, 23);
+		contentPane_1.add(btnBuscarYModificar_1);
 
 		JPanel panel_5 = new JPanel();
 		tabbedPane_1.addTab("Modificar cliente", null, panel_5, null);
@@ -301,7 +364,7 @@ public class Admin_Module extends JFrame {
 
 		JButton btnBuscarYModificar = new JButton("Buscar y modificar");
 
-		btnBuscarYModificar.setBounds(170, 173, 155, 23);
+		btnBuscarYModificar.setBounds(176, 306, 155, 23);
 		panel_5.add(btnBuscarYModificar);
 
 		JLabel lblNewLabel_2_2_2 = new JLabel("Nombre cliente:");
@@ -453,10 +516,177 @@ public class Admin_Module extends JFrame {
 		lblNewLabel_2_4.setBounds(225, 37, 200, 14);
 		panel_3.add(lblNewLabel_2_4);
 
+		JPanel panel_10 = new JPanel();
+		tabbedPane.addTab("Sitema de bloackchain", null, panel_10, null);
+		panel_10.setLayout(null);
+
+		JLabel lblNewLabel_6 = new JLabel("Modificar tiempo de generacion de bloques color car numero en  segundos");
+		lblNewLabel_6.setBounds(21, 11, 560, 14);
+		panel_10.add(lblNewLabel_6);
+
+		JLabel lblNewLabel_6_1 = new JLabel("*Por defecto estaa en 180 s = 3 min");
+		lblNewLabel_6_1.setBounds(21, 31, 448, 14);
+		panel_10.add(lblNewLabel_6_1);
+
+		textField = new JTextField();
+		textField.setBounds(31, 56, 216, 20);
+		panel_10.add(textField);
+		textField.setColumns(10);
+
+		JButton btnNewButton = new JButton("Actualizar Tiempo");
+
+		btnNewButton.setBounds(28, 87, 139, 23);
+		panel_10.add(btnNewButton);
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(31, 258, 216, 20);
+		panel_10.add(textField_1);
+
+		JLabel lblNewLabel_6_1_1 = new JLabel("*Por defecto estaa en 4 ceros \"0000\" ");
+		lblNewLabel_6_1_1.setBounds(21, 233, 448, 14);
+		panel_10.add(lblNewLabel_6_1_1);
+
+		JLabel lblNewLabel_6_2 = new JLabel("Modificar el numero de ceros para la prueba de trabajo");
+		lblNewLabel_6_2.setBounds(21, 213, 448, 14);
+		panel_10.add(lblNewLabel_6_2);
+
+		JButton btnNewButton_2 = new JButton("Actualizar Tiempo");
+
+		btnNewButton_2.setBounds(28, 289, 139, 23);
+		panel_10.add(btnNewButton_2);
+
+		JButton btnVerBlockchain = new JButton("Ver Blockchain");
+
+		btnVerBlockchain.setBounds(1336, 7, 139, 23);
+		panel_10.add(btnVerBlockchain);
+
+		JButton GenerarBloque = new JButton("Generar Bloque");
+
+		GenerarBloque.setBounds(1336, 55, 139, 23);
+		panel_10.add(GenerarBloque);
+		
+		JComboBox<String> combo_Trasacciones = new JComboBox<String>();
+		combo_Trasacciones.setModel(new DefaultComboBoxModel(storage.Cadenas_Arboles_Merkle.toArray()));
+		combo_Trasacciones.setBounds(1107, 136, 368, 22);
+		panel_10.add(combo_Trasacciones);
+		
+		JButton Grafos_rutas = new JButton("Ver grafo");
+		
+		Grafos_rutas.setBounds(1206, 233, 269, 23);
+		panel_10.add(Grafos_rutas);
+		
+		JButton btnNewButton_3 = new JButton("Clientes con mas pedidos top 10");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String clientes= "";
+				Collections.sort(storage.clientes_temp);
+				
+				int contar = 0;
+				for (Clients string : storage.clientes_temp) {
+					if(contar== 10) {
+						break;
+					}else {
+						clientes += string.Name + " -> " + string.Cantidad_pedidos + "\n";
+					}
+					contar++;
+				}
+				JOptionPane.showMessageDialog(null, "Top 10 con mas pedidos:\n " + clientes);
+			}
+		});
+		btnNewButton_3.setBounds(31, 369, 281, 23);
+		panel_10.add(btnNewButton_3);
+		
+		JButton btnNewButton_3_1 = new JButton("mensajeros con mas entregas top 10");
+		btnNewButton_3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String clientes= "";
+				Collections.sort(storage.mensajeros_temp);
+				
+				int contar = 0;
+				for (Mensajero string : storage.mensajeros_temp) {
+					if(contar== 10) {
+						break;
+					}else {
+						clientes += string.nombre + " " + string.apellido + " -> " + string.cantidad_entregas + "\n";
+					}
+					contar++;
+				}
+				JOptionPane.showMessageDialog(null, "Top 10 mensjeros con mas entegas:\n " + clientes);
+			}
+		});
+		btnNewButton_3_1.setBounds(31, 414, 281, 23);
+		panel_10.add(btnNewButton_3_1);
+		
+		JPanel panel_11 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_11, null);
+		/// Butons
+		/// ------------------------------------------------------------------------------------
+		Grafos_rutas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name =  combo_Trasacciones.getSelectedItem().toString();
+				String ruta = "./Grafico/" + name + ".png";
+				System.out.println(ruta);
+				Grapgh2 grafico = new Grapgh2(ruta);
+				grafico.setVisible(true);
+			}
+		});
+
+		GenerarBloque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+			}
+		});
+
+		btnVerBlockchain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.blockchain.recorrido_bloques();
+			}
+		});
+
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					int no_ceros = Integer.valueOf(textField_1.getText());
+					JOptionPane.showMessageDialog(null, "Se actualizo la cantidad de ceros para la prueba de trabajo");
+					storage.cantidad_ceros = no_ceros;
+
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Se ingreso un dato erroeno");
+				}
+			}
+		});
+
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					int timepo = Integer.valueOf(textField.getText());
+					JOptionPane.showMessageDialog(null, "Se actulizo el tiempo de generacion de bloques");
+					storage.timepo_app = 0;
+					storage.tiempo_bloque = timepo;
+
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Se ingreso un dato erroeno");
+				}
+
+			}
+		});
+
 		JButton Button_closesesion = new JButton("Cerrar sesion");
 
 		Button_closesesion.setBounds(775, 23, 131, 23);
 		contentPane.add(Button_closesesion);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(1361, 11, 139, 23);
+		contentPane.add(btnSalir);
 
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -675,6 +905,7 @@ public class Admin_Module extends JFrame {
 						&& direction != null && municipie_int > -1) {
 					temp += object + "\n\n";
 					storage.InsertClients(client_new, DPI_Long);
+					storage.clientes_temp.add(client_new);
 				} else {
 					System.out.println("datos incompletos");
 				}
@@ -737,6 +968,7 @@ public class Admin_Module extends JFrame {
 						&& telefono != null && direccion != null) {
 					temp += object + "\n\n";
 					storage.TablaHash_Mesajeros.insertar(mensajero_new);
+					storage.mensajeros_temp.add(mensajero_new);
 
 				} else {
 					System.out.println("datos incompletos");
@@ -744,6 +976,7 @@ public class Admin_Module extends JFrame {
 
 			}
 			storage.TablaHash_Mesajeros.mostar();
+			storage.TablaHash_Mesajeros.Graficar(storage.Cadenas_Arboles_Merkle);
 
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;

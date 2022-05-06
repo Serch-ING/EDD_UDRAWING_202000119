@@ -592,6 +592,16 @@ public class Client_Module extends JFrame {
 
 		btnNewButton.setBounds(964, 11, 118, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(1535, 30, 139, 23);
+		contentPane.add(btnSalir);
 
 		// buttons=---------------------------------------------------------------------------------------------------------------------
 		btnNewButton_generate_reports.addActionListener(new ActionListener() {

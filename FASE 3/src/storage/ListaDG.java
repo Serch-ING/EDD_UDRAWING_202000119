@@ -1,8 +1,12 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.LinkedList;
 import com.fasterxml.jackson.databind.deser.impl.NullsAsEmptyProvider;
+
+import storage.Arbol_Binario.Nodo_ABB;
 
 public class ListaDG {
 	public int cantidad;
@@ -100,10 +104,121 @@ public class ListaDG {
 	public Boolean isNone() {
 		return this.primero == null;
 	}
+	
+	public void GraficoAdyacencia(LinkedList<String> cadenas_Arboles_Merkle) {
+		String dot = "";
 
+		dot = "digraph G { bgcolor=\"black\"\r\n"
+				+ "   fontname=\"Helvetica,Arial,sans-serif\"\r\n"
+				+ "  edge [fontname=\"Helvetica,Arial,sans-serif\"]\r\n"
+				+ "  subgraph cluster1 {fillcolor=\"skyblue\" style=\"filled\"\r\n"
+				+ "  node [shape=Msquare fillcolor=\"gold:brown\" style=\"radial\" gradientangle=180]\r\n"
+				+ "  label = \" Tabla de transiciones de: CUATRO\"\r\n"
+				+ "  a0 [label=<  \r\n"
+				+ "  <TABLE border=\"10\" cellspacing=\"10\" cellpadding=\"10\" style=\"rounded\" gradientangle=\"315\">\r\n"
+				+ "  \n";
+		
+		
+		
+		if (isNone() == false) {
+			Nodo_Simple actual = this.primero;
+			while (actual != null) {
+				dot+="<TR>\n";
+				
+				dot+= " \t<TD border=\"3\" bgcolor=\"#FFF97B\">" + actual.departamento +" -- " + actual.id +"</TD>\n";
+				dot += actual.Tabla();
+				
+				dot+="</TR>\n";
+				actual = actual.siguiente;
+			}
+			
+			
+		}
+		
+		dot+= "\n</TABLE>>];}}";
+		//System.out.println(dot);
+		cadenas_Arboles_Merkle.add("Lista_de_adyacencia");
+		generate_grapgh("Lista_de_adyacencia",dot);
+		
+		
+	}
+	
+	public void Grafiar(LinkedList<String> cadenas_Arboles_Merkle) {
+		LinkedList<Valores_pop> linstatem = new LinkedList<Valores_pop>();
+			String dot = "";
+
+			dot = "graph G {\n";
+			dot += "nodesep=1; \n";
+			dot += "ranksep=1;\n";
+			dot += "node[style = filled fillcolor=\"#F788DF\"];\n";
+			
+			if (isNone() == false) {
+				Nodo_Simple actual = this.primero;
+				while (actual != null) {
+					dot += ("Nodo" + actual.id + "[ label=\"" + actual.nombre + " -- " + actual.id + "\"  ];\n");
+					
+				
+					actual = actual.siguiente;
+				}
+			}
+			
+			if (isNone() == false) {
+				Nodo_Simple actual = this.primero;
+				while (actual != null) {
+				
+					dot += actual.dot(actual.id,linstatem);
+				
+					actual = actual.siguiente;
+				}
+			}
+			
+			
+
+			dot += "}";
+
+			//System.out.println(dot);
+			cadenas_Arboles_Merkle.add("RUTAS");
+			generate_grapgh("RUTAS",dot);
+			
+	}
+	
+	
+	private void generate_grapgh(String name, String dot) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
+	
 	// Metodo ruta mas corta
 	// ----------------------------------------------------------------------------------------
-	public void CaminoMasCorto(int start, int end) {
+	public Simple_recorrrido CaminoMasCorto(int start, int end) {
+		Simple_recorrrido Lista_recorrido = new Simple_recorrrido();
+		
 		System.out.println("Comenzando desmadre");
 		Nodo_Simple inicio = Search_id(start);
 		Nodo_Simple finalizancion = Search_id(end);
@@ -140,6 +255,7 @@ public class ListaDG {
 					padre = datos.Padre;
 				}
 			}
+			Lista_recorrido.insert(finalizancion.id,finalizancion);
 			
 			System.out.println("El padre de: "+ finalizancion.id + " es: " + padre.id);
 			
@@ -156,9 +272,10 @@ public class ListaDG {
 				
 				if(padre_buscado!= null) {
 					System.out.println("El padre de " + padre.id + " es: " + padre_buscado.id);
-
+					Lista_recorrido.insert(padre_buscado.id,padre_buscado);
 					
 				}else {
+					
 					System.out.println(" La raiz se encontro");
 
 				}
@@ -172,7 +289,8 @@ public class ListaDG {
 		} else {
 			System.out.println("Error");
 		}
-
+		
+		return Lista_recorrido;
 	}
 
 	public void comenzando_recorrido(Nodo_Simple inicio, Nodo_Simple finalizancion, LinkedList<Nodo_Simple> visitados,
@@ -320,7 +438,8 @@ public class ListaDG {
 		return null;
 	}
 	// -------------------------------------------------------------------------------------------
-
+	
+	
 	class Nodo_Simple {
 
 		Nodo_Simple siguiente;
@@ -328,13 +447,58 @@ public class ListaDG {
 		public String departamento, nombre;
 		public Boolean sucursal;
 		ENodo inicio = null;
-
+		
+		
 		public Nodo_Simple(int id, String departamento, String nombre, Boolean sucursal) {
 			this.siguiente = null;
 			this.id = id;
 			this.departamento = departamento;
 			this.nombre = nombre;
 			this.sucursal = sucursal;
+		}
+		
+		public String Tabla() {
+			String dot = "";
+			
+			ENodo aux = inicio;
+			while (aux != null) {
+				dot+= "  \t\t<TD border=\"3\" >"  +  aux.ivex + " </TD>\n";
+				aux = aux.siguiente;
+			}
+			
+			return dot;
+		}
+		
+		public String dot(int id, LinkedList<Valores_pop> linstatem) {
+			String DOT="";
+			ENodo aux = inicio;
+			while (aux != null) {
+				
+				if(Validacion(String.valueOf(id),String.valueOf(aux.ivex),linstatem) ) {
+					DOT += ("Nodo" + id +  "--" +  "Nodo" + aux.ivex +"[label=\"" +aux.peso +"\"];\n");
+					Valores_pop valll = new Valores_pop(String.valueOf(id),String.valueOf(aux.ivex) );
+					linstatem.add(valll);
+				}
+				
+				aux = aux.siguiente;
+			}
+			
+			return DOT;
+		}
+		
+		public Boolean Validacion(String id, String ivex, LinkedList<Valores_pop> linstatem) {
+			boolean varlidation = true;
+			for (Valores_pop string : linstatem) {
+				if(string.id1.equals(id) && string.id2.equals(ivex)) {
+					varlidation= false;
+				}
+				if(string.id1.equals(ivex) && string.id2.equals(id)) {
+					varlidation= false;
+				}
+			}
+			
+			return varlidation;
+			
 		}
 
 		// metodo de insertar en la sublista
@@ -390,7 +554,7 @@ public class ListaDG {
 		}
 
 	}
-
+	
 	// Clase para realizar las conexiones entre los nodos
 	private class ENodo {
 
@@ -405,5 +569,20 @@ public class ListaDG {
 			this.peso = peso;
 		}
 	}
+	
+
+	private class Valores_pop {
+
+		String id1;// posicion del nodo conectado
+		String id2;// posicion del nodo conectado
+
+		// constructor de la clase
+		public Valores_pop(String id1,String id2) {
+			this.id1=id1;
+			this.id2=id2;
+		}
+	}
+	
+
 
 }

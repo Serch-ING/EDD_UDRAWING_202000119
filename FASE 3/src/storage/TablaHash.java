@@ -1,5 +1,7 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 
 import objects.HashData;
@@ -45,6 +47,84 @@ public class TablaHash {
 		return lista;
 	}
 	
+	
+	public void Graficar(LinkedList<String> cadenas_Arboles_Merkle) {
+		String dot = "";
+		
+		dot = "digraph L {\r\n"
+				+ "node[shape=note fillcolor=\"#A181FF\" style =filled fontsize=\"100pt\"]\r\n"
+				+ "subgraph cluster_p{\r\n"
+				+ "    label= \" Cola impresora Blaco y Negro \"\n";
+				
+	
+		for (int i = 0; i < tabla.length; i++) {
+
+			
+			if( tabla[i]!= null) {
+				dot+="Nodo" + i + "[label=\"["  + i + "]\ndata: DPI:" +  tabla[i].DPI + " \nName: " + tabla[i].nombre + " " + tabla[i].apellido + "\",fillcolor=\"#81FFDA\"]";
+				
+			
+			}else {
+				
+				dot+="Nodo" + i + "[label=\"["  + i + "]\",fillcolor=\"#81FFDA\"]";
+			
+			}
+		
+		}
+		
+		
+		for (int i = 0; i < tabla.length; i++) {
+
+			
+			if((i+1) <  tabla.length) {
+				dot+="Nodo" + i + "->Nodo" + (i+1)+ ";\n";
+			}
+				
+				
+			
+			
+		
+		}
+		dot+="}}";
+	
+		
+		
+		System.out.println(dot);
+		cadenas_Arboles_Merkle.add("Lista_Mensajeros");
+		generate_grapgh("Lista_Mensajeros",dot);
+		
+	}
+	
+	private void generate_grapgh(String name, String dot) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
 
 	public boolean EstaLlena() {
 

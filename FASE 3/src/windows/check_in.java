@@ -132,6 +132,16 @@ public class check_in extends JFrame {
 		lblNewLabel_2_2_2_2.setBounds(129, 184, 117, 14);
 		contentPane.add(lblNewLabel_2_2_2_2);
 		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				storage.Generar_Arbol_Merkle();
+				  System.exit(0);
+			}
+		});
+		btnSalir.setBounds(475, 24, 139, 23);
+		contentPane.add(btnSalir);
+		
 		
 		//buttons--------------------------------------------------------
 		Button_Back.addActionListener(new ActionListener() {
