@@ -1,0 +1,16 @@
+digraph G {
+nodesep=3; 
+ranksep=1;
+node[shape=box style = filled fillcolor="#F788DF"];
+	NodoABB2006032739[ label="1659c0909c152921ff1240bcac92a261d4f1fc70936de2dc2611f746f482f050"  ];
+	NodoABB8282017[ label="16c79e65a53e60988ec72c239e6cd076c9cda9aafcf76dd77f993cb73c1d5b2f"];
+NodoABB2006032739->NodoABB8282017
+	NodoABB8282017[ label="16c79e65a53e60988ec72c239e6cd076c9cda9aafcf76dd77f993cb73c1d5b2f"  ];
+	NodoABB828201716c79e65a53e60988ec72c239e6cd076c9cda9aafcf76dd77f993cb73c1d5b2f[ label="Alta Verapaz,San Juan Chamelco , planes , 05-05-2022::19:14:06 , Sergie , Hyatt Niessen"  ];
+NodoABB8282017->NodoABB828201716c79e65a53e60988ec72c239e6cd076c9cda9aafcf76dd77f993cb73c1d5b2f
+	NodoABB368531260[ label="1bad6b8cf97131fceab8543e81f7757195fbb1d36b376ee994ad1cf17699c464" ];
+NodoABB2006032739->NodoABB368531260
+	NodoABB368531260[ label="1bad6b8cf97131fceab8543e81f7757195fbb1d36b376ee994ad1cf17699c464"  ];
+	NodoABB3685312601bad6b8cf97131fceab8543e81f7757195fbb1d36b376ee994ad1cf17699c464[ label="-1"  ];
+NodoABB368531260->NodoABB3685312601bad6b8cf97131fceab8543e81f7757195fbb1d36b376ee994ad1cf17699c464
+}

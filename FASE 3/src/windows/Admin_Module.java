@@ -504,8 +504,39 @@ public class Admin_Module extends JFrame {
 
 		GenerarBloque.setBounds(1336, 55, 139, 23);
 		panel_10.add(GenerarBloque);
+		
+		JComboBox<String> combo_Trasacciones = new JComboBox<String>();
+		combo_Trasacciones.setModel(new DefaultComboBoxModel(storage.Cadenas_Arboles_Merkle.toArray()));
+		combo_Trasacciones.setBounds(1107, 136, 368, 22);
+		panel_10.add(combo_Trasacciones);
+		
+		JButton Ver_merkle = new JButton("Ver Grafo");
+		
+		Ver_merkle.setBounds(1206, 172, 269, 23);
+		panel_10.add(Ver_merkle);
+		
+		JButton Grafos_rutas = new JButton("rutas");
+		
+		Grafos_rutas.setBounds(1206, 233, 269, 23);
+		panel_10.add(Grafos_rutas);
 		/// Butons
 		/// ------------------------------------------------------------------------------------
+		Grafos_rutas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		
+		Ver_merkle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name =  combo_Trasacciones.getSelectedItem().toString();
+				String ruta = "./Grafico/" + name + ".png";
+				System.out.println(ruta);
+				Graph grafico = new Graph(ruta);
+				grafico.setVisible(true);
+			}
+		});
 
 		GenerarBloque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -839,6 +870,7 @@ public class Admin_Module extends JFrame {
 
 			}
 			storage.TablaHash_Mesajeros.mostar();
+			storage.TablaHash_Mesajeros.Graficar(storage.Cadenas_Arboles_Merkle);
 
 			System.out.println("El archivo se ingreso correctamente");
 			return temp;

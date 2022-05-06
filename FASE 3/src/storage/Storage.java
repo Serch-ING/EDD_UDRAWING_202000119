@@ -46,6 +46,8 @@ public class Storage implements Runnable {
 
 	public Clients clientJoin;
 	public TablaHash TablaHash_Mesajeros = new TablaHash();
+	
+	public  LinkedList<String> Cadenas_Arboles_Merkle = new LinkedList<String>();
 
 	public void initilize() {
 		Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",
@@ -276,7 +278,9 @@ public class Storage implements Runnable {
 
 		String timeStamp = new SimpleDateFormat("dd-MM-yyyy__HH_mm_ss").format(Calendar.getInstance().getTime());
 		Raiz.DrawGraph(Raiz, "Merkle_" + contador_bloques);
-
+		Cadenas_Arboles_Merkle.add( "Merkle_" + contador_bloques);
+		
+		
 		String PreviusHash = "";
 		String hash = "";
 

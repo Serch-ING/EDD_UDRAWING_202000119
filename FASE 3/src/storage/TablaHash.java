@@ -1,5 +1,7 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 
 import objects.HashData;
@@ -45,6 +47,72 @@ public class TablaHash {
 		return lista;
 	}
 	
+	
+	public void Graficar(LinkedList<String> cadenas_Arboles_Merkle) {
+		String dot = "";
+		
+		dot = "digraph G { bgcolor=\"black\"\r\n"
+				+ "   fontname=\"Helvetica,Arial,sans-serif\"\r\n"
+				+ "  edge [fontname=\"Helvetica,Arial,sans-serif\"]\r\n"
+				+ "  subgraph cluster1 {fillcolor=\"skyblue\" style=\"filled\"\r\n"
+				+ "  node [shape=Msquare fillcolor=\"gold:brown\" style=\"radial\" gradientangle=180]\r\n"
+				+ "  label = \" Tabla de transiciones de: CUATRO\"\r\n"
+				+ "  a0 [label=<  \r\n"
+				+ "  <TABLE border=\"10\" cellspacing=\"10\" cellpadding=\"10\" style=\"rounded\" gradientangle=\"315\">\r\n"
+				+ "  \n";
+		dot+="<TR>\n";
+
+		dot+= " \t<TD border=\"3\" bgcolor=\"#FFF97B\">" + "indice: " + "Inicio" + "</TD>\n";
+		for (int i = 0; i < tabla.length; i++) {
+
+			System.out.println("Posicion " + i + " data: " + tabla[i]);
+			
+			dot+= "<TD border=\"3\" >"  + i + " data: " +  tabla[i] +  "</TD>";
+			
+			
+		
+
+		}
+		dot+="</TR>\n";
+		dot+= "\n</TABLE>>];}}";
+		
+		
+		System.out.println(dot);
+		cadenas_Arboles_Merkle.add("Lista_Mensajeros");
+		generate_grapgh("Lista_Mensajeros",dot);
+		
+	}
+	
+	private void generate_grapgh(String name, String dot) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", dot);
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
 
 	public boolean EstaLlena() {
 
