@@ -51,30 +51,42 @@ public class TablaHash {
 	public void Graficar(LinkedList<String> cadenas_Arboles_Merkle) {
 		String dot = "";
 		
-		dot = "digraph G { bgcolor=\"black\"\r\n"
-				+ "   fontname=\"Helvetica,Arial,sans-serif\"\r\n"
-				+ "  edge [fontname=\"Helvetica,Arial,sans-serif\"]\r\n"
-				+ "  subgraph cluster1 {fillcolor=\"skyblue\" style=\"filled\"\r\n"
-				+ "  node [shape=Msquare fillcolor=\"gold:brown\" style=\"radial\" gradientangle=180]\r\n"
-				+ "  label = \" Tabla de transiciones de: CUATRO\"\r\n"
-				+ "  a0 [label=<  \r\n"
-				+ "  <TABLE border=\"10\" cellspacing=\"10\" cellpadding=\"10\" style=\"rounded\" gradientangle=\"315\">\r\n"
-				+ "  \n";
-		dot+="<TR>\n";
-
-		dot+= " \t<TD border=\"3\" bgcolor=\"#FFF97B\">" + "indice: " + "Inicio" + "</TD>\n";
+		dot = "digraph L {\r\n"
+				+ "node[shape=note fillcolor=\"#A181FF\" style =filled fontsize=\"100pt\"]\r\n"
+				+ "subgraph cluster_p{\r\n"
+				+ "    label= \" Cola impresora Blaco y Negro \"\n";
+				
+	
 		for (int i = 0; i < tabla.length; i++) {
 
-			System.out.println("Posicion " + i + " data: " + tabla[i]);
 			
-			dot+= "<TD border=\"3\" >"  + i + " data: " +  tabla[i] +  "</TD>";
+			if( tabla[i]!= null) {
+				dot+="Nodo" + i + "[label=\"["  + i + "]\ndata: DPI:" +  tabla[i].DPI + " \nName: " + tabla[i].nombre + " " + tabla[i].apellido + "\",fillcolor=\"#81FFDA\"]";
+				
+			
+			}else {
+				
+				dot+="Nodo" + i + "[label=\"["  + i + "]\",fillcolor=\"#81FFDA\"]";
+			
+			}
+		
+		}
+		
+		
+		for (int i = 0; i < tabla.length; i++) {
+
+			
+			if((i+1) <  tabla.length) {
+				dot+="Nodo" + i + "->Nodo" + (i+1)+ ";\n";
+			}
+				
+				
 			
 			
 		
-
 		}
-		dot+="</TR>\n";
-		dot+= "\n</TABLE>>];}}";
+		dot+="}}";
+	
 		
 		
 		System.out.println(dot);
