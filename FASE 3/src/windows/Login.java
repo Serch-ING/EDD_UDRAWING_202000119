@@ -17,8 +17,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
-	//String passwordAdmin = "EDD2022", userAdmin = "admin";
-	String passwordAdmin = "1", userAdmin = "1";
+	String passwordAdmin = "EDD2022", userAdmin = "admin";
+	//String passwordAdmin = "1", userAdmin = "1";
 
 
 	private JPanel contentPane;

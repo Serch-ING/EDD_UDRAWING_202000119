@@ -37,6 +37,7 @@ public class Storage implements Runnable {
 	public int timepo_app = 0;
 
 	public LinkedList<transaccion> Lista_transacciones = new LinkedList<transaccion>();
+	public LinkedList<Clients> clientes_temp = new LinkedList<Clients>();
 	
 
 	private Merkle_tree arbole_merkle = new Merkle_tree();
@@ -48,12 +49,12 @@ public class Storage implements Runnable {
 	public TablaHash TablaHash_Mesajeros = new TablaHash();
 	
 	public  LinkedList<String> Cadenas_Arboles_Merkle = new LinkedList<String>();
+	public LinkedList<Mensajero>mensajeros_temp = new LinkedList<Mensajero>();
 
 	public void initilize() {
-		Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",
-				9);
-		Long id = Long.valueOf("3");
-		ClientesB.insertar(id, new_client);
+		//Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",9);
+		//Long id = Long.valueOf("3");
+		//ClientesB.insertar(id, new_client);
 		System.out.println("INICIANDO");
 		LlearArchivos();
 		
@@ -237,6 +238,18 @@ public class Storage implements Runnable {
 		}
 	}
 
+	public NodoB RegresarCLeinte(String ususario) {
+		try {
+
+			NodoB nodotemp = ClientesB.buscar_start_string(ClientesB.raiz.primero, ususario);
+
+			return nodotemp;
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
 	public Clients ClientJoin() {
 		return clientJoin;
 	}
@@ -249,7 +262,7 @@ public class Storage implements Runnable {
 
 				System.out.println(timepo_app);
 
-				Thread.sleep(250);
+				Thread.sleep(1000);
 
 				if (timepo_app >= tiempo_bloque) {
 					System.out.println("PASARON 3 MINUTOS -- SE GENERO BLOQUE");

@@ -30,6 +30,7 @@ import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.awt.event.ActionEvent;
@@ -288,6 +289,65 @@ public class Admin_Module extends JFrame {
 		JLabel lblNewLabel_2_2_2_2 = new JLabel("correo:");
 		lblNewLabel_2_2_2_2.setBounds(129, 144, 117, 14);
 		contentPane_1.add(lblNewLabel_2_2_2_2);
+		
+		JButton btnBuscarYModificar_1 = new JButton("Buscar y modificar");
+		btnBuscarYModificar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					String DPI = textField_Nuevo_DPI.getText();
+					String Name = textField_Nuevo_Name.getText();
+
+					String user = textField_user.getText();
+					String mail = textField_mail.getText();
+					String cellphone = textField_cellphone.getText();
+					String direction = textField_direction.getText();
+					String idmunicipio = textField_idmunicipio.getText();
+
+					String Password = textField_Nuevo_Password.getText();
+					String Password_repeat = textField_passwordrepeat.getText();
+
+					if (!(DPI.equals("") | Name.equals("") | Password.equals("") || Password_repeat.equals(""))) {
+
+						if (Password.equals(Password_repeat)) {
+							int idmunicipie = Integer.valueOf(idmunicipio);
+						
+							JOptionPane.showMessageDialog(null, "Se ah ingresado DPI: " + DPI);
+							NodoB usar = storage.RegresarCLeinte(user);
+							if (usar != null) {
+								JOptionPane.showMessageDialog(null, "Datos del cleinte: \n" + usar.cliente.Name + "\n" +usar.cliente.correo + "\n" +  usar.cliente.telefono+ "\n" + usar.cliente.direccion +"\n" +usar.cliente.id_municipio );
+								
+								usar.cliente.Name = Name;
+								usar.cliente.correo = mail;
+								usar.cliente.telefono = cellphone;
+								usar.cliente.direccion = direction;
+								usar.cliente.id_municipio = idmunicipie;
+								usar.cliente.Password = Password;
+								
+								JOptionPane.showMessageDialog(null, "Datos del cliente actulizado: \n" + usar.cliente.Name + "\n" +usar.cliente.correo + "\n" +  usar.cliente.telefono+ "\n" + usar.cliente.direccion +"\n" +usar.cliente.id_municipio );
+								
+								
+								
+								
+							} else {
+								JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+							
+							}
+
+						} else {
+							JOptionPane.showMessageDialog(null, "La passwords no coinciden");
+						}
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Debe ingresar todos los datos correspondinets");
+					}
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un digito en el DPI e ID municipio");
+				}
+			}
+		});
+		btnBuscarYModificar_1.setBounds(459, 363, 155, 23);
+		contentPane_1.add(btnBuscarYModificar_1);
 
 		JPanel panel_5 = new JPanel();
 		tabbedPane_1.addTab("Modificar cliente", null, panel_5, null);
@@ -304,7 +364,7 @@ public class Admin_Module extends JFrame {
 
 		JButton btnBuscarYModificar = new JButton("Buscar y modificar");
 
-		btnBuscarYModificar.setBounds(170, 173, 155, 23);
+		btnBuscarYModificar.setBounds(176, 306, 155, 23);
 		panel_5.add(btnBuscarYModificar);
 
 		JLabel lblNewLabel_2_2_2 = new JLabel("Nombre cliente:");
@@ -515,6 +575,51 @@ public class Admin_Module extends JFrame {
 		
 		Grafos_rutas.setBounds(1206, 233, 269, 23);
 		panel_10.add(Grafos_rutas);
+		
+		JButton btnNewButton_3 = new JButton("Clientes con mas pedidos top 10");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String clientes= "";
+				Collections.sort(storage.clientes_temp);
+				
+				int contar = 0;
+				for (Clients string : storage.clientes_temp) {
+					if(contar== 10) {
+						break;
+					}else {
+						clientes += string.Name + " -> " + string.Cantidad_pedidos + "\n";
+					}
+					contar++;
+				}
+				JOptionPane.showMessageDialog(null, "Top 10 con mas pedidos:\n " + clientes);
+			}
+		});
+		btnNewButton_3.setBounds(31, 369, 281, 23);
+		panel_10.add(btnNewButton_3);
+		
+		JButton btnNewButton_3_1 = new JButton("mensajeros con mas entregas top 10");
+		btnNewButton_3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String clientes= "";
+				Collections.sort(storage.mensajeros_temp);
+				
+				int contar = 0;
+				for (Mensajero string : storage.mensajeros_temp) {
+					if(contar== 10) {
+						break;
+					}else {
+						clientes += string.nombre + " " + string.apellido + " -> " + string.cantidad_entregas + "\n";
+					}
+					contar++;
+				}
+				JOptionPane.showMessageDialog(null, "Top 10 mensjeros con mas entegas:\n " + clientes);
+			}
+		});
+		btnNewButton_3_1.setBounds(31, 414, 281, 23);
+		panel_10.add(btnNewButton_3_1);
+		
+		JPanel panel_11 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_11, null);
 		/// Butons
 		/// ------------------------------------------------------------------------------------
 		Grafos_rutas.addActionListener(new ActionListener() {
@@ -800,6 +905,7 @@ public class Admin_Module extends JFrame {
 						&& direction != null && municipie_int > -1) {
 					temp += object + "\n\n";
 					storage.InsertClients(client_new, DPI_Long);
+					storage.clientes_temp.add(client_new);
 				} else {
 					System.out.println("datos incompletos");
 				}
@@ -862,6 +968,7 @@ public class Admin_Module extends JFrame {
 						&& telefono != null && direccion != null) {
 					temp += object + "\n\n";
 					storage.TablaHash_Mesajeros.insertar(mensajero_new);
+					storage.mensajeros_temp.add(mensajero_new);
 
 				} else {
 					System.out.println("datos incompletos");

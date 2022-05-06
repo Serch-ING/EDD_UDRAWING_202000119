@@ -223,10 +223,12 @@ public class Delivery extends JFrame {
 					Simple_recorrrido Lista_recorrido = storage.Lista_adyacente.CaminoMasCorto(10,9);
 					Lista_recorrido.showList_recorrido();
 					
-					
+					cliente.Cantidad_pedidos++;
+					mensajero.cantidad_entregas++;
 					transaccion data = new transaccion(direeccion,cliente.direccion,Fecha,cliente.Name,mensajero.nombre + " " + mensajero.apellido);
 					//data.GenerarJson();
 					storage.Lista_transacciones.add(data);
+					
 					//Cliente
 						
 					
