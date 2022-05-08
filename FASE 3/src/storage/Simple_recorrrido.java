@@ -1,9 +1,13 @@
 package storage;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 import javax.swing.JOptionPane;
 
 import storage.ListaDG.Nodo_Simple;
-
+import storage.Merkle_tree.nodo_merkle;
+ 
 public class Simple_recorrrido {
 
 	Nodo_Simple_recorrido primero;
@@ -30,9 +34,7 @@ public class Simple_recorrrido {
 				actual = actual.next;
 			}
 		}
-	}
-	
-	
+	}	
 
 	public void showList_recorrido() {
 		int Contador =0;
@@ -49,7 +51,79 @@ public class Simple_recorrrido {
 			System.out.println("Se termino recorrido");
 		}
 	}
+	
+	//cresate the text of graphiz
+	public String Text_Graphivz() {
+		StringBuilder dot = new StringBuilder();
+		dot.append("digraph L {\n");
+		dot.append("node[shape=note fillcolor=\"#A181FF\" style =filled]\n");
+		dot.append("subgraph cluster_p{\n");
+		
+		dot.append("    label= \" Lista viaje \"\n");
+		dot.append(" raiz[label = \"VIAJE\" fillcolor=\"#FFD581\" ]");
+	
+		dot.append("    bgcolor = \"#FF7878\"\n");
+		
+		
+		dot.append("");
+		String nombresNodos = "";
+		String conexiones = "";
+		Nodo_Simple_recorrido aux = this.primero;
+		
+		if(this.primero!= null) {
+			conexiones+="\nraiz->Nodo" +  this.primero.hashCode();
+		}
+		
+		while (aux != null) {
+			
+			
+			String info = "\nId Lugar: " + aux.data.id + "\n"+ aux.data.nombre;
+			nombresNodos += "Nodo" + aux.hashCode() + "[label=\"" + info + "\",fillcolor=\"#81FFDA\"]\n";
+			if (aux.next != null) {
+				conexiones += String.format("\nNodo%d -> Nodo%d\n", aux.hashCode(), aux.next.hashCode());
+			}
 
+			aux = aux.next;
+		}
+		dot.append(nombresNodos);
+		dot.append(conexiones);
+
+		dot.append("}}");
+
+		return dot.toString();
+	}
+	
+	public void generate_grapgh(String name) {
+		try {
+			Create_File("Grafico\\" + name + ".dot", Text_Graphivz());
+			ProcessBuilder pb;
+			pb = new ProcessBuilder("dot", "-Tpng", "-o", "Grafico\\" + name + ".png", "Grafico\\" + name + ".dot");
+			pb.redirectErrorStream(true);
+			pb.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void Create_File(String route, String contents) {
+
+		FileWriter fw = null;
+		PrintWriter pw = null;
+		try {
+			fw = new FileWriter(route);
+			pw = new PrintWriter(fw);
+			pw.write(contents);
+			pw.close();
+			fw.close();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			if (pw != null)
+				pw.close();
+		}
+
+	}
+	
 
 	public void Search(Object data) {
 		if (isNone() == false) {

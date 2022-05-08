@@ -1,0 +1,60 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Lista viaje "
+ raiz[label = "VIAJE" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo1075835022[label="
+Id Lugar: 1
+Cahabón",fillcolor="#81FFDA"]
+Nodo1460914933[label="
+Id Lugar: 13
+Senahú",fillcolor="#81FFDA"]
+Nodo1654408562[label="
+Id Lugar: 17
+Amatitlán",fillcolor="#81FFDA"]
+Nodo1563909607[label="
+Id Lugar: 20
+Fraijanes",fillcolor="#81FFDA"]
+Nodo1645432143[label="
+Id Lugar: 9
+San Cristóbal Verapaz",fillcolor="#81FFDA"]
+Nodo723416986[label="
+Id Lugar: 12
+Santa Cruz Verapaz",fillcolor="#81FFDA"]
+Nodo732495966[label="
+Id Lugar: 4
+Cobán",fillcolor="#81FFDA"]
+Nodo1284941993[label="
+Id Lugar: 5
+Fray Bartolomé de las Casas",fillcolor="#81FFDA"]
+Nodo882371905[label="
+Id Lugar: 11
+San Pedro Carchá",fillcolor="#81FFDA"]
+Nodo1819143918[label="
+Id Lugar: 3
+Chisec",fillcolor="#81FFDA"]
+Nodo254130381[label="
+Id Lugar: 8
+Raxruha",fillcolor="#81FFDA"]
+
+raiz->Nodo1075835022
+Nodo1075835022 -> Nodo1460914933
+
+Nodo1460914933 -> Nodo1654408562
+
+Nodo1654408562 -> Nodo1563909607
+
+Nodo1563909607 -> Nodo1645432143
+
+Nodo1645432143 -> Nodo723416986
+
+Nodo723416986 -> Nodo732495966
+
+Nodo732495966 -> Nodo1284941993
+
+Nodo1284941993 -> Nodo882371905
+
+Nodo882371905 -> Nodo1819143918
+
+Nodo1819143918 -> Nodo254130381
+}}

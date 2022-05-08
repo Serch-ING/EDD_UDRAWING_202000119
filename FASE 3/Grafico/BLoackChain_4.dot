@@ -1,0 +1,53 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " BloackChain "
+ raiz[label = "BloackChain" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo158904517[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__10_10_14',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '',
+  'INDEX' : 0,
+  'NONCE' : 136007,
+  'HASH' : '0000266394c608f37c204630390edc27709a7da84037908607cf3e2565c0ed89'
+}",fillcolor="#81FFDA"]
+Nodo1983934696[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__10_10_25',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '0000266394c608f37c204630390edc27709a7da84037908607cf3e2565c0ed89',
+  'INDEX' : 1,
+  'NONCE' : 494,
+  'HASH' : '00de517ce8ad54cea9cfdc48218e810d3f01ca4a5d8f04c5a40c10288efe2a87'
+}",fillcolor="#81FFDA"]
+Nodo1783088937[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__10_10_39',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '00de517ce8ad54cea9cfdc48218e810d3f01ca4a5d8f04c5a40c10288efe2a87',
+  'INDEX' : 2,
+  'NONCE' : 3306,
+  'HASH' : '0002404d0ac17dd9207ba3cf349faa12aca5c3dfe6747f1669706b6c2869d0db'
+}",fillcolor="#81FFDA"]
+Nodo2064201827[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__10_12_20',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '0002404d0ac17dd9207ba3cf349faa12aca5c3dfe6747f1669706b6c2869d0db',
+  'INDEX' : 3,
+  'NONCE' : 91731,
+  'HASH' : '0000eac3bb1a930bf029a3c8ef33ff894070cb70ffc760547830202826f6784a'
+}",fillcolor="#81FFDA"]
+
+raiz->Nodo158904517
+Nodo158904517 -> Nodo1983934696
+
+Nodo1983934696 -> Nodo1783088937
+
+Nodo1783088937 -> Nodo2064201827
+}}

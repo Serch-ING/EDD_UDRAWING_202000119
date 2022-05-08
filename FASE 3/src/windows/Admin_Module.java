@@ -8,9 +8,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import objects.Clients;
 import objects.Mensajero;
+import objects.viaje;
 import storage.NodoB;
 import storage.Storage;
 
@@ -551,7 +553,7 @@ public class Admin_Module extends JFrame {
 		lblNewLabel_6_2.setBounds(21, 213, 448, 14);
 		panel_10.add(lblNewLabel_6_2);
 
-		JButton btnNewButton_2 = new JButton("Actualizar Tiempo");
+		JButton btnNewButton_2 = new JButton("Actualizar Ceros");
 
 		btnNewButton_2.setBounds(28, 289, 139, 23);
 		panel_10.add(btnNewButton_2);
@@ -618,6 +620,28 @@ public class Admin_Module extends JFrame {
 		btnNewButton_3_1.setBounds(31, 414, 281, 23);
 		panel_10.add(btnNewButton_3_1);
 		
+		JButton btnNewButton_3_1_1 = new JButton("Viajes mas largos top 10");
+		btnNewButton_3_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String vaijes= "";
+				Collections.sort(storage.viajes_temp);
+				
+				int contar = 0;
+				for (viaje string : storage.viajes_temp) {
+					if(contar== 10) {
+						break;
+					}else {
+						vaijes += string.inicio + " a " + string.finalizancion + " Total: " + string.total + " minutos \n";
+					}
+					contar++;
+				}
+				JOptionPane.showMessageDialog(null, "Top 10 vijaes mas largos:\n " + vaijes);
+				
+			}
+		});
+		btnNewButton_3_1_1.setBounds(31, 463, 281, 23);
+		panel_10.add(btnNewButton_3_1_1);
+		
 		JPanel panel_11 = new JPanel();
 		tabbedPane.addTab("New tab", null, panel_11, null);
 		/// Butons
@@ -641,6 +665,11 @@ public class Admin_Module extends JFrame {
 		btnVerBlockchain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				storage.blockchain.recorrido_bloques();
+				String name =  "BLoackChain_" + storage.contador_bloques;
+				String ruta = "./Grafico/" + name + ".png";
+				System.out.println(ruta);
+				Grapgh2 grafico = new Grapgh2(ruta);
+				grafico.setVisible(true);
 			}
 		});
 
@@ -794,9 +823,9 @@ public class Admin_Module extends JFrame {
 						System.out.println("Canrida de albums: " + no_albums);
 
 						Object[][] data_albums = nodotemp.cliente.Album_list.data_toshow();
-
+						
 						table.setModel(new DefaultTableModel(
-								new Object[][] { { DPI, name, password, no_images, no_capas, no_albums }, },
+								new Object[][] { { DPI, name, BCrypt.hashpw((String) password, BCrypt.gensalt(10)), no_images, no_capas, no_albums }, },
 								Colums_table1));
 						table_2.setModel(new DefaultTableModel(data_albums, Colums_table2));
 					}

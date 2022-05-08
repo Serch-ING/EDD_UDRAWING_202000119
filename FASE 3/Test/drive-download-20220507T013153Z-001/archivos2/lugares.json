@@ -1,0 +1,24 @@
+{
+    "Lugares": [
+        {"id":1,"departamento":"Alta Verapaz","nombre":"Cahabón","sn_sucursal":"si"},
+        {"id":2,"departamento":"Alta Verapaz","nombre":"Chahal","sn_sucursal":"no"},
+        {"id":3,"departamento":"Alta Verapaz","nombre":"Chisec","sn_sucursal":"no"},
+        {"id":4,"departamento":"Alta Verapaz","nombre":"Cobán","sn_sucursal":"no"},
+        {"id":5,"departamento":"Alta Verapaz","nombre":"Fray Bartolomé de las Casas","sn_sucursal":"no"},
+        {"id":6,"departamento":"Alta Verapaz","nombre":"Lanquín","sn_sucursal":"no"},
+        {"id":7,"departamento":"Alta Verapaz","nombre":"Panzós","sn_sucursal":"no"},
+        {"id":8,"departamento":"Alta Verapaz","nombre":"Raxruha","sn_sucursal":"no"},
+        {"id":9,"departamento":"Alta Verapaz","nombre":"San Cristóbal Verapaz","sn_sucursal":"no"},
+        {"id":10,"departamento":"Alta Verapaz","nombre":"San Juan Chamelco","sn_sucursal":"si"},
+        {"id":11,"departamento":"Alta Verapaz","nombre":"San Pedro Carchá","sn_sucursal":"no"},
+        {"id":12,"departamento":"Alta Verapaz","nombre":"Santa Cruz Verapaz","sn_sucursal":"no"},
+        {"id":13,"departamento":"Alta Verapaz","nombre":"Senahú","sn_sucursal":"si"},
+        {"id":14,"departamento":"Alta Verapaz","nombre":"Tactic","sn_sucursal":"si"},
+        {"id":15,"departamento":"Alta Verapaz","nombre":"Tamahú","sn_sucursal":"no"},
+        {"id":16,"departamento":"Alta Verapaz","nombre":"Tucurú","sn_sucursal":"no"},
+        {"id":17,"departamento":"Guatemala","nombre":"Amatitlán","sn_sucursal":"no"},
+        {"id":18,"departamento":"Guatemala","nombre":"Chinautla","sn_sucursal":"si"},
+        {"id":19,"departamento":"Guatemala","nombre":"Chuarrancho","sn_sucursal":"no"},
+        {"id":20,"departamento":"Guatemala","nombre":"Fraijanes","sn_sucursal":"no"}
+    ]
+}

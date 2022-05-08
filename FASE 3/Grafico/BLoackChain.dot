@@ -1,0 +1,59 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " BloackChain "
+ raiz[label = "BloackChain" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo1291463957[label="
+{
+  'DATA' : [ {
+    'cliente' : 'Lela Lindsay',
+    'mensajero' : 'Juliane MacDowall',
+    'datetime' : '08-05-2022::09:50:52',
+    'Sede' : 'Alta Verapaz,Cahabón',
+    'Destino' : '291 Overbaugh Place, Canoochee, Mississippi, 4530'
+  } ],
+  'TIMESTAMP' : '08-05-2022__09_51_22',
+  'ROOTMERKLE' : '10febbad29894d3599423f1641344dc7f751303a4a010dbc574ec71124376646',
+  'PREVIUSHASH' : '',
+  'INDEX' : 0,
+  'NONCE' : 922296,
+  'HASH' : '000025dc44c8cd71bf4d115148687a1f1ac3500892f0b8c8628a8faa439668f0'
+}",fillcolor="#81FFDA"]
+Nodo1649521496[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__09_51_37',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '000025dc44c8cd71bf4d115148687a1f1ac3500892f0b8c8628a8faa439668f0',
+  'INDEX' : 1,
+  'NONCE' : 203146,
+  'HASH' : '0000cb00fea5faa8c777f31b84b81362e4a93005112d0712f5f28450be2ecc90'
+}",fillcolor="#81FFDA"]
+Nodo1326155759[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__09_52_27',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '0000cb00fea5faa8c777f31b84b81362e4a93005112d0712f5f28450be2ecc90',
+  'INDEX' : 2,
+  'NONCE' : 211332,
+  'HASH' : '0000667b9689b9fece11b83387dafc3c353a502a96c6b1fa315ddc02a0e5c7c8'
+}",fillcolor="#81FFDA"]
+Nodo1975517514[label="
+{
+  'DATA' : [ ],
+  'TIMESTAMP' : '08-05-2022__09_56_54',
+  'ROOTMERKLE' : '8a40707cb6ab2601e288c012fc6dd95d212dd2e0736f55e925ce77698a0ada46',
+  'PREVIUSHASH' : '0000667b9689b9fece11b83387dafc3c353a502a96c6b1fa315ddc02a0e5c7c8',
+  'INDEX' : 3,
+  'NONCE' : 112657,
+  'HASH' : '0000a3b30691c0d5090901834cd98a10985aa3cd0ceb7679eed24792b87017c1'
+}",fillcolor="#81FFDA"]
+
+raiz->Nodo1291463957
+Nodo1291463957 -> Nodo1649521496
+
+Nodo1649521496 -> Nodo1326155759
+
+Nodo1326155759 -> Nodo1975517514
+}}

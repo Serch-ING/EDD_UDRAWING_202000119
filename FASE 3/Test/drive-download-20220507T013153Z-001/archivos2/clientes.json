@@ -1,0 +1,242 @@
+[
+    {
+      "dpi": "3723989068915",
+      "nombre_cliente": "Lela Lindsay",
+      "usuario": "Daisy",
+      "correo": "daisylindsay@oceanica.com",
+      "password": "eiusmod",
+      "telefono": "+502 (833) 418-3179",
+      "direccion": "291 Overbaugh Place, Canoochee, Mississippi, 4530",
+      "id_municipio": 9
+    },
+    {
+      "dpi": "8621297100445",
+      "nombre_cliente": "Lawrence Adkins",
+      "usuario": "Cleveland",
+      "correo": "clevelandadkins@oceanica.com",
+      "password": "reprehenderit",
+      "telefono": "+502 (954) 416-2043",
+      "direccion": "694 Hudson Avenue, Bentonville, Wisconsin, 737",
+      "id_municipio": 15
+    },
+    {
+      "dpi": "9223540471996",
+      "nombre_cliente": "Love Mercado",
+      "usuario": "Jackson",
+      "correo": "jacksonmercado@oceanica.com",
+      "password": "ex",
+      "telefono": "+502 (917) 581-2698",
+      "direccion": "141 Blake Court, Jacksonburg, New Mexico, 2400",
+      "id_municipio": 9
+    },
+    {
+      "dpi": "7732124190173",
+      "nombre_cliente": "Earlene Brock",
+      "usuario": "Alisha",
+      "correo": "alishabrock@oceanica.com",
+      "password": "ea",
+      "telefono": "+502 (940) 513-2108",
+      "direccion": "879 Devoe Street, Brutus, Puerto Rico, 5919",
+      "id_municipio": 13
+    },
+    {
+      "dpi": "7867873200702",
+      "nombre_cliente": "Phyllis Aguirre",
+      "usuario": "Willis",
+      "correo": "willisaguirre@oceanica.com",
+      "password": "elit",
+      "telefono": "+502 (962) 530-3344",
+      "direccion": "163 Seigel Street, Callaghan, Maryland, 8373",
+      "id_municipio": 15
+    },
+    {
+      "dpi": "5627842542205",
+      "nombre_cliente": "Keri Mclaughlin",
+      "usuario": "Gallagher",
+      "correo": "gallaghermclaughlin@oceanica.com",
+      "password": "magna",
+      "telefono": "+502 (868) 546-2942",
+      "direccion": "792 Vine Street, Bath, Washington, 3678",
+      "id_municipio": 4
+    },
+    {
+      "dpi": "8460870834709",
+      "nombre_cliente": "Mollie Ruiz",
+      "usuario": "Jo",
+      "correo": "joruiz@oceanica.com",
+      "password": "sit",
+      "telefono": "+502 (938) 483-3774",
+      "direccion": "425 Bath Avenue, Vandiver, Wyoming, 8097",
+      "id_municipio": 8
+    },
+    {
+      "dpi": "5113457072472",
+      "nombre_cliente": "Burns Velazquez",
+      "usuario": "Rosalinda",
+      "correo": "rosalindavelazquez@oceanica.com",
+      "password": "incididunt",
+      "telefono": "+502 (846) 446-3089",
+      "direccion": "756 Arlington Avenue, Roosevelt, New Jersey, 4649",
+      "id_municipio": 2
+    },
+    {
+      "dpi": "4383255956309",
+      "nombre_cliente": "Hobbs Wilkinson",
+      "usuario": "Robyn",
+      "correo": "robynwilkinson@oceanica.com",
+      "password": "eu",
+      "telefono": "+502 (818) 529-2240",
+      "direccion": "158 Clara Street, Tuttle, New Hampshire, 6343",
+      "id_municipio": 11
+    },
+    {
+      "dpi": "3809878334166",
+      "nombre_cliente": "Spears Mercer",
+      "usuario": "Crane",
+      "correo": "cranemercer@oceanica.com",
+      "password": "reprehenderit",
+      "telefono": "+502 (837) 542-3139",
+      "direccion": "240 Quincy Street, Delwood, Texas, 4941",
+      "id_municipio": 18
+    },
+    {
+      "dpi": "6570962329198",
+      "nombre_cliente": "Maricela Hall",
+      "usuario": "Flores",
+      "correo": "floreshall@oceanica.com",
+      "password": "quis",
+      "telefono": "+502 (915) 462-2929",
+      "direccion": "973 Bainbridge Street, Steinhatchee, Palau, 9939",
+      "id_municipio": 2
+    },
+    {
+      "dpi": "8542677685484",
+      "nombre_cliente": "Copeland Clay",
+      "usuario": "Knapp",
+      "correo": "knappclay@oceanica.com",
+      "password": "nostrud",
+      "telefono": "+502 (951) 417-3393",
+      "direccion": "115 Bergen Place, Matheny, Arkansas, 8899",
+      "id_municipio": 19
+    },
+    {
+      "dpi": "1380378026716",
+      "nombre_cliente": "Hawkins Cannon",
+      "usuario": "Lana",
+      "correo": "lanacannon@oceanica.com",
+      "password": "ipsum",
+      "telefono": "+502 (931) 400-3584",
+      "direccion": "359 Windsor Place, Bangor, South Carolina, 6510",
+      "id_municipio": 5
+    },
+    {
+      "dpi": "5015072604349",
+      "nombre_cliente": "Marissa Orr",
+      "usuario": "Villarreal",
+      "correo": "villarrealorr@oceanica.com",
+      "password": "exercitation",
+      "telefono": "+502 (882) 565-3160",
+      "direccion": "356 Halleck Street, Madrid, Oregon, 1534",
+      "id_municipio": 19
+    },
+    {
+      "dpi": "2120089230234",
+      "nombre_cliente": "Alexis Bond",
+      "usuario": "Burks",
+      "correo": "burksbond@oceanica.com",
+      "password": "eiusmod",
+      "telefono": "+502 (937) 573-2963",
+      "direccion": "354 Sutton Street, Garberville, Montana, 8903",
+      "id_municipio": 17
+    },
+    {
+      "dpi": "7025287897555",
+      "nombre_cliente": "Valencia Garrett",
+      "usuario": "Floyd",
+      "correo": "floydgarrett@oceanica.com",
+      "password": "laborum",
+      "telefono": "+502 (894) 426-2740",
+      "direccion": "358 Walker Court, Longbranch, South Dakota, 1493",
+      "id_municipio": 9
+    },
+    {
+      "dpi": "4906483086049",
+      "nombre_cliente": "Stacey Dominguez",
+      "usuario": "Cheryl",
+      "correo": "cheryldominguez@oceanica.com",
+      "password": "anim",
+      "telefono": "+502 (860) 515-2528",
+      "direccion": "974 Wyckoff Street, Cascades, Tennessee, 268",
+      "id_municipio": 16
+    },
+    {
+      "dpi": "5424073899437",
+      "nombre_cliente": "Green Logan",
+      "usuario": "Wong",
+      "correo": "wonglogan@oceanica.com",
+      "password": "adipisicing",
+      "telefono": "+502 (855) 576-3838",
+      "direccion": "724 Cranberry Street, Bellamy, Hawaii, 1316",
+      "id_municipio": 16
+    },
+    {
+      "dpi": "6916983618016",
+      "nombre_cliente": "Tracy Brewer",
+      "usuario": "Randall",
+      "correo": "randallbrewer@oceanica.com",
+      "password": "ullamco",
+      "telefono": "+502 (881) 471-3366",
+      "direccion": "545 Wolf Place, Muir, Illinois, 5293",
+      "id_municipio": 13
+    },
+    {
+      "dpi": "8535959083984",
+      "nombre_cliente": "Aurora Martin",
+      "usuario": "Minerva",
+      "correo": "minervamartin@oceanica.com",
+      "password": "ipsum",
+      "telefono": "+502 (981) 532-3788",
+      "direccion": "124 Lacon Court, Collins, Alabama, 4595",
+      "id_municipio": 9
+    },
+    {
+      "dpi": "3536227443941",
+      "nombre_cliente": "Rachael Jimenez",
+      "usuario": "French",
+      "correo": "frenchjimenez@oceanica.com",
+      "password": "amet",
+      "telefono": "+502 (909) 408-3887",
+      "direccion": "196 Harrison Avenue, Retsof, Michigan, 924",
+      "id_municipio": 5
+    },
+    {
+      "dpi": "8130420805048",
+      "nombre_cliente": "Allison Guerrero",
+      "usuario": "Hicks",
+      "correo": "hicksguerrero@oceanica.com",
+      "password": "labore",
+      "telefono": "+502 (979) 599-2213",
+      "direccion": "216 Merit Court, Shelby, New York, 2484",
+      "id_municipio": 18
+    },
+    {
+      "dpi": "3921700819523",
+      "nombre_cliente": "Key Torres",
+      "usuario": "Brenda",
+      "correo": "brendatorres@oceanica.com",
+      "password": "pariatur",
+      "telefono": "+502 (911) 466-2981",
+      "direccion": "186 Bay Avenue, Salunga, Indiana, 2190",
+      "id_municipio": 7
+    },
+    {
+      "dpi": "8036656992642",
+      "nombre_cliente": "Oneill Garner",
+      "usuario": "Cathleen",
+      "correo": "cathleengarner@oceanica.com",
+      "password": "ad",
+      "telefono": "+502 (802) 579-3520",
+      "direccion": "244 Keen Court, Kula, Nevada, 7079",
+      "id_municipio": 20
+    }
+  ]

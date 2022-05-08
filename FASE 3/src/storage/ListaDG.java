@@ -4,8 +4,12 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.LinkedList;
+
+import javax.swing.JOptionPane;
+
 import com.fasterxml.jackson.databind.deser.impl.NullsAsEmptyProvider;
 
+import objects.viaje;
 import storage.Arbol_Binario.Nodo_ABB;
 
 public class ListaDG {
@@ -216,7 +220,7 @@ public class ListaDG {
 	
 	// Metodo ruta mas corta
 	// ----------------------------------------------------------------------------------------
-	public Simple_recorrrido CaminoMasCorto(int start, int end) {
+	public Simple_recorrrido CaminoMasCorto(int start, int end, Storage storage) {
 		Simple_recorrrido Lista_recorrido = new Simple_recorrrido();
 		
 		System.out.println("Comenzando desmadre");
@@ -247,7 +251,7 @@ public class ListaDG {
 			
 			
 			Nodo_Simple padre = null;
-			
+			int peso_total = 0;
 			
 			
 			for (Padres datos : padres) {
@@ -258,8 +262,8 @@ public class ListaDG {
 			Lista_recorrido.insert(finalizancion.id,finalizancion);
 			
 			System.out.println("El padre de: "+ finalizancion.id + " es: " + padre.id);
-			
-			
+			peso_total += serach_peso( finalizancion.id , padre.id);
+			Lista_recorrido.insert(padre.id ,padre);
 			while(padre!= null) {
 				
 				Nodo_Simple padre_buscado = null;
@@ -272,7 +276,8 @@ public class ListaDG {
 				
 				if(padre_buscado!= null) {
 					System.out.println("El padre de " + padre.id + " es: " + padre_buscado.id);
-					Lista_recorrido.insert(padre_buscado.id,padre_buscado);
+					peso_total += serach_peso(padre.id, padre_buscado.id);
+					Lista_recorrido.insert(padre_buscado.id,padre);
 					
 				}else {
 					
@@ -285,7 +290,13 @@ public class ListaDG {
 			
 				//padre = padre_buscado;
 			}
+		
 			
+			viaje viahes_new = new viaje(start, end, peso_total);
+			storage.viajes_temp.add(viahes_new);
+			
+			
+			JOptionPane.showMessageDialog(null, "Tiempo total: " + peso_total);
 		} else {
 			System.out.println("Error");
 		}
@@ -438,7 +449,25 @@ public class ListaDG {
 		return null;
 	}
 	// -------------------------------------------------------------------------------------------
-	
+	public int serach_peso(int id,int id_destino) {
+		int peso = 0;
+		if (isNone() == false) {
+			Nodo_Simple actual = primero;
+			while (actual != null && actual.id != id) {
+				actual = actual.siguiente;
+				if (actual == null) {
+					// System.out.println("No se encontro el dato: " + data);
+					return 0;
+				}
+			}
+			if (actual != null && actual.id == id) {
+				// System.out.println("Dato encontrado: " + data);
+				peso = actual.Search_peso(id_destino);
+				return peso;
+			}
+		}
+		return 0;
+	}
 	
 	class Nodo_Simple {
 
@@ -541,6 +570,26 @@ public class ListaDG {
 			}
 
 			return false;
+		}
+		
+		public int Search_peso(int data) {
+	
+			if (inicio != null) {
+				ENodo actual = inicio;
+				while (actual != null && actual.ivex != data) {
+					actual = actual.siguiente;
+					if (actual == null) {
+						// System.out.println("No se encontro el dato: " + data);
+						return 0;
+					}
+				}
+				if (actual != null && actual.ivex == data) {
+					// System.out.println("Dato encontrado: " + data);
+					return actual.peso;
+				}
+			}
+
+			return 0;
 		}
 
 		// imprimir la sublista

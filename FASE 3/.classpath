@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="Libreria/jackson-core-2.13.1.jar"/>
 	<classpathentry kind="lib" path="Libreria/jackson-databind-2.13.1.jar"/>
 	<classpathentry kind="lib" path="Libreria/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="Libreria/spring-security-crypto-5.6.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

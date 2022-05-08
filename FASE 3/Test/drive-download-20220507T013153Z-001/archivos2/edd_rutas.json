@@ -1,0 +1,31 @@
+{
+    "Grafo":[
+        {"inicio":7,"final":8,"peso":394},
+        {"inicio":6,"final":13,"peso":244},
+        {"inicio":2,"final":5,"peso":310},
+        {"inicio":16,"final":6,"peso":138},
+        {"inicio":7,"final":10,"peso":334},
+        {"inicio":5,"final":4,"peso":51},
+        {"inicio":4,"final":20,"peso":194},
+        {"inicio":17,"final":3,"peso":462},
+        {"inicio":13,"final":1,"peso":326},
+        {"inicio":12,"final":9,"peso":133},
+        {"inicio":4,"final":10,"peso":397},
+        {"inicio":5,"final":11,"peso":100},
+        {"inicio":7,"final":3,"peso":332},
+        {"inicio":18,"final":16,"peso":27},
+        {"inicio":20,"final":9,"peso":42},
+        {"inicio":3,"final":11,"peso":196},
+        {"inicio":8,"final":14,"peso":131},
+        {"inicio":9,"final":15,"peso":241},
+        {"inicio":11,"final":2,"peso":345},
+        {"inicio":19,"final":1,"peso":315},
+        {"inicio":10,"final":2,"peso":328},
+        {"inicio":12,"final":4,"peso":236},
+        {"inicio":4,"final":20,"peso":307},
+        {"inicio":8,"final":3,"peso":90},
+        {"inicio":7,"final":18,"peso":390},
+        {"inicio":17,"final":13,"peso":230},
+        {"inicio":20,"final":17,"peso":30}
+    ] 
+}

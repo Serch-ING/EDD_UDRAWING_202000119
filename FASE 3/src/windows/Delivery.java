@@ -190,7 +190,21 @@ public class Delivery extends JFrame {
 		btnSalir.setBounds(1357, 15, 139, 23);
 		contentPane.add(btnSalir);
 		
+		JButton btnVer = new JButton("ver");
+		
+		btnVer.setBounds(786, 593, 94, 23);
+		contentPane.add(btnVer);
+		
 		///BUtons----------------------------------------------------------------
+		btnVer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name =  "RECORRIDO";
+				String ruta = "./Grafico/" + cliente.usuario + "_" + (cliente.Cantidad_pedidos-1) + ".png";
+				System.out.println(ruta);
+				Grapgh2 grafico = new Grapgh2(ruta);
+				grafico.setVisible(true);
+			}
+		});
 		btnRealizarPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -220,14 +234,18 @@ public class Delivery extends JFrame {
 					
 					System.out.println("Inicio: " + id_sucursal);
 
-					Simple_recorrrido Lista_recorrido = storage.Lista_adyacente.CaminoMasCorto(10,9);
+					Simple_recorrrido Lista_recorrido = storage.Lista_adyacente.CaminoMasCorto(id_sucursal,destino,storage);
 					Lista_recorrido.showList_recorrido();
+			
+					Lista_recorrido.generate_grapgh(cliente.usuario + "_" + cliente.Cantidad_pedidos);
+					
 					
 					cliente.Cantidad_pedidos++;
 					mensajero.cantidad_entregas++;
 					transaccion data = new transaccion(direeccion,cliente.direccion,Fecha,cliente.Name,mensajero.nombre + " " + mensajero.apellido);
 					//data.GenerarJson();
 					storage.Lista_transacciones.add(data);
+					
 					
 					//Cliente
 						

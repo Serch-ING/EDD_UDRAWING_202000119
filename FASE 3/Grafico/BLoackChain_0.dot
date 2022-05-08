@@ -1,0 +1,6 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " BloackChain "
+ raiz[label = "BloackChain" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+}}

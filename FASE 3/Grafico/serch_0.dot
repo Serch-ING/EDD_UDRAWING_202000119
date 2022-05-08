@@ -1,0 +1,40 @@
+digraph L {
+node[shape=note fillcolor="#A181FF" style =filled]
+subgraph cluster_p{
+    label= " Lista viaje "
+ raiz[label = "VIAJE" fillcolor="#FFD581" ]    bgcolor = "#FF7878"
+Nodo17008725[label="
+Id Lugar: 24
+Petapa",fillcolor="#81FFDA"]
+Nodo1967099933[label="
+Id Lugar: 32
+Villa Canales",fillcolor="#81FFDA"]
+Nodo1660546542[label="
+Id Lugar: 11
+San Pedro Carchá",fillcolor="#81FFDA"]
+Nodo1613353442[label="
+Id Lugar: 52
+San Rafael La Independencia",fillcolor="#81FFDA"]
+Nodo2104863890[label="
+Id Lugar: 12
+Santa Cruz Verapaz",fillcolor="#81FFDA"]
+Nodo1950577753[label="
+Id Lugar: 12
+Santa Cruz Verapaz",fillcolor="#81FFDA"]
+Nodo1509454242[label="
+Id Lugar: 5
+Fray Bartolomé de las Casas",fillcolor="#81FFDA"]
+
+raiz->Nodo17008725
+Nodo17008725 -> Nodo1967099933
+
+Nodo1967099933 -> Nodo1660546542
+
+Nodo1660546542 -> Nodo1613353442
+
+Nodo1613353442 -> Nodo2104863890
+
+Nodo2104863890 -> Nodo1950577753
+
+Nodo1950577753 -> Nodo1509454242
+}}

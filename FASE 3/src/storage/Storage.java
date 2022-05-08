@@ -25,12 +25,13 @@ import objects.Clients;
 import objects.Lugares;
 import objects.Mensajero;
 import objects.transaccion;
+import objects.viaje;
 import storage.Merkle_tree.nodo_merkle;
 
 public class Storage implements Runnable {
 	public Simple_Bloques blockchain = new Simple_Bloques();
 	
-	int contador_bloques = 0;
+	public int contador_bloques = 0;
 	public int cantidad_ceros = 4;
 
 	public int tiempo_bloque = 180;
@@ -50,16 +51,18 @@ public class Storage implements Runnable {
 	
 	public  LinkedList<String> Cadenas_Arboles_Merkle = new LinkedList<String>();
 	public LinkedList<Mensajero>mensajeros_temp = new LinkedList<Mensajero>();
+	
+	public LinkedList<viaje> viajes_temp = new LinkedList<viaje>();
 
 	public void initilize() {
-		//Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",9);
+		//Clients new_client = new Clients("3", "Sergie", "serch", "sergie@gmail.com", "123", "+502xxxxxxxx", "planes",5);
 		//Long id = Long.valueOf("3");
 		//ClientesB.insertar(id, new_client);
-		System.out.println("INICIANDO");
+		//System.out.println("INICIANDO");
 		LlearArchivos();
-		
+		blockchain.generate_grapgh("BLoackChain_" + contador_bloques);
 
-	}
+	} 
 
 	// ----------------------FASE 3---------------------------------------
 	
@@ -309,7 +312,9 @@ public class Storage implements Runnable {
 		blockchain.insert(Bloque_generado);
 		Lista_transacciones = new LinkedList<transaccion>();
 		contador_bloques++;
+		blockchain.generate_grapgh("BLoackChain_" + contador_bloques);
 		JOptionPane.showMessageDialog(null, "Se generaro arbol Merkle y bloque");
+		
 	}
 
 }
