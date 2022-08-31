@@ -75,8 +75,7 @@ public class Admin_Module extends JFrame {
 	 */
 
 	public Admin_Module(Storage storage) {
-		String[] Colums_table1 = { "DPI", "Nombre", "Password", "Cantidad de imagenes", "Cantidad de capas",
-				"Cantidad de Albumes" };
+		String[] Colums_table1 = { "DPI", "Nombre", "Password", "Cantidad de imagenes", "Cantidad de capas","Cantidad de Albumes" };
 		String[] Colums_table2 = { "Album", "Imagenes" };
 		String[] Colums_table3 = { "Cliente", "DPI", "Total de imagenes" };
 
@@ -481,8 +480,7 @@ public class Admin_Module extends JFrame {
 		panel_8.add(scrollPane);
 
 		table = new JTable();
-		table.setModel(
-				new DefaultTableModel(new Object[][] { { null, null, null, null, null, null }, }, Colums_table1));
+		table.setModel(new DefaultTableModel(new Object[][] { { null, null, null, null, null, null }, }, Colums_table1));
 
 		table.getColumnModel().getColumn(1).setResizable(false);
 		scrollPane.setViewportView(table);
